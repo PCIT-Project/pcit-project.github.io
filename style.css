@@ -1,0 +1,94 @@
+/********************************************************************/
+/*                                                                  */
+/* Part of PCIT-CPP, under the Apache License v2.0                  */
+/* You may not use this file except in compliance with the License. */
+/* See `http://www.apache.org/licenses/LICENSE-2.0` for info        */
+/*                                                                  */
+/********************************************************************/
+
+body{
+	margin: 0;
+	background-color: #151617;
+	color-scheme: dark;
+	font-family: "Segoe UI", Helvetica, Arial;
+	color: #d8d4cf;
+}
+
+a:link{ color: #06b6d4; }
+a:visited{ color: #ac6cff; }
+
+
+h1{
+	font-size: 50px;
+}
+
+h2{
+	font-size: 35px;
+	padding-top: 15px;
+}
+
+
+h3{
+	font-size: 20px;
+	padding-top: 15px;
+}
+
+
+
+.header{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #1e2122;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.header-item{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 15px 16px;
+	text-decoration: none;
+	color: #d8d4cf!important;
+}
+
+.header-item-left {
+	float: left;
+}
+
+.header-item-right {
+	float: right;
+}
+
+
+.header-item:hover:not(.active){
+	background-color: #111111;
+}
+
+.header-img {
+	height: 40px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 20px;
+}
+
+.context {
+	padding: 0% 20%;
+}
+
+
+.code{
+	background-color: #282923;
+	padding: 0px 6px;
+}
+
+.code-gray{ color: #74705d; }
+.code-red{ color: #f92472; }
+.code-yellow{ color: #e7c755; }
+.code-green{ color: #a6e22b; }
+.code-cyan{ color: #67d8ef; }
+.code-purple{ color: #ac80ff; }

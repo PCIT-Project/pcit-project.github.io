@@ -10,9 +10,45 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>PCIT Project</title>
+	<meta name="color-scheme" content="dark">
+	<title>Panther Programming Language - PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="./favicon.ico">
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	<h1>PCIT Project</h1>
+	<ul class="header">
+		<li class="header-item-left"><img src="./Logo.png" class="header-img"/></li>
+		<li class="header-item-left"><a class="header-item" href="index.html" style="font-size: 30px; padding: 5px; padding-bottom: 6px; color: #06b6d4!important;">PCIT Project</a></li>
+
+		<li class="header-item-right"><a class="header-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code</a></li>
+		<li class="header-item-right"><a class="header-item" href="./Panther.html">Panther</a></li>
+	</ul>
+
+	<div style="padding:20px; margin-top:30px;">
+		<div class="context">
+			<h1>PCIT Project</h1>
+			<p>Panther Compiler Infrastructure and Toolchain, and the home of the Panther programming language. PCIT (pronounced "P-Kit") relies on the <a href="https://github.com/llvm/llvm-project">LLVM-Project</a>, but that is not guaranteed forever. It is written entirely in C++, but a self-hosted version (written entirely in Panther) is planned.</p>
+
+
+			<h2>Tools</h2>
+			<p>All tools can be used as stand-alone programs or as libraries.</p>
+
+			<h3>Panther / pthr</h3>
+			<p>Statically typed, compiled, high-performance, general-purpose programming language. See more <a href="./Panther.html">here</a>.</p>
+
+			<h3>IR</h3>
+			<p><span style="font-style: italic;">[Unnamed for now]</span>. Compiler IR / optimizing back-end.</p>
+
+			<h3>Linker</h3>
+			<p><span style="font-style: italic;">[Unnamed for now]</span>. Linker that aims to make use between platforms (including cross-compilation) as seamless as possible.</p>
+
+
+			<h3>Other compilers</h3>
+			<p>Will also be able to compile C and hopefully C++ code. The main intent is for this to allow seamless interoperability with Panther, but these frontends will be able to be used stand-alone.</p>
+		</div>
+	</div>
+
 </body>
 </html>
+
+
