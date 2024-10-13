@@ -14,25 +14,6 @@ body{
 	color: #d8d4cf;
 }
 
-a:link{ color: #06b6d4; }
-a:visited{ color: #ac6cff; }
-
-
-h1{
-	font-size: 50px;
-}
-
-h2{
-	font-size: 35px;
-	padding-top: 15px;
-}
-
-
-h3{
-	font-size: 20px;
-	padding-top: 15px;
-}
-
 
 
 .header{
@@ -50,10 +31,35 @@ h3{
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 15px 16px;
+	padding: 0.896em 1.024em;
 	text-decoration: none;
 	color: #d8d4cf!important;
 }
+
+@media (orientation: portrait){
+	.header-item{
+		padding: 0.896em 0.8em;
+		font-size: 2.2em;
+	}
+}
+
+
+.header-home{
+	font-size: 30px;
+	padding: 5px;
+	padding-bottom: 6px;
+	color: #06b6d4!important;
+}
+
+@media (orientation: portrait){
+	.header-home{
+		font-size: 4.5em;
+		padding: 5px;
+		padding-bottom: 6px;
+		color: #06b6d4!important;
+	}	
+}
+
 
 .header-item-left {
 	float: left;
@@ -68,22 +74,83 @@ h3{
 	background-color: #111111;
 }
 
-.header-img {
-	height: 40px;
-	padding-top: 5px;
-	padding-bottom: 0px;
-	padding-left: 10px;
-	padding-right: 20px;
+
+@media (orientation: landscape){
+	.header-img {
+		height: 2.56em;
+		padding-top: 0.32em;
+		padding-bottom: 0px;
+		padding-left: 0.64em;
+		padding-right: 1.28em;
+	}
 }
 
-.context {
-	padding: 0% 20%;
+@media (orientation: portrait){
+	.header-img {
+		height: 6em;
+		padding-top: 0.32em;
+		padding-bottom: 0px;
+		padding-left: 0.64em;
+		padding-right: 1.28em;
+	}
 }
+
+
+
+
+
+a:link{ color: #06b6d4; }
+a:visited{ color: #ac6cff; }
+
+
+
+
+h1{
+	font-size: 3.2em;
+}
+
+h2{
+	font-size: 2.29em;
+	padding-top: 1em;
+}
+
+
+h3{
+	font-size: 1.26em;
+	padding-top: 1em;
+}
+
+
+
+@media (orientation: landscape){
+	.context {
+		padding: 0% 20%;
+		margin-top: 5em;
+		margin-bottom: 4em;
+	}
+}
+
+@media (orientation: portrait){
+	.context {
+		padding: 0% 10%;
+		margin-top: 5em;
+		margin-bottom: 4em;
+		font-size: 1.9em;
+	}
+}
+
+
 
 
 .code{
 	background-color: #282923;
-	padding: 0px 6px;
+	padding: 0px 0.5em;
+
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 .code-gray{ color: #74705d; }

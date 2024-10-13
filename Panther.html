@@ -18,39 +18,38 @@
 <body>
 	<ul class="header">
 		<li class="header-item-left"><img src="./Logo.png" class="header-img"/></li>
-		<li class="header-item-left"><a class="header-item" href="index.html" style="font-size: 30px; padding: 5px; padding-bottom: 6px; color: #06b6d4!important;">PCIT Project</a></li>
+		<li class="header-item-left"><a class="header-item header-home" href="index.html">PCIT Project</a></li>
 
 		<li class="header-item-right"><a class="header-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code</a></li>
 		<li class="header-item-right"><a class="header-item" href="./Panther.html">Panther</a></li>
 	</ul>
 
-	<div style="padding:20px; margin-top:30px;">
-		<div class="context">
-			<h1>Panther</h1>
-			<p>Statically typed, compiled, high-performance, general-purpose programming language.</p>
+	<div class="context">
+		<h1>Panther</h1>
+		<p>Statically typed, compiled, high-performance, general-purpose programming language.</p>
 
-			<h2>Help good programmers write good, fast code</h2>
-			<ul>
-				<li>Zero-cost abstractions</li>
-				<li>Give the compiler knowledge of common patterns to allow it to help you write fast code, easier</li>
-				<li>Allow as much compile-time computation as possible</li>
-				<li>Powerful generics without needing to be an expert</li>
-			</ul>
+		<h2>Help good programmers write good, fast code</h2>
+		<ul>
+			<li>Zero-cost abstractions</li>
+			<li>Give the compiler knowledge of common patterns to allow it to help you write fast code, easier</li>
+			<li>Allow as much compile-time computation as possible</li>
+			<li>Powerful generics without needing to be an expert</li>
+		</ul>
 
 
-			<h2>Enjoyable to use</h2>
-			<ul>
-				<li>Fast compile times - allow for builing of the entire project, every compile</li>
-				<li>Build system for Panther *in* Panther</li>
-				<li>Nice / helpful error messages</li>
-			</ul>
+		<h2>Enjoyable to use</h2>
+		<ul>
+			<li>Fast compile times - allow for builing of the entire project, every compile</li>
+			<li>Build system for Panther *in* Panther</li>
+			<li>Nice / helpful error messages</li>
+		</ul>
 
-			<h2>Seamless interop with C</h2>
-			<p>This will hopefully extend to C++ as well.</p>
+		<h2>Seamless interop with C</h2>
+		<p>This will hopefully extend to C++ as well.</p>
 
-			<h2>Example:</h2>
-			<p>Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code>v0.0.43.0</code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
-			<pre class="code">
+		<h2>Example:</h2>
+		<p>Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code>v0.0.43.0</code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
+		<pre class="code">
 <span class="code-gray">// importing a file</span>
 <span class="code-cyan">def</span> some_file <span class="code-red">= @import</span>(<span class="code-yellow">"directory/file.pthr"</span>);
 
@@ -73,7 +72,9 @@
 
 <span class="code-gray">// entry function (notice the name doesn't matter, but it has the attribute `#entry`)</span>
 <span class="code-cyan">func</span> <span class="code-green">asdf</span> <span class="code-red">=</span> () <span class="code-red">#entry -></span> <span class="code-cyan">UI8</span> {
-	<span class="code-cyan">func</span> <span class="code-green">get_compile_time_value</span> <span class="code-red">=</span> () <span class="code-red">-></span> <span class="code-cyan">Bool</span> { <span class="code-red">return</span> <span class="code-purple">true</span>; }
+	<span class="code-cyan">func</span> <span class="code-green">get_compile_time_value</span> <span class="code-red">=</span> () <span class="code-red">-></span> <span class="code-cyan">Bool</span> {
+		<span class="code-red">return</span> <span class="code-purple">true</span>;
+	}
 	<span class="code-cyan">def</span> COMPILE_TIME_VALUE<span class="code-red">:</span> <span class="code-cyan">Bool</span> <span class="code-red">=</span> <span class="code-cyan">get_compile_time_value</span>();
 	<span class="code-red">when</span>(COMPILE_TIME_VALUE){ <span class="code-gray">// compile time conditional (doesn't enter a new scope)</span>
 		<span class="code-cyan">var</span> foo <span class="code-red">=</span> <span class="code-cyan">just_return_num</span><{<span class="code-cyan">UI8</span>}>(some_file.<span class="code-cyan">get_UI8_12</span>()); <span class="code-gray">// variable declaration with type inference</span>
@@ -92,8 +93,7 @@
 
 	<span class="code-red">return</span> (<span class="code-red">move</span> bar); <span class="code-gray">// should return 12</span>
 }
-			</pre>
-		</div>
+		</pre>
 	</div>
 
 </body>
