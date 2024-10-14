@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.3.0
+- Added hamburger dropdown in header on mobile 
+- Added Github logo next to `Source Code` button in header
+- Fixed the mobile landscape experience
+
+
+<!---------------------------------->
 ## v0.0.2.0
 - Fixed the mobile experience
 

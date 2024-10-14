@@ -1,12 +1,12 @@
 /********************************************************************/
 /*                                                                  */
-/* Part of PCIT-CPP, under the Apache License v2.0                  */
+/* Part of PCIT, under the Apache License v2.0                      */
 /* You may not use this file except in compliance with the License. */
 /* See `http://www.apache.org/licenses/LICENSE-2.0` for info        */
 /*                                                                  */
 /********************************************************************/
 
-body{
+body {
 	margin: 0;
 	background-color: #151617;
 	color-scheme: dark;
@@ -14,143 +14,104 @@ body{
 	color: #d8d4cf;
 }
 
-
-
-.header{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #1e2122;
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-
-.header-item{
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 0.896em 1.024em;
-	text-decoration: none;
-	color: #d8d4cf!important;
-}
-
-@media (orientation: portrait){
-	.header-item{
-		padding: 0.896em 0.8em;
-		font-size: 2.2em;
-	}
-}
-
-
-.header-home{
-	font-size: 30px;
-	padding: 5px;
-	padding-bottom: 6px;
-	color: #06b6d4!important;
-}
-
-@media (orientation: portrait){
-	.header-home{
-		font-size: 4.5em;
-		padding: 5px;
-		padding-bottom: 6px;
-		color: #06b6d4!important;
-	}	
-}
-
-
-.header-item-left {
-	float: left;
-}
-
-.header-item-right {
-	float: right;
-}
-
-
-.header-item:hover:not(.active){
-	background-color: #111111;
-}
-
-
-@media (orientation: landscape){
-	.header-img {
-		height: 2.56em;
-		padding-top: 0.32em;
-		padding-bottom: 0px;
-		padding-left: 0.64em;
-		padding-right: 1.28em;
-	}
-}
-
-@media (orientation: portrait){
-	.header-img {
-		height: 6em;
-		padding-top: 0.32em;
-		padding-bottom: 0px;
-		padding-left: 0.64em;
-		padding-right: 1.28em;
-	}
-}
-
-
-
-
-
 a:link{ color: #06b6d4; }
 a:visited{ color: #ac6cff; }
 
-
-
-
 h1{
-	font-size: 3.2em;
 }
 
 h2{
-	font-size: 2.29em;
 	padding-top: 1em;
 }
 
 
 h3{
-	font-size: 1.26em;
 	padding-top: 1em;
 }
 
 
-
-@media (orientation: landscape){
-	.context {
-		padding: 0% 20%;
-		margin-top: 5em;
-		margin-bottom: 4em;
-	}
+.navbar {
+	width: 100%;
+	height: 12vmin;
+	position: fixed;
+	background-color: #1e2122;
+	overflow: hidden;
 }
 
-@media (orientation: portrait){
-	.context {
-		padding: 0% 10%;
-		margin-top: 5em;
-		margin-bottom: 4em;
-		font-size: 1.9em;
-	}
+.navbar-title {
+	float: left;
+	display: block;
+	text-align: center;
+	padding: 1.5vmin 1vmin;
+	font-size: 7vmin;
+	text-decoration: none;
+	color: #06b6d4!important;
 }
 
+.navbar-item {
+	float: right;
+	display: block;
+	color: #f2f2f2!important;
+	text-align: center;
+	padding: 1.5vmin 1.5vmin;
+	text-decoration: none;
+}
+
+.navbar-item:hover{
+	background-color: #2e3132;
+}
+
+.hamburger-button {
+	float: right;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 3.4vmin 3.4vmin;
+	text-decoration: none;
+	display: none;
+}
+
+
+.navbar-img {
+	float: left;
+}
+
+
+
+.hamburger-dropdown{
+	width: 100%;
+	position: fixed;
+	overflow: hidden;
+	background-color: #2e3132;
+	margin-top: 12vmin;
+	display: none;
+}
+
+
+.hamburger-dropdown-item {
+	display: block;
+	color: #f2f2f2!important;
+	text-align: center;
+	padding: 2.5vmin 2.5vmin;
+	text-decoration: none;
+}
+
+
+.larger-hamburger-button{
+	display: none;
+}
+
+
+.context {
+	padding: 12vmin 6vmin;
+}
 
 
 
 .code{
 	background-color: #282923;
 	padding: 0px 0.5em;
-
-	white-space: pre-wrap;       /* css-3 */
-	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-	white-space: -pre-wrap;      /* Opera 4-6 */
-	white-space: -o-pre-wrap;    /* Opera 7 */
-	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	font-size: 3vw;
+	overflow: auto;
 }
 
 .code-gray{ color: #74705d; }
@@ -159,3 +120,82 @@ h3{
 .code-green{ color: #a6e22b; }
 .code-cyan{ color: #67d8ef; }
 .code-purple{ color: #ac80ff; }
+
+
+
+
+/*mobile portrait*/
+@media only screen and (max-width: 767px) and (orientation: portrait){
+	.navbar-img{
+		width: 10vmin;
+		padding: 1vmin;
+	}
+
+	.navbar-item{
+		display: none;
+	}
+
+	.hamburger-button{
+		display: block;
+	}
+}
+
+/*mobile landscape*/
+@media only screen and (max-width: 767px) and (orientation: landscape){
+	.navbar-img{
+		width: 10vmin;
+		padding: 1vmin;
+	}
+
+	.navbar-item{
+		display: none;
+	}
+
+	.hamburger-button{
+		display: block;
+	}
+
+	body{
+		font-size: 1.3vw;
+	}
+
+	.code{
+		font-size: 1vw;
+	}
+
+
+	.normal-hamburger-button{
+		display: none;
+	}
+
+	.larger-hamburger-button{
+		display: block;
+	}
+}
+
+/*desktop*/
+@media only screen and (min-width: 768px){
+	.navbar{
+		height: 5vmin;
+	}
+
+	.context {
+		padding: 5vmin 20%;
+	}
+
+	.navbar-img{
+		width: 4vmin;
+		padding: 0.5vmin;
+	}
+
+	.navbar-title{
+		padding: 0.15vmin 0.5vmin;
+		font-size: 3vmin;
+	}
+
+	.code{
+		font-size: 1em;
+	}
+}
+
+

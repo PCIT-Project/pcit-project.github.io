@@ -1,28 +1,45 @@
 <!---------------------------------------------------------------------->
 <!--                                                                  -->
-<!-- Part of PCIT-CPP, under the Apache License v2.0                  -->
+<!-- Part of PCIT, under the Apache License v2.0                      -->
 <!-- You may not use this file except in compliance with the License. -->
 <!-- See `http://www.apache.org/licenses/LICENSE-2.0` for info        -->
 <!--                                                                  -->
 <!---------------------------------------------------------------------->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="color-scheme" content="dark">
-	<title>Panther Programming Language - PCIT Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="./favicon.ico">
-	<link rel="stylesheet" href="./style.css">
+
+	<link rel="stylesheet" type="text/css" href="./style.css">
+
+	<script src="./font-awesome/fontawesome.min.js"></script>
+	<script src="./font-awesome/solid.min.js"></script>
+	<script src="./font-awesome/brands.min.js"></script>
 </head>
 <body>
-	<ul class="header">
-		<li class="header-item-left"><img src="./Logo.png" class="header-img"/></li>
-		<li class="header-item-left"><a class="header-item header-home" href="index.html">PCIT Project</a></li>
+	<div class="navbar">
+		<img class="navbar-img" src="./Logo.png">
+		<a class="navbar-title" href="./index.html">PCIT Project</a>
 
-		<li class="header-item-right"><a class="header-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code</a></li>
-		<li class="header-item-right"><a class="header-item" href="./Panther.html">Panther</a></li>
-	</ul>
+		<a class="navbar-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="./Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="normal-hamburger-button fa-solid fa-bars fa-lg"></i>
+			<i class="larger-hamburger-button fa-solid fa-bars fa-2xl"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="./Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
 
 	<div class="context">
 		<h1>PCIT Project</h1>
@@ -47,6 +64,5 @@
 	</div>
 
 </body>
+<script src="./script.js"></script>
 </html>
-
-
