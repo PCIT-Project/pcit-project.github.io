@@ -1,6 +1,11 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.3.1
+- Updated index.html to have name of PIR
+
+
+<!---------------------------------->
 ## v0.0.3.0
 - Added hamburger dropdown in header on mobile 
 - Added Github logo next to `Source Code` button in header
