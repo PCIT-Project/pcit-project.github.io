@@ -36,6 +36,7 @@ h3{
 	position: fixed;
 	background-color: #1e2122;
 	overflow: hidden;
+	user-select: none;
 }
 
 .navbar-title {
@@ -60,6 +61,7 @@ h3{
 .navbar-item:hover{
 	background-color: #2e3132;
 }
+
 
 .hamburger-button {
 	float: right;

@@ -210,7 +210,6 @@ ${this.body}
 <script src="/assets/script.js"></script>
 </html>`;
 
-
 		fs.writeFileSync(this.path, file_data);
 		console.log(`Generated page (${this.title}): "${this.path}"`);
 	}
