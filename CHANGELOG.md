@@ -1,6 +1,11 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.4.1
+- Improved README
+
+
+<!---------------------------------->
 ## v0.0.4.0
 - Added generator scripting
 - Added fancy code blocks
