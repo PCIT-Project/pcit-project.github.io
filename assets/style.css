@@ -107,12 +107,65 @@ h3{
 
 
 
+
+.code-header{
+	height: 1.5em;
+	padding-top: 1px;
+	padding-left: 0.5em;
+	color: #000000;
+	border-radius: 0.3em 0.3em 0px 0px;
+}
+
+.code-copy{
+	float: right;
+	margin: 3px;
+	border: 0px;
+	color: #d8d4cf;
+	border-radius: 2px;
+}
+
 .code{
 	background-color: #282923;
-	padding: 0px 0.5em;
+	padding: 0;
+	margin: 0;
 	font-size: 3vw;
+	/*overflow: auto;*/
+	tab-size: 4;
+	margin-bottom: 1vw;
+	padding-bottom: 5px;
+
+}
+
+.code-with-lines{	
+	display: grid;
+	/*width: 100%;*/
+	grid-template-columns: 4em 1fr;
+}
+
+.code-without-lines{
+	padding: 0 10px 5px 10px;
+}
+
+
+.code-lines{
+	color: #90918b;
+	text-align: center;
+	margin-right: 10px;
+	user-select: none;
+	/*margin-left: 1em;*/
+	/*margin-right: 1.5em;*/
+}
+
+
+.code-src{
 	overflow: auto;
 }
+
+.code-src::selection{
+   background-color: #383830;
+}
+
+
 
 .code-gray{ color: #74705d; }
 .code-red{ color: #f92472; }
@@ -121,6 +174,12 @@ h3{
 .code-cyan{ color: #67d8ef; }
 .code-purple{ color: #ac80ff; }
 
+.code-gray::selection{ background-color: #383830; }
+.code-red::selection{ background-color: #383830; }
+.code-yellow::selection{ background-color: #383830; }
+.code-green::selection{ background-color: #383830; }
+.code-cyan::selection{ background-color: #383830; }
+.code-purple::selection{ background-color: #383830; }
 
 
 
@@ -137,6 +196,28 @@ h3{
 
 	.hamburger-button{
 		display: block;
+	}
+
+	.code-header{
+		padding-top: 4px;
+	}
+
+	.code-copy{
+		margin-top: 0;
+		font-size: 1em;
+	}
+
+	.code{
+		margin-bottom: 5vw;
+	}
+
+	.code-with-lines{
+		grid-template-columns: 3em 1fr;
+	}
+
+	.code-lines{
+		margin-right: 1em;
+		margin-right: 0;
 	}
 }
 
@@ -161,6 +242,21 @@ h3{
 
 	.code{
 		font-size: 1vw;
+	}
+
+	.code-header{
+		font-size: 2vw;
+		padding-top: 5px;
+	}
+
+	.code-copy{
+		margin-top: 0;
+		font-size: 1em;
+	}
+
+	.code-lines{
+		font-size: 1.6vw;
+		margin-right: 0;
 	}
 
 
@@ -197,5 +293,3 @@ h3{
 		font-size: 1em;
 	}
 }
-
-

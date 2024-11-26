@@ -1,6 +1,17 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.4.0
+- Added generator scripting
+- Added fancy code blocks
+	- Supports `Panther`, `C++`, `C`, `Terminal`, and `Text`
+	- Automatic syntax highlighting
+	- Line indicators
+	- Copy button
+- Added custom 404 page
+
+
+<!---------------------------------->
 ## v0.0.3.1
 - Updated index.html to have name of PIR
 
