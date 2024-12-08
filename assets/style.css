@@ -140,7 +140,7 @@ h3{
 
 .code-with-lines{	
 	display: grid;
-	/*width: 100%;*/
+	width: 100%;
 	grid-template-columns: 4em 1fr;
 }
 
@@ -257,7 +257,7 @@ h3{
 	}
 
 	.code-lines{
-		font-size: 1.6vw;
+		font-size: 1.8vw;
 		margin-right: 0;
 	}
 

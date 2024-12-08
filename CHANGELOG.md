@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.4.3
+- Fixed code snippet line numbers not lining up correcty on mobile when landscape
+- Fixed code snippet body not being the correct width at all zoom levels on desktop
+
+
+<!---------------------------------->
 ## v0.0.4.2
 - Made navbar not selectable
 
