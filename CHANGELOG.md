@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.4.4
+- Added to README on how to create new pages 
+- Fixed code snippet without line numbers body not being the correct width at all zoom levels on desktop
+- Fixed font size of code snippets not changing with zoom levels
+- Fixed generator getting stuck when highlighting C++ and encountering `<` or `>`
+- Fixed generator getting stuck when highlighting C++ or Panther and encountering a `\` in a string
+
+
+<!---------------------------------->
 ## v0.0.4.3
 - Fixed code snippet line numbers not lining up correcty on mobile when landscape
 - Fixed code snippet body not being the correct width at all zoom levels on desktop
@@ -41,7 +50,7 @@
 
 <!---------------------------------->
 ## v0.0.2.0
-- Fixed the mobile experience
+- Added mobile support
 
 
 <!---------------------------------->

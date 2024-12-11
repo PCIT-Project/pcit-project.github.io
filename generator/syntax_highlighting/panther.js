@@ -186,7 +186,7 @@ exports.highlight = function(code){
 
 			while(stream.peek() != '"'){
 				if(stream.peek() == "\\"){
-					output += "<span class=\"code-purple\">" + stream.peek() + stream.peek() + "</span>";
+					output += "<span class=\"code-purple\">" + stream.next() + stream.next() + "</span>";
 				}else{
 					output += stream.next();
 				}

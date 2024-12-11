@@ -22,7 +22,9 @@ class CharStream{
 		return value;
 	}
 
-	skip(ammount){
+	skip(ammount = 1){
+		assert(ammount >= 1, "must skip positive ammount");
+
 		this.cursor += ammount;
 	}
 

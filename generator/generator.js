@@ -23,6 +23,10 @@ if(directory_exists("../site")){
 }
 
 
+
+//////////////////////////////////////////////////////////////////////
+// page generators
+
 require("./page_generators/home.js");
 require("./page_generators/404.js");
 require("./page_generators/panther_home.js");
