@@ -1,6 +1,11 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.4.5
+- Fixed font size of code snippet on mobile
+
+
+<!---------------------------------->
 ## v0.0.4.4
 - Added to README on how to create new pages 
 - Fixed code snippet without line numbers body not being the correct width at all zoom levels on desktop
