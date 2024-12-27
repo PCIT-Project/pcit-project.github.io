@@ -1,4 +1,4 @@
-# PCIT-Project Website
+# PCIT Project Website
 
 To see the website, here is the [link to the home page](https://pcit-project.github.io/site/home.html).
 

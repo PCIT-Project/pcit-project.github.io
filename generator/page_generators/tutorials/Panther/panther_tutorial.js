@@ -8,12 +8,18 @@
 
 
 
-const Page = require("../Page.js").Page;
-const html = require("../html.js");
 
-let page = new Page("404", "error404.html");
 
-page.h1("<span style=\"color: #ee1111;\">" + html.santitize("<Error|W404>") + " The page you were looking for does not exist</span>");
+const Page = require("../../../Page.js").Page;
+const html = require("../../../html.js");
+
+let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html");
+
+page.h1("Panther Tutorial");
+
+page.paragraph("Coming soon...");
+
+page.paragraph("For now, maybe look at " + html.link("this example", "/site/Panther.html#example") + ".");
 
 
 page.generate();

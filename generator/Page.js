@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. //
+// You may not use this file except in compliance with the License.                             //
+// See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                    //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 const assert = require("node:assert");
 const fs = require("node:fs");
 const html = require("./html.js");
@@ -20,20 +29,20 @@ class Page{
 	}
 
 
-	h1(text){
-		this.body += html.tag("h1", text);
+	h1(text, style=null){
+		this.body += html.tag("h1", text, style);
 	}
 
-	h2(text){
-		this.body += html.tag("h2", text);
+	h2(text, style=null){
+		this.body += html.tag("h2", text, style);
 	}
 
-	h3(text){
-		this.body += html.tag("h3", text);
+	h3(text, style=null){
+		this.body += html.tag("h3", text, style);
 	}
 
-	paragraph(text){
-		this.body += html.tag("p", text);
+	paragraph(text, style=null){
+		this.body += html.tag("p", text, style);
 	}
 
 	link(link, text){
@@ -44,15 +53,44 @@ class Page{
 		this.body += text;
 	}
 
+	anchor(name){
+		this.body += `<div id="${name}"></div>`;
+	}
+
 
 	bullets(points){
 		this.body += "\t\t<ul>\n";
 
 		for(var i=0; i<points.length;i++){
-			this.body += html.tag("li", points[i], 3);
+			this.body += html.tag("li", points[i], null, 3);
 		}
 
 		this.body += "\t\t</ul>\n";
+	}
+
+	image(link, style=null){
+		if(style == null){
+			this.body += `<img src="${link}" style="width: 100%;"></img>`;
+		}else{
+			this.body += `<img src="${link}" style="${style}"></img>`;
+		}
+	}
+
+
+	begin_info(){
+		this.body += "<div class=\"info\">";
+	}
+
+	end_info(){
+		this.body += "</div>";
+	}
+
+	begin_warning(){
+		this.body += "<div class=\"warning\">";
+	}
+
+	end_warning(){
+		this.body += "</div>";
 	}
 
 
@@ -81,7 +119,7 @@ class Page{
 
 		let header_title_style = "background-color: #888888";
 		switch(language){
-			case "Panther":  header_title_style = "background-color: #06b6b4;"; break;
+			case "Panther":  header_title_style = "background-color: #06b6d4;"; break;
 			case "C++":      header_title_style = "background-color: #005996;"; break;
 			case "C":        header_title_style = "background-color: #004283;"; break;
 			case "Terminal": header_title_style = "background-color: #333333; color: #ffffff;"; break;
@@ -163,8 +201,17 @@ class Page{
 	}
 
 
-	generate(){
+	generate(is_home_page = false){
 		let file_data = `<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See \`https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE\`for info.                  -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -183,12 +230,31 @@ class Page{
 	<script src="/assets/font-awesome/brands.min.js"></script>
 </head>
 <body>
-	<div class="navbar">
-		<img class="navbar-img" src="/assets/Logo.png">
-		<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+	<div class="navbar">`;
+		if(is_home_page){
+				file_data += `
+			<div id="navbar-fader" class="navbar-fader-hidden">
+				<img class="navbar-img" src="/assets/Logo.png">
+				<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+			</div>
+			`;
 
+		}else{
+			file_data += `
+		<div id="navbar-fader">
+			<img class="navbar-img" src="/assets/Logo.png">
+			<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+		</div>
+		`;	
+		}
+
+		file_data += `
 		<a class="navbar-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="./Panther.html">Panther</a>
+		<a class="navbar-item" href="/site/news/news.html">News</a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
 
 		<div class="hamburger-button" onclick="toggle_hamburger()">
 			<i class="normal-hamburger-button fa-solid fa-bars fa-lg"></i>
@@ -197,13 +263,34 @@ class Page{
 	</div>
 
 	<div class="hamburger-dropdown">
-		<a class="hamburger-dropdown-item" href="./Panther.html">Panther</a>
-		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">News</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>`;
+
+	if(is_home_page){
+		file_data += `
+	<div id="home-splash">
+		<script src="/assets/script.js"></script>
+		<img id="home-splash-img" src="/assets/LogoBig.png">
+		<h1 id="home-splash-title">PCIT Project</h1>
+		<h2 id="home-splash-title2">Panther Compiler Infrastructure and Toolchain</h2>
+	</div>
+	<script src="/assets/home_script.js"></script>
+		`;
+	}
+
+	file_data += `
+	<div class="context">
+${this.body}
+
 	</div>
 
-	<div class="context">
-
-${this.body}
+	<div class="footer">
+		<p style="color: #878481;">© 2023-2024 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
 	</div>
 
 </body>

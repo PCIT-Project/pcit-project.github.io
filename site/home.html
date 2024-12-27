@@ -1,5 +1,14 @@
 <!-- This page was generated -->
 
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                  -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +27,17 @@
 </head>
 <body>
 	<div class="navbar">
-		<img class="navbar-img" src="/assets/Logo.png">
-		<a class="navbar-title" href="/site/home.html">PCIT Project</a>
-
+			<div id="navbar-fader" class="navbar-fader-hidden">
+				<img class="navbar-img" src="/assets/Logo.png">
+				<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+			</div>
+			
 		<a class="navbar-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="./Panther.html">Panther</a>
+		<a class="navbar-item" href="/site/news/news.html">News</a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
 
 		<div class="hamburger-button" onclick="toggle_hamburger()">
 			<i class="normal-hamburger-button fa-solid fa-bars fa-lg"></i>
@@ -31,25 +46,47 @@
 	</div>
 
 	<div class="hamburger-dropdown">
-		<a class="hamburger-dropdown-item" href="./Panther.html">Panther</a>
-		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">News</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
-
+	<div id="home-splash">
+		<script src="/assets/script.js"></script>
+		<img id="home-splash-img" src="/assets/LogoBig.png">
+		<h1 id="home-splash-title">PCIT Project</h1>
+		<h2 id="home-splash-title2">Panther Compiler Infrastructure and Toolchain</h2>
+	</div>
+	<script src="/assets/home_script.js"></script>
+		
 	<div class="context">
-
-		<h1>PCIT Project</h1>
-		<p>Panther Compiler Infrastructure and Toolchain, and the home of the Panther programming language. PCIT (pronounced "P-Kit") relies on the <a href="https://github.com/llvm/llvm-project">LLVM-Project</a>, but that is not guaranteed forever. It is written entirely in C++, but a self-hosted version (written entirely in Panther) is planned.</p>
-		<h2>Tools</h2>
-		<p>All tools can be used as stand-alone programs or as libraries.</p>
+		<h1>What is PCIT Project?</h1>
+		<p>The PCIT Project is Panther Compiler Infrastructure and Toolchain, and the home of the Panther programming language. PCIT (pronounced "P-Kit") relies on the <a href="https://github.com/llvm/llvm-project">LLVM Project</a>, but the goal is to eventually be self-reliant. It is written entirely in C++, but a self-hosted version (written entirely in Panther) is planned.</p>
+		<p>The goal of the PCIT Project is to create software that helps developers create native software, and makes it easier to do so. The simple things should be simple, and the complicated things should be well documented and easy to use.</p>
+		<p>Not only can all tools be used as a standalone program, all tools are designed to be embedded in your own projects as well.</p>
+<div class="info">		<h2 style="padding-top: 0px;">Important Note</h2>
+		<p>PCIT is very early development. Please do not use any tools to create anything yet as drastic changes may be made.</p>
+</div>		<h2>Tools</h2>
 		<h3>Panther / pthr</h3>
-		<p>Statically typed, compiled, high-performance, general-purpose programming language. See more <a href="./Panther.html">here</a>.</p>
+		<p>Statically typed, compiled, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. See more <a href="./Panther.html">here</a>.</p>
 		<h3>PIR</h3>
-		<p>Pronounced "P I R". Compiler IR / optimizing back-end.</p>
+		<p>Pronounced "P I R". Compiler IR and SSA-based optimizing back-end.</p>
 		<h3>PLNK</h3>
-		<p>Pronounced "plink". Linker that aims to make use between platforms (including cross-compilation) as seamless as possible.</p>
+		<p>Pronounced "plink". Linker that aims to make use between platforms (including cross-compilation and linking against libc) as seamless as possible.</p>
 		<h3>Other compilers</h3>
 		<p>Will also be able to compile C and hopefully C++ code. The main intent is for this to allow seamless interoperability with Panther, but these frontends will be able to be used stand-alone.</p>
+		<h2>Licensing</h2>
+		<p>All of the code written for the PCIT Project is licensed under the Apache License v2.0 with LLVM and PCIT exceptions. See <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE">the license</a> for more information.</p>
+		<h2>Getting involved</h2>
+		<p>The PCIT Project is not accepting any volunteers at the moment. However, at some point the in the future new contributors will be welcomed. Check back here to if we are accepting contributions. For now, please star <a href="https://github.com/PCIT-Project/PCIT-CPP">the GitHub repository</a> to show you're interested in the project.</p>
 
+
+	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">© 2023-2024 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
 	</div>
 
 </body>

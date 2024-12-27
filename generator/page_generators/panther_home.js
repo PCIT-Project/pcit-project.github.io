@@ -1,40 +1,52 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. //
+// You may not use this file except in compliance with the License.                             //
+// See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                    //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 
-let panther_home = new Page("Panther Programming Language", "Panther.html");
+let page = new Page("Panther Programming Language", "Panther.html");
 
-panther_home.h1("Panther Programming Language");
-panther_home.paragraph("Statically types, compiled, high-performance, general-purpose programming language.")
+page.h1("Panther Programming Language");
+page.paragraph("Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to languages like " + html.link("C++", "https://isocpp.org/") + ", " + html.link("Rust", "https://www.rust-lang.org/") + ", " + html.link("Zig", "https://ziglang.org/") + ", and " + html.link("Odin", "https://odin-lang.org/") + ".");
 
-panther_home.h2("Help good programmers write good, fast code");
-panther_home.bullets([
+page.h2("Help programmers write good/fast code, without getting in the way");
+page.bullets([
 	"Zero-cost abstractions",
-	"Give the compiler knowledge of common patterns to allow it to help you write fast code, easier",
+	"High level language that allows for low level control",
 	"Allow as much compile-time computation as possible",
 	"Powerful generics without needing to be an expert",
+	"Give the compiler knowledge of common patterns to allow it to help you write fast code, easier",
 ]);
 
-panther_home.h2("Enjoyable to use");
-panther_home.bullets([
+page.h2("Enjoyable to use");
+page.bullets([
+	"Readable and explicit syntax without being overly verbose",
 	"Fast compile times - allow for builing of the entire project, every compile",
 	"Build system for Panther " + html.italic("in") + " Panther",
 	"Nice / helpful error messages",
 ]);
 
-panther_home.h2("Seamless interop with C");
-panther_home.paragraph("This will hopefully extend to C++ as well.");
+page.h2("Seamless interoperability with C");
+page.paragraph("This will hopefully extend to C++ as well.");
 
-panther_home.h2("Example:");
-panther_home.paragraph("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code("v0.0.43.0") + "). If you want a peek at all currently supported features, maybe look at " + html.link("https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md", "the change log") + ". Please keep in mind that any syntax may change in the future.");
+page.h2("Example:");
+page.paragraph("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code("v0.0.43.0") + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
 
 
-
-panther_home.code_block("Panther",
+page.anchor("example");
+page.code_block("Panther",
 `// importing a file
 def some_file = @import("directory/file.pthr");
 
-// function declaration (parameter \`num\` is implicity \`read\`)
+// function declaration (parameter \`num\` is implicitly \`read\`)
 // has the \`#runtime\` attribute which means it can only run at runtime
 func set_num = (num: UI8, num_to_change: UI8 mut) #runtime -> Void {
 	num_to_change = copy num;
@@ -77,4 +89,4 @@ func asdf = () #entry -> UI8 {
 
 
 
-panther_home.generate();
+page.generate();

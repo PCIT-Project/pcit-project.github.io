@@ -8,13 +8,15 @@
 
 
 
-const Page = require("../Page.js").Page;
-const html = require("../html.js");
+document.addEventListener("scroll", () => {
+    const home_spash = document.getElementById("home-splash");
+    const navbar_fader = document.getElementById("navbar-fader");
 
-let page = new Page("404", "error404.html");
-
-page.h1("<span style=\"color: #ee1111;\">" + html.santitize("<Error|W404>") + " The page you were looking for does not exist</span>");
-
-
-page.generate();
-
+    if(home_spash.getBoundingClientRect().bottom <= 100){
+        navbar_fader.classList.add("navbar-fader-visible");
+        navbar_fader.classList.remove("navbar-fader-hidden");
+    }else{
+        navbar_fader.classList.add("navbar-fader-hidden");
+        navbar_fader.classList.remove("navbar-fader-visible");
+    }
+});

@@ -1,6 +1,23 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.5.0
+- Added pages:
+	- Documentation
+	- Tutorials
+	- Downloads
+	- News
+	- About
+- Added transition on dropdown
+- Added footer
+- Added home page splash
+- Updated licencing to use Apache License v2.0 with LLVM and PCIT exceptions
+- Fixed typos
+- Fixed links being the wrong color
+- Fixed header of Panther code snippet being the wrong color
+
+
+<!---------------------------------->
 ## v0.0.4.5
 - Fixed font size of code snippet on mobile
 

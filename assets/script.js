@@ -1,10 +1,10 @@
-//////////////////////////////////////////////////////////////////////
-//                                                                  //
-// Part of PCIT, under the Apache License v2.0                      //
-// You may not use this file except in compliance with the License. //
-// See `http://www.apache.org/licenses/LICENSE-2.0` for info        //
-//                                                                  //
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. //
+// You may not use this file except in compliance with the License.                             //
+// See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                    //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -20,12 +20,15 @@ var hamburger_opened = false;
 var may_toggle_hamburger = true;
 
 function close_hamburger(){
-	hamburger_dropdown.style.display = "none"
+	hamburger_dropdown.style.maxHeight = "0px";
 	hamburger_opened = false;
 }
 
 function open_hamburger(){
-	hamburger_dropdown.style.display = "block"
+	// each item is 2.5em tall, and there are 6 item
+	// the header is 12vmin
+	// For some reason without the `+ 30px` the final item gets cutoff in landscape mode on mobile
+	hamburger_dropdown.style.maxHeight = "calc(15em + 12vmin + 30px)";
 	hamburger_opened = true;
 }
 
@@ -56,5 +59,5 @@ function toggle_hamburger(){
 		open_hamburger();
 	}
 
-	setTimeout(()=>{ may_toggle_hamburger = true; },250);
+	setTimeout(()=>{ may_toggle_hamburger = true; }, 250);
 }

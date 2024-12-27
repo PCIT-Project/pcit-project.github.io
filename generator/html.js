@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. //
+// You may not use this file except in compliance with the License.                             //
+// See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                    //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 exports.santitize = function(text){
@@ -18,20 +26,24 @@ exports.santitize = function(text){
 	return output;
 }
 
-exports.tag = function(tag, contents, indentation=2){
+exports.tag = function(tag, contents, style=null, indentation=2){
 	let output = "";
 
 	for(var i=0; i<indentation;i++){
 		output += '\t';
 	}
 
-	output += `<${tag}>${contents}</${tag}>\n`;
+	if(style == null){
+		output += `<${tag}>${contents}</${tag}>\n`;
+	}else{
+		output += `<${tag} style="${style}">${contents}</${tag}>\n`;
+	}
 
 	return output;
 }
 
 
-exports.link = function(link, text){
+exports.link = function(text, link){
 	return `<a href="${link}">${text}</a>`;
 }
 
