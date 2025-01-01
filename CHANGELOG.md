@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+## v0.0.6.0
+- Added colors to console output of generator script
+- Added automatic update of copyright year to the year it was generated
+- Minor updates to some text
+
+
+<!---------------------------------->
 ## v0.0.5.0
 - Added pages:
 	- Documentation

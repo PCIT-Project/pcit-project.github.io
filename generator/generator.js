@@ -8,7 +8,8 @@
 
 const fs = require("node:fs");
 
-console.log("PCIT Project website generator");
+console.log("\x1b[36mPCIT Project website generator");
+console.log("\x1b[90m------------------------------\x1b[0m")
 
 
 function directory_exists(path){
@@ -21,13 +22,13 @@ function directory_exists(path){
 }
 
 
-function make_directory(path, title){
+function make_directory(path){
 	if(directory_exists(path)){
-		console.log("recreating directory: " + title);
+		console.log("Recreating directory: \x1b[33m\"" + path.substr(2) + "\"\x1b[0m");
 		fs.rmSync(path, {recursive: true});
 		fs.mkdirSync(path);
 	}else{
-		console.log("creating directory: " + title);
+		console.log("Creating directory: \x1b[33m\"" + path.substr(2) + "\"\x1b[0m");
 		fs.mkdirSync(path);
 	}
 }
@@ -37,14 +38,14 @@ function make_directory(path, title){
 //////////////////////////////////////////////////////////////////////
 // directories
 
-make_directory("../site", "site");
-make_directory("../site/tutorials", "tutorials");
-make_directory("../site/tutorials/panther", "tutorials/panther");
-make_directory("../site/tutorials/pantherlib", "tutorials/pantherlib");
-make_directory("../site/tutorials/pir", "tutorials/pir");
-make_directory("../site/tutorials/plnk", "tutorials/plnk");
-make_directory("../site/documentation", "documentation");
-make_directory("../site/news", "news");
+make_directory("../site");
+make_directory("../site/tutorials");
+make_directory("../site/tutorials/panther");
+make_directory("../site/tutorials/pantherlib");
+make_directory("../site/tutorials/pir");
+make_directory("../site/tutorials/plnk");
+make_directory("../site/documentation");
+make_directory("../site/news");
 
 
 

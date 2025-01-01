@@ -283,6 +283,7 @@ class Page{
 		`;
 	}
 
+	const current_year = new Date().getFullYear();
 	file_data += `
 	<div class="context">
 ${this.body}
@@ -290,7 +291,7 @@ ${this.body}
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">© 2023-2024 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
+		<p style="color: #878481;">© 2023-${current_year} <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
 	</div>
 
 </body>
@@ -298,7 +299,7 @@ ${this.body}
 </html>`;
 
 		fs.writeFileSync(this.path, file_data);
-		console.log(`Generated page (${this.title}): "${this.path}"`);
+		console.log(`Generated page \x1b[35m(${this.title})\x1b[0m: \x1b[33m"${this.path.substr(2)}"\x1b[0m`);
 	}
 }
 
