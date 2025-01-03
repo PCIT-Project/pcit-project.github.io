@@ -32,11 +32,12 @@
 			<a class="navbar-title" href="/site/home.html">PCIT Project</a>
 		</div>
 		
-		<a class="navbar-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="/site/news/news.html">News</a>
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
 		<a class="navbar-item" href="/site/Panther.html">Panther</a>
 
 		<div class="hamburger-button" onclick="toggle_hamburger()">
@@ -47,15 +48,16 @@
 
 	<div class="hamburger-dropdown">
 		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
-		<a class="hamburger-dropdown-item" href="/site/downloads.html">News</a>
-		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 	<div class="context">
 		<h1>Panther Programming Language</h1>
-		<p>Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to languages like <a href="https://isocpp.org/">C++</a>, <a href="https://www.rust-lang.org/">Rust</a>, <a href="https://ziglang.org/">Zig</a>, and <a href="https://odin-lang.org/">Odin</a>.</p>
+		<p>&emsp;&emsp;Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to programming languages like <a href="https://isocpp.org/">C++</a>, <a href="https://www.rust-lang.org/">Rust</a>, <a href="https://ziglang.org/">Zig</a>, and <a href="https://odin-lang.org/">Odin</a>.</p>
 		<h2>Help programmers write good/fast code, without getting in the way</h2>
 		<ul>
 			<li>Zero-cost abstractions</li>
@@ -72,9 +74,9 @@
 			<li>Nice / helpful error messages</li>
 		</ul>
 		<h2>Seamless interoperability with C</h2>
-		<p>This will hopefully extend to C++ as well.</p>
+		<p>&emsp;&emsp;This will hopefully extend to C++ as well.</p>
 		<h2>Example:</h2>
-		<p>Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code>v0.0.43.0</code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
+		<p>&emsp;&emsp;Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0">v0.0.43.0</a></code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
 <div id="example"></div><script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// importing a file
 def some_file = @import("directory/file.pthr");
 
@@ -164,15 +166,15 @@ func asdf = () #entry -> UI8 {
 
 <span class="code-gray">// function declaration (parameter `num` is implicitly `read`)</span>
 <span class="code-gray">// has the `#runtime` attribute which means it can only run at runtime</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">set_num</span> <span class="code-red">=</span> (num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span>, num_to_change<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">mut</span>) <span class="code-red">#runtime</span> -> <span class="code-cyan" style="font-style: italic;">Void</span> {
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">set_num</span> <span class="code-red">=</span> (num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span>, num_to_change<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">mut</span>) <span class="code-red">#runtime</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span> {
 	num_to_change <span class="code-red">=</span> <span class="code-red">copy</span> num;
 }
 
 <span class="code-gray">// templated function</span>
 <span class="code-gray">// has the `#pub` attribute to make it visible to outside files that import this file</span>
 <span class="code-gray">// doesn't have the `#runtime` attribute which means it can run at runtime</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">just_return_num</span> <span class="code-red">=</span> &lt;{T<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>}&gt; (num<span class="code-red">:</span> T) <span class="code-red">#pub</span> -> T {
-	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">sub_func</span> <span class="code-red">=</span> (sub_num<span class="code-red">:</span> T) -> T {
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">just_return_num</span> <span class="code-red">=</span> &lt;{T<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>}&gt; (num<span class="code-red">:</span> T) <span class="code-red">#pub</span> <span class="code-red">-</span><span class="code-red">&gt;</span> T {
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">sub_func</span> <span class="code-red">=</span> (sub_num<span class="code-red">:</span> T) <span class="code-red">-</span><span class="code-red">&gt;</span> T {
 		<span class="code-red">return</span> (<span class="code-red">move</span> sub_num);
 	}
 
@@ -180,8 +182,8 @@ func asdf = () #entry -> UI8 {
 }
 
 <span class="code-gray">// entry function (notice the name doesn't matter, but it has the attribute `#entry`)</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">asdf</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> -> <span class="code-cyan" style="font-style: italic;">UI8</span> {
-	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_compile_time_value</span> <span class="code-red">=</span> () -> <span class="code-cyan" style="font-style: italic;">Bool</span> {
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">asdf</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_compile_time_value</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span> {
 		<span class="code-red">return</span> <span class="code-purple">true</span>;
 	}
 	<span class="code-cyan" style="font-style: italic;">def</span> COMPILE_TIME_VALUE<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-cyan">get_compile_time_value</span>();
@@ -192,7 +194,7 @@ func asdf = () #entry -> UI8 {
 	}
 
 
-	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_type_id_of_UI8</span> <span class="code-red">=</span> () -> <span class="code-cyan" style="font-style: italic;">TypeID</span> {
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_type_id_of_UI8</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">TypeID</span> {
 		<span class="code-gray">// intrinsic function call</span>
 		<span class="code-red">return</span> <span class="code-red">@getTypeID</span>&lt;{<span class="code-cyan" style="font-style: italic;">UI8</span>}&gt;();
 	}

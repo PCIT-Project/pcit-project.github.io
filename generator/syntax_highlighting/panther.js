@@ -88,7 +88,7 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "func": case "alias": {
+				case "func": case "alias": case "type": {
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 					while(is_whitespace(stream.peek())){ output += stream.next(); }
 
@@ -212,7 +212,7 @@ exports.highlight = function(code){
 			output += "</span>";
 
 		}else if(stream.peek() == '-' && stream.peek(1) == '>'){
-			output += stream.next() + stream.next();
+			output += `<span class="code-red">${stream.next()}</span>`;
 
 		}else if(stream.peek() == '<' && stream.peek(1) == '{'){
 			output += "&lt;{";

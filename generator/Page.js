@@ -41,8 +41,13 @@ class Page{
 		this.body += html.tag("h3", text, style);
 	}
 
-	paragraph(text, style=null){
+
+	text(text, style=null){
 		this.body += html.tag("p", text, style);
+	}
+
+	paragraph(text, style=null){
+		this.text("&emsp;&emsp;" + text, style);
 	}
 
 	link(link, text){
@@ -249,11 +254,12 @@ class Page{
 		}
 
 		file_data += `
-		<a class="navbar-item" href="https://github.com/PCIT-Project/PCIT-CPP">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="/site/news/news.html">News</a>
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
 		<a class="navbar-item" href="/site/Panther.html">Panther</a>
 
 		<div class="hamburger-button" onclick="toggle_hamburger()">
@@ -264,11 +270,12 @@ class Page{
 
 	<div class="hamburger-dropdown">
 		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
-		<a class="hamburger-dropdown-item" href="/site/downloads.html">News</a>
-		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project/PCIT-CPP" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>`;
 
 	if(is_home_page){

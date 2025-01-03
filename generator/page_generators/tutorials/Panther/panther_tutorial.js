@@ -17,9 +17,9 @@ let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html");
 
 page.h1("Panther Tutorial");
 
-page.paragraph("Coming soon...");
+page.text("Coming Soon...", "font-style: italic;");
 
-page.paragraph("For now, maybe look at " + html.link("this example", "/site/Panther.html#example") + ".");
+page.text("For now, maybe look at " + html.link("this example", "/site/Panther.html#example") + ".");
 
 
 page.generate();

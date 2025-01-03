@@ -15,7 +15,7 @@ let page = new Page("Downloads", "downloads.html");
 
 page.h1("Downloads");
 
-page.paragraph("No releases have been made yet, but you can download the source code " + html.link("here", "https://github.com/PCIT-Project/PCIT-CPP") + " and build it yourself.");
+page.text("No releases have been made yet, but you can download the source code " + html.link("here", "https://github.com/PCIT-Project/PCIT-CPP") + " and build it yourself.");
 
 page.generate();
 

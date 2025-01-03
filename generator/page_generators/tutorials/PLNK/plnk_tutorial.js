@@ -15,7 +15,7 @@ let page = new Page("PLNK Tutorial", "tutorials/plnk/tutorial.html");
 
 page.h1("PLNK Tutorial");
 
-page.paragraph("Coming soon...");
+page.text("Coming Soon...", "font-style: italic;");
 
 page.generate();
 

@@ -4,8 +4,7 @@ const html = require("../../html.js");
 let page = new Page("Documentation", "documentation/documentation.html");
 
 page.h1("Documentation");
-
-page.paragraph("Coming Soon...");
+page.text("Coming Soon...", "font-style: italic;");
 
 page.generate();
 

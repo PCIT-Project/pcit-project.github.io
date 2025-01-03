@@ -15,7 +15,7 @@ let page = new Page("Panther Library Tutorial", "tutorials/pantherlib/tutorial.h
 
 page.h1("Panther Library Tutorial");
 
-page.paragraph("Coming soon...");
+page.text("Coming Soon...", "font-style: italic;");
 
 page.generate();
 

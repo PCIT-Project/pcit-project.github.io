@@ -8,15 +8,16 @@
 
 
 
+const Page = require("../Page.js").Page;
+const html = require("../html.js");
 
-const Page = require("../../../Page.js").Page;
-const html = require("../../../html.js");
 
-let page = new Page("PIR Tutorial", "tutorials/pir/tutorial.html");
+let page = new Page("Search", "search.html");
 
-page.h1("PIR Tutorial");
-
+page.h1("Search");
 page.text("Coming Soon...", "font-style: italic;");
 
-page.generate();
 
+
+
+page.generate();

@@ -45,7 +45,7 @@ make_directory("../site/tutorials/pantherlib");
 make_directory("../site/tutorials/pir");
 make_directory("../site/tutorials/plnk");
 make_directory("../site/documentation");
-make_directory("../site/news");
+make_directory("../site/devlog");
 
 
 
@@ -57,6 +57,7 @@ require("./page_generators/404.js");
 require("./page_generators/panther_home.js");
 require("./page_generators/downloads.js");
 require("./page_generators/about.js");
+require("./page_generators/search.js");
 
 
 ///////////////////////////////////
@@ -80,6 +81,10 @@ require("./page_generators/documentation/documentation.js");
 
 
 ///////////////////////////////////
-// news
+// devlog
 
-require("./page_generators/news/news.js");
+require("./page_generators/devlog/devlog.js");
+
+require("./page_generators/devlog/new_systems_requires_major_changes.js");
+
+

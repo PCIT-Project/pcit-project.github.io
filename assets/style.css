@@ -6,6 +6,10 @@
 /*                                                                                              */
 /************************************************************************************************/
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin: 0;
 	background-color: #151617;
@@ -31,6 +35,10 @@ h2{
 
 h3{
 	padding-top: 1em;
+}
+
+code {
+	background-color: #1e2122;
 }
 
 
@@ -88,7 +96,7 @@ h3{
 
 .navbar-fader-visible{
 	animation-name: navbar-fader-fade;
-	animation-duration: 0.5s;
+	animation-duration: 0.75s;
 }
 
 
@@ -410,11 +418,11 @@ h3{
 	}
 
 	.context {
-		padding: 5vmin 20%;
+		padding: 5vmin 25%;
 	}
 
 	.footer {
-		padding: 0 20%;	
+		padding: 0 25%;
 	}
 
 	.navbar-img{

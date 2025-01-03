@@ -15,7 +15,7 @@ const html = require("../html.js");
 let page = new Page("Panther Programming Language", "Panther.html");
 
 page.h1("Panther Programming Language");
-page.paragraph("Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to languages like " + html.link("C++", "https://isocpp.org/") + ", " + html.link("Rust", "https://www.rust-lang.org/") + ", " + html.link("Zig", "https://ziglang.org/") + ", and " + html.link("Odin", "https://odin-lang.org/") + ".");
+page.paragraph("Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to programming languages like " + html.link("C++", "https://isocpp.org/") + ", " + html.link("Rust", "https://www.rust-lang.org/") + ", " + html.link("Zig", "https://ziglang.org/") + ", and " + html.link("Odin", "https://odin-lang.org/") + ".");
 
 page.h2("Help programmers write good/fast code, without getting in the way");
 page.bullets([
@@ -38,7 +38,7 @@ page.h2("Seamless interoperability with C");
 page.paragraph("This will hopefully extend to C++ as well.");
 
 page.h2("Example:");
-page.paragraph("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code("v0.0.43.0") + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
+page.paragraph("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code(html.link("v0.0.43.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0")) + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
 
 
 page.anchor("example");
