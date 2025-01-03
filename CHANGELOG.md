@@ -1,13 +1,20 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.7.1"></a>
+## v0.0.7.1
+- Fixed extra `/` at end of LinkedIn link on about page
+
+
+<!---------------------------------->
 <a name="v0.0.7.0"></a>
 ## v0.0.7.0
-- Added news story `New Systems Require Major Changes`
+- Changed `News` to `Devlog`
+- Added devlog story `New Systems Require Major Changes`
+- Added `Search` Tab
 - Adjusted margins from 20% to 25%
 - Adjusted navbar title fade transition from 0.5s to 0.75s
 - Fixed `News` tab going to `Downloads`
-- Changed `News` to `Devlog`
 - Fixed hightlighting of `->` Panther code snippet not being red 
 
 

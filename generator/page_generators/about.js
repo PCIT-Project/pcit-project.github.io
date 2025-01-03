@@ -22,7 +22,7 @@ page.image("https://avatars.githubusercontent.com/u/66285818?v=4", "width: 100%;
 page.raw(`</div>`);
 page.text("Creator of the PCIT Project and the Panther programming language.");
 page.text(`<i class="fa-brands fa-github"></i> ` + html.link("/12Thanjo", "https://github.com/12Thanjo"));
-page.text(`<i class="fa-brands fa-linkedin"></i> ` + html.link("/in/12andrewf/", "https://www.linkedin.com/in/12andrewf/"));
+page.text(`<i class="fa-brands fa-linkedin"></i> ` + html.link("/in/12andrewf", "https://www.linkedin.com/in/12andrewf"));
 
 
 page.generate();
