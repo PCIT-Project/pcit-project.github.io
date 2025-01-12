@@ -29,7 +29,7 @@ page.end_info();
 page.h2("Tools");
 
 page.h3("Panther / pthr");
-page.text("Statically typed, compiled, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. See more " + html.link("here", "./Panther.html") + ".");
+page.text("Statically typed, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. See more " + html.link("here", "./Panther.html") + ".");
 
 page.h3("PIR");
 page.text("Pronounced \"P I R\". Compiler IR and SSA-based optimizing back-end.");
