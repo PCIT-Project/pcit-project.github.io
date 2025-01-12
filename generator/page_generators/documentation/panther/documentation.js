@@ -8,18 +8,24 @@
 
 
 
-
-
 const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
 
-let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html");
+let page = new Page("Panther Documentation", "documentation/panther/documentation.html");
 
-page.h1("Panther Tutorial");
+page.h1("Panther Documentation");
 
-page.text("Coming Soon...", "font-style: italic;");
+page.text("Documentation for the Panther programming language.");
 
-page.text("For now, maybe look at " + html.link("this code example", "/site/Panther.html#example") + " or " + html.link("the Panther documentation", "/site/documentation/panther/documentation.html") + ".");
+// TODO: remove at release
+page.begin_info();
+page.h2("Important Note", "padding-top: 0px;");
+page.text("As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete");
+page.end_info();
+
+
+page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));
+
 
 
 page.generate();

@@ -57,27 +57,31 @@
 	</div>
 	<div class="context">
 		<h1>Panther Programming Language</h1>
-		<p>&emsp;&emsp;Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to programming languages like <a href="https://isocpp.org/">C++</a>, <a href="https://www.rust-lang.org/">Rust</a>, <a href="https://ziglang.org/">Zig</a>, and <a href="https://odin-lang.org/">Odin</a>.</p>
+		<p>Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Odin.</p>
 		<h2>Help programmers write good/fast code, without getting in the way</h2>
 		<ul>
-			<li>Zero-cost abstractions</li>
-			<li>High level language that allows for low level control</li>
-			<li>Allow as much compile-time computation as possible</li>
+			<li>Low level control with high level features (zero-cost abstraction)</li>
+			<li>Safety features without forcing a programming-paradigm like Rust or Swift</li>
 			<li>Powerful generics without needing to be an expert</li>
-			<li>Give the compiler knowledge of common patterns to allow it to help you write fast code, easier</li>
+			<li>Manual memory management with high-quality allocators right out of the box</li>
+			<li>Allow as much compile-time computation as possible</li>
+		</ul>
+		<h2>Versatile usage</h2>
+		<ul>
+			<li>Seamless interoperability with C and the C ABI (hopefully C++ as well)</li>
+			<li>Use as a compiled or scripting language without loss of runtime performance</li>
+			<li>Compile to any modern target or platform (hopefully including WASM and SPIR-V)</li>
 		</ul>
 		<h2>Enjoyable to use</h2>
 		<ul>
-			<li>Readable and explicit syntax without being overly verbose</li>
-			<li>Fast compile times - allow for builing of the entire project, every compile</li>
-			<li>Build system for Panther <span style="font-style: italic;">in</span> Panther</li>
 			<li>Nice / helpful error messages</li>
+			<li>Readable and explicit syntax without being overly verbose</li>
+			<li>Build system for Panther <span style="font-style: italic;">in</span> Panther</li>
+			<li>Fast compile times - hopefully allowing for building of the entire project, every compile</li>
 		</ul>
-		<h2>Seamless interoperability with C</h2>
-		<p>&emsp;&emsp;This will hopefully extend to C++ as well.</p>
-		<h2>Example:</h2>
-		<p>&emsp;&emsp;Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0">v0.0.43.0</a></code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
-<div id="example"></div><script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// importing a file
+<div id="example"></div>		<h2>Example:</h2>
+		<p>Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0">v0.0.43.0</a></code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// importing a file
 def some_file = @import("directory/file.pthr");
 
 // function declaration (parameter \'num\' is implicitly \'read\')
@@ -203,7 +207,9 @@ func asdf = () #entry -> UI8 {
 	<span class="code-cyan">set_num</span>(foo, bar);
 
 	<span class="code-red">return</span> (<span class="code-red">move</span> bar); <span class="code-gray">// should return 12</span>
-}</div></pre></div>
+}</div></pre></div>		<h2>Learn More</h2>
+		<p>Interested in learning more? Check out the <a href="/site/tutorials/panther/tutorial.html">Panther tutorial</a>.</p>
+
 
 	</div>
 

@@ -8,18 +8,14 @@
 
 
 
-
-
 const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
 
-let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html");
+let page = new Page("PIR Documentation", "documentation/PIR/documentation.html");
 
-page.h1("Panther Tutorial");
+page.h1("PIR Documentation");
 
 page.text("Coming Soon...", "font-style: italic;");
-
-page.text("For now, maybe look at " + html.link("this code example", "/site/Panther.html#example") + " or " + html.link("the Panther documentation", "/site/documentation/panther/documentation.html") + ".");
 
 
 page.generate();

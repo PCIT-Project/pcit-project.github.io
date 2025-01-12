@@ -45,6 +45,9 @@ make_directory("../site/tutorials/pantherlib");
 make_directory("../site/tutorials/pir");
 make_directory("../site/tutorials/plnk");
 make_directory("../site/documentation");
+make_directory("../site/documentation/panther");
+make_directory("../site/documentation/panther_std");
+make_directory("../site/documentation/pir");
 make_directory("../site/devlog");
 
 
@@ -78,6 +81,14 @@ require("./page_generators/tutorials/PLNK/plnk_tutorial.js");
 // documentation
 
 require("./page_generators/documentation/documentation.js");
+
+require("./page_generators/documentation/panther/documentation.js");
+require("./page_generators/documentation/panther/value_categories.js");
+
+require("./page_generators/documentation/panther_std/documentation.js");
+
+require("./page_generators/documentation/pir/documentation.js");
+
 
 
 ///////////////////////////////////

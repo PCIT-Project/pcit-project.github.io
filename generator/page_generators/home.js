@@ -20,9 +20,10 @@ page.text("The goal of the PCIT Project is to create software that helps develop
 
 page.text("Not only can all tools be used as a standalone program, all tools are designed to be embedded in your own projects as well.");
 
+// TODO: remove at release
 page.begin_info();
 page.h2("Important Note", "padding-top: 0px;");
-page.text("PCIT is very early development. Please do not use any tools to create anything yet as drastic changes may be made.");
+page.text("PCIT Project software (including this site) is in pre-alpha. Feel free to poke around and try things out, but please do not use any tools to create anything yet as drastic changes may be made.");
 page.end_info();
 
 page.h2("Tools");

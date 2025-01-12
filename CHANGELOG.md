@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.8.0"></a>
+## v0.0.8.0
+- Added value categories page to Panther documentation
+- Improved the Panther home page
+	- Added the "Versatile Usage" section (merged with the C/C++ interoperability section)
+	- Added the "Learn More" section
+- Added terms to the generator
+
+
+<!---------------------------------->
 <a name="v0.0.7.1"></a>
 ## v0.0.7.1
 - Fixed extra `/` at end of LinkedIn link on about page

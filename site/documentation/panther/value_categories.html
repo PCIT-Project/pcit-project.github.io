@@ -1,0 +1,109 @@
+<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                  -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Panther Value Categories | PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
+</head>
+<body>
+	<div class="navbar">
+		<div id="navbar-fader">
+			<img class="navbar-img" src="/assets/Logo.png">
+			<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+		</div>
+		
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="normal-hamburger-button fa-solid fa-bars fa-lg"></i>
+			<i class="larger-hamburger-button fa-solid fa-bars fa-2xl"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
+	<div class="context">
+		<h1>Panther Value Categories</h1>
+		<p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
+<div id="ephemeral"></div>		<h2>Ephemeral</h2>
+		<p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code>fluid literals</code> are ephemeral.</p>
+		<p>The following are ephemeral expressions:</p>
+		<ul>
+			<li><code>literals</code></li>
+			<li>values returned from functions / built-in operators</li>
+			<li><code>def variables</code></li>
+			<li>template parameters</li>
+		</ul>
+<div id="concrete"></div>		<h2>Concrete</h2>
+		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with a <code>copy</code>, a <code>move</code>, or a <code>destructive move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const_movable">concrete-const-movable</a></code></p>
+<div id="concrete_mutable"></div>		<h3>Concrete-Mutable</h3>
+		<p>Concrete-mutable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and mutable.</p>
+		<p>The following are concrete-mutable expressions:</p>
+		<ul>
+			<li><code>var variables</code></li>
+			<li><code>dereference</code> of a non-read-only pointer</li>
+			<li><code>mut parameters</code></li>
+			<li><code>in parameters</code></li>
+			<li><code>unwrap</code> of a non-const <code>optional</code></li>
+			<li><code>accessor</code> of a concrete-mutable value</li>
+		</ul>
+<div id="concrete_const"></div>		<h3>Concrete-Const</h3>
+		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code>undefined behavior</code>.</p>
+		<p>The following are concrete-const expressions:</p>
+		<ul>
+			<li><code>const variables</code> in global scope scope</li>
+			<li><code>read parameters</code></li>
+			<li><code>dereference</code> of a read-only pointer</li>
+			<li><code>accessor</code> of a concrete-const value</li>
+		</ul>
+<div id="concrete_const_movable"></div>		<h3>Concrete-Const-Movable</h3>
+		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable except by <code>destructive move</code>. Mutating a concrete-const-movable value in any way other than <code>destructive move</code> is <code>undefined behavior</code>.</p>
+		<p>The following are concrete-const-movable expressions:</p>
+		<ul>
+			<li><code>const variables</code> in function scope</li>
+			<li><code>unwrap</code> of a const <code>optional</code></li>
+		</ul>
+
+
+	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
+	</div>
+
+</body>
+<script src="/assets/script.js"></script>
+</html>

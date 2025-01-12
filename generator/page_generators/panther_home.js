@@ -15,33 +15,37 @@ const html = require("../html.js");
 let page = new Page("Panther Programming Language", "Panther.html");
 
 page.h1("Panther Programming Language");
-page.paragraph("Statically typed, compiled, high-performance, general-purpose programming language. Panther is an alternative to programming languages like " + html.link("C++", "https://isocpp.org/") + ", " + html.link("Rust", "https://www.rust-lang.org/") + ", " + html.link("Zig", "https://ziglang.org/") + ", and " + html.link("Odin", "https://odin-lang.org/") + ".");
+page.text("Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Odin.");
 
 page.h2("Help programmers write good/fast code, without getting in the way");
 page.bullets([
-	"Zero-cost abstractions",
-	"High level language that allows for low level control",
-	"Allow as much compile-time computation as possible",
+	"Low level control with high level features (zero-cost abstraction)",
+	"Safety features without forcing a programming-paradigm like Rust or Swift",
 	"Powerful generics without needing to be an expert",
-	"Give the compiler knowledge of common patterns to allow it to help you write fast code, easier",
+	"Manual memory management with high-quality allocators right out of the box",
+	"Allow as much compile-time computation as possible",
+]);
+
+page.h2("Versatile usage");
+page.bullets([
+	"Seamless interoperability with C and the C ABI (hopefully C++ as well)",
+	"Use as a compiled or scripting language without loss of runtime performance",
+	"Compile to any modern target or platform (hopefully including WASM and SPIR-V)",
 ]);
 
 page.h2("Enjoyable to use");
 page.bullets([
-	"Readable and explicit syntax without being overly verbose",
-	"Fast compile times - allow for builing of the entire project, every compile",
-	"Build system for Panther " + html.italic("in") + " Panther",
 	"Nice / helpful error messages",
+	"Readable and explicit syntax without being overly verbose",
+	"Build system for Panther " + html.italic("in") + " Panther",
+	"Fast compile times - hopefully allowing for building of the entire project, every compile",
 ]);
-
-page.h2("Seamless interoperability with C");
-page.paragraph("This will hopefully extend to C++ as well.");
-
-page.h2("Example:");
-page.paragraph("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code(html.link("v0.0.43.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0")) + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
 
 
 page.anchor("example");
+page.h2("Example:");
+page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code(html.link("v0.0.43.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0")) + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
+
 page.code_block("Panther",
 `// importing a file
 def some_file = @import("directory/file.pthr");
@@ -87,6 +91,9 @@ func asdf = () #entry -> UI8 {
 	return (move bar); // should return 12
 }`);
 
+
+page.h2("Learn More");
+page.text(`Interested in learning more? Check out the ${html.link("Panther tutorial", "/site/tutorials/panther/tutorial.html")}.`);
 
 
 page.generate();
