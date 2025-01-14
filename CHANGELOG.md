@@ -1,12 +1,26 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.9.0"></a>
+## v0.0.9.0
+- Added the Undefined Behavior page to Panther documentation
+- Added support for `%`, `+%`, `-%`, and `*%` in Panther code snippet syntax highlighting
+
+
+<!---------------------------------->
+<a name="v0.0.8.1"></a>
+## v0.0.8.1
+- Removed the word "compiled" from the Panther tagline on the home page
+
+
+<!---------------------------------->
 <a name="v0.0.8.0"></a>
 ## v0.0.8.0
 - Added value categories page to Panther documentation
 - Improved the Panther home page
 	- Added the "Versatile Usage" section (merged with the C/C++ interoperability section)
 	- Added the "Learn More" section
+- Improved the "Important Note" on the home page
 - Added terms to the generator
 
 

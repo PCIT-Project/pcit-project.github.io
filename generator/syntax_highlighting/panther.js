@@ -147,7 +147,7 @@ exports.highlight = function(code){
 					if(identifier[0] == "I"){
 						let is_int = true;
 
-						for(var i=1; i<identifier.lenght;i++){
+						for(var i=1; i<identifier.length; i++){
 							if(is_number(identifier[i]) == false){
 								is_int = false;
 							}
@@ -160,7 +160,7 @@ exports.highlight = function(code){
 					}else if(identifier[0] == "U" && identifier[1] == "I"){
 						let is_int = true;
 
-						for(var i=2; i<identifier.lenght;i++){
+						for(var i=2; i<identifier.length; i++){
 							if(is_number(identifier[i]) == false){
 								is_int = false;
 							}
@@ -225,7 +225,7 @@ exports.highlight = function(code){
 		}else if(stream.peek() == '&' || stream.peek() == '|' || stream.peek() == '^' || stream.peek() == '~'){
 			output += `<span class="code-red">${stream.next()}</span>`;
 
-		}else if(stream.peek() == '+' || stream.peek() == '-' || stream.peek() == '*' || stream.peek() == '/'){
+		}else if(stream.peek() == '+' || stream.peek() == '-' || stream.peek() == '*' || stream.peek() == '/' || stream.peek() == '%'){
 			output += `<span class="code-red">${stream.next()}</span>`;
 
 		}else if(stream.peek() == '<'){

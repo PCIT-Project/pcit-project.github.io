@@ -81,7 +81,7 @@
 			<li><code>accessor</code> of a concrete-mutable value</li>
 		</ul>
 <div id="concrete_const"></div>		<h3>Concrete-Const</h3>
-		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code>undefined behavior</code>.</p>
+		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
 		<p>The following are concrete-const expressions:</p>
 		<ul>
 			<li><code>const variables</code> in global scope scope</li>
@@ -90,7 +90,7 @@
 			<li><code>accessor</code> of a concrete-const value</li>
 		</ul>
 <div id="concrete_const_movable"></div>		<h3>Concrete-Const-Movable</h3>
-		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable except by <code>destructive move</code>. Mutating a concrete-const-movable value in any way other than <code>destructive move</code> is <code>undefined behavior</code>.</p>
+		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable except by <code>destructive move</code>. Mutating a concrete-const-movable value in any way other than <code>destructive move</code> is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
 		<p>The following are concrete-const-movable expressions:</p>
 		<ul>
 			<li><code>const variables</code> in function scope</li>

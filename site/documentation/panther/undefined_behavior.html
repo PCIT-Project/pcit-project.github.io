@@ -16,7 +16,7 @@
 	<meta name="color-scheme" content="dark">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Panther Documentation | PCIT Project</title>
+	<title>Undefined Behavior | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -56,13 +56,46 @@
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 	<div class="context">
-		<h1>Panther Documentation</h1>
-		<p>Documentation for the Panther programming language.</p>
-<div class="info">		<h2 style="padding-top: 0px;">Important Note</h2>
-		<p>As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete</p>
-</div>		<p><a href="/site/documentation/panther/value_categories.html">Value Categories</a></p>
-		<p><a href="/site/documentation/panther/undefined_behavior.html">Undefined Behavior</a></p>
+		<h1>Undefined Behavior</h1>
+		<p>&emsp;&emsp;The term "Undefined Behavior" (commonly shortened to "UB") refers to any behavior cannot be defined by the language. This could be because the behavior differs depending on the platform, or because the compiler is allowed to expect that it will never happen. Anything that is undefined behavior is explicitly disallowed by the language and should be avoided.</p>
+		<h2>Example</h2>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`func entry = () #entry -> UI8 {
+	const foo: UI8 = 12;
 
+
+	// This is undefined behavior as addition is not allowed to overflow
+	const sum_1: UI8 = foo + 255;
+
+	// This is not undefined behavior as wrapping addition is allowed to overflow
+	const sum_2: UI8 = foo +% 255;
+
+
+	return 0;
+}`); }</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_0()">Copy</button></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</div><div class="code-src"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">entry</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
+	<span class="code-cyan" style="font-style: italic;">const</span> foo<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> <span class="code-purple">12</span>;
+
+
+	<span class="code-gray">// This is undefined behavior as addition is not allowed to overflow</span>
+	<span class="code-cyan" style="font-style: italic;">const</span> sum_1<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> foo <span class="code-red">+</span> <span class="code-purple">255</span>;
+
+	<span class="code-gray">// This is not undefined behavior as wrapping addition is allowed to overflow</span>
+	<span class="code-cyan" style="font-style: italic;">const</span> sum_2<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> foo <span class="code-red">+</span><span class="code-red">%</span> <span class="code-purple">255</span>;
+
+
+	<span class="code-red">return</span> <span class="code-purple">0</span>;
+}</div></pre></div>
 
 	</div>
 

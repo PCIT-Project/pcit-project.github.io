@@ -33,7 +33,7 @@ exports.get = function(text){
 //////////////////////////////////////////////////////////////////////
 // terms
 
-term("undefined behavior");
+term("undefined behavior", "/site/documentation/panther/undefined_behavior.html");
 
 term("ephemeral", "/site/documentation/panther/value_categories.html#ephemeral");
 term("concrete", "/site/documentation/panther/value_categories.html#concrete");
