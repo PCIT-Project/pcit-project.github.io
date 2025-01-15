@@ -39,7 +39,7 @@ term("ephemeral", "/site/documentation/panther/value_categories.html#ephemeral")
 term("concrete", "/site/documentation/panther/value_categories.html#concrete");
 term("concrete-mutable", "/site/documentation/panther/value_categories.html#concrete_mutable");
 term("concrete-const", "/site/documentation/panther/value_categories.html#concrete_const");
-term("concrete-const-movable", "/site/documentation/panther/value_categories.html#concrete_const_movable");
+term("destructive-movable-concrete-const", "/site/documentation/panther/value_categories.html#concrete_const_movable");
 
 
 term("literal");

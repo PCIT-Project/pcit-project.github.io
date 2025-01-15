@@ -34,7 +34,7 @@ page.bullets([
 
 page.anchor("concrete");
 page.h2("Concrete");
-page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with a ${terms.get("copy")}, a ${terms.get("move")}, or a ${terms.get("destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("concrete-const-movable")}`);
+page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with a ${terms.get("copy")}, a ${terms.get("move")}, or a ${terms.get("destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("destructive-movable-concrete-const")}`);
 
 
 
@@ -64,10 +64,10 @@ page.bullets([
 	terms.get("accessor") + " of a concrete-const value",
 ]);
 
-page.anchor("concrete_const_movable");
-page.h3("Concrete-Const-Movable");
-page.text(`Concrete-const values are values that are ${terms.get("concrete")} and non-mutable except by ${terms.get("destructive move")}. Mutating a concrete-const-movable value in any way other than ${terms.get("destructive move")} is ${terms.get("undefined behavior")}.`);
-page.text("The following are concrete-const-movable expressions:");
+page.anchor("destructive_movable_concrete_const");
+page.h3("Destructive-Movable-Concrete-Const");
+page.text(`Destructive-movable-concrete-const values are values that are ${terms.get("concrete")} and only mutable by ${terms.get("destructive move")}. Mutating a destructive-movable-concrete-const value in any way other than ${terms.get("destructive move")} is ${terms.get("undefined behavior")}.`);
+page.text("The following are destructive-movable-concrete-const expressions:");
 page.bullets([
 	terms.get("const variables") + " in function scope",
 	`${terms.get("unwrap")} of a const ${terms.get("optional")}`,

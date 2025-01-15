@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.10.0"></a>
+## v0.0.10.0
+- Added change to name of `destructive-movable-concrete-const` Panther value category (from `concrete-const-movable`)
+- Fixed various mistakes in Panther documentation value categories page
+
+
+<!---------------------------------->
 <a name="v0.0.9.0"></a>
 ## v0.0.9.0
 - Added the Undefined Behavior page to Panther documentation
@@ -39,7 +46,7 @@
 - Adjusted margins from 20% to 25%
 - Adjusted navbar title fade transition from 0.5s to 0.75s
 - Fixed `News` tab going to `Downloads`
-- Fixed hightlighting of `->` Panther code snippet not being red 
+- Fixed highlighting of `->` Panther code snippet not being red 
 
 
 <!---------------------------------->
@@ -62,7 +69,7 @@
 - Added transition on dropdown
 - Added footer
 - Added home page splash
-- Updated licencing to use Apache License v2.0 with LLVM and PCIT exceptions
+- Updated licensing to use Apache License v2.0 with LLVM and PCIT exceptions
 - Fixed typos
 - Fixed links being the wrong color
 - Fixed header of Panther code snippet being the wrong color
@@ -87,7 +94,7 @@
 <!---------------------------------->
 <a name="v0.0.4.3"></a>
 ## v0.0.4.3
-- Fixed code snippet line numbers not lining up correcty on mobile when landscape
+- Fixed code snippet line numbers not lining up correctly on mobile when landscape
 - Fixed code snippet body not being the correct width at all zoom levels on desktop
 
 
@@ -125,7 +132,7 @@
 <a name="v0.0.3.0"></a>
 ## v0.0.3.0
 - Added hamburger dropdown in header on mobile 
-- Added Github logo next to `Source Code` button in header
+- Added GitHub logo next to `Source Code` button in header
 - Fixed the mobile landscape experience
 
 
