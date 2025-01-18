@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.11.0"></a>
+## v0.0.11.0
+- Added `concrete-forwardable` to Panther value categories page
+- Switched `Odin` to `Carbon` in list of languages that Panther is an alternative to on Panther home page
+
+
+<!---------------------------------->
 <a name="v0.0.10.0"></a>
 ## v0.0.10.0
 - Added change to name of `destructive-movable-concrete-const` Panther value category (from `concrete-const-movable`)

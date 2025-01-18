@@ -38,6 +38,7 @@ term("undefined behavior", "/site/documentation/panther/undefined_behavior.html"
 term("ephemeral", "/site/documentation/panther/value_categories.html#ephemeral");
 term("concrete", "/site/documentation/panther/value_categories.html#concrete");
 term("concrete-mutable", "/site/documentation/panther/value_categories.html#concrete_mutable");
+term("concrete-forwardable", "/site/documentation/panther/value_categories.html#concrete_forwardable");
 term("concrete-const", "/site/documentation/panther/value_categories.html#concrete_const");
 term("destructive-movable-concrete-const", "/site/documentation/panther/value_categories.html#concrete_const_movable");
 
@@ -48,10 +49,14 @@ term("literals");
 term("fluid literals");
 term("Fluid literals");
 
+term("RHS");
+term("LHS");
+
 
 term("copy");
 term("move");
 term("destructive move");
+term("forward");
 
 
 term("var variables");

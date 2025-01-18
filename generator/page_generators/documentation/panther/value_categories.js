@@ -37,19 +37,24 @@ page.h2("Concrete");
 page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with a ${terms.get("copy")}, a ${terms.get("move")}, or a ${terms.get("destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("destructive-movable-concrete-const")}`);
 
 
-
 page.anchor("concrete_mutable");
 page.h3("Concrete-Mutable");
-
 page.text(`Concrete-mutable values are values that are ${terms.get("concrete")} and mutable.`);
 page.text("The following are concrete-mutable expressions:");
 page.bullets([
 	terms.get("var variables"),
 	terms.get("dereference") + " of a non-read-only pointer",
 	terms.get("mut parameters"),
-	terms.get("in parameters"),
 	`${terms.get("unwrap")} of a non-const ${terms.get("optional")}`,
 	terms.get("accessor") + " of a concrete-mutable value",
+]);
+
+page.anchor("concrete_forwardable");
+page.h3("Concrete-Forwardable");
+page.text(`Concrete-forwardable values are values that are ${terms.get("concrete")}, and mutable. Concrete-forwardable is the only value category that is allowed to be ${terms.get("RHS")} of a ${terms.get("forward")}.`);
+page.text("The following are concrete-forwardable expressions:");
+page.bullets([
+	terms.get("in parameters"),
 ]);
 
 

@@ -76,9 +76,14 @@
 			<li><code>var variables</code></li>
 			<li><code>dereference</code> of a non-read-only pointer</li>
 			<li><code>mut parameters</code></li>
-			<li><code>in parameters</code></li>
 			<li><code>unwrap</code> of a non-const <code>optional</code></li>
 			<li><code>accessor</code> of a concrete-mutable value</li>
+		</ul>
+<div id="concrete_forwardable"></div>		<h3>Concrete-Forwardable</h3>
+		<p>Concrete-forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and mutable. Concrete-forwardable is the only value category that is allowed to be <code>RHS</code> of a <code>forward</code>.</p>
+		<p>The following are concrete-forwardable expressions:</p>
+		<ul>
+			<li><code>in parameters</code></li>
 		</ul>
 <div id="concrete_const"></div>		<h3>Concrete-Const</h3>
 		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>

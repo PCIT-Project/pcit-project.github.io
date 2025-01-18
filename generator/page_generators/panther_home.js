@@ -15,7 +15,7 @@ const html = require("../html.js");
 let page = new Page("Panther Programming Language", "Panther.html");
 
 page.h1("Panther Programming Language");
-page.text("Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Odin.");
+page.text("Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Carbon.");
 
 page.h2("Help programmers write good/fast code, without getting in the way");
 page.bullets([
