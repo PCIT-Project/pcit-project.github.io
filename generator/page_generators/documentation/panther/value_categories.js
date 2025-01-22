@@ -20,6 +20,7 @@ page.h1("Panther Value Categories");
 page.text(`All expressions have a value category. In C-like languages, the two main value categories are usually ${terms.get("lvalue")} and ${terms.get("rvalue")}. In Panther, there are also two main categories: ${terms.get("concrete")} and ${terms.get("ephemeral")}. These are very similar to ${terms.get("lvalue")} and ${terms.get("rvalue")} respectively, but they are different enough that it warranted new names.`);
 
 
+
 page.anchor("ephemeral");
 page.h2("Ephemeral");
 page.text(`Ephemeral values are very similar to ${terms.get("rvalue")} values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as ${terms.get("fluid literals")} are ephemeral.`);
@@ -30,6 +31,7 @@ page.bullets([
 	terms.get("def variables"),
 	"template parameters",
 ]);
+
 
 
 page.anchor("concrete");

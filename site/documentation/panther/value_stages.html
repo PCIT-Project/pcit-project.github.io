@@ -16,7 +16,7 @@
 	<meta name="color-scheme" content="dark">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Panther Documentation | PCIT Project</title>
+	<title>Panther Value Stages | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -56,13 +56,34 @@
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 	<div class="context">
-		<h1>Panther Documentation</h1>
-		<p>Documentation for the Panther programming language.</p>
-<div class="info">		<h2 style="padding-top: 0px;">Important Note</h2>
-		<p>As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete</p>
-</div>		<p><a href="/site/documentation/panther/value_categories.html">Value Categories</a></p>
-		<p><a href="/site/documentation/panther/value_stages.html">Value Stages</a></p>
-		<p><a href="/site/documentation/panther/undefined_behavior.html">Undefined Behavior</a></p>
+		<h1>Panther Value Stages</h1>
+		<p>All expressions have a value stage which dictate which stage of compilation it may be used in.</p>
+<div id="comptime"></div>		<h2>Comptime</h2>
+		<p>Comptime values are values that are known at compile-time and can be used as comptime expressions.</p>
+		<p>The following are runtime expressions:</p>
+		<ul>
+			<li><code>def variables</code></li>
+			<li>template parameters</li>
+			<li>comptime function calls</li>
+		</ul>
+<div id="constexpr"></div>		<h2>Constexpr</h2>
+		<p>The term "constexpr" in Panther does not have the same exact meaning as it does in C++. Constexpr values are values that may be used inside a comptime function but are not comptime themselves. Anywhere that requires a constexpr value also accept comptime values.</p>
+		<p>The following are runtime expressions:</p>
+		<ul>
+			<li>global <code>const variables</code></li>
+			<li>parameters in a comptime function</li>
+			<li>return parameters in a comptime function</li>
+			<li>error parameters in a comptime function</li>
+		</ul>
+<div id="runtime"></div>		<h2>Runtime</h2>
+		<p>Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept constexpr and comptime values.</p>
+		<p>The following are runtime expressions:</p>
+		<ul>
+			<li>global <code>var variables</code></li>
+			<li>calls to external functions that are unknown / not linked in by the build system</li>
+			<li>functions that have runtime values in their bodies</li>
+			<li><code>var variables</code> and <code>const variables</code> declared in function scope</li>
+		</ul>
 
 
 	</div>

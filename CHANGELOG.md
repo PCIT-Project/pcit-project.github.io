@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.12.0"></a>
+## v0.0.12.0
+- Added the Value Stages page to Panther documentation
+
+
+<!---------------------------------->
 <a name="v0.0.11.0"></a>
 ## v0.0.11.0
 - Added `concrete-forwardable` to Panther value categories page

@@ -74,6 +74,11 @@ term("unwrap");
 term("optional");
 
 
+term("comptime");
+term("constexpr");
+term("runtime");
+
+
 ///////////////////////////////////
 // C/C++
 
