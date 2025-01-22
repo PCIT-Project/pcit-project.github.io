@@ -26,7 +26,7 @@ page.text("The following are runtime expressions:");
 page.bullets([
 	terms.get("def variables"),
 	"template parameters",
-	"comptime function calls"
+	"comptime function calls with all parameters being comptime"
 ]);
 
 
@@ -39,6 +39,9 @@ page.bullets([
 	"parameters in a comptime function",
 	"return parameters in a comptime function",
 	"error parameters in a comptime function",
+	terms.get("const variables") + " defined in a comptime function",
+	terms.get("var variables") + " defined in a comptime function",
+	"comptime function calls with all parameters being comptime and/or constexpr (must have at least one constexpr parameter, or else it's comptime)",
 ]);
 
 

@@ -64,7 +64,7 @@
 		<ul>
 			<li><code>def variables</code></li>
 			<li>template parameters</li>
-			<li>comptime function calls</li>
+			<li>comptime function calls with all parameters being comptime</li>
 		</ul>
 <div id="constexpr"></div>		<h2>Constexpr</h2>
 		<p>The term "constexpr" in Panther does not have the same exact meaning as it does in C++. Constexpr values are values that may be used inside a comptime function but are not comptime themselves. Anywhere that requires a constexpr value also accept comptime values.</p>
@@ -74,6 +74,9 @@
 			<li>parameters in a comptime function</li>
 			<li>return parameters in a comptime function</li>
 			<li>error parameters in a comptime function</li>
+			<li><code>const variables</code> defined in a comptime function</li>
+			<li><code>var variables</code> defined in a comptime function</li>
+			<li>comptime function calls with all parameters being comptime and/or constexpr (must have at least one constexpr parameter, or else it's comptime)</li>
 		</ul>
 <div id="runtime"></div>		<h2>Runtime</h2>
 		<p>Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept constexpr and comptime values.</p>
