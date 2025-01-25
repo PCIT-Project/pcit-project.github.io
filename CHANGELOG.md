@@ -1,6 +1,18 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.13.1"></a>
+## v0.0.13.1
+- Updated README
+
+
+<!---------------------------------->
+<a name="v0.0.13.0"></a>
+## v0.0.13.0
+- Added some examples of comptime and constexpr values to the Panther documentaion of Value Stages
+
+
+<!---------------------------------->
 <a name="v0.0.12.0"></a>
 ## v0.0.12.0
 - Added the Value Stages page to Panther documentation
