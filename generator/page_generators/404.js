@@ -13,7 +13,12 @@ const html = require("../html.js");
 
 let page = new Page("404", "error404.html");
 
-page.h1("<span style=\"color: #ee1111;\">" + html.santitize("<Error|W404>") + " The page you were looking for does not exist</span>");
+page.raw(html.tag("div", "", "height: 3em;"));
+
+page.code_block("Diagnostic", 
+`<Error|W404> Page doesn't exist
+	<Info> Did you type the URL in wrong?
+	<Info> Maybe try the search page (/site/search.html)?`);
 
 
 page.generate();

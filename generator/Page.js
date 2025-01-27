@@ -103,7 +103,7 @@ class Page{
 		let requires_lines = false;
 		if(language == "Panther" || language == "C++" || language == "C" || language == "Text"){
 			requires_lines = true;
-		}else if(language == "Terminal"){
+		}else if(language == "Terminal" || language == "Diagnostic"){
 
 		}else{
 			assert(false, `Unknown language \"${language}\"`);
@@ -124,14 +124,15 @@ class Page{
 
 		let header_title_style = "background-color: #888888";
 		switch(language){
-			case "Panther":  header_title_style = "background-color: #06b6d4;"; break;
-			case "C++":      header_title_style = "background-color: #005996;"; break;
-			case "C":        header_title_style = "background-color: #004283;"; break;
-			case "Terminal": header_title_style = "background-color: #333333; color: #ffffff;"; break;
+			case "Panther":    header_title_style = "background-color: #06b6d4;"; break;
+			case "C++":        header_title_style = "background-color: #005996;"; break;
+			case "C":          header_title_style = "background-color: #004283;"; break;
+			case "Terminal":   header_title_style = "background-color: #333333; color: #ffffff;"; break;
+			case "Diagnostic": header_title_style = "background-color: #333333; color: #ffffff;"; break;
 		}
 
 
-		this.body += `<div><div class="code-header" style="${header_title_style}">${language}`;
+		this.body += `<div><div class="code-header" style="${header_title_style}">${language == "Diagnostic" ? "Terminal (Diagnostic)" : language}`;
 		this.body += `<button class="code-copy" onclick="copy_code_${this.counter}()">Copy</button></div>`;
 		this.counter += 1;
 
@@ -180,7 +181,7 @@ class Page{
 			this.body += "</div><div class=\"code-src\">";
 
 		}else{
-			if(language == "Terminal"){
+			if(language == "Terminal" || language == "Diagnostic"){
 				this.body += "<pre class=\"code code-src code-without-lines\" style=\"background-color: black; color: #ffffff;\">";
 
 			}else{
@@ -191,8 +192,13 @@ class Page{
 
 		if(language == "Panther"){
 			this.body += syntax_highlighting.panther(code);
+
 		}else if(language == "C++" || language == "C" ){
 			this.body += syntax_highlighting.cpp(code);
+
+		}else if(language == "Diagnostic"){
+			this.body += syntax_highlighting.diagnostic(code);
+
 		}else{
 			this.body += html.santitize(code);
 		}

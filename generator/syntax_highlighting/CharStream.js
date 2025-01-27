@@ -28,6 +28,17 @@ class CharStream{
 		this.cursor += ammount;
 	}
 
+	peek_is(str){
+		if(this.cursor + str.length >= this.text.length){ return false; }
+
+		for(var i=0; i<str.length;i++){
+			if(this.text[this.cursor + i] != str[i]){ return false; }
+		}
+
+		return true;
+	}
+
+
 	EOF(){
 		return this.cursor >= this.text.length;
 	}

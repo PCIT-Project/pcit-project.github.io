@@ -364,6 +364,7 @@ code {
 
 	.code{
 		font-size: 1vw;
+		tab-size: 7;
 	}
 
 	.code-header{
