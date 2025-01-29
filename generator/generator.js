@@ -83,9 +83,10 @@ require("./page_generators/tutorials/PLNK/plnk_tutorial.js");
 require("./page_generators/documentation/documentation.js");
 
 require("./page_generators/documentation/panther/documentation.js");
+require("./page_generators/documentation/panther/undefined_behavior.js");
 require("./page_generators/documentation/panther/value_categories.js");
 require("./page_generators/documentation/panther/value_stages.js");
-require("./page_generators/documentation/panther/undefined_behavior.js");
+require("./page_generators/documentation/panther/when_conditionals.js");
 
 require("./page_generators/documentation/panther_std/documentation.js");
 

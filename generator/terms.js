@@ -74,9 +74,9 @@ term("unwrap");
 term("optional");
 
 
-term("comptime");
-term("constexpr");
-term("runtime");
+term("comptime", "/site/documentation/panther/value_stages.html#comptime");
+term("constexpr", "/site/documentation/panther/value_stages.html#constexpr");
+term("runtime", "/site/documentation/panther/value_stages.html#runtime");
 
 
 ///////////////////////////////////

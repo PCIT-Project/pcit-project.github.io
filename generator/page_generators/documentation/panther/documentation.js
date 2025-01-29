@@ -24,9 +24,10 @@ page.text("As Panther is pre-release, anything in the documentation may change. 
 page.end_info();
 
 
+page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
 page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));
 page.text(html.link("Value Stages", "/site/documentation/panther/value_stages.html"));
-page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
+page.text(html.link("When Conditionals", "/site/documentation/panther/when_conditionals.html"));
 
 
 

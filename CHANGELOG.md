@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.15.0"></a>
+## v0.0.15.0
+- Added "When Conditionals" page to Panther documentation
+- Fixed missing links from terms `comptime`, `constexpr`, and `runtime`
+
+
+<!---------------------------------->
 <a name="v0.0.14.0"></a>
 ## v0.0.14.0
 - Created new 404 page
@@ -21,7 +28,7 @@
 <!---------------------------------->
 <a name="v0.0.12.0"></a>
 ## v0.0.12.0
-- Added the Value Stages page to Panther documentation
+- Added "Value Stages" page to Panther documentation
 
 
 <!---------------------------------->
@@ -41,7 +48,7 @@
 <!---------------------------------->
 <a name="v0.0.9.0"></a>
 ## v0.0.9.0
-- Added the Undefined Behavior page to Panther documentation
+- Added "Undefined Behavior" page to Panther documentation
 - Added support for `%`, `+%`, `-%`, and `*%` in Panther code snippet syntax highlighting
 
 
@@ -54,7 +61,7 @@
 <!---------------------------------->
 <a name="v0.0.8.0"></a>
 ## v0.0.8.0
-- Added value categories page to Panther documentation
+- Added "Value Categories" page to Panther documentation
 - Improved the Panther home page
 	- Added the "Versatile Usage" section (merged with the C/C++ interoperability section)
 	- Added the "Learn More" section
