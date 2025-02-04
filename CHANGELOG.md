@@ -1,10 +1,17 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.15.1"></a>
+## v0.0.15.1
+- Fixed indentation in code blocks when in landscape on mobile
+- Fixed inline code blocks in README
+
+
+<!---------------------------------->
 <a name="v0.0.15.0"></a>
 ## v0.0.15.0
 - Added "When Conditionals" page to Panther documentation
-- Fixed missing links from terms `comptime`, `constexpr`, and `runtime`
+- Fixed missing links from terms `comptime`, `constexpr`, and `runtime`	
 
 
 <!---------------------------------->

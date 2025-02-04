@@ -320,6 +320,10 @@ code {
 
 /*mobile landscape*/
 @media only screen and (max-width: 767px) and (orientation: landscape){
+	h1{
+		font-size: 4em;
+	}
+
 	.navbar-img{
 		width: 10vmin;
 		padding: 1vmin;
@@ -359,12 +363,11 @@ code {
 
 
 	body{
-		font-size: 1.3vw;
+		font-size: 0.6em;
 	}
 
 	.code{
 		font-size: 1vw;
-		tab-size: 7;
 	}
 
 	.code-header{
