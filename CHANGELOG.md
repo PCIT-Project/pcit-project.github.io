@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.16.0"></a>
+## v0.0.16.0
+- Added devlog "Dependencies V2"
+- Added term "when conditionals"
+
+
+<!---------------------------------->
 <a name="v0.0.15.1"></a>
 ## v0.0.15.1
 - Fixed indentation in code blocks when in landscape on mobile

@@ -10,6 +10,7 @@
 
 const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
+const terms = require("../../terms.js");
 
 let page = new Page("New Systems Requires Major Changes | Devlog", "devlog/new_systems_requires_major_changes.html");
 
@@ -21,7 +22,7 @@ page.h2("Order Independent Declaration");
 
 page.paragraph("Upon starting work on semantic analysis of structs in Panther, I came to realize that it would be less work if I implemented order independent declaration (OID) first. I finished up " + html.inline_code(html.link("v0.0.77.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.77.0")) + ", which included parsing of structs, and began work on OID. I had already thought about how I would implement OID before I began working on semantic analysis and had a plan for implementing it.");
 
-page.paragraph("The plan was, during semantic analysis, to make a first pass and find all the global declarations. Semantic analysis could then make a second pass where it could go through all the definitions. If any definition requires a definition of another symbol or type that hasn’t been defined yet, it would go through the definition of that dependency and then come back and continue. This could potentially be recursive, so there had to be checks of cyclic dependencies, etc. A version of the plan already worked perfectly for functions and templated functions. I had decided that it would be best to implement this after Panther had global variables, comptime functions, when conditionals, imports, and types where the base is not a primitive.");
+page.paragraph(`The plan was, during semantic analysis, to make a first pass and find all the global declarations. Semantic analysis could then make a second pass where it could go through all the definitions. If any definition requires a definition of another symbol or type that hasn’t been defined yet, it would go through the definition of that dependency and then come back and continue. This could potentially be recursive, so there had to be checks of cyclic dependencies, etc. A version of the plan already worked perfectly for functions and templated functions. I had decided that it would be best to implement this after Panther had global variables, comptime functions, ${terms.get("when conditionals")}, imports, and types where the base is not a primitive.`);
 
 page.paragraph("I had met all the requirements for OID that I had laid out for myself, so I went to implement it. However, when I began considering the exact implementation details, I realized that the plan could cause lots of waiting during multithreading and tank performance. To explain how, consider the following code:");
 

@@ -78,6 +78,8 @@ term("comptime", "/site/documentation/panther/value_stages.html#comptime");
 term("constexpr", "/site/documentation/panther/value_stages.html#constexpr");
 term("runtime", "/site/documentation/panther/value_stages.html#runtime");
 
+term("when conditionals", "/site/documentation/panther/when_conditionals.html");
+
 
 ///////////////////////////////////
 // C/C++

@@ -100,5 +100,6 @@ require("./page_generators/documentation/pir/documentation.js");
 require("./page_generators/devlog/devlog.js");
 
 require("./page_generators/devlog/new_systems_requires_major_changes.js");
+require("./page_generators/devlog/dependencies_v2.js");
 
 
