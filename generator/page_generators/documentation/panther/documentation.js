@@ -23,7 +23,7 @@ page.h2("Important Note", "padding-top: 0px;");
 page.text("As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete");
 page.end_info();
 
-
+page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
 page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
 page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));
 page.text(html.link("Value Stages", "/site/documentation/panther/value_stages.html"));

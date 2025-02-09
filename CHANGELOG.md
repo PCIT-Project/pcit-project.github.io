@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.17.0"></a>
+## v0.0.17.0
+- Added "Modules" page to Panther documentation
+- Made slight modification to "When Conditionals" page in Panther documentation
+
+
+<!---------------------------------->
 <a name="v0.0.16.0"></a>
 ## v0.0.16.0
 - Added devlog "Dependencies V2"
