@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.17.1"></a>
+## v0.0.17.1
+- Fixed grammar mistakes and added some to the "Undefined Behavior" page of Panther documentation
+
+
+<!---------------------------------->
 <a name="v0.0.17.0"></a>
 ## v0.0.17.0
 - Added "Modules" page to Panther documentation

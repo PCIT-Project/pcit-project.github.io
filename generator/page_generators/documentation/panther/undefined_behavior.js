@@ -16,7 +16,9 @@ let page = new Page("Undefined Behavior", "documentation/panther/undefined_behav
 
 page.h1("Undefined Behavior");
 
-page.paragraph("The term \"Undefined Behavior\" (commonly shortened to \"UB\") refers to any behavior cannot be defined by the language. This could be because the behavior differs depending on the platform, or because the compiler is allowed to expect that it will never happen. Anything that is undefined behavior is explicitly disallowed by the language and should be avoided.");
+page.paragraph("The term \"Undefined Behavior\" (commonly shortened to \"UB\") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.");
+
+page.paragraph("The Panther compiler attempts to detect undefined behavior at compile time. In addition, there are build settings that can be enabled that check for undefined behavior at runtime (both for debug and release builds). It is impossible to detect all undefined behavior however, so these detection mechanisms do not guarantee that no undefined behavior exists in the Panther code.");
 
 
 page.h2("Example");
