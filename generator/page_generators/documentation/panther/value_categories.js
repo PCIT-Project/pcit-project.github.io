@@ -36,7 +36,7 @@ page.bullets([
 
 page.anchor("concrete");
 page.h2("Concrete");
-page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with a ${terms.get("copy")}, a ${terms.get("move")}, or a ${terms.get("destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("destructive-movable-concrete-const")}`);
+page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an ${terms.get("operator copy")}, a ${terms.get("operator move")}, or a ${terms.get("operator destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("destructive-movable-concrete-const")}`);
 
 
 page.anchor("concrete_mutable");
@@ -53,7 +53,7 @@ page.bullets([
 
 page.anchor("concrete_forwardable");
 page.h3("Concrete-Forwardable");
-page.text(`Concrete-forwardable values are values that are ${terms.get("concrete")}, and mutable. Concrete-forwardable is the only value category that is allowed to be ${terms.get("RHS")} of a ${terms.get("forward")}.`);
+page.text(`Concrete-forwardable values are values that are ${terms.get("concrete")}, and mutable. Concrete-forwardable is the only value category that is allowed to be argument of an ${terms.get("operator forward")}.`);
 page.text("The following are concrete-forwardable expressions:");
 page.bullets([
 	terms.get("in parameters"),
@@ -73,7 +73,7 @@ page.bullets([
 
 page.anchor("destructive_movable_concrete_const");
 page.h3("Destructive-Movable-Concrete-Const");
-page.text(`Destructive-movable-concrete-const values are values that are ${terms.get("concrete")} and only mutable by ${terms.get("destructive move")}. Mutating a destructive-movable-concrete-const value in any way other than ${terms.get("destructive move")} is ${terms.get("undefined behavior")}.`);
+page.text(`Destructive-movable-concrete-const values are values that are ${terms.get("concrete")} and only mutable by ${terms.get("operator destructive move")}. Mutating a destructive-movable-concrete-const value in any way other than ${terms.get("operator destructive move")} is ${terms.get("undefined behavior")}.`);
 page.text("The following are destructive-movable-concrete-const expressions:");
 page.bullets([
 	terms.get("const variables") + " in function scope",

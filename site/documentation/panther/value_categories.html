@@ -68,7 +68,7 @@
 			<li>template parameters</li>
 		</ul>
 <div id="concrete"></div>		<h2>Concrete</h2>
-		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with a <code>copy</code>, a <code>move</code>, or a <code>destructive move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const_movable">destructive-movable-concrete-const</a></code></p>
+		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code>, a <code>operator move</code>, or a <code>operator destructive move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const_movable">destructive-movable-concrete-const</a></code></p>
 <div id="concrete_mutable"></div>		<h3>Concrete-Mutable</h3>
 		<p>Concrete-mutable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and mutable.</p>
 		<p>The following are concrete-mutable expressions:</p>
@@ -80,7 +80,7 @@
 			<li><code>accessor</code> of a concrete-mutable value</li>
 		</ul>
 <div id="concrete_forwardable"></div>		<h3>Concrete-Forwardable</h3>
-		<p>Concrete-forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and mutable. Concrete-forwardable is the only value category that is allowed to be <code>RHS</code> of a <code>forward</code>.</p>
+		<p>Concrete-forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and mutable. Concrete-forwardable is the only value category that is allowed to be argument of an <code>operator forward</code>.</p>
 		<p>The following are concrete-forwardable expressions:</p>
 		<ul>
 			<li><code>in parameters</code></li>
@@ -95,7 +95,7 @@
 			<li><code>accessor</code> of a concrete-const value</li>
 		</ul>
 <div id="destructive_movable_concrete_const"></div>		<h3>Destructive-Movable-Concrete-Const</h3>
-		<p>Destructive-movable-concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and only mutable by <code>destructive move</code>. Mutating a destructive-movable-concrete-const value in any way other than <code>destructive move</code> is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
+		<p>Destructive-movable-concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and only mutable by <code>operator destructive move</code>. Mutating a destructive-movable-concrete-const value in any way other than <code>operator destructive move</code> is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
 		<p>The following are destructive-movable-concrete-const expressions:</p>
 		<ul>
 			<li><code>const variables</code> in function scope</li>

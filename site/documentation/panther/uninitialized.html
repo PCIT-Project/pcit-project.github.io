@@ -16,7 +16,7 @@
 	<meta name="color-scheme" content="dark">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Panther Documentation | PCIT Project</title>
+	<title>Uninitialized | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -56,16 +56,16 @@
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 	<div class="context">
-		<h1>Panther Documentation</h1>
-		<p>Documentation for the Panther programming language.</p>
-<div class="info">		<h2 style="padding-top: 0px;">Important Note</h2>
-		<p>As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete</p>
-</div>		<p><a href="/site/documentation/panther/modules.html">Modules</a></p>
-		<p><a href="/site/documentation/panther/undefined_behavior.html">Undefined Behavior</a></p>
-		<p><a href="/site/documentation/panther/uninitialized.html">Uninitialized</a></p>
-		<p><a href="/site/documentation/panther/value_categories.html">Value Categories</a></p>
-		<p><a href="/site/documentation/panther/value_stages.html">Value Stages</a></p>
-		<p><a href="/site/documentation/panther/when_conditionals.html">When Conditionals</a></p>
+		<h1>Uninitialized</h1>
+		<p>&emsp;&emsp;The term "uninitialized" refers to any value is not initialized and therefore in an unusable state. If a value is uninitialized, the only valid operations on it are writes. The only way for an uninitialized value to stop being uninitialized is for it to undergo <code>initialization</code>. This does not include <code>assignment</code> even if the <code>operator delete</code> of the type of the value does not contain any read operations.</p>
+		<p>Examples:</p>
+		<ul>
+			<li>variables defined an <code>initializer value</code></li>
+			<li>value that undergoes <code>operator delete</code></li>
+			<li>value that undergoes <code>operator destructive move</code></li>
+			<li>value that undergoes <code>operator forward</code></li>
+			<li>element of an <code>array</code> after the <code>array</code> undergoes <code>initialization</code></li>
+		</ul>
 
 
 	</div>

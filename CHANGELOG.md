@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.18.0"></a>
+## v0.0.18.0
+- Added the "Uninitialized" page to Panther documentation
+- Changed the text of a few terms
+
+
+<!---------------------------------->
 <a name="v0.0.17.1"></a>
 ## v0.0.17.1
 - Fixed grammar mistakes and added some to the "Undefined Behavior" page of Panther documentation

@@ -34,6 +34,7 @@ exports.get = function(text){
 // terms
 
 term("undefined behavior", "/site/documentation/panther/undefined_behavior.html");
+term("uninitialized", "/site/documentation/panther/uninitialized.html");
 
 term("ephemeral", "/site/documentation/panther/value_categories.html#ephemeral");
 term("concrete", "/site/documentation/panther/value_categories.html#concrete");
@@ -41,7 +42,6 @@ term("concrete-mutable", "/site/documentation/panther/value_categories.html#conc
 term("concrete-forwardable", "/site/documentation/panther/value_categories.html#concrete_forwardable");
 term("concrete-const", "/site/documentation/panther/value_categories.html#concrete_const");
 term("destructive-movable-concrete-const", "/site/documentation/panther/value_categories.html#concrete_const_movable");
-
 
 term("literal");
 term("literals");
@@ -53,10 +53,10 @@ term("RHS");
 term("LHS");
 
 
-term("copy");
-term("move");
-term("destructive move");
-term("forward");
+term("operator copy");
+term("operator move");
+term("operator destructive move");
+term("operator forward");
 
 
 term("var variables");
@@ -79,6 +79,21 @@ term("constexpr", "/site/documentation/panther/value_stages.html#constexpr");
 term("runtime", "/site/documentation/panther/value_stages.html#runtime");
 
 term("when conditionals", "/site/documentation/panther/when_conditionals.html");
+
+
+term("operator new");
+term("operator delete");
+term("in-place new");
+term("in-place delete");
+
+term("initialization");
+
+term("assignment");
+
+term("initializer value");
+
+term("array");
+
 
 
 ///////////////////////////////////
