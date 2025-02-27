@@ -9,10 +9,13 @@
 
 
 const Page = require("../../Page.js").Page;
+const Language = require("../../Page.js").Language;
 const html = require("../../html.js");
 const terms = require("../../terms.js");
+const search = require("../../search.js");
 
-let page = new Page("New Systems Requires Major Changes | Devlog", "devlog/new_systems_requires_major_changes.html");
+
+let page = new Page("New Systems Requires Major Changes | Devlog", "devlog/new_systems_requires_major_changes.html", [search.Category.PANTHER, search.Category.DEVLOG]);
 
 page.h1("New Systems Requires Major Changes");
 page.text("Written by: Andrew Feldman", "color: #878481;");
@@ -26,7 +29,7 @@ page.paragraph(`The plan was, during semantic analysis, to make a first pass and
 
 page.paragraph("I had met all the requirements for OID that I had laid out for myself, so I went to implement it. However, when I began considering the exact implementation details, I realized that the plan could cause lots of waiting during multithreading and tank performance. To explain how, consider the following code:");
 
-page.code_block("Panther", `def some_lib = @import("some_lib.pthr");
+page.code_block(Language.Panther, `def some_lib = @import("some_lib.pthr");
 
 func bar = () #pub -> Foo {
 	// do something...

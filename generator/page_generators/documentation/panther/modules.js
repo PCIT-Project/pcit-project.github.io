@@ -9,10 +9,12 @@
 
 
 const Page = require("../../../Page.js").Page;
+const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
+const search = require("../../../search.js");
 
-let page = new Page("Modules", "documentation/panther/modules.html");
+let page = new Page("Modules", "documentation/panther/modules.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
 
 page.h1("Modules");
 
@@ -31,7 +33,7 @@ page.text(`For a symbol declared in the file to be accessible through the module
 
 page.h2("Example");
 
-page.code_block("Panther", 
+page.code_block(Language.Panther,
 `// importing the standard library
 def std = @import("std");
 

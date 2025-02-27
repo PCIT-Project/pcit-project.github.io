@@ -9,10 +9,12 @@
 
 
 const Page = require("../../../Page.js").Page;
+const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
+const search = require("../../../search.js");
 
-let page = new Page("When Conditionals", "documentation/panther/when_conditionals.html");
+let page = new Page("When Conditionals", "documentation/panther/when_conditionals.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
 
 page.h1("When Conditionals");
 
@@ -21,7 +23,7 @@ page.text(`When conditionals are conditionals that are evaluated at compile-time
 
 page.h2("Example");
 
-page.code_block("Panther", 
+page.code_block(Language.Panther,
 `def math = @import("math");
 
 when(math.PI < 2.0){

@@ -6,11 +6,13 @@
 /*                                                                                              */
 /************************************************************************************************/
 
-html {
+html{
 	scroll-behavior: smooth;
+	scroll-padding-top: 6vmin;
+
 }
 
-body {
+body{
 	margin: 0;
 	background-color: #151617;
 	color-scheme: dark;
@@ -37,12 +39,14 @@ h3{
 	padding-top: 1em;
 }
 
-code {
+code{
 	background-color: #1e2122;
 }
 
 
-.navbar {
+/* navbar */
+
+.navbar{
 	width: 100%;
 	height: 12vmin;
 	position: fixed;
@@ -51,7 +55,7 @@ code {
 	user-select: none;
 }
 
-.navbar-title {
+.navbar-title{
 	float: left;
 	display: block;
 	text-align: center;
@@ -61,7 +65,7 @@ code {
 	color: #06b6d4!important;
 }
 
-.navbar-item {
+.navbar-item{
 	float: right;
 	display: block;
 	color: #f2f2f2!important;
@@ -75,7 +79,7 @@ code {
 }
 
 
-.hamburger-button {
+.hamburger-button{
 	float: right;
 	color: #f2f2f2;
 	text-align: center;
@@ -85,7 +89,7 @@ code {
 }
 
 
-.navbar-img {
+.navbar-img{
 	float: left;
 }
 
@@ -100,12 +104,12 @@ code {
 }
 
 
-@keyframes navbar-fader-fade {
-	from {
+@keyframes navbar-fader-fade{
+	from{
 		opacity: 0;
 	}
 
-	to {
+	to{
 		opacity: 1;
 	}
 }
@@ -125,13 +129,13 @@ code {
 }
 
 @media (prefers-reduced-motion: reduce){
-	.hamburger-dropdown {
+	.hamburger-dropdown{
 		transition: none;
 	}
 }
 
 
-.hamburger-dropdown-item {
+.hamburger-dropdown-item{
 	display: block;
 	color: #f2f2f2!important;
 	text-align: center;
@@ -145,6 +149,9 @@ code {
 	display: none;
 }
 
+
+
+/* home */
 
 #home-splash{
 	padding-top: 16vmin;
@@ -172,7 +179,7 @@ code {
 
 
 
-.context {
+.context{
 	padding: 12vmin 6vmin;
 }
 
@@ -183,6 +190,61 @@ code {
 	padding: 0 6vmin;
 }
 
+
+
+/* search */
+
+.search-bar{
+	width: calc(100% - 1em);
+	background-color: #1e2122;
+	font-size: 1.5em;
+	padding: 0.5em;
+
+	border-radius: 0.3em;
+	border-width: 2px;
+	border-color: #1e2122;
+}
+
+.search-bar:focus{
+	outline: none !important;
+	border-color: #06b6d4;
+}
+
+
+.search-result-box{
+	background-color: #1e2122;
+	border-radius: 0.3em;
+	border-width: 0px;
+	padding: 0.5em;
+	margin: 1em 0em;
+}
+
+
+.search-match-percentage{
+	float: right;
+	color: #878481;
+	display: inline;
+	font-size: 0.9em;
+	margin-top: 0.2em;
+}
+
+.search-match-title{
+	font-size: 1.2em;
+}
+
+.search-category{
+	display: inline;
+	border-radius: 0.3em;
+	border-width: 1px;
+	border-style: solid;
+	margin-right: 0.4em;
+	padding: 0.1em;
+	font-size: 0.7em;
+}
+
+
+
+/* code */
 
 .code-header{
 	height: 1.5em;
@@ -366,6 +428,11 @@ code {
 		font-size: 0.6em;
 	}
 
+	.search-match-percentage{
+		font-size: 1.5em;
+		margin-top: 0;
+	}
+
 	.code{
 		font-size: 1vw;
 	}
@@ -421,11 +488,11 @@ code {
 		margin-bottom: 1.25em;
 	}
 
-	.context {
+	.context{
 		padding: 5vmin 25%;
 	}
 
-	.footer {
+	.footer{
 		padding: 0 25%;
 	}
 

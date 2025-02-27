@@ -11,9 +11,10 @@
 const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
 const terms = require("../../terms.js");
+const search = require("../../search.js");
 
 
-let page = new Page("Dependencies V2 | Devlog", "devlog/dependencies_v2.html");
+let page = new Page("Dependencies V2 | Devlog", "devlog/dependencies_v2.html", [search.Category.PANTHER, search.Category.DEVLOG]);
 
 page.h1("Dependencies V2");
 page.text("Written by: Andrew Feldman", "color: #878481;");

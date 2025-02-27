@@ -10,7 +10,7 @@
 const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
 
-let page = new Page("Tutorials", "tutorials/tutorials.html");
+let page = new Page("Tutorials", "tutorials/tutorials.html", [require("../../search.js").Category.TUTORIAL]);
 
 page.h1("Tutorials");
 

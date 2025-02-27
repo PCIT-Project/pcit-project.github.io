@@ -51,30 +51,16 @@ make_directory("../site/documentation/pir");
 make_directory("../site/devlog");
 
 
-
 //////////////////////////////////////////////////////////////////////
-// page generators
+// top pages
 
 require("./page_generators/home.js");
 require("./page_generators/404.js");
 require("./page_generators/panther_home.js");
 require("./page_generators/downloads.js");
 require("./page_generators/about.js");
-require("./page_generators/search.js");
+require("./page_generators/search_page.js");
 
-
-///////////////////////////////////
-// tutorials
-
-require("./page_generators/tutorials/tutorials.js");
-
-require("./page_generators/tutorials/Panther/panther_tutorial.js");
-
-require("./page_generators/tutorials/PantherLib/panther_lib_tutorial.js");
-
-require("./page_generators/tutorials/PIR/pir_tutorial.js");
-
-require("./page_generators/tutorials/PLNK/plnk_tutorial.js");
 
 
 ///////////////////////////////////
@@ -100,11 +86,34 @@ require("./page_generators/documentation/pir/documentation.js");
 
 
 ///////////////////////////////////
+// tutorials
+
+require("./page_generators/tutorials/tutorials.js");
+
+require("./page_generators/tutorials/Panther/panther_tutorial.js");
+
+require("./page_generators/tutorials/PantherLib/panther_lib_tutorial.js");
+
+require("./page_generators/tutorials/PIR/pir_tutorial.js");
+
+require("./page_generators/tutorials/PLNK/plnk_tutorial.js");
+
+
+
+///////////////////////////////////
 // devlog
 
 require("./page_generators/devlog/devlog.js");
 
 require("./page_generators/devlog/new_systems_requires_major_changes.js");
 require("./page_generators/devlog/dependencies_v2.js");
+
+
+
+//////////////////////////////////////////////////////////////////////
+// script generators
+
+require("./search.js").generate();
+
 
 

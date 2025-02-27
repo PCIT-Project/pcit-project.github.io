@@ -11,6 +11,20 @@ const assert = require("node:assert");
 const fs = require("node:fs");
 const html = require("./html.js");
 const syntax_highlighting = require("./syntax_highlighting/syntax_highlighting.js");
+const search = require("./search.js");
+
+
+const Language = Object.freeze({
+	Panther: 0,
+	Cpp: 1,
+	C: 2,
+	Text: 3,
+	Terminal: 4,
+	Diagnostic: 5,
+});
+
+
+
 
 class Page{
 	#title;
@@ -18,7 +32,7 @@ class Page{
 	#body;
 	#counter;
 
-	constructor(title, path){
+	constructor(title, path, categories){
 		assert(title !== undefined, "Must have title");
 		assert(path !== undefined, "Must have path");
 
@@ -26,6 +40,12 @@ class Page{
 		this.path = "../site/" + path;
 		this.body = "";
 		this.counter = 0;
+
+		assert(categories !== undefined, "If page shouldn't have categories, put `null`");
+		assert((categories instanceof Array) == false || categories.length > 0, "If page shouldn't have categories, put `null`");
+		if(categories !== null){
+			search.addSearchTarget(this.title, "/site/" + path, categories);
+		}
 	}
 
 
@@ -101,9 +121,9 @@ class Page{
 
 	code_block(language, code){
 		let requires_lines = false;
-		if(language == "Panther" || language == "C++" || language == "C" || language == "Text"){
+		if(language == Language.Panther || language == Language.Cpp || language == Language.C || language == Language.Text){
 			requires_lines = true;
-		}else if(language == "Terminal" || language == "Diagnostic"){
+		}else if(language == Language.Terminal || language == Language.Diagnostic){
 
 		}else{
 			assert(false, `Unknown language \"${language}\"`);
@@ -124,15 +144,15 @@ class Page{
 
 		let header_title_style = "background-color: #888888";
 		switch(language){
-			case "Panther":    header_title_style = "background-color: #06b6d4;"; break;
-			case "C++":        header_title_style = "background-color: #005996;"; break;
-			case "C":          header_title_style = "background-color: #004283;"; break;
-			case "Terminal":   header_title_style = "background-color: #333333; color: #ffffff;"; break;
-			case "Diagnostic": header_title_style = "background-color: #333333; color: #ffffff;"; break;
+			case Language.Panther:    header_title_style = "background-color: #06b6d4;"; break;
+			case Language.Cpp:        header_title_style = "background-color: #005996;"; break;
+			case Language.C:          header_title_style = "background-color: #004283;"; break;
+			case Language.Terminal:   header_title_style = "background-color: #333333; color: #ffffff;"; break;
+			case Language.Diagnostic: header_title_style = "background-color: #333333; color: #ffffff;"; break;
 		}
 
 
-		this.body += `<div><div class="code-header" style="${header_title_style}">${language == "Diagnostic" ? "Terminal (Diagnostic)" : language}`;
+		this.body += `<div><div class="code-header" style="${header_title_style}">${language == Language.Diagnostic ? "Terminal (Diagnostic)" : language}`;
 		this.body += `<button class="code-copy" onclick="copy_code_${this.counter}()">Copy</button></div>`;
 		this.counter += 1;
 
@@ -181,7 +201,7 @@ class Page{
 			this.body += "</div><div class=\"code-src\">";
 
 		}else{
-			if(language == "Terminal" || language == "Diagnostic"){
+			if(language == Language.Terminal || language == Language.Diagnostic){
 				this.body += "<pre class=\"code code-src code-without-lines\" style=\"background-color: black; color: #ffffff;\">";
 
 			}else{
@@ -190,10 +210,10 @@ class Page{
 		}
 
 
-		if(language == "Panther"){
+		if(language == Language.Panther){
 			this.body += syntax_highlighting.panther(code);
 
-		}else if(language == "C++" || language == "C" ){
+		}else if(language == Language.Cpp || language == Language.C ){
 			this.body += syntax_highlighting.cpp(code);
 
 		}else if(language == "Diagnostic"){
@@ -316,4 +336,5 @@ ${this.body}
 	}
 }
 
+exports.Language = Language;
 exports.Page = Page;

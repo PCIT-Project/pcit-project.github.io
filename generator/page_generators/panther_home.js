@@ -9,10 +9,11 @@
 
 
 const Page = require("../Page.js").Page;
+const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
 
-let page = new Page("Panther Programming Language", "Panther.html");
+let page = new Page("Panther Programming Language", "Panther.html", [require("../search.js").Category.PANTHER]);
 
 page.h1("Panther Programming Language");
 page.text("Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Carbon.");
@@ -46,7 +47,7 @@ page.anchor("example");
 page.h2("Example:");
 page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code(html.link("v0.0.43.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0")) + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
 
-page.code_block("Panther",
+page.code_block(Language.Panther,
 `// importing a file
 def some_file = @import("directory/file.pthr");
 

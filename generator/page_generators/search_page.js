@@ -12,11 +12,15 @@ const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 
-let page = new Page("Search", "search.html");
+let page = new Page("Search", "search.html", null);
+
+page.raw("\t\t<script src=\"./search_script.js\"></script>\n\n");
 
 page.h1("Search");
-page.text("Coming Soon...", "font-style: italic;");
 
+page.raw("\t\t<input type=\"text\" oninput=\"on_search_input()\" id=\"search_box\" class=\"search-bar\" placeholder=\"Search the PCIT website\"></input>\n");
+
+page.raw("\t\t<div id=\"results\"></div>\n");
 
 
 

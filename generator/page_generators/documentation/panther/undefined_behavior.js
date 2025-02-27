@@ -9,10 +9,13 @@
 
 
 const Page = require("../../../Page.js").Page;
+const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
+const search = require("../../../search.js");
 
-let page = new Page("Undefined Behavior", "documentation/panther/undefined_behavior.html");
+
+let page = new Page("Undefined Behavior", "documentation/panther/undefined_behavior.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
 
 page.h1("Undefined Behavior");
 
@@ -22,7 +25,7 @@ page.paragraph("The Panther compiler attempts to detect undefined behavior at co
 
 
 page.h2("Example");
-page.code_block("Panther", `func entry = () #entry -> UI8 {
+page.code_block(Language.Panther, `func entry = () #entry -> UI8 {
 	const foo: UI8 = 12;
 
 

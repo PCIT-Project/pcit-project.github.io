@@ -11,7 +11,7 @@
 const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
-let page = new Page("Downloads", "downloads.html");
+let page = new Page("Downloads", "downloads.html", null);
 
 page.h1("Downloads");
 

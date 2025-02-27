@@ -12,8 +12,9 @@
 
 const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
+const search = require("../../../search.js");
 
-let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html");
+let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html", [search.Category.PANTHER, search.Category.TUTORIAL]);
 
 page.h1("Panther Tutorial");
 

@@ -10,8 +10,9 @@
 
 const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
+const search = require("../../search.js");
 
-let page = new Page("Devlog", "devlog/devlog.html");
+let page = new Page("Devlog", "devlog/devlog.html", [search.Category.DEVLOG]);
 
 page.h1("Devlog");
 

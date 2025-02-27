@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.19.0"></a>
+## v0.0.19.0
+- Added functionality to search page
+- Fixed scrolling to anchors not compensating for header
+
+
+<!---------------------------------->
 <a name="v0.0.18.0"></a>
 ## v0.0.18.0
 - Added the "Uninitialized" page to Panther documentation
