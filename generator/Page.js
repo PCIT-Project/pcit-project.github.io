@@ -306,7 +306,7 @@ class Page{
 
 	<div class="hamburger-dropdown">
 		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
-		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>

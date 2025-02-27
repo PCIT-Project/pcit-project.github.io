@@ -1,10 +1,17 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.19.2"></a>
+## v0.0.19.2
+- Fixed "search" tab on navbar on mobile not having the correct link
+
+
+<!---------------------------------->
 <a name="v0.0.19.1"></a>
 ## v0.0.19.1
 - Fixed code snippet titles not showing the correct title
 - Fixed Terminal Diagnostic code snippets not properly highlighting
+- Small tweak to 404 page text
 
 
 <!---------------------------------->
