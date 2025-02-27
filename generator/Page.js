@@ -152,7 +152,17 @@ class Page{
 		}
 
 
-		this.body += `<div><div class="code-header" style="${header_title_style}">${language == Language.Diagnostic ? "Terminal (Diagnostic)" : language}`;
+		this.body += `<div><div class="code-header" style="${header_title_style}">`;
+
+		switch(language){
+			case Language.Panther:    this.body += "Panther";  break;
+			case Language.Cpp:        this.body += "C++";      break;
+			case Language.C:          this.body += "C";        break;
+			case Language.Terminal:   this.body += "Terminal"; break;
+			case Language.Diagnostic: this.body += "Terminal (Diagnostic)"; break;
+		}
+
+
 		this.body += `<button class="code-copy" onclick="copy_code_${this.counter}()">Copy</button></div>`;
 		this.counter += 1;
 
@@ -201,7 +211,7 @@ class Page{
 			this.body += "</div><div class=\"code-src\">";
 
 		}else{
-			if(language == Language.Terminal || language == Language.Diagnostic){
+			if(language === Language.Terminal || language === Language.Diagnostic){
 				this.body += "<pre class=\"code code-src code-without-lines\" style=\"background-color: black; color: #ffffff;\">";
 
 			}else{
@@ -210,13 +220,13 @@ class Page{
 		}
 
 
-		if(language == Language.Panther){
+		if(language === Language.Panther){
 			this.body += syntax_highlighting.panther(code);
 
-		}else if(language == Language.Cpp || language == Language.C ){
+		}else if(language === Language.Cpp || language === Language.C ){
 			this.body += syntax_highlighting.cpp(code);
 
-		}else if(language == "Diagnostic"){
+		}else if(language === Language.Diagnostic){
 			this.body += syntax_highlighting.diagnostic(code);
 
 		}else{

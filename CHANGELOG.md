@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.19.1"></a>
+## v0.0.19.1
+- Fixed code snippet titles not showing the correct title
+- Fixed Terminal Diagnostic code snippets not properly highlighting
+
+
+<!---------------------------------->
 <a name="v0.0.19.0"></a>
 ## v0.0.19.0
 - Added functionality to search page

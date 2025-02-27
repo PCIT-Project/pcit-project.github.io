@@ -20,7 +20,7 @@ page.raw(html.tag("div", "", "height: 3em;"));
 page.code_block(Language.Diagnostic, 
 `<Error|W404> Page doesn't exist
 	<Info> Did you type the URL in wrong?
-	<Info> Maybe try the search page (/site/search.html)?`);
+	<Info> Maybe try the search page?`);
 
 
 page.generate();
