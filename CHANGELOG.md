@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.20.1"></a>
+## v0.0.20.1
+- Fixed link to PIR documentation on home page having the wrong link when the site is hosted on certain platforms
+
+
+<!---------------------------------->
 <a name="v0.0.20.0"></a>
 ## v0.0.20.0
 - Added suuport for code snippets of PIR, LLVMIR, and x86 assembly (Intel)

@@ -32,7 +32,7 @@ page.h3("Panther / pthr");
 page.text(`Statically typed, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. See more ${html.link("here", "./Panther.html")}.`);
 
 page.h3("PIR");
-page.text(`Pronounced "P I R". Compiler IR and SSA-based optimizing back-end. See more ${html.link("here", "./documentation/PIR/documentation.html")}.`);
+page.text(`Pronounced "P I R". Compiler IR and SSA-based optimizing back-end. See more ${html.link("here", "./documentation/pir/documentation.html")}.`);
 
 page.h3("PLNK");
 page.text("Pronounced \"plink\". Linker that aims to make use between platforms (including cross-compilation and linking against libc) as seamless as possible.");
