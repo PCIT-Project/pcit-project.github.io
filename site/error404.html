@@ -48,7 +48,7 @@
 
 	<div class="hamburger-dropdown">
 		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
-		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
@@ -59,7 +59,11 @@
 		<div style="height: 3em;"></div>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`<Error|W404> Page doesn't exist
 	<Info> Did you type the URL in wrong?
-	<Info> Maybe try the search page?`); }</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal (Diagnostic)<button class="code-copy" onclick="copy_code_0()">Copy</button></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;"><span class="code-red">&lt;Error|W404&gt; Page doesn't exist</span>
+	<Info> Maybe try the search page?`);
+
+		document.getElementById("copied_text_0").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal (Diagnostic)<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;"><span class="code-red">&lt;Error|W404&gt; Page doesn't exist</span>
 	<span class="code-cyan">&lt;Info&gt; Did you type the URL in wrong?</span>
 	<span class="code-cyan">&lt;Info&gt; Maybe try the search page?</span></pre></div>
 

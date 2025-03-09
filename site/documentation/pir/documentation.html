@@ -48,7 +48,7 @@
 
 	<div class="hamburger-dropdown">
 		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
-		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
@@ -57,8 +57,435 @@
 	</div>
 	<div class="context">
 		<h1>PIR Documentation</h1>
-		<p style="font-style: italic;">Coming Soon...</p>
+		<p style="padding-top: 2em;">Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.</p>
+		<p>Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.88.0">v0.0.88.0</a></code>. Given that the code is just for testing, it doesn't necessarily make any sense.</p>
+		<p style="padding-top: 2em;">Here's the starting code:</p>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// module: PIR testing
 
+type &Vec2 = struct #packed {F32, F32}
+
+const &global: I17 #linkage(internal) = I17(18)
+const &string: [I8:36] #linkage(private) = "[NOT PRINTED] Hello World, I'm PIR!\\00"
+const &vec2: &Vec2 #linkage(private) = {F32(12), F32(19)}
+
+func &print_hello = ($str: Ptr) #callConv(c) #linkage(external) -> Void
+
+func &entry = () #callConv(fast) #linkage(external) -> I64 {
+    $VAL = @alloca I64
+    $.1:
+        $ADD_WRAP.RESULT, $ADD_WRAP.WRAPPED = @uAddWrap I64(9), I64(3)
+        $ADD_WRAP.RESULT.1, $ADD_WRAP.WRAPPED.1 = @uAddWrap $ADD_WRAP.RESULT, I64(0)
+        $.2, $.3 = @uAddWrap $ADD_WRAP.RESULT, I64(2)
+        @store $VAL, I64(2) #atomic(release)
+        $.4 = @load I64 $VAL #atomic(acquire) #volatile
+        @condBranch true, $.5, $.1
+    $.5:
+        $.6 = @calcPtr [I8:36] I64(0), I64(14)
+        @call &print_hello($.6)
+        @ret $ADD_WRAP.RESULT.1
+}`);
+
+		document.getElementById("copied_text_0").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">PIR<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</div><div class="code-src"><span class="code-gray">// module: PIR testing</span>
+
+<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">&Vec2</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#packed</span> {<span class="code-cyan" style="font-style: italic;">F32</span>, <span class="code-cyan" style="font-style: italic;">F32</span>}
+
+<span class="code-cyan" style="font-style: italic;">const</span> &global<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">I17</span> <span class="code-red">#linkage</span>(internal) <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">I17</span>(<span class="code-purple">18</span>)
+<span class="code-cyan" style="font-style: italic;">const</span> &string<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] <span class="code-red">#linkage</span>(private) <span class="code-red">=</span> <span class="code-yellow">"[NOT PRINTED] Hello World, I'm PIR!<span class="code-purple">\00</span>"</span>
+<span class="code-cyan" style="font-style: italic;">const</span> &vec2<span class="code-red">:</span> &Vec2 <span class="code-red">#linkage</span>(private) <span class="code-red">=</span> {<span class="code-cyan" style="font-style: italic;">F32</span>(<span class="code-purple">12</span>), <span class="code-cyan" style="font-style: italic;">F32</span>(<span class="code-purple">19</span>)}
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">&print_hello</span> <span class="code-red">=</span> ($str: <span class="code-cyan" style="font-style: italic;">Ptr</span>) <span class="code-red">#callConv</span>(c) <span class="code-red">#linkage</span>(external) <span class="code-red">-&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">&entry</span> <span class="code-red">=</span> () <span class="code-red">#callConv</span>(fast) <span class="code-red">#linkage</span>(external) <span class="code-red">-&gt;</span> <span class="code-cyan" style="font-style: italic;">I64</span> {
+    $VAL <span class="code-red">=</span> <span class="code-red">@alloca</span> <span class="code-cyan" style="font-style: italic;">I64</span>
+    $.1:
+        $ADD_WRAP.RESULT, $ADD_WRAP.WRAPPED <span class="code-red">=</span> <span class="code-red">@uAddWrap</span> <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">9</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">3</span>)
+        $ADD_WRAP.RESULT.1, $ADD_WRAP.WRAPPED.1 <span class="code-red">=</span> <span class="code-red">@uAddWrap</span> $ADD_WRAP.RESULT, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>)
+        $.2, $.3 <span class="code-red">=</span> <span class="code-red">@uAddWrap</span> $ADD_WRAP.RESULT, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">2</span>)
+        <span class="code-red">@store</span> $VAL, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">2</span>) <span class="code-red">#atomic</span>(release)
+        $.4 <span class="code-red">=</span> <span class="code-red">@load</span> <span class="code-cyan" style="font-style: italic;">I64</span> $VAL <span class="code-red">#atomic</span>(acquire) <span class="code-red">#volatile</span>
+        <span class="code-red">@condBranch</span> <span class="code-purple">true</span>, $.5, $.1
+    $.5:
+        $.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
+        <span class="code-red">@call</span> &print_hello($.6)
+        <span class="code-red">@ret</span> $ADD_WRAP.RESULT.1
+}</div></pre></div>		<p style="padding-top: 2em;">Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:</p>
+<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`// module: PIR testing
+
+type &Vec2 = struct #packed {F32, F32}
+
+const &global: I17 #linkage(internal) = I17(18)
+const &string: [I8:36] #linkage(private) = "[NOT PRINTED] Hello World, I'm PIR!\\00"
+const &vec2: &Vec2 #linkage(private) = {F32(12), F32(19)}
+
+func &print_hello = ($str: Ptr) #callConv(c) #linkage(external) -> Void
+
+func &entry = () #callConv(fast) #linkage(external) -> I64 {
+    $VAL = @alloca I64
+    $.1:
+        @store $VAL, I64(2) #atomic(release)
+        @branch $.5
+    $.5:
+        $.6 = @calcPtr [I8:36] I64(0), I64(14)
+        @call &print_hello($.6)
+        @ret I64(12)
+}`);
+
+		document.getElementById("copied_text_1").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_1").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">PIR<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</div><div class="code-src"><span class="code-gray">// module: PIR testing</span>
+
+<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">&Vec2</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#packed</span> {<span class="code-cyan" style="font-style: italic;">F32</span>, <span class="code-cyan" style="font-style: italic;">F32</span>}
+
+<span class="code-cyan" style="font-style: italic;">const</span> &global<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">I17</span> <span class="code-red">#linkage</span>(internal) <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">I17</span>(<span class="code-purple">18</span>)
+<span class="code-cyan" style="font-style: italic;">const</span> &string<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] <span class="code-red">#linkage</span>(private) <span class="code-red">=</span> <span class="code-yellow">"[NOT PRINTED] Hello World, I'm PIR!<span class="code-purple">\00</span>"</span>
+<span class="code-cyan" style="font-style: italic;">const</span> &vec2<span class="code-red">:</span> &Vec2 <span class="code-red">#linkage</span>(private) <span class="code-red">=</span> {<span class="code-cyan" style="font-style: italic;">F32</span>(<span class="code-purple">12</span>), <span class="code-cyan" style="font-style: italic;">F32</span>(<span class="code-purple">19</span>)}
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">&print_hello</span> <span class="code-red">=</span> ($str: <span class="code-cyan" style="font-style: italic;">Ptr</span>) <span class="code-red">#callConv</span>(c) <span class="code-red">#linkage</span>(external) <span class="code-red">-&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">&entry</span> <span class="code-red">=</span> () <span class="code-red">#callConv</span>(fast) <span class="code-red">#linkage</span>(external) <span class="code-red">-&gt;</span> <span class="code-cyan" style="font-style: italic;">I64</span> {
+    $VAL <span class="code-red">=</span> <span class="code-red">@alloca</span> <span class="code-cyan" style="font-style: italic;">I64</span>
+    $.1:
+        <span class="code-red">@store</span> $VAL, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">2</span>) <span class="code-red">#atomic</span>(release)
+        <span class="code-red">@branch</span> $.5
+    $.5:
+        $.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
+        <span class="code-red">@call</span> &print_hello($.6)
+        <span class="code-red">@ret</span> <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">12</span>)
+}</div></pre></div>		<p style="padding-top: 2em;">Here's the un-optimized code converted (automatically) to LLVMIR:</p>
+<script type="text/javascript">function copy_code_2(){ navigator.clipboard.writeText(`; ModuleID = 'PIR testing'
+source_filename = "PIR testing"
+target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-windows-msvc"
+
+%Vec2 = type <{ float, float }>
+
+@global = internal constant i17 18, align 4
+@string = private constant [36 x i8] c"[NOT PRINTED] Hello World, I'm PIR!\\00", align 1
+@vec2 = private constant %Vec2 <{ float 1.200000e+01, float 1.900000e+01 }>, align 4
+
+; Function Attrs: nounwind
+declare void @print_message(ptr) #0
+
+; Function Attrs: nounwind
+define fastcc i64 @entry() #0 {
+_ALLOCAS_:
+  %VAL = alloca i64, align 8
+  br label %.1
+
+.1:                                               ; preds = %.1, %_ALLOCAS_
+  %ADD_WRAP = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 9, i64 3)
+  %ADD_WRAP.RESULT = extractvalue { i64, i1 } %ADD_WRAP, 0
+  %ADD_WRAP.WRAPPED = extractvalue { i64, i1 } %ADD_WRAP, 1
+  %ADD_WRAP1 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %ADD_WRAP.RESULT, i64 0)
+  %ADD_WRAP.RESULT.1 = extractvalue { i64, i1 } %ADD_WRAP1, 0
+  %ADD_WRAP.WRAPPED.1 = extractvalue { i64, i1 } %ADD_WRAP1, 1
+  %ADD_WRAP2 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %ADD_WRAP.RESULT, i64 2)
+  %.2 = extractvalue { i64, i1 } %ADD_WRAP2, 0
+  %.3 = extractvalue { i64, i1 } %ADD_WRAP2, 1
+  store atomic i64 2, ptr %VAL release, align 8
+  %.4 = load atomic volatile i64, ptr %VAL acquire, align 8
+  br i1 true, label %.5, label %.1
+
+.5:                                               ; preds = %.1
+  %.6 = getelementptr inbounds [36 x i8], ptr @string, i32 0, i32 14
+  call void @print_message(ptr %.6)
+  ret i64 %ADD_WRAP.RESULT.1
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #1
+
+attributes #0 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }`);
+
+		document.getElementById("copied_text_2").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_2").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #556293; color: #ffffff;">LLVM IR<button class="code-copy" onclick="copy_code_2()">Copy</button><div id="copied_text_2" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</div><div class="code-src"><span class="code-gray">; ModuleID = 'PIR testing'</span>
+<span class="code-red">source_filename</span> <span class="code-red">=</span> <span class="code-yellow">"PIR testing"</span>
+<span class="code-red">target</span> <span class="code-red">datalayout</span> <span class="code-red">=</span> <span class="code-yellow">"e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"</span>
+<span class="code-red">target</span> <span class="code-red">triple</span> <span class="code-red">=</span> <span class="code-yellow">"x86_64-pc-windows-msvc"</span>
+
+<span class="code-green">%Vec2</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">type</span> <{ <span class="code-cyan" style="font-style: italic;">float</span>, <span class="code-cyan" style="font-style: italic;">float</span> }>
+
+<span class="code-green">@global</span> <span class="code-red">=</span> <span class="code-red">internal</span> <span class="code-red">constant</span> <span class="code-cyan" style="font-style: italic;">i17</span> <span class="code-purple">18</span>, <span class="code-red">align</span> <span class="code-purple">4</span>
+<span class="code-green">@string</span> <span class="code-red">=</span> <span class="code-red">private</span> <span class="code-red">constant</span> [<span class="code-purple">36</span> x <span class="code-cyan" style="font-style: italic;">i8</span>] <span class="code-red">c</span><span class="code-yellow">"[NOT PRINTED] Hello World, I'm PIR!<span class="code-purple">\00</span>"</span>, <span class="code-red">align</span> <span class="code-purple">1</span>
+<span class="code-green">@vec2</span> <span class="code-red">=</span> <span class="code-red">private</span> <span class="code-red">constant</span> %Vec2 <{ <span class="code-cyan" style="font-style: italic;">float</span> <span class="code-purple">1.200000e+01</span>, <span class="code-cyan" style="font-style: italic;">float</span> <span class="code-purple">1.900000e+01</span> }>, <span class="code-red">align</span> <span class="code-purple">4</span>
+
+<span class="code-gray">; Function Attrs: nounwind</span>
+<span class="code-cyan" style="font-style: italic;">declare</span> <span class="code-cyan" style="font-style: italic;">void</span> <span class="code-green">@print_message</span>(<span class="code-cyan" style="font-style: italic;">ptr</span>) <span class="code-red">#0</span>
+
+<span class="code-gray">; Function Attrs: nounwind</span>
+<span class="code-cyan" style="font-style: italic;">define</span> <span class="code-red">fastcc</span> <span class="code-cyan" style="font-style: italic;">i64</span> <span class="code-green">@entry</span>() <span class="code-red">#0</span> {
+_ALLOCAS_:
+  %VAL <span class="code-red">=</span> <span class="code-red">alloca</span> <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-red">align</span> <span class="code-purple">8</span>
+  <span class="code-red">br</span> label %.1
+
+.1:                                               <span class="code-gray">; preds = %.1, %_ALLOCAS_</span>
+  %ADD_WRAP <span class="code-red">=</span> <span class="code-red">call</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } @llvm.uadd.with.overflow.i64(<span class="code-cyan" style="font-style: italic;">i64</span> <span class="code-purple">9</span>, <span class="code-cyan" style="font-style: italic;">i64</span> <span class="code-purple">3</span>)
+  %ADD_WRAP.RESULT <span class="code-red">=</span> <span class="code-red">extractvalue</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } %ADD_WRAP, <span class="code-purple">0</span>
+  %ADD_WRAP.WRAPPED <span class="code-red">=</span> <span class="code-red">extractvalue</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } %ADD_WRAP, <span class="code-purple">1</span>
+  %ADD_WRAP1 <span class="code-red">=</span> <span class="code-red">call</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } @llvm.uadd.with.overflow.i64(<span class="code-cyan" style="font-style: italic;">i64</span> %ADD_WRAP.RESULT, <span class="code-cyan" style="font-style: italic;">i64</span> <span class="code-purple">0</span>)
+  %ADD_WRAP.RESULT.1 <span class="code-red">=</span> <span class="code-red">extractvalue</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } %ADD_WRAP1, <span class="code-purple">0</span>
+  %ADD_WRAP.WRAPPED.1 <span class="code-red">=</span> <span class="code-red">extractvalue</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } %ADD_WRAP1, <span class="code-purple">1</span>
+  %ADD_WRAP2 <span class="code-red">=</span> <span class="code-red">call</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } @llvm.uadd.with.overflow.i64(<span class="code-cyan" style="font-style: italic;">i64</span> %ADD_WRAP.RESULT, <span class="code-cyan" style="font-style: italic;">i64</span> <span class="code-purple">2</span>)
+  %.2 <span class="code-red">=</span> <span class="code-red">extractvalue</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } %ADD_WRAP2, <span class="code-purple">0</span>
+  %.3 <span class="code-red">=</span> <span class="code-red">extractvalue</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } %ADD_WRAP2, <span class="code-purple">1</span>
+  <span class="code-red">store</span> <span class="code-red">atomic</span> <span class="code-cyan" style="font-style: italic;">i64</span> <span class="code-purple">2</span>, <span class="code-cyan" style="font-style: italic;">ptr</span> %VAL <span class="code-red">release</span>, <span class="code-red">align</span> <span class="code-purple">8</span>
+  %.4 <span class="code-red">=</span> <span class="code-red">load</span> <span class="code-red">atomic</span> <span class="code-red">volatile</span> <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">ptr</span> %VAL <span class="code-red">acquire</span>, <span class="code-red">align</span> <span class="code-purple">8</span>
+  <span class="code-red">br</span> <span class="code-cyan" style="font-style: italic;">i1</span> <span class="code-purple">true</span>, label %.5, label %.1
+
+.5:                                               <span class="code-gray">; preds = %.1</span>
+  %.6 <span class="code-red">=</span> <span class="code-red">getelementptr</span> <span class="code-red">inbounds</span> [<span class="code-purple">36</span> x <span class="code-cyan" style="font-style: italic;">i8</span>], <span class="code-cyan" style="font-style: italic;">ptr</span> @string, <span class="code-cyan" style="font-style: italic;">i32</span> <span class="code-purple">0</span>, <span class="code-cyan" style="font-style: italic;">i32</span> <span class="code-purple">14</span>
+  <span class="code-red">call</span> <span class="code-cyan" style="font-style: italic;">void</span> @print_message(<span class="code-cyan" style="font-style: italic;">ptr</span> %.6)
+  <span class="code-red">ret</span> <span class="code-cyan" style="font-style: italic;">i64</span> %ADD_WRAP.RESULT.1
+}
+
+<span class="code-gray">; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)</span>
+<span class="code-cyan" style="font-style: italic;">declare</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } <span class="code-green">@llvm.uadd.with.overflow.i64</span>(<span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i64</span>) <span class="code-red">#1</span>
+
+<span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#0</span> <span class="code-red">=</span> { nounwind }
+<span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#1</span> <span class="code-red">=</span> { nocallback nofree nosync nounwind speculatable willreturn memory(none) }</div></pre></div>		<p style="padding-top: 2em;">Here's the un-optimized code converted (automatically) to x86 assembly (Intel):</p>
+<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`	.text
+    .def    @feat.00;
+    .scl    3;
+    .type   0;
+    .endef
+    .globl  @feat.00
+.set @feat.00, 0
+    .intel_syntax noprefix
+    .file   "PIR testing"
+    .def    entry;
+    .scl    2;
+    .type   32;
+    .endef
+    .globl  entry
+    .p2align    4, 0x90
+entry:
+    sub rsp, 56
+.LBB0_1:
+    mov eax, 12
+    mov qword ptr [rsp + 40], rax
+    mov qword ptr [rsp + 48], 2
+    mov rax, qword ptr [rsp + 48]
+    mov al, 1
+    test    al, 1
+    jne .LBB0_2
+    jmp .LBB0_1
+.LBB0_2:
+    lea rcx, [rip + .Lstring]
+    add rcx, 14
+    call    print_message
+    mov rax, qword ptr [rsp + 40]
+    add rsp, 56
+    ret
+
+    .section    .rdata,"dr"
+    .p2align    2, 0x0
+global:
+    .short  18
+    .byte   0
+    .zero   1
+
+.Lstring:
+    .asciz  "[NOT PRINTED] Hello World, I'm PIR!"
+
+    .p2align    2, 0x0
+.Lvec2:
+    .long   0x41400000
+    .long   0x41980000`);
+
+		document.getElementById("copied_text_3").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_3").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #25334d; color: #ffffff;">x86 Assembly (Intel)<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</div><div class="code-src">	.text
+    .def    @feat.00;
+    .scl    <span class="code-purple">3</span>;
+    .type   <span class="code-purple">0</span>;
+    .endef
+    .globl  @feat.00
+.set @feat.00, <span class="code-purple">0</span>
+    .intel_syntax noprefix
+    .file   <span class="code-yellow">"PIR testing"</span>
+    .def    entry;
+    .scl    <span class="code-purple">2</span>;
+    .type   <span class="code-purple">32</span>;
+    .endef
+    .globl  entry
+    .p2align    <span class="code-purple">4</span>, <span class="code-purple">0x90</span>
+<span class="code-green">entry:</span>
+    <span class="code-red">sub</span> <span class="code-orange" style="font-style: italic;">rsp</span>, <span class="code-purple">56</span>
+<span class="code-green">.LBB0_1:</span>
+    <span class="code-red">mov</span> <span class="code-orange" style="font-style: italic;">eax</span>, <span class="code-purple">12</span>
+    <span class="code-red">mov</span> <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">40</span>], <span class="code-orange" style="font-style: italic;">rax</span>
+    <span class="code-red">mov</span> <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">48</span>], <span class="code-purple">2</span>
+    <span class="code-red">mov</span> <span class="code-orange" style="font-style: italic;">rax</span>, <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">48</span>]
+    <span class="code-red">mov</span> <span class="code-orange" style="font-style: italic;">al</span>, <span class="code-purple">1</span>
+    <span class="code-red">test</span>    <span class="code-orange" style="font-style: italic;">al</span>, <span class="code-purple">1</span>
+    <span class="code-red">jne</span> .LBB0_2
+    <span class="code-red">jmp</span> .LBB0_1
+<span class="code-green">.LBB0_2:</span>
+    <span class="code-red">lea</span> <span class="code-orange" style="font-style: italic;">rcx</span>, [<span class="code-orange" style="font-style: italic;">rip</span> <span class="code-red">+</span> .Lstring]
+    <span class="code-red">add</span> <span class="code-orange" style="font-style: italic;">rcx</span>, <span class="code-purple">14</span>
+    <span class="code-red">call</span>    print_message
+    <span class="code-red">mov</span> <span class="code-orange" style="font-style: italic;">rax</span>, <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">40</span>]
+    <span class="code-red">add</span> <span class="code-orange" style="font-style: italic;">rsp</span>, <span class="code-purple">56</span>
+    <span class="code-red">ret</span>
+
+    .section    .rdata,<span class="code-yellow">"dr"</span>
+    .p2align    <span class="code-purple">2</span>, <span class="code-purple">0x0</span>
+<span class="code-green">global:</span>
+    .short  <span class="code-purple">18</span>
+    .byte   <span class="code-purple">0</span>
+    .zero   <span class="code-purple">1</span>
+
+<span class="code-green">.Lstring:</span>
+    .asciz  <span class="code-yellow">"[NOT PRINTED] Hello World, I'm PIR!"</span>
+
+    .p2align    <span class="code-purple">2</span>, <span class="code-purple">0x0</span>
+<span class="code-green">.Lvec2:</span>
+    .long   <span class="code-purple">0x41400000</span>
+    .long   <span class="code-purple">0x41980000</span></div></pre></div>		<p style="padding-top: 2em;">Here's the output when run through the JIT:</p>
+<script type="text/javascript">function copy_code_4(){ navigator.clipboard.writeText(`Message: "Hello World, I'm PIR!"
+value returned from entry: 12`);
+
+		document.getElementById("copied_text_4").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_4").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_4()">Copy</button><div id="copied_text_4" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">Message: "Hello World, I'm PIR!"
+value returned from entry: 12</pre></div>
 
 	</div>
 

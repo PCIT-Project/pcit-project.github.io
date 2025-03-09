@@ -70,7 +70,7 @@ code{
 	display: block;
 	color: #f2f2f2!important;
 	text-align: center;
-	padding: 1.5vmin 1.5vmin;
+	padding: 1em 1em;
 	text-decoration: none;
 }
 
@@ -308,6 +308,7 @@ code{
 
 .code-gray{ color: #74705d; }
 .code-red{ color: #f92472; }
+.code-orange{ color: #fd9622; }
 .code-yellow{ color: #e7c755; }
 .code-green{ color: #a6e22b; }
 .code-cyan{ color: #67d8ef; }
@@ -315,6 +316,7 @@ code{
 
 .code-gray::selection{ background-color: #383830; }
 .code-red::selection{ background-color: #383830; }
+.code-orange::selection{ background-color: #383830; }
 .code-yellow::selection{ background-color: #383830; }
 .code-green::selection{ background-color: #383830; }
 .code-cyan::selection{ background-color: #383830; }
@@ -342,7 +344,7 @@ code{
 
 
 /*mobile portrait*/
-@media only screen and (max-width: 767px) and (orientation: portrait){
+@media only screen and (max-width: 1023px) and (orientation: portrait){
 	.navbar-img{
 		width: 10vmin;
 		padding: 1vmin;
@@ -381,7 +383,7 @@ code{
 }
 
 /*mobile landscape*/
-@media only screen and (max-width: 767px) and (orientation: landscape){
+@media only screen and (max-width: 1023px) and (orientation: landscape){
 	h1{
 		font-size: 4em;
 	}
@@ -434,21 +436,22 @@ code{
 	}
 
 	.code{
-		font-size: 1vw;
+		font-size: 1em;
 	}
 
 	.code-header{
-		font-size: 2vw;
-		padding-top: 5px;
+		font-size: 1em;
+		/*padding-top: 5px;*/
 	}
 
 	.code-copy{
 		margin-top: 0;
+		margin-bottom: 0;
 		font-size: 1em;
 	}
 
 	.code-lines{
-		font-size: 1.8vw;
+		font-size: 1em;
 		margin-right: 0;
 	}
 
@@ -463,9 +466,9 @@ code{
 }
 
 /*desktop*/
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 1024px){
 	.navbar{
-		height: 5vmin;
+		height: 3.5em;
 	}
 
 	#home-splash{
@@ -489,7 +492,7 @@ code{
 	}
 
 	.context{
-		padding: 5vmin 25%;
+		padding: 4em 25%;
 	}
 
 	.footer{
@@ -497,13 +500,17 @@ code{
 	}
 
 	.navbar-img{
-		width: 4vmin;
+		width: 3em;
 		padding: 0.5vmin;
 	}
 
 	.navbar-title{
 		padding: 0.15vmin 0.5vmin;
-		font-size: 3vmin;
+		font-size: 2.25em;
+	}
+
+	.navbar-item{
+		font-size: 1em;
 	}
 
 	.code{

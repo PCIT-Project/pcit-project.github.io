@@ -48,7 +48,7 @@
 
 	<div class="hamburger-dropdown">
 		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
-		<a class="hamburger-dropdown-item" href="/site/Search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
@@ -83,7 +83,11 @@ def math3 = @import("std").math;
 def some_file = @import("some/path/some_file.pthr");
 
 // importing a file with a relative
-def some_relative_path = @import("./relative/path/relative_file.pthr");`); }</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_0()">Copy</button></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+def some_relative_path = @import("./relative/path/relative_file.pthr");`);
+
+		document.getElementById("copied_text_0").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
  2
  3
  4

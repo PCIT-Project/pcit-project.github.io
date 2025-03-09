@@ -59,6 +59,7 @@ term("operator destructive move");
 term("operator forward");
 
 
+term("variables");
 term("var variables");
 term("const variables");
 term("def variables");

@@ -29,10 +29,10 @@ page.end_info();
 page.h2("Tools");
 
 page.h3("Panther / pthr");
-page.text("Statically typed, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. See more " + html.link("here", "./Panther.html") + ".");
+page.text(`Statically typed, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. See more ${html.link("here", "./Panther.html")}.`);
 
 page.h3("PIR");
-page.text("Pronounced \"P I R\". Compiler IR and SSA-based optimizing back-end.");
+page.text(`Pronounced "P I R". Compiler IR and SSA-based optimizing back-end. See more ${html.link("here", "./documentation/PIR/documentation.html")}.`);
 
 page.h3("PLNK");
 page.text("Pronounced \"plink\". Linker that aims to make use between platforms (including cross-compilation and linking against libc) as seamless as possible.");
@@ -42,10 +42,10 @@ page.h3("Other compilers");
 page.text("Will also be able to compile C and hopefully C++ code. The main intent is for this to allow seamless interoperability with Panther, but these frontends will be able to be used stand-alone.");
 
 page.h2("Licensing");
-page.text("All of the code written for the PCIT Project is licensed under the Apache License v2.0 with LLVM and PCIT exceptions. See " + html.link("the license", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE") + " for more information.");
+page.text(`All of the code written for the PCIT Project is licensed under the Apache License v2.0 with LLVM and PCIT exceptions. See ${html.link("the license", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE")} for more information.`);
 
 page.h2("Getting involved");
-page.text("The PCIT Project is not accepting any volunteers at the moment. However, at some point the in the future new contributors will be welcomed. Check back here to if we are accepting contributions. For now, please star " + html.link("the GitHub repository", "https://github.com/PCIT-Project/PCIT-CPP") + " to show you're interested in the project.");
+page.text(`The PCIT Project is not accepting any volunteers at the moment. However, at some point the in the future new contributors will be welcomed. Check back here to if we are accepting contributions. For now, please star ${html.link("the GitHub repository", "https://github.com/PCIT-Project/PCIT-CPP")} to show you're interested in the project.`);
 
 
 page.generate(true);

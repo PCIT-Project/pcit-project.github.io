@@ -16,11 +16,14 @@ const search = require("./search.js");
 
 const Language = Object.freeze({
 	Panther: 0,
-	Cpp: 1,
-	C: 2,
-	Text: 3,
-	Terminal: 4,
-	Diagnostic: 5,
+	PIR: 1,
+	Cpp: 2,
+	C: 3,
+	LLVMIR: 4,
+	ASM_x86: 5,
+	Text: 6,
+	Terminal: 7,
+	Diagnostic: 8,
 });
 
 
@@ -74,6 +77,10 @@ class Page{
 		return html.link(link, text);
 	}
 
+	pcit_cpp_version(version){
+		return html.inline_code(html.link(version, "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#" + version));
+	}
+
 	raw(text){
 		this.body += text;
 	}
@@ -121,12 +128,17 @@ class Page{
 
 	code_block(language, code){
 		let requires_lines = false;
-		if(language == Language.Panther || language == Language.Cpp || language == Language.C || language == Language.Text){
-			requires_lines = true;
-		}else if(language == Language.Terminal || language == Language.Diagnostic){
 
-		}else{
-			assert(false, `Unknown language \"${language}\"`);
+		switch(language){
+			case Language.Panther: case Language.PIR: case Language.Cpp: case Language.C: case Language.LLVMIR: case Language.ASM_x86: case Language.Text: {
+				requires_lines = true;
+			} break;
+
+			case Language.Terminal: case Language.Diagnostic: {
+				// do nothing...
+			} break;
+
+			default: assert(false, `Unknown language \"${language}\"`);
 		}
 
 		this.body += `<script type=\"text/javascript\">function copy_code_${this.counter}(){ navigator.clipboard.writeText(\``;
@@ -134,19 +146,29 @@ class Page{
 		for(var i=0; i<code.length;i++){
 			if(code[i] == '`'){
 				this.body += "\\'";
+			}else if(code[i] === '\\'){
+				this.body += "\\\\";
+
 			}else{
 				this.body += code[i];
 			}
 		}
 		
-		this.body += "`); }</script>";
+		this.body += `\`);
+
+		document.getElementById("copied_text_${this.counter}").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_${this.counter}").style.visibility = "hidden";}, 1000);
+		}</script>`;
 
 
 		let header_title_style = "background-color: #888888";
 		switch(language){
 			case Language.Panther:    header_title_style = "background-color: #06b6d4;"; break;
+			case Language.PIR:        header_title_style = "background-color: #06b6d4;"; break;
 			case Language.Cpp:        header_title_style = "background-color: #005996;"; break;
-			case Language.C:          header_title_style = "background-color: #004283;"; break;
+			case Language.C:          header_title_style = "background-color: #004283; color: #ffffff;"; break;
+			case Language.LLVMIR:     header_title_style = "background-color: #556293; color: #ffffff;"; break;
+			case Language.ASM_x86:    header_title_style = "background-color: #25334d; color: #ffffff;"; break;
 			case Language.Terminal:   header_title_style = "background-color: #333333; color: #ffffff;"; break;
 			case Language.Diagnostic: header_title_style = "background-color: #333333; color: #ffffff;"; break;
 		}
@@ -156,14 +178,17 @@ class Page{
 
 		switch(language){
 			case Language.Panther:    this.body += "Panther";  break;
+			case Language.PIR:        this.body += "PIR";      break;
 			case Language.Cpp:        this.body += "C++";      break;
 			case Language.C:          this.body += "C";        break;
+			case Language.LLVMIR:     this.body += "LLVM IR";  break;
+			case Language.ASM_x86:    this.body += "x86 Assembly (Intel)";  break;
 			case Language.Terminal:   this.body += "Terminal"; break;
 			case Language.Diagnostic: this.body += "Terminal (Diagnostic)"; break;
 		}
 
 
-		this.body += `<button class="code-copy" onclick="copy_code_${this.counter}()">Copy</button></div>`;
+		this.body += `<button class="code-copy" onclick="copy_code_${this.counter}()">Copy</button><div id="copied_text_${this.counter}" style="float: right; visibility: hidden;">Copied </div></div>`;
 		this.counter += 1;
 
 
@@ -219,19 +244,40 @@ class Page{
 			}
 		}
 
+		// TODO: make a switch?
 
-		if(language === Language.Panther){
-			this.body += syntax_highlighting.panther(code);
 
-		}else if(language === Language.Cpp || language === Language.C ){
-			this.body += syntax_highlighting.cpp(code);
+		switch(language){
+			case Language.Panther: {
+				this.body += syntax_highlighting.panther(code);
+			} break;
 
-		}else if(language === Language.Diagnostic){
-			this.body += syntax_highlighting.diagnostic(code);
+			case Language.PIR: {
+				this.body += syntax_highlighting.pir(code);
+			} break;
 
-		}else{
-			this.body += html.santitize(code);
+			case Language.Cpp: case Language.C: {
+				this.body += syntax_highlighting.cpp(code);
+			} break;
+
+			case Language.LLVMIR: {
+				this.body += syntax_highlighting.llvmir(code);
+			} break;
+
+			case Language.ASM_x86: {
+				this.body += syntax_highlighting.asm_x86(code);
+			} break;
+
+			case Language.Diagnostic: {
+				this.body += syntax_highlighting.diagnostic(code);
+			} break;
+
+			default: {
+				this.body += html.santitize(code);
+			} break;
 		}
+
+		
 
 		if(requires_lines){
 			this.body += "</div>";

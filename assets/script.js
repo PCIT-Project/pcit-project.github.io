@@ -49,6 +49,15 @@ document.addEventListener("scroll", (e)=>{
 	}
 });
 
+
+// close hamburger if page zoom
+window.onresize = (e)=>{
+	make_sure_hamburger_dropdown_is_set();
+	if(hamburger_opened && may_toggle_hamburger){
+		close_hamburger();
+	}
+};
+
 function toggle_hamburger(){
 	if(!may_toggle_hamburger){ return; }
 	may_toggle_hamburger = false;

@@ -1,6 +1,19 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.20.0"></a>
+## v0.0.20.0
+- Added suuport for code snippets of PIR, LLVMIR, and x86 assembly (Intel)
+- Added to PIR documentation page to show of testing code stynax / functionality
+- Added feedback that the code snippet copy button was clicked
+- Added automatic close of hamburger menu
+- Fixed code snippet copy button not working when there is a `\` in the code snippet
+- Fixed scaling of header for different resolutions and zoom levels
+- Fixed scaling of code snippet on mobile mode when zooming
+- Fixed spacing between code snippet and code snippet header on mobile mode when zooming
+
+
+<!---------------------------------->
 <a name="v0.0.19.2"></a>
 ## v0.0.19.2
 - Fixed "search" tab on navbar on mobile not having the correct link
