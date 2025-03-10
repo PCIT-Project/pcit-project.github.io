@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.20.2"></a>
+## v0.0.20.2
+- Fixed wrong version on PIR Documenation page
+- Fixed alignment of assembly code snipped on PIR Documenation page
+
+
+<!---------------------------------->
 <a name="v0.0.20.1"></a>
 ## v0.0.20.1
 - Fixed link to PIR documentation on home page having the wrong link when the site is hosted on certain platforms

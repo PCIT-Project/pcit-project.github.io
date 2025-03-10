@@ -182,7 +182,7 @@ class Page{
 			case Language.Cpp:        this.body += "C++";      break;
 			case Language.C:          this.body += "C";        break;
 			case Language.LLVMIR:     this.body += "LLVM IR";  break;
-			case Language.ASM_x86:    this.body += "x86 Assembly (Intel)";  break;
+			case Language.ASM_x86:    this.body += "x86-64 Assembly (Intel)";  break;
 			case Language.Terminal:   this.body += "Terminal"; break;
 			case Language.Diagnostic: this.body += "Terminal (Diagnostic)"; break;
 		}

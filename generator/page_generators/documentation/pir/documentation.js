@@ -21,7 +21,7 @@ page.h1("PIR Documentation");
 
 page.text(`Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.`, "padding-top: 2em;");
 
-page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version ${page.pcit_cpp_version("v0.0.88.0")}. Given that the code is just for testing, it doesn't necessarily make any sense.`);
+page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version ${page.pcit_cpp_version("v0.0.89.0")}. Given that the code is just for testing, it doesn't necessarily make any sense.`);
 
 
 page.text("Here's the starting code:", "padding-top: 2em;");
@@ -38,24 +38,23 @@ const &vec2: &Vec2 #linkage(private) = {F32(12), F32(19)}
 func &print_hello = ($str: Ptr) #callConv(c) #linkage(external) -> Void
 
 func &entry = () #callConv(fast) #linkage(external) -> I64 {
-    $VAL = @alloca I64
-    $.1:
-        $ADD_WRAP.RESULT, $ADD_WRAP.WRAPPED = @uAddWrap I64(9), I64(3)
-        $ADD_WRAP.RESULT.1, $ADD_WRAP.WRAPPED.1 = @uAddWrap $ADD_WRAP.RESULT, I64(0)
-        $.2, $.3 = @uAddWrap $ADD_WRAP.RESULT, I64(2)
-        @store $VAL, I64(2) #atomic(release)
-        $.4 = @load I64 $VAL #atomic(acquire) #volatile
-        @condBranch true, $.5, $.1
-    $.5:
-        $.6 = @calcPtr [I8:36] I64(0), I64(14)
-        @call &print_hello($.6)
-        @ret $ADD_WRAP.RESULT.1
+	$VAL = @alloca I64
+	$.1:
+		$ADD_WRAP.RESULT, $ADD_WRAP.WRAPPED = @uAddWrap I64(9), I64(3)
+		$ADD_WRAP.RESULT.1, $ADD_WRAP.WRAPPED.1 = @uAddWrap $ADD_WRAP.RESULT, I64(0)
+		$.2, $.3 = @uAddWrap $ADD_WRAP.RESULT, I64(2)
+		@store $VAL, I64(2) #atomic(release)
+		$.4 = @load I64 $VAL #atomic(acquire) #volatile
+		@condBranch true, $.5, $.1
+	$.5:
+		$.6 = @calcPtr [I8:36] I64(0), I64(14)
+		@call &print_hello($.6)
+		@ret $ADD_WRAP.RESULT.1
 }`);
 
 
 
 page.text("Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:", "padding-top: 2em;");
-
 page.code_block(Language.PIR,
 `// module: PIR testing
 
@@ -68,19 +67,19 @@ const &vec2: &Vec2 #linkage(private) = {F32(12), F32(19)}
 func &print_hello = ($str: Ptr) #callConv(c) #linkage(external) -> Void
 
 func &entry = () #callConv(fast) #linkage(external) -> I64 {
-    $VAL = @alloca I64
-    $.1:
-        @store $VAL, I64(2) #atomic(release)
-        @branch $.5
-    $.5:
-        $.6 = @calcPtr [I8:36] I64(0), I64(14)
-        @call &print_hello($.6)
-        @ret I64(12)
+	$VAL = @alloca I64
+	$.1:
+		@store $VAL, I64(2) #atomic(release)
+		@branch $.5
+	$.5:
+		$.6 = @calcPtr [I8:36] I64(0), I64(14)
+		@call &print_hello($.6)
+		@ret I64(12)
 }`);
 
 
 
-page.text("Here's the un-optimized code converted (automatically) to LLVMIR:", "padding-top: 2em;");
+page.text("Here's the un-optimized code ouptut converted to LLVMIR:", "padding-top: 2em;");
 page.code_block(Language.LLVMIR,
 `; ModuleID = 'PIR testing'
 source_filename = "PIR testing"
@@ -130,56 +129,56 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 
 
 
-page.text("Here's the un-optimized code converted (automatically) to x86 assembly (Intel):", "padding-top: 2em;");
+page.text("Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):", "padding-top: 2em;");
 page.code_block(Language.ASM_x86,
 `	.text
-    .def    @feat.00;
-    .scl    3;
-    .type   0;
-    .endef
-    .globl  @feat.00
+	.def    @feat.00;
+	.scl    3;
+	.type   0;
+	.endef
+	.globl  @feat.00
 .set @feat.00, 0
-    .intel_syntax noprefix
-    .file   "PIR testing"
-    .def    entry;
-    .scl    2;
-    .type   32;
-    .endef
-    .globl  entry
-    .p2align    4, 0x90
+	.intel_syntax noprefix
+	.file   "PIR testing"
+	.def    entry;
+	.scl    2;
+	.type   32;
+	.endef
+	.globl  entry
+	.p2align	4, 0x90
 entry:
-    sub rsp, 56
+	sub     rsp, 56
 .LBB0_1:
-    mov eax, 12
-    mov qword ptr [rsp + 40], rax
-    mov qword ptr [rsp + 48], 2
-    mov rax, qword ptr [rsp + 48]
-    mov al, 1
-    test    al, 1
-    jne .LBB0_2
-    jmp .LBB0_1
+	mov 	eax, 12
+	mov 	qword ptr [rsp + 40], rax
+	mov 	qword ptr [rsp + 48], 2
+	mov 	rax, qword ptr [rsp + 48]
+	mov 	al, 1
+	test 	al, 1
+	jne 	.LBB0_2
+	jmp 	.LBB0_1
 .LBB0_2:
-    lea rcx, [rip + .Lstring]
-    add rcx, 14
-    call    print_message
-    mov rax, qword ptr [rsp + 40]
-    add rsp, 56
-    ret
+	lea 	rcx, [rip + .Lstring]
+	add 	rcx, 14
+	call 	print_message
+	mov 	rax, qword ptr [rsp + 40]
+	add 	rsp, 56
+	ret
 
-    .section    .rdata,"dr"
-    .p2align    2, 0x0
+	.section	.rdata,"dr"
+	.p2align	2, 0x0
 global:
-    .short  18
-    .byte   0
-    .zero   1
+	.short  18
+	.byte   0
+	.zero   1
 
 .Lstring:
-    .asciz  "[NOT PRINTED] Hello World, I'm PIR!"
+	.asciz  "[NOT PRINTED] Hello World, I'm PIR!"
 
-    .p2align    2, 0x0
+	.p2align	2, 0x0
 .Lvec2:
-    .long   0x41400000
-    .long   0x41980000`);
+	.long   0x41400000
+	.long   0x41980000`);
 
 
 page.text("Here's the output when run through the JIT:", "padding-top: 2em;");
