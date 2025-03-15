@@ -14,6 +14,8 @@ const search = require("../../../search.js");
 
 
 let page = new Page("Panther STD Documentation", "documentation/panther_std/documentation.html", [search.Category.PANTHER_STD, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for the Panther programming language standard library");
+
 
 page.h1("Panther STD Documentation");
 

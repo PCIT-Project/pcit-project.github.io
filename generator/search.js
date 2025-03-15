@@ -28,8 +28,9 @@ class SearchTarget{
 	title;
 	path;
 	categories;
+	description;
 
-	constructor(title, path, categories){
+	constructor(title, path, categories, description){
 		assert(categories !== undefined, "must give categories (empty array if none)");
 
 		let last_category = -1;
@@ -44,15 +45,28 @@ class SearchTarget{
 
 		this.title = title;
 		this.path = path;
+		this.description = "";
 		this.categories = categories;
+
+		if(description == undefined){
+			return;
+		}
+
+		for(let i = 0; i < description.length; i += 1){
+			if(description[i] == '"'){
+				this.description += "\\\"";
+			}else{
+				this.description += description[i];
+			}
+		}
 	}
 }
 
 let search_targets = [];
 
 
-function addSearchTarget(title, path, categories){
-	search_targets.push(new SearchTarget(title, path, categories));
+function addSearchTarget(title, path, categories, description){
+	search_targets.push(new SearchTarget(title, path, categories, description));
 }
 
 
@@ -69,7 +83,7 @@ function generate(){
 	for(let i = search_targets.length - 1; i>=0; i--){
 		let page = search_targets[i];
 
-		file_data += `\tnew SearchTarget("${page.title}", "${page.path}", `;
+		file_data += `\tnew SearchTarget("${page.title}", "${page.path}", "${page.description}", `;
 
 		const words = page.title.toLowerCase().split(" ");
 

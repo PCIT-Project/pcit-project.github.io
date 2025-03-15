@@ -13,6 +13,8 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 let page = new Page("Panther Library Tutorial", "tutorials/pantherlib/tutorial.html", [search.Category.PANTHER_STD, search.Category.TUTORIAL]);
+page.setDescription("Tutorial for the Panther programming language standard library");
+
 
 page.h1("Panther Library Tutorial");
 

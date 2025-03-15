@@ -13,6 +13,7 @@ const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
 let page = new Page("404", "error404.html", null);
+page.setDescription("404 Page doesn't exist");
 
 page.raw(html.tag("div", "", "height: 3em;"));
 

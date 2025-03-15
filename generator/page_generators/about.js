@@ -11,6 +11,8 @@ const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 let page = new Page("About", "about.html", null);
+page.setDescription("About the PCIT Project");
+
 
 page.h1("Who are we?");
 page.text("The PCIT Project is owned by the members of the PCIT Project Team:");

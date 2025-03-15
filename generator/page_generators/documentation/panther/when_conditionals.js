@@ -15,6 +15,7 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 let page = new Page("When Conditionals", "documentation/panther/when_conditionals.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for when conditionals in the Panther programming language");
 
 page.h1("When Conditionals");
 

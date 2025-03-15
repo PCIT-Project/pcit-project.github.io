@@ -10,12 +10,14 @@
 class SearchTarget{
 	title;
 	path;
+	description;
 	search_terms;
 	categories;
 
-	constructor(title, path, search_terms, categories){
+	constructor(title, path, description, search_terms, categories){
 		this.title = title;
 		this.path = path;
+		this.description = description;
 		this.search_terms = search_terms;
 		this.categories = categories;
 	}
@@ -113,6 +115,9 @@ function on_search_input(){
 	search_targets_selected.forEach((selected_search_target) => {
 		results_div_body_str += `<div class="search-result-box">
 			<a class="search-match-title" href="${selected_search_target.search_target.path}">${selected_search_target.search_target.title}</a>`;
+
+		results_div_body_str += `<p>${selected_search_target.search_target.description}</p>`;
+
 
 		results_div_body_str += "<div style=\"margin-top: 0.5em;\">";
 		selected_search_target.search_target.categories.forEach((category) => {

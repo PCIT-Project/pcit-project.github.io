@@ -15,6 +15,7 @@ const search = require("../../../search.js");
 
 
 let page = new Page("PIR Documentation", "documentation/PIR/documentation.html", [search.Category.PIR, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for PIR (Panther Intermediate Representation)");
 
 page.h1("PIR Documentation");
 

@@ -16,6 +16,7 @@ const search = require("../../../search.js");
 
 
 let page = new Page("Undefined Behavior", "documentation/panther/undefined_behavior.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for Undefined Behavior in the Panther programming language");
 
 page.h1("Undefined Behavior");
 

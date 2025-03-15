@@ -15,6 +15,8 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 let page = new Page("Modules", "documentation/panther/modules.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for modules in the Panther programming language");
+
 
 page.h1("Modules");
 

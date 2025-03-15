@@ -12,6 +12,8 @@ const search = require("../../search.js");
 
 
 let page = new Page("Documentation", "documentation/documentation.html", [search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for the PCIT Project tools");
+
 
 page.h1("Documentation");
 

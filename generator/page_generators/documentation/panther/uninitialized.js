@@ -15,6 +15,7 @@ const search = require("../../../search.js");
 
 
 let page = new Page("Uninitialized", "documentation/panther/uninitialized.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for \"uninitialized\" in the Panther programming language");
 
 page.h1("Uninitialized");
 

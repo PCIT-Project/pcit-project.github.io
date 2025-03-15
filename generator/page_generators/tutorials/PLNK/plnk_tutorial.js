@@ -13,6 +13,8 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 let page = new Page("PLNK Tutorial", "tutorials/plnk/tutorial.html", [search.Category.PLNK, search.Category.TUTORIAL]);
+page.setDescription("Tutorial for PLNK (PCIT Linker)");
+
 
 page.h1("PLNK Tutorial");
 

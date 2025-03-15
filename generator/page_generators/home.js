@@ -12,9 +12,10 @@ const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 let page = new Page("Home", "home.html", null);
+page.setDescription("The PCIT Project is \"Panther Compiler Infrastructure and Toolchain\", and the home of the Panther programming language");
 
 page.h1("What is PCIT Project?");
-page.text("The PCIT Project is Panther Compiler Infrastructure and Toolchain, and the home of the " + "Panther programming language" + ". PCIT (pronounced \"P-Kit\") relies on the " + html.link("LLVM Project", "https://github.com/llvm/llvm-project") + ", but the goal is to eventually be self-reliant. It is written entirely in C++, but a self-hosted version (written entirely in Panther) is planned.");
+page.text(`The PCIT Project is "Panther Compiler Infrastructure and Toolchain", and the home of the Panther programming language. PCIT (pronounced "P-Kit") relies on the ${html.link("LLVM Project", "https://github.com/llvm/llvm-project")}, but the goal is to eventually be self-reliant. It is written entirely in C++, but a self-hosted version (written entirely in Panther) is planned.`);
 
 page.text("The goal of the PCIT Project is to create software that helps developers create native software, and makes it easier to do so. The simple things should be simple, and the complicated things should be well documented and easy to use.");
 

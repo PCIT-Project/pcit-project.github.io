@@ -28,27 +28,31 @@ const Language = Object.freeze({
 
 
 
-
 class Page{
 	#title;
 	#path;
+	#description;
+	#categories;
 	#body;
 	#counter;
 
 	constructor(title, path, categories){
 		assert(title !== undefined, "Must have title");
 		assert(path !== undefined, "Must have path");
-
-		this.title = title;
-		this.path = "../site/" + path;
-		this.body = "";
-		this.counter = 0;
-
 		assert(categories !== undefined, "If page shouldn't have categories, put `null`");
 		assert((categories instanceof Array) == false || categories.length > 0, "If page shouldn't have categories, put `null`");
-		if(categories !== null){
-			search.addSearchTarget(this.title, "/site/" + path, categories);
-		}
+
+		this.title = title;
+		this.path = path;
+		this.description = "Panther Compiler Infrastructure and Technology";
+		this.categories = categories;
+		this.body = "";
+		this.counter = 0;
+	}
+
+
+	setDescription(description){
+		this.description = description;
 	}
 
 
@@ -289,6 +293,12 @@ class Page{
 
 
 	generate(is_home_page = false){
+		assert(this.categories === null || this.description != "Panther Compiler Infrastructure and Technology", "If Page has categories, a description must be given");
+
+		if(this.categories !== null){
+			search.addSearchTarget(this.title, "/site/" + this.path, this.categories, this.description);
+		}
+
 		let file_data = `<!-- This page was generated -->
 
 <!-------------------------------------------------------------------------------------------------->
@@ -306,6 +316,17 @@ class Page{
 	<meta charset="utf-8">
 	<meta name="color-scheme" content="dark">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="${this.description}" />
+
+	<meta property="og:title" content="${this.title} | PCIT Project" />
+	<meta property="og:description" content="${this.description}" />
+	<meta property="og:image" content="/assets/LogoBig.png" />
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
+
 
 	<title>${this.title} | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -387,8 +408,8 @@ ${this.body}
 <script src="/assets/script.js"></script>
 </html>`;
 
-		fs.writeFileSync(this.path, file_data);
-		console.log(`Generated page \x1b[35m(${this.title})\x1b[0m: \x1b[33m"${this.path.substr(2)}"\x1b[0m`);
+		fs.writeFileSync("../site/" + this.path, file_data);
+		console.log(`Generated page \x1b[35m(${this.title})\x1b[0m: \x1b[33m"${this.path}"\x1b[0m`);
 	}
 }
 

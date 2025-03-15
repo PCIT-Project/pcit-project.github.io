@@ -16,6 +16,8 @@ const search = require("../../search.js");
 
 
 let page = new Page("New Systems Requires Major Changes | Devlog", "devlog/new_systems_requires_major_changes.html", [search.Category.PANTHER, search.Category.DEVLOG]);
+page.setDescription("Adding position independent declaration and the build system to the Panther compiler.");
+
 
 page.h1("New Systems Requires Major Changes");
 page.text("Written by: Andrew Feldman", "color: #878481;");

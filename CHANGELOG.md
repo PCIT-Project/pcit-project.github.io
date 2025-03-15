@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.21.0"></a>
+## v0.0.21.0
+- Added page descriptions
+- Added page metadata
+
+
+<!---------------------------------->
 <a name="v0.0.20.2"></a>
 ## v0.0.20.2
 - Fixed wrong version on PIR Documenation page

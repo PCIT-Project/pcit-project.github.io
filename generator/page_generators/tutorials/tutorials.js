@@ -13,8 +13,10 @@ const html = require("../../html.js");
 let page = new Page("Tutorials", "tutorials/tutorials.html", [require("../../search.js").Category.TUTORIAL]);
 
 page.h1("Tutorials");
+page.setDescription("Learn about and how to use the various parts of the PCIT Project.");
 
-page.text("Learn about and how to use the various pieces of the PCIT Project.");
+
+page.text("Learn about and how to use the various parts of the PCIT Project.");
 
 page.h2(html.link("Panther", "/site/tutorials/panther/tutorial.html"));
 page.text("Start by successfully compiling a Hello World project, learn the panther programming language (as well as some rationals behind design decisions), and then learn how to use the build system.");

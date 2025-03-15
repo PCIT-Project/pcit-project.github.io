@@ -15,6 +15,7 @@ const search = require("../../search.js");
 
 
 let page = new Page("Dependencies V2 | Devlog", "devlog/dependencies_v2.html", [search.Category.PANTHER, search.Category.DEVLOG]);
+page.setDescription("New and improved dependency system for the Panther compiler.");
 
 page.h1("Dependencies V2");
 page.text("Written by: Andrew Feldman", "color: #878481;");

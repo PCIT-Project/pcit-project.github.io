@@ -13,6 +13,8 @@ const html = require("../../html.js");
 const search = require("../../search.js");
 
 let page = new Page("Devlog", "devlog/devlog.html", [search.Category.DEVLOG]);
+// TODO: better description
+page.setDescription("List of PCIT Project devlogs");
 
 page.h1("Devlog");
 
@@ -20,10 +22,10 @@ page.text("To see the all of the updates and corresponding version, you can look
 
 
 page.h2(html.link("Dependencies V2", "/site/devlog/dependencies_v2.html"));
-page.text("New and improved dependency system.");
+page.text("New and improved dependency system to the Panther compiler.");
 
 page.h2(html.link("New Systems Requires Major Changes", "/site/devlog/new_systems_requires_major_changes.html"));
-page.text("Adding position independent declaration and the build system to Panther.");
+page.text("Adding position independent declaration and the build system to the Panther compiler.");
 
 page.generate();
 

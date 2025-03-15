@@ -14,6 +14,8 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 let page = new Page("Panther Value Categories", "documentation/panther/value_categories.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.setDescription("Documentation for value categories in the Panther programming language");
+
 
 page.h1("Panther Value Categories");
 
