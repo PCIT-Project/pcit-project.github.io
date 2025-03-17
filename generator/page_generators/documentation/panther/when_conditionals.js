@@ -19,7 +19,7 @@ page.setDescription("Documentation for when conditionals in the Panther programm
 
 page.h1("When Conditionals");
 
-page.text(`When conditionals are conditionals that are evaluated at compile-time. The condition may be any ${terms.get("comptime")} value. The bodies may hold 0 or more statements (this includes things like members of structs). Any statements in a when conditional block that is not taken will not exist in semantic analysis or any further compiler stage.`);
+page.text(`When conditionals are conditionals that are evaluated at compile-time. The condition may be any ${terms.get("constexpr")} value. The bodies may hold 0 or more statements (this includes things like members of structs). Any statements in a when conditional block that is not taken will not exist in semantic analysis or any further compiler stage.`);
 
 
 page.h2("Example");

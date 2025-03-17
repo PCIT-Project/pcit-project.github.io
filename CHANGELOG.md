@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.21.1"></a>
+## v0.0.21.1
+- Updated site to switch `constexpr` and `comptime` as their definitions have swapped
+- Fixed mistakes in `Panther Value Stages` page
+
+
+<!---------------------------------->
 <a name="v0.0.21.0"></a>
 ## v0.0.21.0
 - Added page descriptions
