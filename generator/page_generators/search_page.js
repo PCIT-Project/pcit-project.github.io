@@ -12,11 +12,12 @@ const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 
-let page = new Page("Search", "search.html", null);
+let page = new Page({
+	path: "search.html",
+	title: "Search",
+});
 
 page.raw("\t\t<script src=\"./search_script.js\"></script>\n\n");
-
-page.h1("Search");
 
 page.raw("\t\t<input type=\"text\" oninput=\"on_search_input()\" id=\"search_box\" class=\"search-bar\" placeholder=\"Search the PCIT website\"></input>\n");
 

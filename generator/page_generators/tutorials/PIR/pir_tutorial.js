@@ -13,12 +13,15 @@ const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
-let page = new Page("PIR Tutorial", "tutorials/pir/tutorial.html", [search.Category.PIR, search.Category.TUTORIAL]);
-page.setDescription("Tutorial for PIR (Panther Intermediate Representation)");
+let page = new Page({
+	path: "tutorials/pir/tutorial.html",
+	title: "PIR Tutorial",
+	categories: [search.Category.PIR, search.Category.TUTORIAL],
+	description: "Tutorial for PIR (Panther Intermediate Representation)"
+});
 
-page.h1("PIR Tutorial");
 
-page.text("Coming Soon...", "font-style: italic;");
+page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, check out ${html.link("this page", "/site/documentation/pir/documentation.html")}.`, "font-style: italic;");
 
 page.generate();
 

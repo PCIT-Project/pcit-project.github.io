@@ -15,11 +15,15 @@ const terms = require("../../terms.js");
 const search = require("../../search.js");
 
 
-let page = new Page("New Systems Requires Major Changes | Devlog", "devlog/new_systems_requires_major_changes.html", [search.Category.PANTHER, search.Category.DEVLOG]);
-page.setDescription("Adding position independent declaration and the build system to the Panther compiler.");
+let page = new Page({
+	path: "devlog/new_systems_requires_major_changes.html",
+	title: "New Systems Requires Major Changes | Devlog",
+	on_page_title: "New Systems Requires Major Changes",
+	categories: [search.Category.PANTHER, search.Category.DEVLOG],
+	description: "Adding position independent declaration and the build system to the Panther compiler",
+});
 
 
-page.h1("New Systems Requires Major Changes");
 page.text("Written by: Andrew Feldman", "color: #878481;");
 page.text("January 2nd, 2025", "color: #878481;");
 

@@ -129,6 +129,7 @@ function on_search_input(){
 				case 4: results_div_body_str += "<div class=\"search-category\" style=\"color: #f27532; background-color: #291a15; border-color: #663925;\">Documentation</div>"; break;
 				case 5: results_div_body_str += "<div class=\"search-category\" style=\"color: #d97ee5; background-color: #32233c; border-color: #643e6f;\">Tutorial</div>"; break;
 				case 6: results_div_body_str += "<div class=\"search-category\" style=\"color: #bbbbbb; background-color: #2d3035; border-color: #575a5d;\">Devlog</div>"; break;
+				case 7: results_div_body_str += "<div class=\"search-category\" style=\"color: #fed0a5; background-color: #393431; border-color: #756354;\">Download/Build</div>"; break;
 			}
 		});
 
@@ -153,31 +154,32 @@ window.onload = () => {
 
 const search_targets = [
 	new SearchTarget("Panther Programming Language", "/site/Panther.html", "Home page of the Panther programming language", ["panther","programming","language"], [0]),
+	new SearchTarget("Downloads", "/site/downloads.html", "Download the PCIT Project software", ["downloads"], [7]),
 	new SearchTarget("Documentation", "/site/documentation/documentation.html", "Documentation for the PCIT Project tools", ["documentation"], [4]),
 	new SearchTarget("Panther Documentation", "/site/documentation/panther/documentation.html", "Documentation for the Panther programming language", ["panther","documentation"], [0,4]),
 	new SearchTarget("Modules", "/site/documentation/panther/modules.html", "Documentation for modules in the Panther programming language", ["modules"], [0,4]),
 	new SearchTarget("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html", "Documentation for Undefined Behavior in the Panther programming language", ["undefined","behavior"], [0,4]),
 	new SearchTarget("Uninitialized", "/site/documentation/panther/uninitialized.html", "Documentation for \"uninitialized\" in the Panther programming language", ["uninitialized"], [0,4]),
+	new SearchTarget("Panther Value Categories", "/site/documentation/panther/value_categories.html", "Documentation for value categories in the Panther programming language", ["panther","value","categories"], [0,4]),
 	new SearchTarget("Ephemeral Value Category", "documentation/panther/value_categories.html#ephemeral", "", ["ephemeral","value","category"], [0,4]),
 	new SearchTarget("Concrete Value Category", "documentation/panther/value_categories.html#concrete", "", ["concrete","value","category"], [0,4]),
 	new SearchTarget("Concrete Mutable Value Category", "documentation/panther/value_categories.html#concrete_mutable", "", ["concrete","mutable","value","category"], [0,4]),
 	new SearchTarget("Concrete-Forwardable Value Category", "documentation/panther/value_categories.html#concrete_forwardable", "", ["concrete-forwardable","value","category"], [0,4]),
 	new SearchTarget("Concrete-Const Value Category", "documentation/panther/value_categories.html#concrete_const", "", ["concrete-const","value","category"], [0,4]),
 	new SearchTarget("Destructive-Movable-Concrete-Const Value Category", "documentation/panther/value_categories.html#destructive_movable_concrete_const", "", ["destructive-movable-concrete-const","value","category"], [0,4]),
-	new SearchTarget("Panther Value Categories", "/site/documentation/panther/value_categories.html", "Documentation for value categories in the Panther programming language", ["panther","value","categories"], [0,4]),
+	new SearchTarget("Panther Value Stages", "/site/documentation/panther/value_stages.html", "Documentation for value stages in the Panther programming language", ["panther","value","stages"], [0,4]),
 	new SearchTarget("Constexpr Value Stage", "documentation/panther/value_stages.html#constexpr", "", ["constexpr","value","stage"], [0,4]),
 	new SearchTarget("Comptime Value Stage", "documentation/panther/value_stages.html#comptime", "", ["comptime","value","stage"], [0,4]),
 	new SearchTarget("Runtime Value Stage", "documentation/panther/value_stages.html#runtime", "", ["runtime","value","stage"], [0,4]),
-	new SearchTarget("Panther Value Stages", "/site/documentation/panther/value_stages.html", "Documentation for value stages in the Panther programming language", ["panther","value","stages"], [0,4]),
 	new SearchTarget("When Conditionals", "/site/documentation/panther/when_conditionals.html", "Documentation for when conditionals in the Panther programming language", ["when","conditionals"], [0,4]),
 	new SearchTarget("Panther STD Documentation", "/site/documentation/panther_std/documentation.html", "Documentation for the Panther programming language standard library", ["panther","std","documentation"], [1,4]),
 	new SearchTarget("PIR Documentation", "/site/documentation/PIR/documentation.html", "Documentation for PIR (Panther Intermediate Representation)", ["pir","documentation"], [2,4]),
-	new SearchTarget("Tutorials", "/site/tutorials/tutorials.html", "Learn about and how to use the various parts of the PCIT Project.", ["tutorials"], [5]),
+	new SearchTarget("Tutorials", "/site/tutorials/tutorials.html", "Learn about and how to use the various parts of the PCIT Project", ["tutorials"], [5]),
 	new SearchTarget("Panther Tutorial", "/site/tutorials/panther/tutorial.html", "Tutorial for the Panther programming language", ["panther","tutorial"], [0,5]),
-	new SearchTarget("Panther Library Tutorial", "/site/tutorials/pantherlib/tutorial.html", "Tutorial for the Panther programming language standard library", ["panther","library","tutorial"], [1,5]),
+	new SearchTarget("Panther Library Tutorial", "/site/tutorials/pantherlib/tutorial.html", "Tutorial for the Panther programming language library", ["panther","library","tutorial"], [1,5]),
 	new SearchTarget("PIR Tutorial", "/site/tutorials/pir/tutorial.html", "Tutorial for PIR (Panther Intermediate Representation)", ["pir","tutorial"], [2,5]),
 	new SearchTarget("PLNK Tutorial", "/site/tutorials/plnk/tutorial.html", "Tutorial for PLNK (PCIT Linker)", ["plnk","tutorial"], [3,5]),
-	new SearchTarget("Devlog", "/site/devlog/devlog.html", "List of PCIT Project devlogs", ["devlog"], [6]),
-	new SearchTarget("New Systems Requires Major Changes | Devlog", "/site/devlog/new_systems_requires_major_changes.html", "Adding position independent declaration and the build system to the Panther compiler.", ["new","systems","requires","major","changes","devlog"], [0,6]),
-	new SearchTarget("Dependencies V2 | Devlog", "/site/devlog/dependencies_v2.html", "New and improved dependency system for the Panther compiler.", ["dependencies","v2","devlog"], [0,6]),
+	new SearchTarget("Devlogs", "/site/devlog/devlog.html", "Catalog of PCIT Project devlogs", ["devlogs"], [6]),
+	new SearchTarget("New Systems Requires Major Changes", "/site/devlog/new_systems_requires_major_changes.html", "Adding position independent declaration and the build system to the Panther compiler", ["new","systems","requires","major","changes"], [0,6]),
+	new SearchTarget("Dependencies V2", "/site/devlog/dependencies_v2.html", "New and improved dependency system for the Panther compiler", ["dependencies","v2"], [0,6]),
 ];

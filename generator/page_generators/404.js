@@ -12,11 +12,15 @@ const Page = require("../Page.js").Page;
 const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
-let page = new Page("404", "error404.html", null);
-page.setDescription("404 Page doesn't exist");
+let page = new Page({
+	path: "error404.html",
+	title: "404",
+	has_page_title: false,
+	description: "Error 404: Page not found",
+});
+
 
 page.raw(html.tag("div", "", "height: 3em;"));
-
 
 page.code_block(Language.Diagnostic, 
 `<Error|W404> Page doesn't exist

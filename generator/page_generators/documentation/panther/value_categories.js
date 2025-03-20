@@ -13,15 +13,16 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
-let page = new Page("Panther Value Categories", "documentation/panther/value_categories.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for value categories in the Panther programming language");
-
-
-page.h1("Panther Value Categories");
+let page = new Page({
+	path: "documentation/panther/value_categories.html",
+	title: "Panther Value Categories | Panther Documentation",
+	on_page_title: "Panther Value Categories",
+	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	description: "Documentation for value categories in the Panther programming language",
+});
 
 
 page.text(`All expressions have a value category. In C-like languages, the two main value categories are usually ${terms.get("lvalue")} and ${terms.get("rvalue")}. In Panther, there are also two main categories: ${terms.get("concrete")} and ${terms.get("ephemeral")}. These are very similar to ${terms.get("lvalue")} and ${terms.get("rvalue")} respectively, but they are different enough that it warranted new names.`);
-
 
 
 page.anchor("ephemeral");

@@ -14,10 +14,13 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
-let page = new Page("PIR Documentation", "documentation/PIR/documentation.html", [search.Category.PIR, search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for PIR (Panther Intermediate Representation)");
+let page = new Page({
+	path: "documentation/PIR/documentation.html",
+	title: "PIR Documentation",
+	categories: [search.Category.PIR, search.Category.DOCUMENTATION],
+	description: "Documentation for PIR (Panther Intermediate Representation)",
+});
 
-page.h1("PIR Documentation");
 
 
 page.text(`Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.`, "padding-top: 2em;");

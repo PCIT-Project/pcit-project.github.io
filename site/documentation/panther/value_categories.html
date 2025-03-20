@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Documentation for value categories in the Panther programming language" />
 
-	<meta property="og:title" content="Panther Value Categories | PCIT Project" />
+	<meta property="og:title" content="Panther Value Categories | Panther Documentation | PCIT Project" />
 	<meta property="og:description" content="Documentation for value categories in the Panther programming language" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>Panther Value Categories | PCIT Project</title>
+	<title>Panther Value Categories | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -44,8 +44,8 @@
 		</div>
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -62,12 +62,14 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
+
 	<div class="context">
 		<h1>Panther Value Categories</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 		<p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
 <div id="ephemeral"></div>		<h2>Ephemeral</h2>
 		<p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code>fluid literals</code> are ephemeral.</p>
@@ -112,8 +114,6 @@
 			<li><code>const variables</code> in function scope</li>
 			<li><code>unwrap</code> of a const <code>optional</code></li>
 		</ul>
-
-
 	</div>
 
 	<div class="footer">

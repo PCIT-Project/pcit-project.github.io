@@ -10,11 +10,12 @@
 const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
 
-let page = new Page("Tutorials", "tutorials/tutorials.html", [require("../../search.js").Category.TUTORIAL]);
-
-page.h1("Tutorials");
-page.setDescription("Learn about and how to use the various parts of the PCIT Project.");
-
+let page = new Page({
+	path: "tutorials/tutorials.html",
+	title: "Tutorials",
+	categories: [require("../../search.js").Category.TUTORIAL],
+	description: "Learn about and how to use the various parts of the PCIT Project",
+});
 
 page.text("Learn about and how to use the various parts of the PCIT Project.");
 

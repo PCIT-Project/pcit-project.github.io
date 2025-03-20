@@ -12,11 +12,13 @@ const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
 const search = require("../../search.js");
 
-let page = new Page("Devlog", "devlog/devlog.html", [search.Category.DEVLOG]);
-// TODO: better description
-page.setDescription("List of PCIT Project devlogs");
+let page = new Page({
+	path: "devlog/devlog.html",
+	title: "Devlogs",
+	categories: [search.Category.DEVLOG],
+	description: "Catalog of PCIT Project devlogs",
+});
 
-page.h1("Devlog");
 
 page.text("To see the all of the updates and corresponding version, you can look at the " +  html.link("change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md") + ". Note: very small changes may not be listed.");
 

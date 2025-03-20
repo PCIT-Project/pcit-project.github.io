@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Documentation for Undefined Behavior in the Panther programming language" />
 
-	<meta property="og:title" content="Undefined Behavior | PCIT Project" />
+	<meta property="og:title" content="Undefined Behavior | Panther Documentation | PCIT Project" />
 	<meta property="og:description" content="Documentation for Undefined Behavior in the Panther programming language" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>Undefined Behavior | PCIT Project</title>
+	<title>Undefined Behavior | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -44,8 +44,8 @@
 		</div>
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -62,12 +62,14 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
+
 	<div class="context">
 		<h1>Undefined Behavior</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 		<p>&emsp;&emsp;The term "Undefined Behavior" (commonly shortened to "UB") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.</p>
 		<p>&emsp;&emsp;The Panther compiler attempts to detect undefined behavior at compile time. In addition, there are build settings that can be enabled that check for undefined behavior at runtime (both for debug and release builds). It is impossible to detect all undefined behavior however, so these detection mechanisms do not guarantee that no undefined behavior exists in the Panther code.</p>
 		<h2>Example</h2>
@@ -111,9 +113,7 @@
 
 
 	<span class="code-red">return</span> <span class="code-purple">0</span>;
-}</div></pre></div>
-
-	</div>
+}</div></pre></div>	</div>
 
 	<div class="footer">
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>

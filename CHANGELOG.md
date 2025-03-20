@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.22.0"></a>
+## v0.0.22.0
+- Added categories to pages
+- Switched Downloads and Devlog buttons in header
+- Various tweaks to a few pages
+
+
+<!---------------------------------->
 <a name="v0.0.21.1"></a>
 ## v0.0.21.1
 - Updated site to switch `constexpr` and `comptime` as their definitions have swapped

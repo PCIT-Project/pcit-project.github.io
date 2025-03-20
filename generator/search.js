@@ -21,6 +21,7 @@ const Category = Object.freeze({
 	DOCUMENTATION: 4,
 	TUTORIAL: 5,
 	DEVLOG: 6,
+	DOWNLOADS_AND_BUILDING: 7,
 });
 
 

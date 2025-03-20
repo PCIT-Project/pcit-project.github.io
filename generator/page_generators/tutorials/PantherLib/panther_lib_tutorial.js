@@ -12,13 +12,15 @@ const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
-let page = new Page("Panther Library Tutorial", "tutorials/pantherlib/tutorial.html", [search.Category.PANTHER_STD, search.Category.TUTORIAL]);
-page.setDescription("Tutorial for the Panther programming language standard library");
+let page = new Page({
+	path: "tutorials/pantherlib/tutorial.html",
+	title: "Panther Library Tutorial",
+	categories: [search.Category.PANTHER_STD, search.Category.TUTORIAL],
+	description: "Tutorial for the Panther programming language library",
+});
 
 
-page.h1("Panther Library Tutorial");
-
-page.text("Coming Soon...", "font-style: italic;");
+page.text("The API for using the Panther Compiler as an embeddable Library is not solidified enough yet to write documentation for it yet.", "font-style: italic;");
 
 page.generate();
 

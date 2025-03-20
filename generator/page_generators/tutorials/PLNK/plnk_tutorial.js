@@ -12,13 +12,15 @@ const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
-let page = new Page("PLNK Tutorial", "tutorials/plnk/tutorial.html", [search.Category.PLNK, search.Category.TUTORIAL]);
-page.setDescription("Tutorial for PLNK (PCIT Linker)");
+let page = new Page({
+	path: "tutorials/plnk/tutorial.html",
+	title: "PLNK Tutorial",
+	categories: [search.Category.PLNK, search.Category.TUTORIAL],
+	description: "Tutorial for PLNK (PCIT Linker)",
+});
 
 
-page.h1("PLNK Tutorial");
-
-page.text("Coming Soon...", "font-style: italic;");
+page.text("PLNK is very much still a work in progress, so it is too early for documentation to be written yet.", "font-style: italic;");
 
 page.generate();
 

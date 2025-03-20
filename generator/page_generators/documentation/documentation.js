@@ -11,11 +11,13 @@ const html = require("../../html.js");
 const search = require("../../search.js");
 
 
-let page = new Page("Documentation", "documentation/documentation.html", [search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for the PCIT Project tools");
+let page = new Page({
+	path: "documentation/documentation.html",
+	title: "Documentation",
+	categories: [search.Category.DOCUMENTATION],
+	description: "Documentation for the PCIT Project tools",
+});
 
-
-page.h1("Documentation");
 
 page.h2(html.link("Panther", "/site/documentation/panther/documentation.html"));
 page.text("Documentation for the Panther programming language");

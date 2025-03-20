@@ -14,10 +14,13 @@ const Page = require("../../../Page.js").Page;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
-let page = new Page("Panther Tutorial", "tutorials/panther/tutorial.html", [search.Category.PANTHER, search.Category.TUTORIAL]);
-page.setDescription("Tutorial for the Panther programming language");
+let page = new Page({
+	path: "tutorials/panther/tutorial.html",
+	title: "Panther Tutorial",
+	categories: [search.Category.PANTHER, search.Category.TUTORIAL],
+	description: "Tutorial for the Panther programming language",
+});
 
-page.h1("Panther Tutorial");
 
 page.text("Coming Soon...", "font-style: italic;");
 

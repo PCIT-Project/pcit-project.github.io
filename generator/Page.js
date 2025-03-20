@@ -29,36 +29,38 @@ const Language = Object.freeze({
 
 
 class Page{
-	#title;
-	#path;
-	#description;
-	#categories;
 	#body;
 	#counter;
 
-	constructor(title, path, categories){
-		assert(title !== undefined, "Must have title");
-		assert(path !== undefined, "Must have path");
-		assert(categories !== undefined, "If page shouldn't have categories, put `null`");
-		assert((categories instanceof Array) == false || categories.length > 0, "If page shouldn't have categories, put `null`");
+	// required options for `config`
+	#path;
+	#title;
 
-		this.title = title;
-		this.path = path;
-		this.description = "Panther Compiler Infrastructure and Technology";
-		this.categories = categories;
+	// optional options for `config`
+	#description;
+	#categories;
+	#on_page_title; // default `title`
+	#has_page_title; // default true
+
+	constructor(config){
 		this.body = "";
 		this.counter = 0;
+
+		assert(config.path !== undefined, "Must have path");
+		assert(config.title !== undefined, "Must have title");
+
+		this.title = config.title;
+		this.path = config.path;
+		this.description = config.description ?? "Panther Compiler Infrastructure and Technology";
+		this.categories = config.categories;
+		this.on_page_title = config.on_page_title ?? config.title;
+		this.has_page_title = config.has_page_title ?? true;
+
+		if(this.categories !== undefined){
+			search.addSearchTarget(this.on_page_title, "/site/" + this.path, this.categories, this.description);
+		}
 	}
 
-
-	setDescription(description){
-		this.description = description;
-	}
-
-
-	h1(text, style=null){
-		this.body += html.tag("h1", text, style);
-	}
 
 	h2(text, style=null){
 		this.body += html.tag("h2", text, style);
@@ -75,10 +77,6 @@ class Page{
 
 	paragraph(text, style=null){
 		this.text("&emsp;&emsp;" + text, style);
-	}
-
-	link(link, text){
-		return html.link(link, text);
 	}
 
 	pcit_cpp_version(version){
@@ -248,8 +246,6 @@ class Page{
 			}
 		}
 
-		// TODO: make a switch?
-
 
 		switch(language){
 			case Language.Panther: {
@@ -293,12 +289,6 @@ class Page{
 
 
 	generate(is_home_page = false){
-		assert(this.categories === null || this.description != "Panther Compiler Infrastructure and Technology", "If Page has categories, a description must be given");
-
-		if(this.categories !== null){
-			search.addSearchTarget(this.title, "/site/" + this.path, this.categories, this.description);
-		}
-
 		let file_data = `<!-- This page was generated -->
 
 <!-------------------------------------------------------------------------------------------------->
@@ -358,8 +348,8 @@ class Page{
 
 		file_data += `
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -376,8 +366,8 @@ class Page{
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>`;
 
@@ -393,15 +383,35 @@ class Page{
 		`;
 	}
 
-	const current_year = new Date().getFullYear();
-	file_data += `
-	<div class="context">
-${this.body}
+	file_data += "\n\n\t<div class=\"context\">\n";
 
-	</div>
+	if(this.has_page_title){
+		file_data += `\t\t<h1>${this.on_page_title}</h1>\n`;
+
+		if(this.categories !== undefined){
+			file_data += "\t\t";
+			this.categories.forEach((category) => {
+				switch(category){
+					case 0: file_data += "<div class=\"search-category\" style=\"color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;\">Panther</div>"; break;
+					case 1: file_data += "<div class=\"search-category\" style=\"color: #06a6c4; background-color: #0c2c36; border-color: #0a5b6a;\">Panther STD</div>"; break;
+					case 2: file_data += "<div class=\"search-category\" style=\"color: #15d273; background-color: #0e2a23; border-color: #105c3b;\">PIR</div>"; break;
+					case 3: file_data += "<div class=\"search-category\" style=\"color: #1fc493; background-color: #102c2c; border-color: #145a4f;\">PLNK</div>"; break;
+					case 4: file_data += "<div class=\"search-category\" style=\"color: #f27532; background-color: #291a15; border-color: #663925;\">Documentation</div>"; break;
+					case 5: file_data += "<div class=\"search-category\" style=\"color: #d97ee5; background-color: #32233c; border-color: #643e6f;\">Tutorial</div>"; break;
+					case 6: file_data += "<div class=\"search-category\" style=\"color: #bbbbbb; background-color: #2d3035; border-color: #575a5d;\">Devlog</div>"; break;
+					case 7: file_data += "<div class=\"search-category\" style=\"color: #fed0a5; background-color: #393431; border-color: #756354;\">Download/Build</div>"; break;
+				}
+			});
+			file_data += '\n';
+		}
+	}
+
+	file_data += this.body;
+
+	file_data += `\t</div>
 
 	<div class="footer">
-		<p style="color: #878481;">© 2023-${current_year} <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
+		<p style="color: #878481;">© 2023-${new Date().getFullYear()} <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
 	</div>
 
 </body>

@@ -15,10 +15,14 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 
-let page = new Page("Undefined Behavior", "documentation/panther/undefined_behavior.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for Undefined Behavior in the Panther programming language");
+let page = new Page({
+	path: "documentation/panther/undefined_behavior.html",
+	title: "Undefined Behavior | Panther Documentation",
+	on_page_title: "Undefined Behavior",
+	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	description: "Documentation for Undefined Behavior in the Panther programming language",
+});
 
-page.h1("Undefined Behavior");
 
 page.paragraph("The term \"Undefined Behavior\" (commonly shortened to \"UB\") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.");
 

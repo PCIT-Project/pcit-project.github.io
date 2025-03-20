@@ -14,13 +14,16 @@ const terms = require("../../terms.js");
 const search = require("../../search.js");
 
 
-let page = new Page("Dependencies V2 | Devlog", "devlog/dependencies_v2.html", [search.Category.PANTHER, search.Category.DEVLOG]);
-page.setDescription("New and improved dependency system for the Panther compiler.");
+let page = new Page({
+	path: "devlog/dependencies_v2.html",
+	title: "Dependencies V2 | Devlog",
+	on_page_title: "Dependencies V2",
+	categories: [search.Category.PANTHER, search.Category.DEVLOG],
+	description: "New and improved dependency system for the Panther compiler",
+});
 
-page.h1("Dependencies V2");
 page.text("Written by: Andrew Feldman", "color: #878481;");
 page.text("February 6th, 2025", "color: #878481;");
-
 
 
 page.paragraph(`In ${html.link("my first devlog", "/site/devlog/new_systems_requires_major_changes.html")}, I discussed how implementing Order Independent Declarations and the Panther build system required redoing a lot of work for the compiler as well as adding a new stage (Dependency Analysis). Update ${page.pcit_cpp_version("v0.0.79.0")} contained the first proof of concept of this new system working. The code required to get it working was complex and difficult to understand, but the system worked and it seemed robust. There was a looming sense of difficulty coming down the line (such as pointers to user-defined types - more on that later), but I plowed through as this was the solution I came up with and I was sticking to it. Through ${page.pcit_cpp_version("v0.0.80.0")} and ${page.pcit_cpp_version("v0.0.81.0")} it continued to work well, albeit with more and more complexity. I then got to implementing ${html.inline_code("@import")} and ran face-first into a wall made of pure abstract complexity.`);

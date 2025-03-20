@@ -17,10 +17,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="New and improved dependency system for the Panther compiler." />
+	<meta name="description" content="New and improved dependency system for the Panther compiler" />
 
 	<meta property="og:title" content="Dependencies V2 | Devlog | PCIT Project" />
-	<meta property="og:description" content="New and improved dependency system for the Panther compiler." />
+	<meta property="og:description" content="New and improved dependency system for the Panther compiler" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -44,8 +44,8 @@
 		</div>
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -62,12 +62,14 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
+
 	<div class="context">
 		<h1>Dependencies V2</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #bbbbbb; background-color: #2d3035; border-color: #575a5d;">Devlog</div>
 		<p style="color: #878481;">Written by: Andrew Feldman</p>
 		<p style="color: #878481;">February 6th, 2025</p>
 		<p>&emsp;&emsp;In <a href="/site/devlog/new_systems_requires_major_changes.html">my first devlog</a>, I discussed how implementing Order Independent Declarations and the Panther build system required redoing a lot of work for the compiler as well as adding a new stage (Dependency Analysis). Update <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.79.0">v0.0.79.0</a></code> contained the first proof of concept of this new system working. The code required to get it working was complex and difficult to understand, but the system worked and it seemed robust. There was a looming sense of difficulty coming down the line (such as pointers to user-defined types - more on that later), but I plowed through as this was the solution I came up with and I was sticking to it. Through <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.80.0">v0.0.80.0</a></code> and <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.81.0">v0.0.81.0</a></code> it continued to work well, albeit with more and more complexity. I then got to implementing <code>@import</code> and ran face-first into a wall made of pure abstract complexity.</p>
@@ -80,8 +82,6 @@
 		<h2>Implementation</h2>
 		<p>&emsp;&emsp;The new system now has the name "Symbol Process Building". The first implementation of it can be found in <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.82.0">v0.0.82.0</a></code>. However, it was a bit flawed and <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.83.1">v0.0.83.1</a></code> is a better representation of how it works (it is also the latest version at time of writing). It was significantly simpler to implement, which is I think is a good sign. The only road block was getting the circular dependency detection to never deadlock or race-condition. The solution I came up with for that is not one I'm super happy with (performance wise), but that's something I think I can come back to in the future. I hope these aren't famous last words.</p>
 		<p>&emsp;&emsp;In <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.83.1">v0.0.83.1</a></code>, variables, <code>@import</code> calls, <code><a href="/site/documentation/panther/when_conditionals.html">when conditionals</a></code>, the beginnings of the standard library, and dynamic loading of files through <code>@import</code> all work. My plan is to implement all of the potential pain points of the new Symbol Process Building as fast as possible to make sure this new system works as well as it seems it does.</p>
-
-
 	</div>
 
 	<div class="footer">

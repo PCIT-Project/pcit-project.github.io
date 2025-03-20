@@ -13,14 +13,15 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
-let page = new Page("Panther STD Documentation", "documentation/panther_std/documentation.html", [search.Category.PANTHER_STD, search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for the Panther programming language standard library");
+let page = new Page({
+	path: "documentation/panther_std/documentation.html",
+	title: "Panther STD Documentation",
+	categories: [search.Category.PANTHER_STD, search.Category.DOCUMENTATION],
+	description: "Documentation for the Panther programming language standard library",
+});
 
 
-page.h1("Panther STD Documentation");
-
-page.text("Coming Soon...", "font-style: italic;");
-
+page.text("The design of the Panther standard library is not solidified enough to write documentation about it yet", "font-style: italic;");
 
 page.generate();
 

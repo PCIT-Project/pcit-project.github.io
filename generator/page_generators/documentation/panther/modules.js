@@ -14,11 +14,13 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
-let page = new Page("Modules", "documentation/panther/modules.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for modules in the Panther programming language");
-
-
-page.h1("Modules");
+let page = new Page({
+	path: "documentation/panther/modules.html",
+	title: "Modules | Panther Documentation",
+	on_page_title: "Modules",
+	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	description: "Documentation for modules in the Panther programming language",
+});
 
 page.text(`A module is a set of symbols that are sort of namespaced together. To import modules, you can use the ${html.inline_code("@import")} intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:`);
 

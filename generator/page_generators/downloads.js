@@ -11,11 +11,14 @@
 const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
-let page = new Page("Downloads", "downloads.html", null);
+let page = new Page({
+	path: "downloads.html",
+	title: "Downloads",
+	categories: [require("../search.js").Category.DOWNLOADS_AND_BUILDING],
+	description: "Download the PCIT Project software",
+});
 
-page.h1("Downloads");
-
-page.text("No releases have been made yet, but you can download the source code " + html.link("here", "https://github.com/PCIT-Project/PCIT-CPP") + " and build it yourself.");
+page.text("No official releases have been made yet, but you can download the source code " + html.link("here", "https://github.com/PCIT-Project/PCIT-CPP") + " and build it yourself.");
 
 page.generate();
 

@@ -13,12 +13,15 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
-let page = new Page("Panther Value Stages", "documentation/panther/value_stages.html", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
-page.setDescription("Documentation for value stages in the Panther programming language");
+let page = new Page({
+	path: "documentation/panther/value_stages.html",
+	title: "Panther Value Stages | Panther Documentation",
+	on_page_title: "Panther Value Stages",
+	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	description: "Documentation for value stages in the Panther programming language",
+});
 
-page.h1("Panther Value Stages");
 page.text("All expressions have a value stage which dictate which stage of compilation it may be used in.");
-
 
 
 page.anchor("constexpr");
