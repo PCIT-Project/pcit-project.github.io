@@ -70,6 +70,7 @@ require("./page_generators/documentation/documentation.js");
 
 require("./page_generators/documentation/panther/documentation.js");
 
+require("./page_generators/documentation/panther/literals.js");
 require("./page_generators/documentation/panther/modules.js");
 require("./page_generators/documentation/panther/undefined_behavior.js");
 require("./page_generators/documentation/panther/uninitialized.js");

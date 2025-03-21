@@ -28,7 +28,7 @@ page.text(`All expressions have a value category. In C-like languages, the two m
 page.anchor("ephemeral");
 page.h2("Ephemeral");
 search.addSearchTarget("Ephemeral Value Category", "documentation/panther/value_categories.html#ephemeral", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
-page.text(`Ephemeral values are very similar to ${terms.get("rvalue")} values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as ${terms.get("fluid literals")} are ephemeral.`);
+page.text(`Ephemeral values are very similar to ${terms.get("rvalue")} values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as ${terms.get("fluid")} ${terms.get("literals")} are ephemeral but not explicitly typed.`);
 page.text("The following are ephemeral expressions:");
 page.bullets([
 	terms.get("literals"),

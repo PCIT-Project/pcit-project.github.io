@@ -43,11 +43,13 @@ term("concrete-forwardable", "/site/documentation/panther/value_categories.html#
 term("concrete-const", "/site/documentation/panther/value_categories.html#concrete_const");
 term("destructive-movable-concrete-const", "/site/documentation/panther/value_categories.html#concrete_const_movable");
 
-term("literal");
-term("literals");
+term("literal", "/site/documentation/panther/literals.html");
+term("literals", "/site/documentation/panther/literals.html");
 
-term("fluid literals");
-term("Fluid literals");
+term("character escape code");
+
+term("fluid");
+term("Fluid");
 
 term("RHS");
 term("LHS");

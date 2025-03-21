@@ -41,6 +41,7 @@ h3{
 
 code{
 	background-color: #1e2122;
+	font-size: 1.2em;
 }
 
 
@@ -266,7 +267,7 @@ code{
 	background-color: #282923;
 	padding: 0;
 	margin: 0;
-	font-size: 3em;
+	font-size: 1em;
 	/*overflow: auto;*/
 	tab-size: 4;
 	margin-bottom: 1vw;
@@ -368,7 +369,6 @@ code{
 	}
 
 	.code{
-		font-size: 1em;
 		margin-bottom: 5vw;
 	}
 

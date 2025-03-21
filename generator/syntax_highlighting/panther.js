@@ -58,6 +58,30 @@ function is_number(character){
 	return false;
 }
 
+function is_hex_number(character){
+	switch(character){
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
+		case 'a': case 'A':
+		case 'b': case 'B':
+		case 'c': case 'C':
+		case 'd': case 'D':
+		case 'e': case 'E':
+		case 'f': case 'F':
+			return true;
+	}
+
+	return false;
+}
+
 
 
 exports.highlight = function(code){
@@ -194,18 +218,51 @@ exports.highlight = function(code){
 
 			output += stream.next() + "</span>";
 
+		}else if(stream.peek() == '\''){
+			output += "<span class=\"code-yellow\">";
+			output += stream.next();
+
+			while(stream.peek() != '\''){
+				if(stream.peek() == "\\"){
+					output += "<span class=\"code-purple\">" + stream.next() + stream.next() + "</span>";
+				}else{
+					output += stream.next();
+				}
+			}
+
+			output += stream.next() + "</span>";
+
 		}else if(is_number(stream.peek())){
 			output += "<span class=\"code-purple\">";
 
-			while(is_number(stream.peek())){
+			output += stream.next();
+
+			if(stream.peek() == 'x' || stream.peek() == 'o' || stream.peek() == 'b'){
 				output += stream.next();
+			}
+
+			while(is_hex_number(stream.peek()) || stream.peek() == '_'){
+				if((stream.peek() == 'e' || stream.peek() == 'E') && (stream.peek(1) == '+' || stream.peek(1) == '-')){
+					output += stream.next();
+					output += stream.next();
+
+				}else{
+					output += stream.next();
+				}
 			}
 
 			if(stream.peek() == '.'){
 				output += stream.next();
 
-				while(is_number(stream.peek())){
-					output += stream.next();
+				while(is_hex_number(stream.peek()) || stream.peek() == '_'){
+					if((stream.peek() == 'e' || stream.peek() == 'E') && (stream.peek(1) == '+' || stream.peek(1) == '-')){
+						output += stream.next();
+						output += stream.next();
+
+					}else{
+						output += stream.next();
+					}
+
 				}
 			}
 

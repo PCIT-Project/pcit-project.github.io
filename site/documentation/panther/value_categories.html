@@ -72,10 +72,10 @@
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 		<p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
 <div id="ephemeral"></div>		<h2>Ephemeral</h2>
-		<p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code>fluid literals</code> are ephemeral.</p>
+		<p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code>fluid</code> <code><a href="/site/documentation/panther/literals.html">literals</a></code> are ephemeral but not explicitly typed.</p>
 		<p>The following are ephemeral expressions:</p>
 		<ul>
-			<li><code>literals</code></li>
+			<li><code><a href="/site/documentation/panther/literals.html">literals</a></code></li>
 			<li>values returned from functions / built-in operators</li>
 			<li><code>def variables</code></li>
 			<li>template parameters</li>

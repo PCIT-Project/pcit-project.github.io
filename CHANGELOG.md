@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.23.0"></a>
+## v0.0.23.0
+- Added Literals page to Panther documentation
+- Fixed syntax highlighting of character literals for Panther and C++
+- Fixed syntax highlighting of non-base-10 integer literals for Panther and C++
+- Fixed syntax highlighting of underscores in integer and float literals for Panther
+- Fixed syntax highlighting of scientific notation in integer and float literals for Panther
+
+
+<!---------------------------------->
 <a name="v0.0.22.0"></a>
 ## v0.0.22.0
 - Added categories to pages
