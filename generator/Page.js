@@ -71,6 +71,31 @@ class Page{
 	}
 
 
+	h2Searchable(text, anchor_name, style=null){
+		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
+
+		if(style === null){
+			this.body += `<h2 id="${anchor_name}">${text}</h2>`;
+		}else{
+			this.body += `<h2 id="${anchor_name}" style="${style}">${text}</h2>`;
+		}
+
+		search.addSearchTarget(text, this.path + "#" + anchor_name, this.categories);
+	}
+
+	h3Searchable(text, anchor_name, style=null){
+		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
+
+		if(style === null){
+			this.body += `<h3 id="${anchor_name}">${text}</h3>`;
+		}else{
+			this.body += `<h3 id="${anchor_name}" style="${style}">${text}</h3>`;
+		}
+
+		search.addSearchTarget(text, this.path + "#" + anchor_name, this.categories);
+	}
+
+
 	text(text, style=null){
 		this.body += html.tag("p", text, style);
 	}
@@ -332,7 +357,7 @@ class Page{
 		if(is_home_page){
 				file_data += `
 			<div id="navbar-fader" class="navbar-fader-hidden">
-				<img class="navbar-img" src="/assets/Logo.png">
+				<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
 				<a class="navbar-title" href="/site/home.html">PCIT Project</a>
 			</div>
 			`;
@@ -340,7 +365,7 @@ class Page{
 		}else{
 			file_data += `
 		<div id="navbar-fader">
-			<img class="navbar-img" src="/assets/Logo.png">
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
 			<a class="navbar-title" href="/site/home.html">PCIT Project</a>
 		</div>
 		`;	
@@ -356,8 +381,7 @@ class Page{
 		<a class="navbar-item" href="/site/Panther.html">Panther</a>
 
 		<div class="hamburger-button" onclick="toggle_hamburger()">
-			<i class="normal-hamburger-button fa-solid fa-bars fa-lg"></i>
-			<i class="larger-hamburger-button fa-solid fa-bars fa-2xl"></i>
+			<i class="hamburger-button fa-solid fa-bars fa-fw"></i>
 		</div>
 	</div>
 

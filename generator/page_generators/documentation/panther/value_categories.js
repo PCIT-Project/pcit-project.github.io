@@ -25,9 +25,7 @@ let page = new Page({
 page.text(`All expressions have a value category. In C-like languages, the two main value categories are usually ${terms.get("lvalue")} and ${terms.get("rvalue")}. In Panther, there are also two main categories: ${terms.get("concrete")} and ${terms.get("ephemeral")}. These are very similar to ${terms.get("lvalue")} and ${terms.get("rvalue")} respectively, but they are different enough that it warranted new names.`);
 
 
-page.anchor("ephemeral");
-page.h2("Ephemeral");
-search.addSearchTarget("Ephemeral Value Category", "documentation/panther/value_categories.html#ephemeral", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.h2Searchable("Ephemeral Value Category", "ephemeral");
 page.text(`Ephemeral values are very similar to ${terms.get("rvalue")} values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as ${terms.get("fluid")} ${terms.get("literals")} are ephemeral but not explicitly typed.`);
 page.text("The following are ephemeral expressions:");
 page.bullets([
@@ -38,15 +36,11 @@ page.bullets([
 ]);
 
 
-page.anchor("concrete");
-page.h2("Concrete");
-search.addSearchTarget("Concrete Value Category", "documentation/panther/value_categories.html#concrete", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.h2Searchable("Concrete Value Category", "concrete");
 page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an ${terms.get("operator copy")}, a ${terms.get("operator move")}, or a ${terms.get("operator destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("destructive-movable-concrete-const")}`);
 
 
-page.anchor("concrete_mutable");
-page.h3("Concrete-Mutable");
-search.addSearchTarget("Concrete Mutable Value Category", "documentation/panther/value_categories.html#concrete_mutable", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.h3Searchable("Concrete-Mutable Value Category", "concrete_mutable");
 page.text(`Concrete-mutable values are values that are ${terms.get("concrete")} and mutable.`);
 page.text("The following are concrete-mutable expressions:");
 page.bullets([
@@ -59,9 +53,7 @@ page.bullets([
 
 
 
-page.anchor("concrete_forwardable");
-page.h3("Concrete-Forwardable");
-search.addSearchTarget("Concrete-Forwardable Value Category", "documentation/panther/value_categories.html#concrete_forwardable", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.h3Searchable("Concrete-Forwardable Value Category", "concrete_forwardable");
 page.text(`Concrete-forwardable values are values that are ${terms.get("concrete")}, and mutable. Concrete-forwardable is the only value category that is allowed to be argument of an ${terms.get("operator forward")}.`);
 page.text("The following are concrete-forwardable expressions:");
 page.bullets([
@@ -70,9 +62,7 @@ page.bullets([
 
 
 
-page.anchor("concrete_const");
-page.h3("Concrete-Const");
-search.addSearchTarget("Concrete-Const Value Category", "documentation/panther/value_categories.html#concrete_const", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.h3Searchable("Concrete-Const Value Category", "concrete_const");
 page.text(`Concrete-const values are values that are ${terms.get("concrete")} and non-mutable. Mutating a concrete-const value is ${terms.get("undefined behavior")}.`);
 page.text("The following are concrete-const expressions:");
 page.bullets([
@@ -84,9 +74,7 @@ page.bullets([
 
 
 
-page.anchor("destructive_movable_concrete_const");
-page.h3("Destructive-Movable-Concrete-Const");
-search.addSearchTarget("Destructive-Movable-Concrete-Const Value Category", "documentation/panther/value_categories.html#destructive_movable_concrete_const", [search.Category.PANTHER, search.Category.DOCUMENTATION]);
+page.h3Searchable("Destructive-Movable-Concrete-Const Value Category", "destructive_movable_concrete_const");
 page.text(`Destructive-movable-concrete-const values are values that are ${terms.get("concrete")} and only mutable by ${terms.get("operator destructive move")}. Mutating a destructive-movable-concrete-const value in any way other than ${terms.get("operator destructive move")} is ${terms.get("undefined behavior")}.`);
 page.text("The following are destructive-movable-concrete-const expressions:");
 page.bullets([

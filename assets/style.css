@@ -8,8 +8,7 @@
 
 html{
 	scroll-behavior: smooth;
-	scroll-padding-top: 6vmin;
-
+	scroll-padding-top: 13vmin;
 }
 
 body{
@@ -31,13 +30,34 @@ h1{
 }
 
 h2{
-	padding-top: 1em;
+	margin-top: 2em;
 }
-
 
 h3{
-	padding-top: 1em;
+	margin-top: 2em;
 }
+
+
+
+.anchor_highlighter{
+	animation-name: anchor-highlight;
+	animation-duration: 4.0s;
+}
+
+@keyframes anchor-highlight{
+	from{
+		background-color: #06b6d4;
+	}
+
+	to{
+		background-color: #151617;
+	}
+}
+
+
+
+
+
 
 code{
 	background-color: #1e2122;
@@ -45,6 +65,8 @@ code{
 }
 
 
+
+/**************************************************/
 /* navbar */
 
 .navbar{
@@ -84,14 +106,21 @@ code{
 	float: right;
 	color: #f2f2f2;
 	text-align: center;
-	padding: 3.4vmin 3.4vmin;
 	text-decoration: none;
-	display: none;
+	display: block;
+	width: 5.5vmin;
+	height: 5.5vmin;
+	padding: 1.5vmin 1.5vmin;
 }
 
 
-.navbar-img{
+.navbar-img-box{
 	float: left;
+}
+
+.navbar-img{
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -146,12 +175,8 @@ code{
 }
 
 
-.larger-hamburger-button{
-	display: none;
-}
 
-
-
+/**************************************************/
 /* home */
 
 #home-splash{
@@ -162,8 +187,9 @@ code{
 }
 
 #home-splash-img{
-	width: 50%;
+	height: 20em;
 }
+
 
 #home-splash-title{
 	font-size: 3em;
@@ -179,12 +205,6 @@ code{
 
 
 
-
-.context{
-	padding: 12vmin 6vmin;
-}
-
-
 .footer{
 	margin-top: auto;
 	background-color: #1e2122;
@@ -193,6 +213,7 @@ code{
 
 
 
+/**************************************************/
 /* search */
 
 .search-bar{
@@ -244,7 +265,7 @@ code{
 }
 
 
-
+/**************************************************/
 /* code */
 
 .code-header{
@@ -344,19 +365,31 @@ code{
 
 
 
+/**************************************************/
+/* mobile  */
+
+
+
+@media (hover: none){
+	.context{
+		padding: 12vmin 6vmin;
+	}
+
+	#home-splash-img{
+		height: 15em;
+	}
+}
+
+
 /*mobile portrait*/
-@media only screen and (max-width: 1023px) and (orientation: portrait){
-	.navbar-img{
+@media (hover: none) and (orientation: portrait){
+	.navbar-img-box{
 		width: 10vmin;
 		padding: 1vmin;
 	}
 
 	.navbar-item{
 		display: none;
-	}
-
-	.hamburger-button{
-		display: block;
 	}
 
 	.code-header{
@@ -383,12 +416,12 @@ code{
 }
 
 /*mobile landscape*/
-@media only screen and (max-width: 1023px) and (orientation: landscape){
+@media (hover: none) and (orientation: landscape){
 	h1{
 		font-size: 4em;
 	}
 
-	.navbar-img{
+	.navbar-img-box{
 		width: 10vmin;
 		padding: 1vmin;
 	}
@@ -397,11 +430,6 @@ code{
 		display: none;
 	}
 
-	.hamburger-button{
-		display: block;
-	}
-
-
 	#home-splash{
 		padding-top: 16vmin;
 		background-color: #1e2122;
@@ -409,7 +437,7 @@ code{
 		width: 100%;
 	}
 
-	#home-splash-img{
+	#home-splash-box{
 		width: 20%;
 	}
 
@@ -455,18 +483,17 @@ code{
 		margin-right: 0;
 	}
 
-
-	.normal-hamburger-button{
-		display: none;
-	}
-
-	.larger-hamburger-button{
-		display: block;
-	}
+	/*.hamburger-button{
+		width: 7vmin;
+		height: 7vmin;
+	}*/
 }
 
-/*desktop*/
-@media only screen and (min-width: 1024px){
+
+/**************************************************/
+/* desktop  */
+
+@media (hover: hover) {
 	.navbar{
 		height: 3.5em;
 	}
@@ -475,7 +502,7 @@ code{
 		padding-top: 8vmin;
 	}
 
-	#home-splash-img{
+	#home-splash-box{
 		width: 20%;
 	}
 
@@ -491,15 +518,11 @@ code{
 		margin-bottom: 1.25em;
 	}
 
-	.context{
-		padding: 4em 25%;
-	}
-
 	.footer{
 		padding: 0 25%;
 	}
 
-	.navbar-img{
+	.navbar-img-box{
 		width: 3em;
 		padding: 0.5vmin;
 	}
@@ -517,3 +540,46 @@ code{
 		font-size: 1em;
 	}
 }
+
+@media screen and (min-width: 1366px) and (hover: hover) {
+	.context{
+		padding: 4em 25%;
+	}
+
+	.hamburger-button{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1365px) and (hover: hover) {
+	.context{
+		padding: 4em 20%;
+	}
+
+	.hamburger-button{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1023px) and (hover: hover) {
+	.context{
+		padding: 4em 15%;
+	}
+
+	.navbar-item{
+		display: none;
+	}
+
+	.hamburger-button{
+		width: 7vmin;
+		height: 7vmin;
+		display: block;
+	}
+}
+
+
+/*@media only screen and (hover: hover) and (max-width: 1023) {
+	.context{
+		padding: 4em 0%;
+	}
+}*/

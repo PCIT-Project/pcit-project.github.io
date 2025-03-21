@@ -70,3 +70,21 @@ function toggle_hamburger(){
 
 	setTimeout(()=>{ may_toggle_hamburger = true; }, 250);
 }
+
+
+
+
+function highlight_target_anchor(){
+	const target_anchor_name = window.location.hash.slice(1);
+	if(target_anchor_name == ""){ return; }
+
+	const target_anchor_elem = document.getElementById(target_anchor_name);
+	if(target_anchor_elem == null){ return; }
+
+	setTimeout(() => { target_anchor_elem.classList.add("anchor_highlighter"); }, 300);
+}
+
+
+window.onload = (e) => {
+	highlight_target_anchor();
+};

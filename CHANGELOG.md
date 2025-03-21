@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.24.0"></a>
+## v0.0.24.0
+- Added temporary highlighting of search target
+- Added search targets to the different types of literals in the Literals page in Panther documentation 
+- Improved zooming on desktop
+- Fixed hamburger button resizing when zooming
+- Fixed mistake in the Literals page in Panther documentation that in float literals underscore separator section
+
+
+<!---------------------------------->
 <a name="v0.0.23.0"></a>
 ## v0.0.23.0
 - Added Literals page to Panther documentation
