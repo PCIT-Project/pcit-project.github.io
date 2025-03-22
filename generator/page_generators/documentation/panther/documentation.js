@@ -24,7 +24,7 @@ page.text("Documentation for the Panther programming language.");
 
 // TODO: remove at release
 page.begin_info();
-page.h2("Important Note", "padding-top: 0px;");
+page.h2("Important Note", "margin-top: 0.8em;");
 page.text("As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete");
 page.end_info();
 

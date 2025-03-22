@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /site/
+Disallow: /generator/
+Disallow: /assets/font-awesome/

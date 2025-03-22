@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.25.0"></a>
+## v0.0.25.0
+- Added robots.txt
+- Fixed spacing at top of info boxes on the home page and documentation page
+
+
+<!---------------------------------->
 <a name="v0.0.24.0"></a>
 ## v0.0.24.0
 - Added temporary highlighting of search target

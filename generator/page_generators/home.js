@@ -26,7 +26,7 @@ page.text("Not only can all tools be used as a standalone program, all tools are
 
 // TODO: remove at release
 page.begin_info();
-page.h2("Important Note", "padding-top: 0px;");
+page.h2("Important Note", "margin-top: 0.8em;");
 page.text("PCIT Project software (including this site) is in pre-alpha. Feel free to poke around and try things out, but please do not use any tools to create anything yet as drastic changes may be made.");
 page.end_info();
 
