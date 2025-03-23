@@ -12,7 +12,7 @@ const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 let page = new Page({
-	path: "home.html",
+	path: "../index.html",
 	title: "Home",
 	on_page_title: "What is PCIT Project?",
 	description: "The PCIT Project is \"Panther Compiler Infrastructure and Toolchain\", and the home of the Panther programming language",

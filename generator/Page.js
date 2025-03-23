@@ -358,7 +358,7 @@ class Page{
 				file_data += `
 			<div id="navbar-fader" class="navbar-fader-hidden">
 				<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
-				<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+				<a class="navbar-title" href="/">PCIT Project</a>
 			</div>
 			`;
 
@@ -366,7 +366,7 @@ class Page{
 			file_data += `
 		<div id="navbar-fader">
 			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
-			<a class="navbar-title" href="/site/home.html">PCIT Project</a>
+			<a class="navbar-title" href="/">PCIT Project</a>
 		</div>
 		`;	
 		}

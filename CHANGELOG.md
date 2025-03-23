@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.26.0"></a>
+## v0.0.26.0
+- Removed `/index.html` and moved `/site/home.html` to `index.html`
+	- This is for improved SEO based on a report from google search console 
+
+
+<!---------------------------------->
 <a name="v0.0.25.0"></a>
 ## v0.0.25.0
 - Added robots.txt
