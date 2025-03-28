@@ -144,12 +144,14 @@ function on_search_input(){
 }
 
 
-
 window.onload = () => {
-	if(screen.width >= 768){ // if on desktop
-		const search_box = document.getElementById("search_box");
-		search_box.select();
-	}
+   // if(screen.width >= 768){ // if on desktop
+       // const search_box = document.getElementById("search_box");
+       // // search_box.setAttribute('tabindex', '0');
+       
+   setTimeout(() => { document.getElementById("search_box").focus({ focusVisible: true }); }, 500);
+
+   // }
 }
 
 const search_targets = [

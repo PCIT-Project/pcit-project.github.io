@@ -142,12 +142,3 @@ function on_search_input(){
 
 	results_div.innerHTML = results_div_body_str;
 }
-
-
-
-window.onload = () => {
-	if(screen.width >= 768){ // if on desktop
-		const search_box = document.getElementById("search_box");
-		search_box.select();
-	}
-}

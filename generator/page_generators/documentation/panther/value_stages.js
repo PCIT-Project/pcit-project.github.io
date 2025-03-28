@@ -25,27 +25,28 @@ page.text("All expressions have a value stage which dictate which stage of compi
 
 
 page.h2Searchable("Constexpr Value Stage", "constexpr");
-page.text("Constexpr values are values that are known at compile-time and can be used as constexpr expressions.");
+page.text("Constexpr values are values that are known at compile-time and can be used as constexpr expressions. Anywhere that requires a comptime or a runtime value also accept constexpr values.");
 page.text("The following are constexpr expressions:");
 page.bullets([
+	terms.get("literals"),
 	terms.get("def variables"),
 	"template parameters",
-	"constexpr function calls with all parameters being constexpr"
+	"constexpr function calls with all arguments being constexpr",
 ]);
 
 
 
 page.h2Searchable("Comptime Value Stage", "comptime");
-page.text("Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a comptime value also accept constexpr values.");
+page.text("Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a runtime values also accept comptime values.");
 page.text("The following are comptime expressions:");
 page.bullets([
 	"global " + terms.get("const variables"),
-	"parameters in a constexpr function",
-	"return parameters in a constexpr function",
-	"error parameters in a constexpr function",
 	terms.get("const variables") + " defined in a constexpr function",
 	terms.get("var variables") + " defined in a constexpr function",
-	"constexpr function calls with all parameters being constexpr and/or comptime (must have at least one comptime parameter, or else it's constexpr)",
+	"function parameters in a constexpr function",
+	"return parameters in a constexpr function",
+	"error parameters in a constexpr function",
+	"constexpr function calls with all arguments being constexpr and/or comptime (must have at least 1 comptime parameter, or else it's constexpr)",
 ]);
 
 
@@ -55,9 +56,10 @@ page.text("Runtime values are values that may only be used at runtime as they ar
 page.text("The following are runtime expressions:");
 page.bullets([
 	"global " + terms.get("var variables"),
+	`${terms.get("var variables")} and ${terms.get("const variables")} declared in function scope`,
 	"calls to external functions that are unknown / not linked in by the build system",
-	"functions that have runtime values in their bodies",
-	`${terms.get("var variables")} and ${terms.get("const variables")} declared in function scope`
+	"calls to runtime functions",
+	"calls to comptime functions with at least 1 runtime argument",
 ]);
 
 

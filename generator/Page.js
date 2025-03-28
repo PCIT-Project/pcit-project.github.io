@@ -27,7 +27,6 @@ const Language = Object.freeze({
 });
 
 
-
 class Page{
 	#body;
 	#counter;

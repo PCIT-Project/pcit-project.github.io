@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.26.1"></a>
+## v0.0.26.1
+- Reorganized some of the Panther Value Stages page
+- Fixed mistakes in Panther Value Stages page
+
+
+<!---------------------------------->
 <a name="v0.0.26.0"></a>
 ## v0.0.26.0
 - Removed `/index.html` and moved `/site/home.html` to `index.html`

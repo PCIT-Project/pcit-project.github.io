@@ -70,31 +70,33 @@
 		<h1>Panther Value Stages</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 		<p>All expressions have a value stage which dictate which stage of compilation it may be used in.</p>
-<h2 id="constexpr">Constexpr Value Stage</h2>		<p>Constexpr values are values that are known at compile-time and can be used as constexpr expressions.</p>
+<h2 id="constexpr">Constexpr Value Stage</h2>		<p>Constexpr values are values that are known at compile-time and can be used as constexpr expressions. Anywhere that requires a comptime or a runtime value also accept constexpr values.</p>
 		<p>The following are constexpr expressions:</p>
 		<ul>
+			<li><code><a href="/site/documentation/panther/literals.html">literals</a></code></li>
 			<li><code>def variables</code></li>
 			<li>template parameters</li>
-			<li>constexpr function calls with all parameters being constexpr</li>
+			<li>constexpr function calls with all arguments being constexpr</li>
 		</ul>
-<h2 id="comptime">Comptime Value Stage</h2>		<p>Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a comptime value also accept constexpr values.</p>
+<h2 id="comptime">Comptime Value Stage</h2>		<p>Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a runtime values also accept comptime values.</p>
 		<p>The following are comptime expressions:</p>
 		<ul>
 			<li>global <code>const variables</code></li>
-			<li>parameters in a constexpr function</li>
-			<li>return parameters in a constexpr function</li>
-			<li>error parameters in a constexpr function</li>
 			<li><code>const variables</code> defined in a constexpr function</li>
 			<li><code>var variables</code> defined in a constexpr function</li>
-			<li>constexpr function calls with all parameters being constexpr and/or comptime (must have at least one comptime parameter, or else it's constexpr)</li>
+			<li>function parameters in a constexpr function</li>
+			<li>return parameters in a constexpr function</li>
+			<li>error parameters in a constexpr function</li>
+			<li>constexpr function calls with all arguments being constexpr and/or comptime (must have at least 1 comptime parameter, or else it's constexpr)</li>
 		</ul>
 <h2 id="runtime">Runtime Value Stage</h2>		<p>Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept comptime and constexpr values.</p>
 		<p>The following are runtime expressions:</p>
 		<ul>
 			<li>global <code>var variables</code></li>
-			<li>calls to external functions that are unknown / not linked in by the build system</li>
-			<li>functions that have runtime values in their bodies</li>
 			<li><code>var variables</code> and <code>const variables</code> declared in function scope</li>
+			<li>calls to external functions that are unknown / not linked in by the build system</li>
+			<li>calls to runtime functions</li>
+			<li>calls to comptime functions with at least 1 runtime argument</li>
 		</ul>
 	</div>
 
