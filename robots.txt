@@ -2,3 +2,4 @@ User-agent: *
 Allow: /site/
 Disallow: /generator/
 Disallow: /assets/font-awesome/
+Sitemap: https://www.pcitproject.org/site/sitemap.xml

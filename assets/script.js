@@ -81,10 +81,18 @@ function highlight_target_anchor(){
 	const target_anchor_elem = document.getElementById(target_anchor_name);
 	if(target_anchor_elem == null){ return; }
 
-	setTimeout(() => { target_anchor_elem.classList.add("anchor_highlighter"); }, 300);
+	target_anchor_elem.classList.add("anchor_highlighter");
+
+	setTimeout(() => {
+		target_anchor_elem.classList.remove("anchor_highlighter");
+	}, 5000);
 }
 
 
 window.onload = (e) => {
+	highlight_target_anchor();
+};
+
+window.onhashchange = (e) => {
 	highlight_target_anchor();
 };

@@ -14,7 +14,7 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "documentation/PIR/documentation.html",
 	title: "PIR Documentation",
 	categories: [search.Category.PIR, search.Category.DOCUMENTATION],

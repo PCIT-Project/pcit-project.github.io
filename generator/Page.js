@@ -12,6 +12,10 @@ const fs = require("node:fs");
 const html = require("./html.js");
 const syntax_highlighting = require("./syntax_highlighting/syntax_highlighting.js");
 const search = require("./search.js");
+const path = require('node:path');
+
+const child_process = require("node:child_process");
+
 
 
 const Language = Object.freeze({
@@ -27,9 +31,52 @@ const Language = Object.freeze({
 });
 
 
+let page_list = [];
+
+
+const changed_files = function(){
+	let git_status;
+	try{
+		git_status = child_process.execSync("git status").toString();
+	}catch(e){
+		assert(false, "git status error: \n\n" + e.toString() + "\n");
+	}
+
+	let found_added_section = false;
+
+	let output = [];
+	git_status.split("\n").forEach((git_status_line) => {
+		if(found_added_section){
+			if(git_status_line.startsWith("\t")){
+				output.push(git_status_line.slice("\t".length).replaceAll());
+			}
+			return;
+		}
+
+		if(git_status_line.startsWith("\tnew file:   ")){
+			output.push(git_status_line.slice("\tnew file:   ".length).replaceAll());
+			return;
+		}
+
+		if(git_status_line.startsWith("\tmodified:   ")){
+			output.push(git_status_line.slice("\tmodified:   ".length).replaceAll());
+			return;
+		}
+
+		if(git_status_line == `  (use "git add <file>..." to include in what will be committed)`){
+			found_added_section = true;
+		}
+	});
+
+	return output;
+}();
+
+
+
 class Page{
 	#body;
 	#counter;
+	#last_updated_str;
 
 	// required options for `config`
 	#path;
@@ -41,7 +88,10 @@ class Page{
 	#on_page_title; // default `title`
 	#has_page_title; // default true
 
-	constructor(config){
+	// optional options for `config` that don't become members
+	// allow_in_sitemap; // defaults to true
+
+	constructor(generator_path, config){
 		this.body = "";
 		this.counter = 0;
 
@@ -54,11 +104,45 @@ class Page{
 		this.categories = config.categories;
 		this.on_page_title = config.on_page_title ?? config.title;
 		this.has_page_title = config.has_page_title ?? true;
+		this.allow_in_sitemap = config.allow_in_sitemap ?? true;
 
 		if(this.categories !== undefined){
 			search.addSearchTarget(this.on_page_title, "/site/" + this.path, this.categories, this.description);
 		}
+
+		if(config.allow_in_sitemap ?? true){
+			page_list.push(this);
+		}
+
+
+		///////////////////////////////////
+		// get `last_updated_str``
+
+
+		if(changed_files.includes(path.relative(process.cwd(), generator_path).replaceAll("\\", "/"))){
+			let date = new Date();
+			this.last_updated_str = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+			
+		}else{
+			const get_last_commit_str = `git log -1 --pretty="format:%ci" -- "${generator_path}"`;
+			let last_commit_res;
+			try{
+				last_commit_res = child_process.execSync(get_last_commit_str).toString();
+			}catch(e){
+				assert(false, "git error: \n\n" + e.toString() + "\n");
+			}
+
+			assert(last_commit_res != "", "failed to get last updated time");
+
+			this.last_updated_str = last_commit_res.split(" ")[0];
+		}
 	}
+
+	getPath(){ return this.path; }
+	allowInSitemap(){ return this.allow_in_sitemap; }
+	lastUpdatedStr(){ return this.last_updated_str; }
+
+
 
 
 	h2(text, style=null){
@@ -69,28 +153,40 @@ class Page{
 		this.body += html.tag("h3", text, style);
 	}
 
+	h4(text, style=null){
+		this.body += html.tag("h4", text, style);
+	}
 
-	h2Searchable(text, anchor_name, style=null){
-		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
 
+	h2Anchor(text, anchor_name, style=null){
 		if(style === null){
 			this.body += `<h2 id="${anchor_name}">${text}</h2>`;
 		}else{
 			this.body += `<h2 id="${anchor_name}" style="${style}">${text}</h2>`;
 		}
+	}
 
+	h3Anchor(text, anchor_name, style=null){
+		if(style === null){
+			this.body += `<h3 id="${anchor_name}">${text}</h3>`;
+		}else{
+			this.body += `<h3 id="${anchor_name}" style="${style}">${text}</h3>`;
+		}
+	}
+
+
+
+	h2Searchable(text, anchor_name, style=null){
+		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
+
+		this.h2Anchor(text, anchor_name, style);
 		search.addSearchTarget(text, this.path + "#" + anchor_name, this.categories);
 	}
 
 	h3Searchable(text, anchor_name, style=null){
 		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
 
-		if(style === null){
-			this.body += `<h3 id="${anchor_name}">${text}</h3>`;
-		}else{
-			this.body += `<h3 id="${anchor_name}" style="${style}">${text}</h3>`;
-		}
-
+		this.h3Anchor(text, anchor_name, style);
 		search.addSearchTarget(text, this.path + "#" + anchor_name, this.categories);
 	}
 
@@ -124,6 +220,16 @@ class Page{
 		}
 
 		this.body += "\t\t</ul>\n";
+	}
+
+	ordered_list(points){
+		this.body += "\t\t<ol>\n";
+
+		for(var i=0; i<points.length;i++){
+			this.body += html.tag("li", points[i], null, 3);
+		}
+
+		this.body += "\t\t</ol>\n";
 	}
 
 	image(link, style=null){
@@ -434,7 +540,8 @@ class Page{
 	file_data += `\t</div>
 
 	<div class="footer">
-		<p style="color: #878481;">© 2023-${new Date().getFullYear()} <a href="/site/about.html">PCIT Project Team</a>. All rights reserved. </p>
+		<p style="color: #878481;">Page Last Updated: ${this.last_updated_str}</p>
+		<p style="color: #878481;">© 2023-${new Date().getFullYear()} <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
 </body>
@@ -448,3 +555,4 @@ class Page{
 
 exports.Language = Language;
 exports.Page = Page;
+exports.page_list = page_list;

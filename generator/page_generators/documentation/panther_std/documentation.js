@@ -13,7 +13,7 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "documentation/panther_std/documentation.html",
 	title: "Panther STD Documentation",
 	categories: [search.Category.PANTHER_STD, search.Category.DOCUMENTATION],

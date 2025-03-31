@@ -10,7 +10,7 @@
 const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "about.html",
 	title: "About",
 	description: "About the PCIT Project",

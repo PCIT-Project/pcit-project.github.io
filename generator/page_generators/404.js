@@ -12,11 +12,12 @@ const Page = require("../Page.js").Page;
 const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "error404.html",
 	title: "404",
 	has_page_title: false,
 	description: "Error 404: Page not found",
+	allow_in_sitemap: false,
 });
 
 

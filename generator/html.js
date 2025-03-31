@@ -48,6 +48,10 @@ exports.link = function(text, link){
 }
 
 
+exports.bold = function(text){
+	return `<span style="font-weight: bold;">${text}</span>`;
+}
+
 exports.italic = function(text){
 	return `<span style="font-style: italic;">${text}</span>`;
 }

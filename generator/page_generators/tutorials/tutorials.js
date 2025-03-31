@@ -10,7 +10,7 @@
 const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "tutorials/tutorials.html",
 	title: "Tutorials",
 	categories: [require("../../search.js").Category.TUTORIAL],

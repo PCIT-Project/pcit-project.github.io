@@ -17,7 +17,7 @@ const syntax_highlighting = require("../../../syntax_highlighting/syntax_highlig
 
 
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "documentation/panther/literals.html",
 	title: "Literals | Panther Documentation",
 	on_page_title: "Literals",

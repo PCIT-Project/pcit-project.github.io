@@ -144,19 +144,10 @@ function on_search_input(){
 }
 
 
-window.onload = () => {
-   // if(screen.width >= 768){ // if on desktop
-       // const search_box = document.getElementById("search_box");
-       // // search_box.setAttribute('tabindex', '0');
-       
-   setTimeout(() => { document.getElementById("search_box").focus({ focusVisible: true }); }, 500);
-
-   // }
-}
-
 const search_targets = [
 	new SearchTarget("Panther Programming Language", "/site/Panther.html", "Home page of the Panther programming language", ["panther","programming","language"], [0]),
 	new SearchTarget("Downloads", "/site/downloads.html", "Download the PCIT Project software", ["downloads"], [7]),
+	new SearchTarget("Building PCIT Project Software", "/site/build.html", "How to build the PCIT Project software", ["building","pcit","project","software"], [7]),
 	new SearchTarget("Documentation", "/site/documentation/documentation.html", "Documentation for the PCIT Project tools", ["documentation"], [4]),
 	new SearchTarget("Panther Documentation", "/site/documentation/panther/documentation.html", "Documentation for the Panther programming language", ["panther","documentation"], [0,4]),
 	new SearchTarget("Literals", "/site/documentation/panther/literals.html", "Documentation for literals in the Panther programming language", ["literals"], [0,4]),

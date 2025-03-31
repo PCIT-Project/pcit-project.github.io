@@ -15,7 +15,7 @@ const terms = require("../../terms.js");
 const search = require("../../search.js");
 
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "devlog/new_systems_requires_major_changes.html",
 	title: "New Systems Requires Major Changes | Devlog",
 	on_page_title: "New Systems Requires Major Changes",

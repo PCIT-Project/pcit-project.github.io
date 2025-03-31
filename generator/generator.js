@@ -61,6 +61,8 @@ require("./page_generators/downloads.js");
 require("./page_generators/about.js");
 require("./page_generators/search_page.js");
 
+require("./page_generators/build.js");
+
 
 
 ///////////////////////////////////
@@ -115,6 +117,35 @@ require("./page_generators/devlog/dependencies_v2.js");
 // script generators
 
 require("./search.js").generate();
+
+
+const path = require('node:path');
+const page_list = require("./Page.js").page_list;
+
+let sitemap_str = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+page_list.forEach((page, i) => {
+	sitemap_str += "\t<url>\n";
+
+	sitemap_str += "\t\t<loc>";
+	if(page.getPath() == "../index.html"){
+		sitemap_str += "https://www.pcitproject.org";
+	}else{
+		sitemap_str += "https://www.pcitproject.org/" + (path.normalize("site/" + page.getPath()).replaceAll("\\", "/"));
+	}
+	sitemap_str += "</loc>\n";
+
+
+	sitemap_str += `\t\t<lastmod>${page.lastUpdatedStr()}</lastmod>\n`;
+
+
+	sitemap_str += "\t</url>\n";
+});
+
+sitemap_str += "</urlset>";
+
+fs.writeFileSync("../site/sitemap.xml", sitemap_str);
 
 
 

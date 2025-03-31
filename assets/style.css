@@ -38,10 +38,14 @@ h3{
 }
 
 
+h4{
+	margin-top: 2em;
+}
+
 
 .anchor_highlighter{
 	animation-name: anchor-highlight;
-	animation-duration: 4.0s;
+	animation-duration: 3.0s;
 }
 
 @keyframes anchor-highlight{
@@ -348,6 +352,7 @@ code{
 .info{
 	padding: 1em;
 	padding-top: 0em;
+	margin: 3em 15%;
 	border-radius: 0.3em;
 	background-color: #151829;
 	border-color: #152ec7;
@@ -357,6 +362,7 @@ code{
 .warning{
 	padding: 1em;
 	padding-top: 0em;
+	margin: 3em 15%;
 	border-radius: 0.3em;
 	background-color: #2b2a14;
 	border-color: #cebd00;

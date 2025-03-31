@@ -13,7 +13,7 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "documentation/panther/value_categories.html",
 	title: "Panther Value Categories | Panther Documentation",
 	on_page_title: "Panther Value Categories",

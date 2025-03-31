@@ -14,7 +14,7 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "documentation/panther/uninitialized.html",
 	title: "Uninitialized | Panther Documentation",
 	on_page_title: "Uninitialized",

@@ -14,7 +14,7 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "documentation/panther/modules.html",
 	title: "Modules | Panther Documentation",
 	on_page_title: "Modules",

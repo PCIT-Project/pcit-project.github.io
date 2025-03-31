@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.27.0"></a>
+## v0.0.27.0
+- Added Building PCIT Project Software page
+- Added "Page Last Updated" to bottom of all pages
+- Added sitemap
+- Added padding around info and warning boxes
+- Added support for anchor highlighting within the same page 
+
+
+<!---------------------------------->
 <a name="v0.0.26.1"></a>
 ## v0.0.26.1
 - Reorganized some of the Panther Value Stages page

@@ -13,7 +13,7 @@ const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
 
-let page = new Page({
+let page = new Page(__filename, {
 	path: "Panther.html",
 	title: "Panther Programming Language",
 	categories: [require("../search.js").Category.PANTHER],
