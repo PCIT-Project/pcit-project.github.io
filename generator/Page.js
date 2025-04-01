@@ -121,7 +121,9 @@ class Page{
 
 		if(changed_files.includes(path.relative(process.cwd(), generator_path).replaceAll("\\", "/"))){
 			let date = new Date();
-			this.last_updated_str = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+			const month = date.getMonth() + 1;
+			const day = date.getDate();
+			this.last_updated_str = `${date.getFullYear()}-${month > 9 ? month : "0" + month}-${day > 9 ? day : "0" + day}`;
 			
 		}else{
 			const get_last_commit_str = `git log -1 --pretty="format:%ci" -- "${generator_path}"`;

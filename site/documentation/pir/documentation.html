@@ -92,7 +92,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.4 = @load I64 $VAL #atomic(acquire) #volatile
 		@condBranch true, $.5, $.1
 	$.5:
-		$.6 = @calcPtr [I8:36] I64(0), I64(14)
+		$.6 = @calcPtr [I8:36] &string, I64(0), I64(14)
 		@call &print_hello($.6)
 		@ret $ADD_WRAP.RESULT.1
 }`);
@@ -142,7 +142,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.4 <span class="code-red">=</span> <span class="code-red">@load</span> <span class="code-cyan" style="font-style: italic;">I64</span> $VAL <span class="code-red">#atomic</span>(acquire) <span class="code-red">#volatile</span>
 		<span class="code-red">@condBranch</span> <span class="code-purple">true</span>, $.5, $.1
 	$.5:
-		$.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
+		$.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] &string, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
 		<span class="code-red">@call</span> &print_hello($.6)
 		<span class="code-red">@ret</span> $ADD_WRAP.RESULT.1
 }</div></pre></div>		<p style="padding-top: 2em;">Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:</p>
@@ -162,7 +162,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		@store $VAL, I64(2) #atomic(release)
 		@branch $.5
 	$.5:
-		$.6 = @calcPtr [I8:36] I64(0), I64(14)
+		$.6 = @calcPtr [I8:36] &string, I64(0), I64(14)
 		@call &print_hello($.6)
 		@ret I64(12)
 }`);
@@ -204,7 +204,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		<span class="code-red">@store</span> $VAL, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">2</span>) <span class="code-red">#atomic</span>(release)
 		<span class="code-red">@branch</span> $.5
 	$.5:
-		$.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
+		$.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] &string, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
 		<span class="code-red">@call</span> &print_hello($.6)
 		<span class="code-red">@ret</span> <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">12</span>)
 }</div></pre></div>		<p style="padding-top: 2em;">Here's the un-optimized code ouptut converted to LLVMIR:</p>
@@ -500,7 +500,7 @@ value returned from entry: 12`);
 value returned from entry: 12</pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-3-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-03-31</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.27.1"></a>
+## v0.0.27.1
+- Made code snippets in PIR documentation page reflecting change to the output of the PIR test program as affected by fixes in [v0.0.96.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.96.0)
+- Fixed links on home page pointing to the wrong location
+- Fixed page last updated date not being consistently YYYY-MM-DD
+
+
+<!---------------------------------->
 <a name="v0.0.27.0"></a>
 ## v0.0.27.0
 - Added Building PCIT Project Software page
