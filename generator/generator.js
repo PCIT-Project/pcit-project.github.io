@@ -42,12 +42,12 @@ make_directory("../site");
 make_directory("../site/tutorials");
 make_directory("../site/tutorials/panther");
 make_directory("../site/tutorials/pantherlib");
-make_directory("../site/tutorials/pir");
-make_directory("../site/tutorials/plnk");
+make_directory("../site/tutorials/PIR");
+make_directory("../site/tutorials/PLNK");
 make_directory("../site/documentation");
 make_directory("../site/documentation/panther");
 make_directory("../site/documentation/panther_std");
-make_directory("../site/documentation/pir");
+make_directory("../site/documentation/PIR");
 make_directory("../site/devlog");
 
 

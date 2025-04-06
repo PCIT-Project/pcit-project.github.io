@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.27.2"></a>
+## v0.0.27.2
+- Changed link for PIR and PLNK
+
+
+<!---------------------------------->
 <a name="v0.0.27.1"></a>
 ## v0.0.27.1
 - Made code snippets in PIR documentation page reflecting change to the output of the PIR test program as affected by fixes in [v0.0.96.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.96.0)
