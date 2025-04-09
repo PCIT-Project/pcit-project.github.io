@@ -1,0 +1,149 @@
+<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                  -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Documentation for fluid values in the Panther programming language" />
+
+	<meta property="og:title" content="Fluid Values | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for fluid values in the Panther programming language" />
+	<meta property="og:image" content="/assets/LogoBig.png" />
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
+
+
+	<title>Fluid Values | Panther Documentation | PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
+</head>
+<body>
+	<div class="navbar">
+		<div id="navbar-fader">
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
+			<a class="navbar-title" href="/">PCIT Project</a>
+		</div>
+		
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="hamburger-button fa-solid fa-bars fa-fw"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
+
+	<div class="context">
+		<h1>Fluid Values</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
+		<p>&emsp;&emsp;Fluid values are a special category of values that are not explicitly typed. They come in two kinds: integral and float. A fluid integral may implicitly convert to any builtin integral type, and a fluid float may implicitly convert to any builtin float type. <code><a href="/site/documentation/panther/literals.html#integer-literals">Integer literals</a></code> are fluid integrals and <code><a href="/site/documentation/panther/literals.html#float-literals">float literals</a></code> are fluid floats.</p>
+		<p>&emsp;&emsp;In addition, the result of a operator where all operands are fluid is itself also fluid. The fluid kind of the result is the same as the operands. The use of parentheses are also supported.</p>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(` // valid
+const fluid_int_1: UInt = 12;
+const fluid_int_2: I32 = 2 * (5 + -1) + 4;
+const fluid_float_1: F32 = 12.4;
+const fluid_float_2: F64 = 3.0 + 9.0;
+
+// invalid becase \'12\' is fluid (and not explicitly typed), therefore the type cannot be inferred
+const fluid_int_3 = 12; 
+
+// invalid because \'12.4\' is a fluid float, and cannot be implicitly converted to an integral type
+const fluid_int_4: Int = 12.4;
+
+// invalid because \'12\' is a fluid integral, and cannot be implicitly converted to a float type
+const fluid_float_3: F32 = 12;`);
+
+		document.getElementById("copied_text_0").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</div><div class="code-src"> <span class="code-gray">// valid</span>
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_int_1<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UInt</span> <span class="code-red">=</span> <span class="code-purple">12</span>;
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_int_2<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">I32</span> <span class="code-red">=</span> <span class="code-purple">2</span> <span class="code-red">*</span> (<span class="code-purple">5</span> <span class="code-red">+</span> <span class="code-red">-</span><span class="code-purple">1</span>) <span class="code-red">+</span> <span class="code-purple">4</span>;
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_float_1<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-purple">12.4</span>;
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_float_2<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F64</span> <span class="code-red">=</span> <span class="code-purple">3.0</span> <span class="code-red">+</span> <span class="code-purple">9.0</span>;
+
+<span class="code-gray">// invalid becase `12` is fluid (and not explicitly typed), therefore the type cannot be inferred</span>
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_int_3 <span class="code-red">=</span> <span class="code-purple">12</span>; 
+
+<span class="code-gray">// invalid because `12.4` is a fluid float, and cannot be implicitly converted to an integral type</span>
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_int_4<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12.4</span>;
+
+<span class="code-gray">// invalid because `12` is a fluid integral, and cannot be implicitly converted to a float type</span>
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_float_3<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</div></pre></div>		<p>&emsp;&emsp;<code>def variables</code> that are implicitly typed and are declared with a fluid value are themselves fluid.</p>
+<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(` // valid becase this \'def\' variable has no explicit type and therefore is fluid
+def NUM = 12;
+const num: Int = NUM;
+const num_2: Int = NUM + 14;
+
+// invalid because NUM is fluid (not explicitly typed), therefore the type cannot be inferred
+const num_3 = NUM;`);
+
+		document.getElementById("copied_text_1").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_1").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines">1
+2
+3
+4
+5
+6
+7</div><div class="code-src"> <span class="code-gray">// valid becase this `def` variable has no explicit type and therefore is fluid</span>
+<span class="code-cyan" style="font-style: italic;">def</span> NUM <span class="code-red">=</span> <span class="code-purple">12</span>;
+<span class="code-cyan" style="font-style: italic;">const</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> NUM;
+<span class="code-cyan" style="font-style: italic;">const</span> num_2<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> NUM <span class="code-red">+</span> <span class="code-purple">14</span>;
+
+<span class="code-gray">// invalid because NUM is fluid (not explicitly typed), therefore the type cannot be inferred</span>
+<span class="code-cyan" style="font-style: italic;">const</span> num_3 <span class="code-red">=</span> NUM;</div></pre></div>	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">Page Last Updated: 2025-04-08</p>
+		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+	</div>
+
+</body>
+<script src="/assets/script.js"></script>
+</html>

@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.28.0"></a>
+## v0.0.28.0
+- Added the Fluid Values page to Panther documentation
+
+
+<!---------------------------------->
 <a name="v0.0.27.2"></a>
 ## v0.0.27.2
 - Changed link for PIR and PLNK

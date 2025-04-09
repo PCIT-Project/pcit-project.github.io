@@ -28,6 +28,7 @@ page.h2("Important Note", "margin-top: 0.8em;");
 page.text("As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete");
 page.end_info();
 
+page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
 page.text(html.link("Literals", "/site/documentation/panther/literals.html"));
 page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
 page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));

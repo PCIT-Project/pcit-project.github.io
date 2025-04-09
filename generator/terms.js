@@ -46,10 +46,16 @@ term("destructive-movable-concrete-const", "/site/documentation/panther/value_ca
 term("literal", "/site/documentation/panther/literals.html");
 term("literals", "/site/documentation/panther/literals.html");
 
+term("Integer literals", "/site/documentation/panther/literals.html#integer-literals");
+term("integer literals", "/site/documentation/panther/literals.html#integer-literals");
+term("float literals", "/site/documentation/panther/literals.html#float-literals");
+term("Float literals", "/site/documentation/panther/literals.html#float-literals");
+
+
 term("character escape code");
 
-term("fluid");
-term("Fluid");
+term("fluid", "/site/documentation/panther/fluid_values.html");
+term("Fluid", "/site/documentation/panther/fluid_values.html");
 
 term("RHS");
 term("LHS");
