@@ -66,22 +66,11 @@ page.h3Searchable("Concrete-Const Value Category", "concrete_const");
 page.text(`Concrete-const values are values that are ${terms.get("concrete")} and non-mutable. Mutating a concrete-const value is ${terms.get("undefined behavior")}.`);
 page.text("The following are concrete-const expressions:");
 page.bullets([
-	terms.get("const variables") + " in global scope scope",
+	terms.get("const variables"),
 	terms.get("read parameters"),
 	terms.get("dereference") + " of a read-only pointer",
 	terms.get("accessor") + " of a concrete-const value",
 ]);
-
-
-
-page.h3Searchable("Destructive-Movable-Concrete-Const Value Category", "destructive_movable_concrete_const");
-page.text(`Destructive-movable-concrete-const values are values that are ${terms.get("concrete")} and only mutable by ${terms.get("operator destructive move")}. Mutating a destructive-movable-concrete-const value in any way other than ${terms.get("operator destructive move")} is ${terms.get("undefined behavior")}.`);
-page.text("The following are destructive-movable-concrete-const expressions:");
-page.bullets([
-	terms.get("const variables") + " in function scope",
-	`${terms.get("unwrap")} of a const ${terms.get("optional")}`,
-]);
-
 
 
 

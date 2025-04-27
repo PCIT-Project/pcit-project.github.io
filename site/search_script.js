@@ -166,7 +166,6 @@ const search_targets = [
 	new SearchTarget("Concrete-Mutable Value Category", "documentation/panther/value_categories.html#concrete_mutable", "", ["concrete-mutable","value","category"], [0,4]),
 	new SearchTarget("Concrete-Forwardable Value Category", "documentation/panther/value_categories.html#concrete_forwardable", "", ["concrete-forwardable","value","category"], [0,4]),
 	new SearchTarget("Concrete-Const Value Category", "documentation/panther/value_categories.html#concrete_const", "", ["concrete-const","value","category"], [0,4]),
-	new SearchTarget("Destructive-Movable-Concrete-Const Value Category", "documentation/panther/value_categories.html#destructive_movable_concrete_const", "", ["destructive-movable-concrete-const","value","category"], [0,4]),
 	new SearchTarget("Panther Value Stages", "/site/documentation/panther/value_stages.html", "Documentation for value stages in the Panther programming language", ["panther","value","stages"], [0,4]),
 	new SearchTarget("Constexpr Value Stage", "documentation/panther/value_stages.html#constexpr", "", ["constexpr","value","stage"], [0,4]),
 	new SearchTarget("Comptime Value Stage", "documentation/panther/value_stages.html#comptime", "", ["comptime","value","stage"], [0,4]),

@@ -96,21 +96,15 @@
 <h3 id="concrete_const">Concrete-Const Value Category</h3>		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
 		<p>The following are concrete-const expressions:</p>
 		<ul>
-			<li><code>const variables</code> in global scope scope</li>
+			<li><code>const variables</code></li>
 			<li><code>read parameters</code></li>
 			<li><code>dereference</code> of a read-only pointer</li>
 			<li><code>accessor</code> of a concrete-const value</li>
 		</ul>
-<h3 id="destructive_movable_concrete_const">Destructive-Movable-Concrete-Const Value Category</h3>		<p>Destructive-movable-concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and only mutable by <code>operator destructive move</code>. Mutating a destructive-movable-concrete-const value in any way other than <code>operator destructive move</code> is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
-		<p>The following are destructive-movable-concrete-const expressions:</p>
-		<ul>
-			<li><code>const variables</code> in function scope</li>
-			<li><code>unwrap</code> of a const <code>optional</code></li>
-		</ul>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-03-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-04-27</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

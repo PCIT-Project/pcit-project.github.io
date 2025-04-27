@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.29.0"></a>
+## v0.0.29.0
+- Removed the destructive-movable-concrete-const value stage
+
+
+<!---------------------------------->
 <a name="v0.0.28.0"></a>
 ## v0.0.28.0
 - Added the Fluid Values page to Panther documentation
