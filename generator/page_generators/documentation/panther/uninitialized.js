@@ -28,9 +28,8 @@ page.paragraph(`The term "uninitialized" refers to any value is not initialized 
 
 page.text("Examples:");
 page.bullets([
-	`variables defined an ${terms.get("initializer value")}`,
+	`variables defined with an ${terms.get("initializer value")}`,
 	`value that undergoes ${terms.get("operator delete")}`,
-	`value that undergoes ${terms.get("operator destructive move")}`,
 	`value that undergoes ${terms.get("operator forward")}`,
 	`element of an ${terms.get("array")} after the ${terms.get("array")} undergoes ${terms.get("initialization")}`
 ]);

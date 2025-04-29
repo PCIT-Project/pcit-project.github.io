@@ -51,7 +51,7 @@ page.anchor("example");
 page.h2("Example:");
 page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code(html.link("v0.0.43.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0")) + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
 
-page.code_block(Language.Panther,
+page.code_block(Language.PANTHER,
 `// importing a file
 def some_file = @import("directory/file.pthr");
 
@@ -90,7 +90,8 @@ func asdf = () #entry -> UI8 {
 		return @getTypeID<{UI8}>();
 	}
 
-	var bar: Type(get_type_id_of_UI8()) = uninit;
+	var bar: Type(get_type_id_of_UI8()) = uninit; // create an uninitialized local variable
+	bar = 0; // initialize the local variable through assignment
 	set_num(foo, bar);
 
 	return (move bar); // should return 12

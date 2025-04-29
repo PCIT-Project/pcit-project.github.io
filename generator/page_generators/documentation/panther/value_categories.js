@@ -37,7 +37,7 @@ page.bullets([
 
 
 page.h2Searchable("Concrete Value Category", "concrete");
-page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an ${terms.get("operator copy")}, a ${terms.get("operator move")}, or a ${terms.get("operator destructive move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-const")}, and ${terms.get("destructive-movable-concrete-const")}`);
+page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an ${terms.get("operator copy")} or a ${terms.get("operator move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-forwardable")}, and ${terms.get("concrete-const")}.`);
 
 
 page.h3Searchable("Concrete-Mutable Value Category", "concrete_mutable");

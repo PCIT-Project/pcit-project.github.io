@@ -19,13 +19,13 @@ const child_process = require("node:child_process");
 
 
 const Language = Object.freeze({
-	Panther: 0,
+	PANTHER: 0,
 	PIR: 1,
-	Cpp: 2,
+	CPP: 2,
 	C: 3,
 	LLVMIR: 4,
 	ASM_x86: 5,
-	Text: 6,
+	TEXT: 6,
 	Terminal: 7,
 	Diagnostic: 8,
 });
@@ -243,6 +243,44 @@ class Page{
 	}
 
 
+	table(rows){
+		this.body += "<table>\n";
+
+		for(let row_i = 0; row_i < rows.length; row_i+=1){
+			this.body += "\t<tr>\n";
+			
+			for(let collumn_i = 0; collumn_i < rows[row_i].length; collumn_i+=1){
+				if(row_i === 0){
+					this.body += `\t\t<th>${rows[row_i][collumn_i]}</th>\n`;
+				}else{
+					this.body += `\t\t<td>${rows[row_i][collumn_i]}</td>\n`;
+				}
+			}
+
+			this.body += "\t</tr>\n";
+		}
+
+		this.body += "</table>\n";
+	}
+
+
+	list_table(language, items){
+		this.body += "<div style=\"overflow-x: auto;\"><table style=\"margin-bottom: 2em;\">\n";
+
+		items.forEach((item, i) => {
+			this.body +=
+`	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">${i + 1}:</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${this.inline_code_block(language, item)}</td>
+	</tr>
+`;
+		});
+
+		this.body += "</table></div>\n";
+
+	}
+
+
 	begin_info(){
 		this.body += "<div class=\"info\">";
 	}
@@ -260,11 +298,50 @@ class Page{
 	}
 
 
+
+	inline_code_block(language, code){
+		let output = "<code style=\"background-color: #282923!important;\">"
+
+		switch(language){
+			case Language.PANTHER: {
+				output += syntax_highlighting.panther(code);
+			} break;
+
+			case Language.PIR: {
+				output += syntax_highlighting.pir(code);
+			} break;
+
+			case Language.CPP: case Language.C: {
+				output += syntax_highlighting.cpp(code);
+			} break;
+
+			case Language.LLVMIR: {
+				output += syntax_highlighting.llvmir(code);
+			} break;
+
+			case Language.ASM_x86: {
+				output += syntax_highlighting.asm_x86(code);
+			} break;
+
+			case Language.Diagnostic: {
+				output += syntax_highlighting.diagnostic(code);
+			} break;
+
+			default: {
+				output += html.santitize(code);
+			} break;
+		}
+		output += "</code>";
+
+		return output;
+	}
+
+
 	code_block(language, code){
 		let requires_lines = false;
 
 		switch(language){
-			case Language.Panther: case Language.PIR: case Language.Cpp: case Language.C: case Language.LLVMIR: case Language.ASM_x86: case Language.Text: {
+			case Language.PANTHER: case Language.PIR: case Language.CPP: case Language.C: case Language.LLVMIR: case Language.ASM_x86: case Language.TEXT: {
 				requires_lines = true;
 			} break;
 
@@ -297,9 +374,9 @@ class Page{
 
 		let header_title_style = "background-color: #888888";
 		switch(language){
-			case Language.Panther:    header_title_style = "background-color: #06b6d4;"; break;
+			case Language.PANTHER:    header_title_style = "background-color: #06b6d4;"; break;
 			case Language.PIR:        header_title_style = "background-color: #06b6d4;"; break;
-			case Language.Cpp:        header_title_style = "background-color: #005996;"; break;
+			case Language.CPP:        header_title_style = "background-color: #005996;"; break;
 			case Language.C:          header_title_style = "background-color: #004283; color: #ffffff;"; break;
 			case Language.LLVMIR:     header_title_style = "background-color: #556293; color: #ffffff;"; break;
 			case Language.ASM_x86:    header_title_style = "background-color: #25334d; color: #ffffff;"; break;
@@ -311,14 +388,14 @@ class Page{
 		this.body += `<div><div class="code-header" style="${header_title_style}">`;
 
 		switch(language){
-			case Language.Panther:    this.body += "Panther";  break;
-			case Language.PIR:        this.body += "PIR";      break;
-			case Language.Cpp:        this.body += "C++";      break;
-			case Language.C:          this.body += "C";        break;
-			case Language.LLVMIR:     this.body += "LLVM IR";  break;
-			case Language.ASM_x86:    this.body += "x86-64 Assembly (Intel)";  break;
-			case Language.Terminal:   this.body += "Terminal"; break;
-			case Language.Diagnostic: this.body += "Terminal (Diagnostic)"; break;
+			case Language.PANTHER:    this.body += "Panther";                 break;
+			case Language.PIR:        this.body += "PIR";                     break;
+			case Language.Cpp:        this.body += "C++";                     break;
+			case Language.C:          this.body += "C";                       break;
+			case Language.LLVMIR:     this.body += "LLVM IR";                 break;
+			case Language.ASM_x86:    this.body += "x86-64 Assembly (Intel)"; break;
+			case Language.Terminal:   this.body += "Terminal";                break;
+			case Language.Diagnostic: this.body += "Terminal (Diagnostic)";   break;
 		}
 
 
@@ -380,7 +457,7 @@ class Page{
 
 
 		switch(language){
-			case Language.Panther: {
+			case Language.PANTHER: {
 				this.body += syntax_highlighting.panther(code);
 			} break;
 
@@ -388,7 +465,7 @@ class Page{
 				this.body += syntax_highlighting.pir(code);
 			} break;
 
-			case Language.Cpp: case Language.C: {
+			case Language.CPP: case Language.C: {
 				this.body += syntax_highlighting.cpp(code);
 			} break;
 
@@ -514,7 +591,7 @@ class Page{
 		`;
 	}
 
-	file_data += "\n\n\t<div class=\"context\">\n";
+	file_data += "\n\n\t<br><div class=\"context\">\n";
 
 	if(this.has_page_title){
 		file_data += `\t\t<h1>${this.on_page_title}</h1>\n`;
@@ -537,6 +614,7 @@ class Page{
 		}
 	}
 
+	file_data += "<br/><br/>";
 	file_data += this.body;
 
 	file_data += `\t</div>

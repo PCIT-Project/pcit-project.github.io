@@ -30,7 +30,7 @@ page.paragraph("The Panther compiler attempts to detect undefined behavior at co
 
 
 page.h2("Example");
-page.code_block(Language.Panther, `func entry = () #entry -> UI8 {
+page.code_block(Language.PANTHER, `func entry = () #entry -> UI8 {
 	const foo: UI8 = 12;
 
 

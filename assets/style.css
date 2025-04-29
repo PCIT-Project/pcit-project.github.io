@@ -61,13 +61,28 @@ h4{
 
 
 
-
-
 code{
 	background-color: #1e2122;
 	font-size: 1.2em;
 }
 
+
+table{
+	border-collapse: collapse;
+	overflow-x: auto;
+	table-layout: fixed;
+}
+
+td, th {
+	border: 1px solid #878481;
+	text-align: left;
+	padding: 0.5em;
+}
+
+
+tr:nth-child(even) {
+	background-color: #1a1c1d;
+}
 
 
 /**************************************************/
@@ -464,6 +479,20 @@ code{
 		font-size: 0.6em;
 	}
 
+	td, th, table {
+		font-size: 1.2em;
+	}
+
+	/*table > code{
+		font-size: 0.2em!important;
+	}*/
+
+/*	td > code{
+		font-size: 1.0em!important;
+	}
+*/
+
+
 	.search-match-percentage{
 		font-size: 1.5em;
 		margin-top: 0;
@@ -485,7 +514,7 @@ code{
 	}
 
 	.code-lines{
-		font-size: 1em;
+		font-size: 1.7em;
 		margin-right: 0;
 	}
 
@@ -588,4 +617,4 @@ code{
 	.context{
 		padding: 4em 0%;
 	}
-}*/
+}

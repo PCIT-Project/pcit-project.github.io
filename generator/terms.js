@@ -15,7 +15,7 @@ let terms = {};
 
 function term(text, link=null){
 	if(link === null){
-		terms[text] = html.inline_code(text);	
+		terms[text] = html.inline_code(text);
 	}else{
 		terms[text] = html.inline_code(html.link(text, link));	
 	}	
@@ -41,7 +41,6 @@ term("concrete", "/site/documentation/panther/value_categories.html#concrete");
 term("concrete-mutable", "/site/documentation/panther/value_categories.html#concrete_mutable");
 term("concrete-forwardable", "/site/documentation/panther/value_categories.html#concrete_forwardable");
 term("concrete-const", "/site/documentation/panther/value_categories.html#concrete_const");
-term("destructive-movable-concrete-const", "/site/documentation/panther/value_categories.html#concrete_const_movable");
 
 term("literal", "/site/documentation/panther/literals.html");
 term("literals", "/site/documentation/panther/literals.html");
@@ -63,7 +62,6 @@ term("LHS");
 
 term("operator copy");
 term("operator move");
-term("operator destructive move");
 term("operator forward");
 
 
@@ -102,6 +100,11 @@ term("assignment");
 term("initializer value");
 
 term("array");
+
+
+term("attribute #runtime");
+
+term("intrinsic @import");
 
 
 

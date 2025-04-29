@@ -30,7 +30,7 @@ page.paragraph(`Fluid values are a special category of values that are not expli
 
 page.paragraph(`In addition, the result of a operator where all operands are fluid is itself also fluid. The fluid kind of the result is the same as the operands. The use of parentheses are also supported.`);
 
-page.code_block(Language.Panther, 
+page.code_block(Language.PANTHER, 
 ` // valid
 const fluid_int_1: UInt = 12;
 const fluid_int_2: I32 = 2 * (5 + -1) + 4;
@@ -50,7 +50,7 @@ const fluid_float_3: F32 = 12;`);
 
 page.paragraph(`${terms.get("def variables")} that are implicitly typed and are declared with a fluid value are themselves fluid.`);
 
-page.code_block(Language.Panther, 
+page.code_block(Language.PANTHER, 
 ` // valid becase this \`def\` variable has no explicit type and therefore is fluid
 def NUM = 12;
 const num: Int = NUM;

@@ -79,6 +79,7 @@ require("./page_generators/documentation/panther/undefined_behavior.js");
 require("./page_generators/documentation/panther/uninitialized.js");
 require("./page_generators/documentation/panther/value_categories.js");
 require("./page_generators/documentation/panther/value_stages.js");
+require("./page_generators/documentation/panther/variables.js");
 require("./page_generators/documentation/panther/when_conditionals.js");
 
 

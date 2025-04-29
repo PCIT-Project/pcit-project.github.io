@@ -66,10 +66,10 @@
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
-	<div class="context">
+	<br><div class="context">
 		<h1>Panther Value Categories</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-		<p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
+<br/><br/>		<p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
 <h2 id="ephemeral">Ephemeral Value Category</h2>		<p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code> <code><a href="/site/documentation/panther/literals.html">literals</a></code> are ephemeral but not explicitly typed.</p>
 		<p>The following are ephemeral expressions:</p>
 		<ul>
@@ -78,7 +78,7 @@
 			<li><code>def variables</code></li>
 			<li>template parameters</li>
 		</ul>
-<h2 id="concrete">Concrete Value Category</h2>		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code>, a <code>operator move</code>, or a <code>operator destructive move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const_movable">destructive-movable-concrete-const</a></code></p>
+<h2 id="concrete">Concrete Value Category</h2>		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code> or a <code>operator move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#concrete_forwardable">concrete-forwardable</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
 <h3 id="concrete_mutable">Concrete-Mutable Value Category</h3>		<p>Concrete-mutable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and mutable.</p>
 		<p>The following are concrete-mutable expressions:</p>
 		<ul>
@@ -104,7 +104,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-04-27</p>
+		<p style="color: #878481;">Page Last Updated: 2025-04-28</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

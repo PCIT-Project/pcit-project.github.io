@@ -27,7 +27,7 @@ page.text(`When conditionals are conditionals that are evaluated at compile-time
 
 page.h2("Example");
 
-page.code_block(Language.Panther,
+page.code_block(Language.PANTHER,
 `def math = @import("math");
 
 when(math.PI < 2.0){

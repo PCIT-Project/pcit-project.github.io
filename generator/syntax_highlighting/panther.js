@@ -95,8 +95,8 @@ exports.highlight = function(code){
 
 		}else if(stream.peek() == '/' && stream.peek(1) == '/'){
 			output += "<span class=\"code-gray\">";
-			while(stream.peek() != '\n'){
-				output += stream.next();	
+			while(stream.EOF() == false && stream.peek() != '\n'){
+				output += stream.next();
 			}
 			output += "</span>";
 

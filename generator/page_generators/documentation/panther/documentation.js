@@ -35,6 +35,7 @@ page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined
 page.text(html.link("Uninitialized", "/site/documentation/panther/uninitialized.html"));
 page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));
 page.text(html.link("Value Stages", "/site/documentation/panther/value_stages.html"));
+page.text(html.link("Variables", "/site/documentation/panther/variables.html"));
 page.text(html.link("When Conditionals", "/site/documentation/panther/when_conditionals.html"));
 
 

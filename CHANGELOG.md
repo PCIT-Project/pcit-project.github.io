@@ -1,15 +1,24 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.30.0"></a>
+## v0.0.30.0
+- Added the "Variables" page to Panther Documentation
+- Fixed syntax highlighting erroring when ending on a line comment
+- Fixed code snippet line sizing on mobile in landscape
+- Removed "destructive move" from Panther documentation
+
+
+<!---------------------------------->
 <a name="v0.0.29.0"></a>
 ## v0.0.29.0
-- Removed the destructive-movable-concrete-const value stage
+- Removed the "destructive-movable-concrete-const" value stage
 
 
 <!---------------------------------->
 <a name="v0.0.28.0"></a>
 ## v0.0.28.0
-- Added the Fluid Values page to Panther documentation
+- Added the "Fluid Values" page to Panther documentation
 
 
 <!---------------------------------->
@@ -33,7 +42,7 @@
 - Added "Page Last Updated" to bottom of all pages
 - Added sitemap
 - Added padding around info and warning boxes
-- Added support for anchor highlighting within the same page 
+- Added support for anchor highlighting within the same page
 
 
 <!---------------------------------->
@@ -70,7 +79,7 @@
 <!---------------------------------->
 <a name="v0.0.23.0"></a>
 ## v0.0.23.0
-- Added Literals page to Panther documentation
+- Added "Literals" page to Panther documentation
 - Fixed syntax highlighting of character literals for Panther and C++
 - Fixed syntax highlighting of non-base-10 integer literals for Panther and C++
 - Fixed syntax highlighting of underscores in integer and float literals for Panther

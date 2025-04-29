@@ -66,10 +66,10 @@
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
-	<div class="context">
+	<br><div class="context">
 		<h1>Panther Programming Language</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div>
-		<p>Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Carbon.</p>
+<br/><br/>		<p>Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, Zig, and Carbon.</p>
 		<h2>Help programmers write good/fast code, without getting in the way</h2>
 		<ul>
 			<li>Low level control with high level features (zero-cost abstraction)</li>
@@ -131,7 +131,8 @@ func asdf = () #entry -> UI8 {
 		return @getTypeID<{UI8}>();
 	}
 
-	var bar: Type(get_type_id_of_UI8()) = uninit;
+	var bar: Type(get_type_id_of_UI8()) = uninit; // create an uninitialized local variable
+	bar = 0; // initialize the local variable through assignment
 	set_num(foo, bar);
 
 	return (move bar); // should return 12
@@ -181,7 +182,8 @@ func asdf = () #entry -> UI8 {
 40
 41
 42
-43</div><div class="code-src"><span class="code-gray">// importing a file</span>
+43
+44</div><div class="code-src"><span class="code-gray">// importing a file</span>
 <span class="code-cyan" style="font-style: italic;">def</span> some_file <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"directory/file.pthr"</span>);
 
 <span class="code-gray">// function declaration (parameter `num` is implicitly `read`)</span>
@@ -219,7 +221,8 @@ func asdf = () #entry -> UI8 {
 		<span class="code-red">return</span> <span class="code-red">@getTypeID</span>&lt;{<span class="code-cyan" style="font-style: italic;">UI8</span>}&gt;();
 	}
 
-	<span class="code-cyan" style="font-style: italic;">var</span> bar<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>(<span class="code-cyan">get_type_id_of_UI8</span>()) <span class="code-red">=</span> <span class="code-purple">uninit</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> bar<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>(<span class="code-cyan">get_type_id_of_UI8</span>()) <span class="code-red">=</span> <span class="code-purple">uninit</span>; <span class="code-gray">// create an uninitialized local variable</span>
+	bar <span class="code-red">=</span> <span class="code-purple">0</span>; <span class="code-gray">// initialize the local variable through assignment</span>
 	<span class="code-cyan">set_num</span>(foo, bar);
 
 	<span class="code-red">return</span> (<span class="code-red">move</span> bar); <span class="code-gray">// should return 12</span>
@@ -228,7 +231,7 @@ func asdf = () #entry -> UI8 {
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-03-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-04-28</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

@@ -37,7 +37,7 @@ page.text(`For a symbol declared in the file to be accessible through the module
 
 page.h2("Example");
 
-page.code_block(Language.Panther,
+page.code_block(Language.PANTHER,
 `// importing the standard library
 def std = @import("std");
 
