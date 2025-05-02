@@ -15,7 +15,7 @@ const search = require("../../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "documentation/PIR/documentation.html",
+	path: "documentation/pir/documentation.html",
 	title: "PIR Documentation",
 	categories: [search.Category.PIR, search.Category.DOCUMENTATION],
 	description: "Documentation for PIR (Panther Intermediate Representation)",

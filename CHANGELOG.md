@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.30.1"></a>
+## v0.0.30.1
+- Fixed paths to be lower-case
+
+
+<!---------------------------------->
 <a name="v0.0.30.0"></a>
 ## v0.0.30.0
 - Added the "Variables" page to Panther Documentation
