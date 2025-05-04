@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.31.0"></a>
+## v0.0.31.0
+- Added image alt-texts
+- Defered loading of Font-Awesome
+- Changed various links text to be more descriptive
+- Added deferred loading for larger files
+
+
+<!---------------------------------->
 <a name="v0.0.30.1"></a>
 ## v0.0.30.1
 - Fixed paths to be lower-case

@@ -234,11 +234,11 @@ class Page{
 		this.body += "\t\t</ol>\n";
 	}
 
-	image(link, style=null){
+	image(link, alt_text, style=null){
 		if(style == null){
-			this.body += `<img src="${link}" style="width: 100%;"></img>`;
+			this.body += `<img src="${link}" alt="${alt_text}" style="width: 100%;"></img>`;
 		}else{
-			this.body += `<img src="${link}" style="${style}"></img>`;
+			this.body += `<img src="${link}" alt="${alt_text}" style="${style}"></img>`;
 		}
 	}
 
@@ -531,17 +531,13 @@ class Page{
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
-
-	<script src="/assets/font-awesome/fontawesome.min.js"></script>
-	<script src="/assets/font-awesome/solid.min.js"></script>
-	<script src="/assets/font-awesome/brands.min.js"></script>
 </head>
 <body>
 	<div class="navbar">`;
 		if(is_home_page){
 				file_data += `
 			<div id="navbar-fader" class="navbar-fader-hidden">
-				<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
+				<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
 				<a class="navbar-title" href="/">PCIT Project</a>
 			</div>
 			`;
@@ -549,7 +545,7 @@ class Page{
 		}else{
 			file_data += `
 		<div id="navbar-fader">
-			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
 			<a class="navbar-title" href="/">PCIT Project</a>
 		</div>
 		`;	
@@ -583,7 +579,7 @@ class Page{
 		file_data += `
 	<div id="home-splash">
 		<script src="/assets/script.js"></script>
-		<img id="home-splash-img" src="/assets/LogoBig.png">
+		<img id="home-splash-img" src="/assets/LogoBig.png" alt="PCIT Project Logo">
 		<h1 id="home-splash-title">PCIT Project</h1>
 		<h2 id="home-splash-title2">Panther Compiler Infrastructure and Toolchain</h2>
 	</div>
@@ -626,6 +622,10 @@ class Page{
 
 </body>
 <script src="/assets/script.js"></script>
+
+<script src="/assets/font-awesome/fontawesome.min.js"></script>
+<script src="/assets/font-awesome/solid.min.js"></script>
+<script src="/assets/font-awesome/brands.min.js"></script>
 </html>`;
 
 		fs.writeFileSync("../site/" + this.path, file_data);

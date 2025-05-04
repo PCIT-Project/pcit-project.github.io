@@ -31,15 +31,11 @@
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
-
-	<script src="/assets/font-awesome/fontawesome.min.js"></script>
-	<script src="/assets/font-awesome/solid.min.js"></script>
-	<script src="/assets/font-awesome/brands.min.js"></script>
 </head>
 <body>
 	<div class="navbar">
 		<div id="navbar-fader">
-			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png"></div>
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
 			<a class="navbar-title" href="/">PCIT Project</a>
 		</div>
 		
@@ -89,7 +85,7 @@
 		<p>Please the entirety of this section before doing any of the steps so you can make sure your computer is ready <span style="font-weight: bold;">BEFORE</span> you start!</p>
 </div><h3 id="llvm_1">1) Create a directory on your computer</h3>		<p>&emsp;&emsp;All LLVM source code and build results will go in this directory. The needed files will be moved from this directory once the process is completed (and the rest deleted), so this directory can go wherever you like.</p>
 		<h3>2) Get the scripts</h3>
-		<p>&emsp;&emsp;There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. The script for Windows systems can be found <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat">here</a>, and the script for Unix systems can be found <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh">here</a>. Get the correct script for your machine, and put it in the directory you created in <a href="/site/build.html#llvm_1">step 1</a>.</p>
+		<p>&emsp;&emsp;There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat">Windows version</a> (.bat) and a <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh">Unix version</a> (.sh) exist. Get the correct script for your machine, and put it in the directory you created in <a href="/site/build.html#llvm_1">step 1</a>.</p>
 		<h3>3) Run</h3>
 		<p>&emsp;&emsp;Run the script. This script will clone the <a href="https://github.com/PCIT-Project/llvm-project">PCIT fork of LLVM</a>, and compile it. This took my Windows computer 2+ hours to run and resulted in 88.6GB of storage space used (although only 9.3GB is needed to be kept). It is recommended to have at least 32GB of addressable memory.</p>
 <h3 id="llvm_4">4) Finishing up</h3>		<p>&emsp;&emsp;Once the script has completed, you will see three directories within the one created in <a href="/site/build.html#llvm_1">step 1</a>: <code>build</code>, <code>llvm-project</code>, and <code>output</code>. You may delete <code>build</code> and <code>llvm-project</code> if you wish, as they are not needed to build PCIT.</p>
@@ -138,10 +134,14 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-03-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-05-03</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
 </body>
 <script src="/assets/script.js"></script>
+
+<script src="/assets/font-awesome/fontawesome.min.js"></script>
+<script src="/assets/font-awesome/solid.min.js"></script>
+<script src="/assets/font-awesome/brands.min.js"></script>
 </html>

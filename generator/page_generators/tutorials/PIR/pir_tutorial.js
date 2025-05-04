@@ -21,7 +21,7 @@ let page = new Page(__filename, {
 });
 
 
-page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, check out ${html.link("this page", "/site/documentation/pir/documentation.html")}.`, "font-style: italic;");
+page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, check out the ${html.link("PIR documentation", "/site/documentation/pir/documentation.html")}.`, "font-style: italic;");
 
 page.generate();
 
