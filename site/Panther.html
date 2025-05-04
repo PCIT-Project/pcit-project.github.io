@@ -103,7 +103,7 @@ func set_num = (num: UI8, num_to_change: UI8 mut) #runtime -> Void {
 // doesn't have the \'#runtime\' attribute which means it can run at runtime
 func just_return_num = <{T: Type}> (num: T) #pub -> T {
 	func sub_func = (sub_num: T) -> T {
-		return (move sub_num);
+		return (copy sub_num);
 	}
 
 	return sub_func(num);
@@ -193,7 +193,7 @@ func asdf = () #entry -> UI8 {
 <span class="code-gray">// doesn't have the `#runtime` attribute which means it can run at runtime</span>
 <span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">just_return_num</span> <span class="code-red">=</span> &lt;{T<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>}&gt; (num<span class="code-red">:</span> T) <span class="code-red">#pub</span> <span class="code-red">-</span><span class="code-red">&gt;</span> T {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">sub_func</span> <span class="code-red">=</span> (sub_num<span class="code-red">:</span> T) <span class="code-red">-</span><span class="code-red">&gt;</span> T {
-		<span class="code-red">return</span> (<span class="code-red">move</span> sub_num);
+		<span class="code-red">return</span> (<span class="code-red">copy</span> sub_num);
 	}
 
 	<span class="code-red">return</span> <span class="code-cyan">sub_func</span>(num);
@@ -227,7 +227,7 @@ func asdf = () #entry -> UI8 {
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-04-28</p>
+		<p style="color: #878481;">Page Last Updated: 2025-05-04</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

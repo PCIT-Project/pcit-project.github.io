@@ -66,7 +66,7 @@ func set_num = (num: UI8, num_to_change: UI8 mut) #runtime -> Void {
 // doesn't have the \`#runtime\` attribute which means it can run at runtime
 func just_return_num = <{T: Type}> (num: T) #pub -> T {
 	func sub_func = (sub_num: T) -> T {
-		return (move sub_num);
+		return (copy sub_num);
 	}
 
 	return sub_func(num);

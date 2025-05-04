@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.31.1"></a>
+## v0.0.31.1
+- Updated code example on Panther home page to reflect change in operator move
+
+
+<!---------------------------------->
 <a name="v0.0.31.0"></a>
 ## v0.0.31.0
 - Added image alt-texts
