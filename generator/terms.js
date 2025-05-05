@@ -102,7 +102,8 @@ term("initializer value");
 term("array");
 
 
-term("attribute #runtime");
+term("attribute #rt");
+term("attribute #pub");
 
 term("intrinsic @import");
 

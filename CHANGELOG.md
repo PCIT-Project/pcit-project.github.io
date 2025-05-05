@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.32.0"></a>
+## v0.0.32.0
+- Updated `#runtime` to be `#rt` to reflect the change in the Panther language
+- Added disclaimer to Panther page about the example being for the old implementation of the Panther compiler
+
+
+<!---------------------------------->
 <a name="v0.0.31.1"></a>
 ## v0.0.31.1
 - Updated code example on Panther home page to reflect change in operator move

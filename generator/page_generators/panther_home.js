@@ -49,7 +49,15 @@ page.bullets([
 
 page.anchor("example");
 page.h2("Example:");
-page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + html.inline_code(html.link("v0.0.43.0", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0")) + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELO.md") + ". Please keep in mind that any syntax may change in the future.");
+page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + page.pcit_cpp_version("v0.0.43.0") + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md") + ". Please keep in mind that any syntax may change in the future.");
+
+
+page.begin_info();
+page.h2("Note:", "margin-top: 0.8em;");
+page.text(`The following code snippet (and ${page.pcit_cpp_version("v0.0.43.0")}) are the old implementation of the Panther compiler. The new implementation does not not currently support all of the features shown below. In addition, changes may be made to the language (and already have), and are not necessarily reflected here. Once the new implementation has all the features shown below, the snippet will be updated.`);
+page.end_info();
+
+
 
 page.code_block(Language.PANTHER,
 `// importing a file
