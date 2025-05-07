@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.33.0"></a>
+## v0.0.33.0
+- Updated home page to reflect change in licensing for the Panther programming language standard library
+
+
+<!---------------------------------->
 <a name="v0.0.32.0"></a>
 ## v0.0.32.0
 - Updated `#runtime` to be `#rt` to reflect the change in the Panther language

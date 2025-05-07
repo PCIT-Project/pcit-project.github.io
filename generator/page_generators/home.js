@@ -46,7 +46,8 @@ page.h3("Other compilers");
 page.text("Will also be able to compile C and hopefully C++ code. The main intent is for this to allow seamless interoperability with Panther, but these frontends will be able to be used stand-alone.");
 
 page.h2("Licensing");
-page.text(`All of the code written for the PCIT Project is licensed under the Apache License v2.0 with LLVM and PCIT exceptions. See ${html.link("the license", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE")} for more information.`);
+page.text(`All of the code written for the PCIT Project tools is licensed under the ${html.link("Apache License v2.0 with LLVM and PCIT exceptions", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE")}.`);
+page.text(`All of the code written for the Panther programming language standard library is licensed under the ${html.link("MIT License with PCIT exceptions", "https://github.com/PCIT-Project/Panther-std/blob/main/LICENSE")}.`);
 
 page.h2("Getting involved");
 page.text(`The PCIT Project is not accepting any volunteers at the moment. However, at some point the in the future new contributors will be welcomed. Check back here to if we are accepting contributions. For now, please star ${html.link("the GitHub repository", "https://github.com/PCIT-Project/PCIT-CPP")} to show you're interested in the project.`);

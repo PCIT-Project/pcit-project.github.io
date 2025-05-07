@@ -40,8 +40,8 @@ page.paragraph(`Var variables are values that have storage and are mutable. The 
 page.table([
 	["If declared:", "Value Stage", "Value Stage of Assignment Value"],
 	["in global scope", terms.get("runtime"), terms.get("constexpr")],
-	[`in a function that does ${html.italic("not")} have ${terms.get("attribute #rt")}`, terms.get("comptime"), terms.get("comptime")],
-	[`in a function that has ${terms.get("attribute #rt")}`, terms.get("runtime"), terms.get("runtime")],
+	[`in a constexpr function`, terms.get("comptime"), terms.get("comptime")],
+	[`in a runtime function `, terms.get("runtime"), terms.get("runtime")],
 ]);
 
 
@@ -50,8 +50,8 @@ page.paragraph(`Const variables are values that have storage and are not mutable
 page.table([
 	["If declared:", "Value Stage", "Value Stage of Assignment Value"],
 	["in global scope", terms.get("comptime"), terms.get("constexpr")],
-	[`in a function that does ${html.italic("not")} have ${terms.get("attribute #rt")}`, terms.get("comptime"), terms.get("comptime")],
-	[`in a function that has ${terms.get("attribute #rt")}`, terms.get("runtime"), terms.get("runtime")],
+	[`in a constexpr function`, terms.get("comptime"), terms.get("comptime")],
+	[`in a runtime function `, terms.get("runtime"), terms.get("runtime")],
 ]);
 
 page.h2Searchable("Def Variables", "def_variables");
