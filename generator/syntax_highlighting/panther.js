@@ -279,7 +279,7 @@ exports.highlight = function(code){
 			output += "}&gt;";
 			stream.skip(2);
 
-		}else if(stream.peek() == '&' || stream.peek() == '|' || stream.peek() == '^' || stream.peek() == '~'){
+		}else if(stream.peek() == '&' || stream.peek() == '|' || stream.peek() == '^' || stream.peek() == '~' || stream.peek() == '!'){
 			output += `<span class="code-red">${stream.next()}</span>`;
 
 		}else if(stream.peek() == '+' || stream.peek() == '-' || stream.peek() == '*' || stream.peek() == '/' || stream.peek() == '%'){

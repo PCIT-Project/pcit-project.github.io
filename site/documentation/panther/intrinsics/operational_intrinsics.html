@@ -17,17 +17,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="Tutorial for PLNK (PCIT Linker)" />
+	<meta name="description" content="Documentation for operational intrinsics in the Panther programming language" />
 
-	<meta property="og:title" content="PLNK Tutorial | PCIT Project" />
-	<meta property="og:description" content="Tutorial for PLNK (PCIT Linker)" />
+	<meta property="og:title" content="Operational Intrinsics | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for operational intrinsics in the Panther programming language" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>PLNK Tutorial | PCIT Project</title>
+	<title>Operational Intrinsics | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -67,13 +67,18 @@
 	</div>
 
 	<br><div class="context">
-		<h1>PLNK Tutorial</h1>
-		<div class="search-category" style="color: #1fc493; background-color: #102c2c; border-color: #145a4f;">PLNK</div><div class="search-category" style="color: #d97ee5; background-color: #32233c; border-color: #643e6f;">Tutorial</div>
-<br/><br/>		<p style="font-style: italic;">PLNK is very much still a work in progress, so it is too early for documentation to be written yet.</p>
+		<h1>Operational Intrinsics</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
+<br/><br/><h2 id="abort">@abort</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green"></span><span class="code-red">@abort</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
+		<p>Abort the program. Lowers to a trap instruction if the target has one, otherwise lowered to LIBC <code>abort()</code>.</p>
+<h2 id="breakpoint">@breakpoint</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green"></span><span class="code-red">@breakpoint</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
+		<p>Cause an execution trap to request the debugger break execution.</p>
+<h2 id="import">@import</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green"></span><span class="code-red">@import</span> <span class="code-red">=</span> (filepath<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]) <span class="code-red">-</span><span class="code-red">&gt;</span> {MODULE};</code></p>
+		<p>Import a module.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-05-01</p>
+		<p style="color: #878481;">Page Last Updated: 2025-05-10</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

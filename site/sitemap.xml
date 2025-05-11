@@ -30,11 +30,39 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/documentation.html</loc>
-		<lastmod>2025-04-28</lastmod>
+		<lastmod>2025-05-10</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/fluid_values.html</loc>
 		<lastmod>2025-04-28</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/arithmetic_intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/bitwise_intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/comparative_intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/operational_intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/type_conversion_intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/type_traits_intrinsics.html</loc>
+		<lastmod>2025-05-10</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/literals.html</loc>

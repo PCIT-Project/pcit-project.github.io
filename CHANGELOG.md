@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.34.0"></a>
+## v0.0.34.0
+- Added "Intrinsic" pages to Panther documentation
+- Fixed syntax highlighting for `!` for Panther, C, and C++
+- Fixed selection color for inline code snippets
+- Undid deferring loading of Font-Awesome as it	was causing flash of the page rendered without CSS
+
+
+<!---------------------------------->
 <a name="v0.0.33.0"></a>
 ## v0.0.33.0
 - Updated home page to reflect change in licensing for the Panther programming language standard library

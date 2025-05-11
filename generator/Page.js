@@ -134,7 +134,7 @@ class Page{
 				assert(false, "git error: \n\n" + e.toString() + "\n");
 			}
 
-			assert(last_commit_res != "", "failed to get last updated time");
+			assert(last_commit_res != "", "failed to get last updated time. Perhaps run `git add .` to fix this");
 
 			this.last_updated_str = last_commit_res.split(" ")[0];
 		}
@@ -300,7 +300,7 @@ class Page{
 
 
 	inline_code_block(language, code){
-		let output = "<code style=\"background-color: #282923!important;\">"
+		let output = "<code class=\"code-src\"; style=\"background-color: #282923!important;\">"
 
 		switch(language){
 			case Language.PANTHER: {
@@ -328,6 +328,7 @@ class Page{
 			} break;
 
 			default: {
+				assert(language === null, "Not a valid language");
 				output += html.santitize(code);
 			} break;
 		}
@@ -504,7 +505,7 @@ class Page{
 <!--                                                                                              -->
 <!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
 <!-- You may not use this file except in compliance with the License.                             -->
-<!-- See \`https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE\`for info.                  -->
+<!-- See \`https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE\` for info.                 -->
 <!--                                                                                              -->
 <!-------------------------------------------------------------------------------------------------->
 
@@ -531,6 +532,10 @@ class Page{
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
 </head>
 <body>
 	<div class="navbar">`;
@@ -622,10 +627,6 @@ class Page{
 
 </body>
 <script src="/assets/script.js"></script>
-
-<script src="/assets/font-awesome/fontawesome.min.js"></script>
-<script src="/assets/font-awesome/solid.min.js"></script>
-<script src="/assets/font-awesome/brands.min.js"></script>
 </html>`;
 
 		fs.writeFileSync("../site/" + this.path, file_data);

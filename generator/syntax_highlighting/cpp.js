@@ -316,7 +316,7 @@ exports.highlight = function(code){
 		}else if(stream.peek() == '-' && stream.peek(1) == '>'){
 			output += stream.next() + stream.next();
 
-		}else if(stream.peek() == '&' || stream.peek() == '|' || stream.peek() == '^' || stream.peek() == '~'){
+		}else if(stream.peek() == '&' || stream.peek() == '|' || stream.peek() == '^' || stream.peek() == '~' || stream.peek() == '!'){
 			output += `<span class="code-red">${stream.next()}</span>`;
 
 		}else if(stream.peek() == '+' || stream.peek() == '-' || stream.peek() == '*' || stream.peek() == '/'){

@@ -100,12 +100,20 @@ term("assignment");
 term("initializer value");
 
 term("array");
+term("vector");
 
 
 term("attribute #rt");
 term("attribute #pub");
 
 term("intrinsic @import");
+
+term("primitive");
+term("integral");
+term("unsigned integral");
+term("signed integral");
+term("floating-point");
+
 
 
 

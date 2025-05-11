@@ -4,7 +4,7 @@
 <!--                                                                                              -->
 <!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
 <!-- You may not use this file except in compliance with the License.                             -->
-<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE`for info.                  -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE` for info.                 -->
 <!--                                                                                              -->
 <!-------------------------------------------------------------------------------------------------->
 
@@ -31,6 +31,10 @@
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
 </head>
 <body>
 	<div class="navbar">
@@ -75,30 +79,30 @@
 			<li><code>0x</code> followed by 1 or more hexadecimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>a</code>, <code>A</code>, <code>b</code>, <code>B</code>, <code>c</code>, <code>C</code>, <code>d</code>, <code>D</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>)</li>
 		</ul>
 		<p>An integer literal may optionally have a suffix of scientific notation which is: an <code>E</code> or an <code>e</code>, followed by an optional <code>+</code> or <code>-</code> (omitting is equivalent to <code>+</code>), followed by 1 or more decimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>).</p>
-		<p>Integer literals may optionally be broken up by underscores ( <code>_</code> ) anywhere except for the beginning. This means that <code style="background-color: #282923!important;"><span class="code-purple">12_345_</span></code> is equivalent to <code style="background-color: #282923!important;"><span class="code-purple">12345</span></code>.</p>
+		<p>Integer literals may optionally be broken up by underscores ( <code>_</code> ) anywhere except for the beginning. This means that <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12_345_</span></code> is equivalent to <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12345</span></code>.</p>
 <h2 id="float-literals">Float Literals</h2>		<p>Float literals are expressions that represent an unsigned floating value. They are <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code> and thus not explicitly typed, but they may only convert to floating types. They are represented by one of the following:</p>
 		<ul>
 			<li>1 or more decimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>), followed by  followed a period (<code>.</code>), followed by 1 or more decimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>). This may optionally be have suffix of scientific notation which is: an <code>E</code> or an <code>e</code>, followed by an optional <code>+</code> or <code>-</code> (omitting is equivalent to <code>+</code>), followed by 1 or more decimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>).</li>
 			<li><code>0x</code>, followed by 1 or more hexadecimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>a</code>, <code>A</code>, <code>b</code>, <code>B</code>, <code>c</code>, <code>C</code>, <code>d</code>, <code>D</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>), followed by a period (<code>.</code>), followed by 1 or more hexadecimal digits (<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>a</code>, <code>A</code>, <code>b</code>, <code>B</code>, <code>c</code>, <code>C</code>, <code>d</code>, <code>D</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>)</li>
 		</ul>
-		<p>Float literals may optionally be broken up by underscores ( <code>_</code> ) anywhere except for the beginning. This means that <code style="background-color: #282923!important;"><span class="code-purple">1_234.5</span></code> is equivalent to <code style="background-color: #282923!important;"><span class="code-purple">1234.5</span></code>.</p>
-<h2 id="boolean-literals">Boolean Literals</h2>		<p>Boolean literals are expressions represent a single boolean value. They are type <code style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code> and are represented by the following:</p>
+		<p>Float literals may optionally be broken up by underscores ( <code>_</code> ) anywhere except for the beginning. This means that <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">1_234.5</span></code> is equivalent to <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">1234.5</span></code>.</p>
+<h2 id="boolean-literals">Boolean Literals</h2>		<p>Boolean literals are expressions represent a single boolean value. They are type <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code> and are represented by the following:</p>
 		<ul>
-			<li><code style="background-color: #282923!important;"><span class="code-purple">true</span></code></li>
-			<li><code style="background-color: #282923!important;"><span class="code-purple">false</span></code></li>
+			<li><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code></li>
+			<li><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">false</span></code></li>
 		</ul>
-<h2 id="character-literals">Character Literals</h2>		<p>Character literals are expressions that represent a single character and are represented as ASCII. They are type <code style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Char</span></code>. They are represented by two single-quote characters (<code>'</code>) containing one the following:</p>
+<h2 id="character-literals">Character Literals</h2>		<p>Character literals are expressions that represent a single character and are represented as ASCII. They are type <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Char</span></code>. They are represented by two single-quote characters (<code>'</code>) containing one the following:</p>
 		<ul>
 			<li>Any basic ASCII printable character excluding <code>'</code>, <code>\</code>, new-line, or carriage return</li>
 			<li>A <code>character escape code</code></li>
 		</ul>
-<h2 id="string-literals">String Literals</h2>		<p>String literals are expressions that represent a string of text. They are type <code style="background-color: #282923!important;">[<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span>N;<span class="code-yellow">'<span class="code-purple">\0</span>'</span>]</code> where <code>N</code> is the number of characters in the string literal. They are represented by two double-quotes characters (<code>"</code>) containing 0 or more of the following:</p>
+<h2 id="string-literals">String Literals</h2>		<p>String literals are expressions that represent a string of text. They are type <code class="code-src"; style="background-color: #282923!important;">[<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span>N;<span class="code-yellow">'<span class="code-purple">\0</span>'</span>]</code> where <code>N</code> is the number of characters in the string literal. They are represented by two double-quotes characters (<code>"</code>) containing 0 or more of the following:</p>
 		<ul>
 			<li>Any basic ASCII printable character excluding <code>"</code>, and <code>\</code></li>
 			<li>A <code>character escape code</code></li>
 		</ul>
 		<h3>Notes</h3>
-		<p>As suggested by the type, string literals automatically have a null-terminator appended. This means that <code style="background-color: #282923!important;"><span class="code-yellow">"<span class="code-purple">\0</span>"</span></code> is represented in memory as two null-terminator.</p>
+		<p>As suggested by the type, string literals automatically have a null-terminator appended. This means that <code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">"<span class="code-purple">\0</span>"</span></code> is represented in memory as two null-terminator.</p>
 		<p>Unlike languages like C/C++ and Zig, nothing special needs to be done to allow string literals to be multi-line.</p>
 		<h2>Examples</h2>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// integer literals
@@ -174,8 +178,4 @@ literal"</span>;</div></pre></div>	</div>
 
 </body>
 <script src="/assets/script.js"></script>
-
-<script src="/assets/font-awesome/fontawesome.min.js"></script>
-<script src="/assets/font-awesome/solid.min.js"></script>
-<script src="/assets/font-awesome/brands.min.js"></script>
 </html>

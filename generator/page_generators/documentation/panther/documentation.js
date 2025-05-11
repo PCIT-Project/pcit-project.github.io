@@ -29,6 +29,7 @@ page.text("As Panther is pre-release, anything in the documentation may change. 
 page.end_info();
 
 page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
+page.text(html.link("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html"));
 page.text(html.link("Literals", "/site/documentation/panther/literals.html"));
 page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
 page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
