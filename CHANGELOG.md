@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.35.0"></a>
+## v0.0.35.0
+- Updated PIR documenation page to reflect changes in name of some instructions
+	- `@branch` -> `@jump`
+	- `@condBranch` -> `@branch`
+
+
+<!---------------------------------->
 <a name="v0.0.34.0"></a>
 ## v0.0.34.0
 - Added "Intrinsic" pages to Panther documentation

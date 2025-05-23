@@ -94,7 +94,7 @@ require("./page_generators/documentation/panther/when_conditionals.js");
 require("./page_generators/documentation/panther_std/documentation.js");
 
 
-require("./page_generators/documentation/pir/documentation.js");
+require("./page_generators/documentation/pir/pir_documentation.js");
 
 
 

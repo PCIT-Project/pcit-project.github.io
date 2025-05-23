@@ -49,7 +49,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.2, $.3 = @uAddWrap $ADD_WRAP.RESULT, I64(2)
 		@store $VAL, I64(2) #atomic(release)
 		$.4 = @load I64 $VAL #atomic(acquire) #volatile
-		@condBranch true, $.5, $.1
+		@branch true, $.5, $.1
 	$.5:
 		$.6 = @calcPtr [I8:36] &string, I64(0), I64(14)
 		@call &print_hello($.6)
@@ -74,7 +74,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 	$VAL = @alloca I64
 	$.1:
 		@store $VAL, I64(2) #atomic(release)
-		@branch $.5
+		@jump $.5
 	$.5:
 		$.6 = @calcPtr [I8:36] &string, I64(0), I64(14)
 		@call &print_hello($.6)
