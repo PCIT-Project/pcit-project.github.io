@@ -1,9 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.36.0"></a>
+## v0.0.36.0
+- Updated Panther type conversion intrinsics documenation to reflect changes in [PCIT v0.0.118.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.118.0)
+
+
+<!---------------------------------->
 <a name="v0.0.35.0"></a>
 ## v0.0.35.0
-- Updated PIR documenation page to reflect changes in name of some instructions
+- Updated PIR documenation page to reflect changes in [PCIT v0.0.117.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.117.0)
 	- `@branch` -> `@jump`
 	- `@condBranch` -> `@branch`
 
@@ -81,7 +87,7 @@
 <!---------------------------------->
 <a name="v0.0.27.1"></a>
 ## v0.0.27.1
-- Made code snippets in PIR documentation page reflecting change to the output of the PIR test program as affected by fixes in [v0.0.96.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.96.0)
+- Made code snippets in PIR documentation page reflecting change to the output of the PIR test program as affected by fixes in [PCIT v0.0.96.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.96.0)
 - Fixed links on home page pointing to the wrong location
 - Fixed page last updated date not being consistently YYYY-MM-DD
 

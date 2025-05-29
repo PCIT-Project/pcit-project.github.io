@@ -53,19 +53,11 @@ page.text(`Extend any ${terms.get("floating-point")} type to any other larger ${
 
 page.h2Searchable("@iToF", "iToF");
 page.text(page.inline_code_block(Language.PANTHER, "func @iToF = <{FROM: Type, TO: Type}> (from: FROM) -> TO;"));
-page.text(`Convert any ${terms.get("signed integral")} or ${terms.get("vector")} of ${terms.get("signed integral")} type to any ${terms.get("floating-point")} type. ${html.inline_code("FROM")} must be ${terms.get("signed integral")} and ${html.inline_code("TO")} must be ${terms.get("floating-point")}.`);
-
-page.h2Searchable("@uiToF", "uiToF");
-page.text(page.inline_code_block(Language.PANTHER, "func @uiToF = <{FROM: Type, TO: Type}> (from: FROM) -> TO;"));
-page.text(`Convert any ${terms.get("unsigned integral")} or ${terms.get("vector")} of ${terms.get("unsigned integral")} type to any ${terms.get("floating-point")} type. ${html.inline_code("FROM")} must be ${terms.get("unsigned integral")} and ${html.inline_code("TO")} must be ${terms.get("floating-point")}.`);
+page.text(`Convert any ${terms.get("integral")} or ${terms.get("vector")} of ${terms.get("integral")} type to any ${terms.get("floating-point")} type. ${html.inline_code("FROM")} must be ${terms.get("integral")} and ${html.inline_code("TO")} must be ${terms.get("floating-point")}.`);
 
 page.h2Searchable("@fToI", "fToI");
 page.text(page.inline_code_block(Language.PANTHER, "func @fToI = <{FROM: Type, TO: Type}> (from: FROM) -> TO;"));
-page.text(`Convert any ${terms.get("floating-point")} or ${terms.get("vector")} of ${terms.get("floating-point")} type to any ${terms.get("signed integral")}. ${html.inline_code("FROM")} must be ${terms.get("floating-point")} and ${html.inline_code("TO")} must be ${terms.get("signed integral")}.`);
-
-page.h2Searchable("@fToUI", "fToUI");
-page.text(page.inline_code_block(Language.PANTHER, "func @fToUI = <{FROM: Type, TO: Type}> (from: FROM) -> TO;"));
-page.text(`Convert any ${terms.get("floating-point")} or ${terms.get("vector")} of ${terms.get("floating-point")} type to any ${terms.get("unsigned integral")}. ${html.inline_code("FROM")} must be ${terms.get("floating-point")} and ${html.inline_code("TO")} must be ${terms.get("unsigned integral")}.`);
+page.text(`Convert any ${terms.get("floating-point")} or ${terms.get("vector")} of ${terms.get("floating-point")} type to any ${terms.get("integral")}. ${html.inline_code("FROM")} must be ${terms.get("floating-point")} and ${html.inline_code("TO")} must be ${terms.get("integral")}.`);
 
 
 
