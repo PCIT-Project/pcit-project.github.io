@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.37.2"></a>
+## v0.0.37.2
+- Fixed Bitwise Intrinsics page of Panther documentation having the UB fo `MAY_WRAP` wrong for `@shl` and `@shr`
+
+
+<!---------------------------------->
 <a name="v0.0.37.1"></a>
 ## v0.0.37.1
 - Removed `@and` from the Comparative Intrinsics page of Panther documentation
