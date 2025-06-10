@@ -182,7 +182,6 @@ const search_targets = [
 	new SearchTarget("@ctlz", "documentation/panther/intrinsics/bitwise_intrinsics.html#ctlz", "", ["@ctlz"], [0,4]),
 	new SearchTarget("@cttz", "documentation/panther/intrinsics/bitwise_intrinsics.html#cttz", "", ["@cttz"], [0,4]),
 	new SearchTarget("Comparative Intrinsics", "/site/documentation/panther/intrinsics/comparative_intrinsics.html", "Documentation for comparative intrinsics in the Panther programming language", ["comparative","intrinsics"], [0,4]),
-	new SearchTarget("@and", "documentation/panther/intrinsics/comparative_intrinsics.html#and", "", ["@and"], [0,4]),
 	new SearchTarget("@eq", "documentation/panther/intrinsics/comparative_intrinsics.html#eq", "", ["@eq"], [0,4]),
 	new SearchTarget("@neq", "documentation/panther/intrinsics/comparative_intrinsics.html#neq", "", ["@neq"], [0,4]),
 	new SearchTarget("@lt", "documentation/panther/intrinsics/comparative_intrinsics.html#lt", "", ["@lt"], [0,4]),

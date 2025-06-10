@@ -26,11 +26,6 @@ let page = new Page(__filename, {
 });
 
 
-page.h2Searchable("@and", "and");
-page.text(page.inline_code_block(Language.PANTHER, "func @and = <{T: Type}> (lhs: T, rhs: T) -> T;"));
-page.text(`Bitwise and. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}.`);
-
-
 page.h2Searchable("@eq", "eq");
 page.text(page.inline_code_block(Language.PANTHER, "func @eq = <{T: Type}> (lhs: T, rhs: T) -> Bool;"));
 page.text(`Calcualte equality. ${html.inline_code("T")} must be ${terms.get("primitive")} or a ${terms.get("vector")} or ${terms.get("primitive")}.`);

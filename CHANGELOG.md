@@ -1,6 +1,18 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.37.1"></a>
+## v0.0.37.1
+- Removed `@and` from the Comparative Intrinsics page of Panther documentation
+
+
+<!---------------------------------->
+<a name="v0.0.37.0"></a>
+## v0.0.37.0
+- Updated home page to reflect changes in [Panther-std v0.0.2.0](https://github.com/PCIT-Project/Panther-std/blob/main/CHANGELOG.md#v0.0.2.0)
+
+
+<!---------------------------------->
 <a name="v0.0.36.0"></a>
 ## v0.0.36.0
 - Updated Panther type conversion intrinsics documenation to reflect changes in [PCIT v0.0.118.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.118.0)
