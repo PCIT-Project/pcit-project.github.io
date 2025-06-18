@@ -9,6 +9,7 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
@@ -16,11 +17,11 @@ const Language = require("../../../Page.js").Language;
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther/variables.html",
-	title: "Panther Variables | Panther Documentation",
-	on_page_title: "Panther Variables",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for variables in the Panther programming language",
+	path        : "documentation/panther/variables.html",
+	title       : "Variables",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for variables in the Panther programming language",
 });
 
 

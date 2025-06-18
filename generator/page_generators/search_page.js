@@ -17,9 +17,9 @@ let page = new Page(__filename, {
 	title: "Search",
 });
 
-page.raw("\t\t<script src=\"./search_script.js\"></script>\n\n");
 
 page.raw("\t\t<input type=\"text\" oninput=\"on_search_input()\" id=\"search_box\" class=\"search-bar\" placeholder=\"Search the PCIT website\"></input>\n");
+page.raw("\t\t<script src=\"./search_script.js\"></script>\n\n");
 
 page.raw("\t\t<div id=\"results\"></div>\n");
 

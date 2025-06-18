@@ -35,6 +35,31 @@
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
 	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 3,
+			        "name": "Literals"
+				}
+			]
+		}
+	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -45,7 +70,7 @@
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -61,13 +86,13 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
 	<br><div class="context">
-		<h1>Literals</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Literals</div>		<h1>Literals</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/>		<p>Literals are <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code> expressions that allow expressing a fixed value directly.</p>
 <h2 id="integer-literals">Integer Literals</h2>		<p>Integer literals are expressions that represent an unsigned integral value. They are <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code> and thus not explicitly typed, but they may only convert to integral types. They are represented as one of the following:</p>
@@ -172,7 +197,7 @@ am a
 literal"</span>;</div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-04-28</p>
+		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

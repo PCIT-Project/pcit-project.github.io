@@ -65,10 +65,10 @@ term("operator move");
 term("operator forward");
 
 
-term("variables");
-term("var variables");
-term("const variables");
-term("def variables");
+term("variables", "/site/documentation/panther/variables.html");
+term("var variables", "/site/documentation/panther/variables.html#var_variables");
+term("const variables", "/site/documentation/panther/variables.html#const_variables");
+term("def variables", "/site/documentation/panther/variables.html#def_variables");
 
 
 term("read parameters");

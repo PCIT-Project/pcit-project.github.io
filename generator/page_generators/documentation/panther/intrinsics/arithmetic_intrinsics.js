@@ -9,6 +9,7 @@
 
 
 const Page = require("../../../../Page.js").Page;
+const breadcrumbs = require("../../../../Page.js").breadcrumbs;
 const html = require("../../../../html.js");
 const terms = require("../../../../terms.js");
 const search = require("../../../../search.js");
@@ -18,11 +19,11 @@ const syntax_highlighting = require("../../../../syntax_highlighting/syntax_high
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther/intrinsics/arithmetic_intrinsics.html",
-	title: "Arithmetic Intrinsics | Panther Documentation",
-	on_page_title: "Arithmetic Intrinsics",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for arithmetic intrinsics in the Panther programming language",
+	path        : "documentation/panther/intrinsics/arithmetic_intrinsics.html",
+	title       : "Arithmetic Intrinsics",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
+	description : "Documentation for arithmetic intrinsics in the Panther programming language",
 });
 
 

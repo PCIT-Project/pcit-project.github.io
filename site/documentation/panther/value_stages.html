@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Documentation for value stages in the Panther programming language" />
 
-	<meta property="og:title" content="Panther Value Stages | Panther Documentation | PCIT Project" />
+	<meta property="og:title" content="Value Stages | Panther Documentation | PCIT Project" />
 	<meta property="og:description" content="Documentation for value stages in the Panther programming language" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>Panther Value Stages | Panther Documentation | PCIT Project</title>
+	<title>Value Stages | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -35,6 +35,31 @@
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
 	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 3,
+			        "name": "Value Stages"
+				}
+			]
+		}
+	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -45,7 +70,7 @@
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -61,29 +86,29 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
 	<br><div class="context">
-		<h1>Panther Value Stages</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Value Stages</div>		<h1>Value Stages</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/>		<p>All expressions have a value stage which dictate which stage of compilation it may be used in.</p>
 <h2 id="constexpr">Constexpr Value Stage</h2>		<p>Constexpr values are values that are known at compile-time and can be used as constexpr expressions. Anywhere that requires a comptime or a runtime value also accept constexpr values.</p>
 		<p>The following are constexpr expressions:</p>
 		<ul>
 			<li><code><a href="/site/documentation/panther/literals.html">literals</a></code></li>
-			<li><code>def variables</code></li>
+			<li><code><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></code></li>
 			<li>template parameters</li>
 			<li>constexpr function calls with all arguments being constexpr</li>
 		</ul>
 <h2 id="comptime">Comptime Value Stage</h2>		<p>Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a runtime values also accept comptime values.</p>
 		<p>The following are comptime expressions:</p>
 		<ul>
-			<li>global <code>const variables</code></li>
-			<li><code>const variables</code> defined in a constexpr function</li>
-			<li><code>var variables</code> defined in a constexpr function</li>
+			<li>global <code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code></li>
+			<li><code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code> defined in a constexpr function</li>
+			<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code> defined in a constexpr function</li>
 			<li>function parameters in a constexpr function</li>
 			<li>return parameters in a constexpr function</li>
 			<li>error parameters in a constexpr function</li>
@@ -92,8 +117,8 @@
 <h2 id="runtime">Runtime Value Stage</h2>		<p>Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept comptime and constexpr values.</p>
 		<p>The following are runtime expressions:</p>
 		<ul>
-			<li>global <code>var variables</code></li>
-			<li><code>var variables</code> and <code>const variables</code> declared in function scope</li>
+			<li>global <code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code></li>
+			<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code> and <code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code> declared in function scope</li>
 			<li>calls to external functions that are unknown / not linked in by the build system</li>
 			<li>calls to runtime functions</li>
 			<li>calls to comptime functions with at least 1 runtime argument</li>
@@ -101,7 +126,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-03-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

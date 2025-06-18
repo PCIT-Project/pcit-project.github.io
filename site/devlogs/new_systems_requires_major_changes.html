@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Adding position independent declaration and the build system to the Panther compiler" />
 
-	<meta property="og:title" content="New Systems Requires Major Changes | Devlog | PCIT Project" />
+	<meta property="og:title" content="New Systems Requires Major Changes | Panther Devlog | PCIT Project" />
 	<meta property="og:description" content="Adding position independent declaration and the build system to the Panther compiler" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>New Systems Requires Major Changes | Devlog | PCIT Project</title>
+	<title>New Systems Requires Major Changes | Panther Devlog | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -35,6 +35,45 @@
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
 	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Devlogs",
+					"item": "https://www.pcitproject.org/site/devlogs/devlogs.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 2,
+			        "name": "New Systems Requires Major Changes"
+				}
+			]
+		}
+	</script>
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "New Systems Requires Major Changes | Panther Devlog",
+			"image": [
+				"https://www.pcitproject.org/assets/LogoBig.png"
+			],
+			"datePublished": "2025-01-02T00:00:00-00:00",
+			"dateModified": "2025-06-17T00:00:00-00:00",
+			"author": [
+				{
+					"@type": "Person",
+					"name": "Andrew Feldman",
+					"url": "https://www.pcitproject.org/site/about.html#Andrew_Feldman"
+				}
+			]
+		}
+	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -45,7 +84,7 @@
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -61,17 +100,15 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
 	<br><div class="context">
-		<h1>New Systems Requires Major Changes</h1>
+		<div><a href="/site/devlogs/devlogs.html">Devlogs</a> > New Systems Requires Major Changes</div>		<h1>New Systems Requires Major Changes</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #bbbbbb; background-color: #2d3035; border-color: #575a5d;">Devlog</div>
-<br/><br/>		<p style="color: #878481;">Written by: Andrew Feldman</p>
-		<p style="color: #878481;">January 2nd, 2025</p>
-		<h2>Order Independent Declaration</h2>
+<br/><br/>		<h2>Order Independent Declaration</h2>
 		<p>&emsp;&emsp;Upon starting work on semantic analysis of structs in Panther, I came to realize that it would be less work if I implemented order independent declaration (OID) first. I finished up <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.77.0">v0.0.77.0</a></code>, which included parsing of structs, and began work on OID. I had already thought about how I would implement OID before I began working on semantic analysis and had a plan for implementing it.</p>
 		<p>&emsp;&emsp;The plan was, during semantic analysis, to make a first pass and find all the global declarations. Semantic analysis could then make a second pass where it could go through all the definitions. If any definition requires a definition of another symbol or type that hasn’t been defined yet, it would go through the definition of that dependency and then come back and continue. This could potentially be recursive, so there had to be checks of cyclic dependencies, etc. A version of the plan already worked perfectly for functions and templated functions. I had decided that it would be best to implement this after Panther had global variables, constexpr functions, <code><a href="/site/documentation/panther/when_conditionals.html">when conditionals</a></code>, imports, and types where the base is not a primitive.</p>
 		<p>&emsp;&emsp;I had met all the requirements for OID that I had laid out for myself, so I went to implement it. However, when I began considering the exact implementation details, I realized that the plan could cause lots of waiting during multithreading and tank performance. To explain how, consider the following code:</p>
@@ -120,10 +157,14 @@ when(some_lib.func_that_returns_false()){
 		<h2>Major Changes</h2>
 		<p>&emsp;&emsp;With the problems with both OID and the build system in mind, I decided the best course of action is to rewrite much of the Panther compiler. The rewrite also gives me an excuse to fix design decisions inside the <code>Context</code> and <code>SemanticAnalyzer</code> classes that I came to disagree with as time went on. The latest update at time of writing (<code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.78.0">v0.0.78.0</a></code>) contains the beginning of this. The old implementation is now in a directory called <code>Panther-old</code> while the new one is in <code>Panther</code>. This was done instead of creating a separate branch to make it easier for me to switch back and forth. I only did this because it is pre-release and thus the project has 0 users. Once the rewrite achieves feature parity with the old version, the <code>Panther-old</code> directory will be deleted.</p>
 		<p>&emsp;&emsp;The <code>Context</code> class was completely rewritten to handle the much more complex task management system, but tokenization/printing of tokens, parsing/printing of AST were basically copied and pasted. The next step is to make the dependency analysis and semantic analysis stages. My plan is for the new semantic analysis to still produce ASG (abstract semantics graph), so once I’ve completed those two stages I can mostly copy and paste the lowering ASG to PIR code. This rewrite will probably take significant amounts of time, but I believe that it will definitely be worth it.</p>
-	</div>
+
+		<br/>
+		<p style="color: #878481;">Written by: <a href="https://www.pcitproject.org/site/about.html#Andrew_Feldman">Andrew Feldman</a></p>
+		<p style="color: #878481;">Published: 2025-01-02</p>
+			</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-04-28</p>
+		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

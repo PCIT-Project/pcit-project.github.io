@@ -9,6 +9,7 @@
 
 
 const Page = require("../../../../Page.js").Page;
+const breadcrumbs = require("../../../../Page.js").breadcrumbs;
 const html = require("../../../../html.js");
 const terms = require("../../../../terms.js");
 const search = require("../../../../search.js");
@@ -19,9 +20,9 @@ const syntax_highlighting = require("../../../../syntax_highlighting/syntax_high
 
 let page = new Page(__filename, {
 	path: "documentation/panther/intrinsics/type_conversion_intrinsics.html",
-	title: "Type Conversion Intrinsics | Panther Documentation",
-	on_page_title: "Type Conversion Intrinsics",
+	title: "Type Conversion Intrinsics",
 	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
 	description: "Documentation for type conversion intrinsics in the Panther programming language",
 });
 

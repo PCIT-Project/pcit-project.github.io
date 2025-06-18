@@ -49,7 +49,7 @@ make_directory("../site/documentation/panther");
 make_directory("../site/documentation/panther/intrinsics");
 make_directory("../site/documentation/panther_std");
 make_directory("../site/documentation/pir");
-make_directory("../site/devlog");
+make_directory("../site/devlogs");
 
 
 //////////////////////////////////////////////////////////////////////
@@ -114,12 +114,12 @@ require("./page_generators/tutorials/PLNK/plnk_tutorial.js");
 
 
 ///////////////////////////////////
-// devlog
+// devlogs
 
-require("./page_generators/devlog/devlog.js");
+require("./page_generators/devlogs/devlogs.js");
 
-require("./page_generators/devlog/new_systems_requires_major_changes.js");
-require("./page_generators/devlog/dependencies_v2.js");
+require("./page_generators/devlogs/new_systems_requires_major_changes.js");
+require("./page_generators/devlogs/dependencies_v2.js");
 
 
 

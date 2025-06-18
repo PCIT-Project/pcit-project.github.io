@@ -9,6 +9,7 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
@@ -16,11 +17,11 @@ const search = require("../../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther/undefined_behavior.html",
-	title: "Undefined Behavior | Panther Documentation",
-	on_page_title: "Undefined Behavior",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for Undefined Behavior in the Panther programming language",
+	path        : "documentation/panther/undefined_behavior.html",
+	title       : "Undefined Behavior",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for Undefined Behavior in the Panther programming language",
 });
 
 

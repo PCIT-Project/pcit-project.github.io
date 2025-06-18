@@ -13,16 +13,17 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 const Language = require("../../../Page.js").Language;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const syntax_highlighting = require("../../../syntax_highlighting/syntax_highlighting.js");
 
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther/fluid_values.html",
-	title: "Fluid Values | Panther Documentation",
-	on_page_title: "Fluid Values",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for fluid values in the Panther programming language",
+	path        : "documentation/panther/fluid_values.html",
+	title       : "Fluid Values",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for fluid values in the Panther programming language",
 });
 
 

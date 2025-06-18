@@ -12,10 +12,11 @@ const search = require("../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "documentation/documentation.html",
-	title: "Documentation",
-	categories: [search.Category.DOCUMENTATION],
-	description: "Documentation for the PCIT Project tools",
+	path                    : "documentation/documentation.html",
+	title                   : "Documentation",
+	categories              : [search.Category.DOCUMENTATION],
+	description             : "Documentation for the PCIT Project tools",
+	has_categories_in_title : false,
 });
 
 

@@ -24,6 +24,16 @@ class SearchTarget{
 }
 
 
+function is_on_desktop(){
+	if(("ontouchstart" in window) == false){ return true; } // if doesn't have a touchscreen
+	return window.width > 1023;
+}
+
+if(is_on_desktop()){
+	document.getElementById("search_box").focus();
+}
+
+
 function on_search_input(){
 	const search_box = document.getElementById("search_box");
 	const results_div = document.getElementById("results");
@@ -213,17 +223,17 @@ const search_targets = [
 	new SearchTarget("Modules", "/site/documentation/panther/modules.html", "Documentation for modules in the Panther programming language", ["modules"], [0,4]),
 	new SearchTarget("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html", "Documentation for Undefined Behavior in the Panther programming language", ["undefined","behavior"], [0,4]),
 	new SearchTarget("Uninitialized", "/site/documentation/panther/uninitialized.html", "Documentation for \"uninitialized\" in the Panther programming language", ["uninitialized"], [0,4]),
-	new SearchTarget("Panther Value Categories", "/site/documentation/panther/value_categories.html", "Documentation for value categories in the Panther programming language", ["panther","value","categories"], [0,4]),
+	new SearchTarget("Value Categories", "/site/documentation/panther/value_categories.html", "Documentation for value categories in the Panther programming language", ["value","categories"], [0,4]),
 	new SearchTarget("Ephemeral Value Category", "documentation/panther/value_categories.html#ephemeral", "", ["ephemeral","value","category"], [0,4]),
 	new SearchTarget("Concrete Value Category", "documentation/panther/value_categories.html#concrete", "", ["concrete","value","category"], [0,4]),
 	new SearchTarget("Concrete-Mutable Value Category", "documentation/panther/value_categories.html#concrete_mutable", "", ["concrete-mutable","value","category"], [0,4]),
 	new SearchTarget("Concrete-Forwardable Value Category", "documentation/panther/value_categories.html#concrete_forwardable", "", ["concrete-forwardable","value","category"], [0,4]),
 	new SearchTarget("Concrete-Const Value Category", "documentation/panther/value_categories.html#concrete_const", "", ["concrete-const","value","category"], [0,4]),
-	new SearchTarget("Panther Value Stages", "/site/documentation/panther/value_stages.html", "Documentation for value stages in the Panther programming language", ["panther","value","stages"], [0,4]),
+	new SearchTarget("Value Stages", "/site/documentation/panther/value_stages.html", "Documentation for value stages in the Panther programming language", ["value","stages"], [0,4]),
 	new SearchTarget("Constexpr Value Stage", "documentation/panther/value_stages.html#constexpr", "", ["constexpr","value","stage"], [0,4]),
 	new SearchTarget("Comptime Value Stage", "documentation/panther/value_stages.html#comptime", "", ["comptime","value","stage"], [0,4]),
 	new SearchTarget("Runtime Value Stage", "documentation/panther/value_stages.html#runtime", "", ["runtime","value","stage"], [0,4]),
-	new SearchTarget("Panther Variables", "/site/documentation/panther/variables.html", "Documentation for variables in the Panther programming language", ["panther","variables"], [0,4]),
+	new SearchTarget("Variables", "/site/documentation/panther/variables.html", "Documentation for variables in the Panther programming language", ["variables"], [0,4]),
 	new SearchTarget("Var Variables", "documentation/panther/variables.html#var_variables", "", ["var","variables"], [0,4]),
 	new SearchTarget("Const Variables", "documentation/panther/variables.html#const_variables", "", ["const","variables"], [0,4]),
 	new SearchTarget("Def Variables", "documentation/panther/variables.html#def_variables", "", ["def","variables"], [0,4]),
@@ -236,7 +246,7 @@ const search_targets = [
 	new SearchTarget("Panther Library Tutorial", "/site/tutorials/pantherlib/tutorial.html", "Tutorial for the Panther programming language library", ["panther","library","tutorial"], [1,5]),
 	new SearchTarget("PIR Tutorial", "/site/tutorials/pir/tutorial.html", "Tutorial for PIR (Panther Intermediate Representation)", ["pir","tutorial"], [2,5]),
 	new SearchTarget("PLNK Tutorial", "/site/tutorials/plnk/tutorial.html", "Tutorial for PLNK (PCIT Linker)", ["plnk","tutorial"], [3,5]),
-	new SearchTarget("Devlogs", "/site/devlog/devlog.html", "Catalog of PCIT Project devlogs", ["devlogs"], [6]),
-	new SearchTarget("New Systems Requires Major Changes", "/site/devlog/new_systems_requires_major_changes.html", "Adding position independent declaration and the build system to the Panther compiler", ["new","systems","requires","major","changes"], [0,6]),
-	new SearchTarget("Dependencies V2", "/site/devlog/dependencies_v2.html", "New and improved dependency system for the Panther compiler", ["dependencies","v2"], [0,6]),
+	new SearchTarget("Devlogs", "/site/devlogs/devlogs.html", "Catalog of PCIT Project devlogs", ["devlogs"], [6]),
+	new SearchTarget("New Systems Requires Major Changes", "/site/devlogs/new_systems_requires_major_changes.html", "Adding position independent declaration and the build system to the Panther compiler", ["new","systems","requires","major","changes"], [0,6]),
+	new SearchTarget("Dependencies V2", "/site/devlogs/dependencies_v2.html", "New and improved dependency system for the Panther compiler", ["dependencies","v2"], [0,6]),
 ];

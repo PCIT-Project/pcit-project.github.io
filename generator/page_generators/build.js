@@ -13,10 +13,11 @@ const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
 let page = new Page(__filename, {
-	path: "build.html",
-	title: "Building PCIT Project Software",
-	categories: [require("../search.js").Category.DOWNLOADS_AND_BUILDING],
-	description: "How to build the PCIT Project software",
+	path                    : "build.html",
+	title                   : "Building PCIT Project Software",
+	categories              : [require("../search.js").Category.DOWNLOADS_AND_BUILDING],
+	description             : "How to build the PCIT Project software",
+	has_categories_in_title : false
 });
 
 

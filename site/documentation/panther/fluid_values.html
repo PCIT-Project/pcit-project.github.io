@@ -35,6 +35,31 @@
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
 	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 3,
+			        "name": "Fluid Values"
+				}
+			]
+		}
+	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -45,7 +70,7 @@
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -61,13 +86,13 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
 	<br><div class="context">
-		<h1>Fluid Values</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Fluid Values</div>		<h1>Fluid Values</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/>		<p>&emsp;&emsp;Fluid values are a special category of values that are not explicitly typed. They come in two kinds: integral and float. A fluid integral may implicitly convert to any builtin integral type, and a fluid float may implicitly convert to any builtin float type. <code><a href="/site/documentation/panther/literals.html#integer-literals">Integer literals</a></code> are fluid integrals and <code><a href="/site/documentation/panther/literals.html#float-literals">float literals</a></code> are fluid floats.</p>
 		<p>&emsp;&emsp;In addition, the result of a operator where all operands are fluid is itself also fluid. The fluid kind of the result is the same as the operands. The use of parentheses are also supported.</p>
@@ -114,7 +139,7 @@ const fluid_float_3: F32 = 12;`);
 <span class="code-cyan" style="font-style: italic;">const</span> fluid_int_4<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12.4</span>;
 
 <span class="code-gray">// invalid because `12` is a fluid integral, and cannot be implicitly converted to a float type</span>
-<span class="code-cyan" style="font-style: italic;">const</span> fluid_float_3<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</div></pre></div>		<p>&emsp;&emsp;<code>def variables</code> that are implicitly typed and are declared with a fluid value are themselves fluid.</p>
+<span class="code-cyan" style="font-style: italic;">const</span> fluid_float_3<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</div></pre></div>		<p>&emsp;&emsp;<code><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></code> that are implicitly typed and are declared with a fluid value are themselves fluid.</p>
 <script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(` // valid becase this \'def\' variable has no explicit type and therefore is fluid
 def NUM = 12;
 const num: Int = NUM;
@@ -140,7 +165,7 @@ const num_3 = NUM;`);
 <span class="code-cyan" style="font-style: italic;">const</span> num_3 <span class="code-red">=</span> NUM;</div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-04-28</p>
+		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

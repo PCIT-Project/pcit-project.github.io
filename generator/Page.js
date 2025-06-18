@@ -48,19 +48,24 @@ const changed_files = function(){
 	git_status.split("\n").forEach((git_status_line) => {
 		if(found_added_section){
 			if(git_status_line.startsWith("\t")){
-				output.push(git_status_line.slice("\t".length).replaceAll());
+				output.push(git_status_line.slice("\t".length));
 			}
 			return;
 		}
 
 		if(git_status_line.startsWith("\tnew file:   ")){
-			output.push(git_status_line.slice("\tnew file:   ".length).replaceAll());
+			output.push(git_status_line.slice("\tnew file:   ".length));
 			return;
 		}
 
 		if(git_status_line.startsWith("\tmodified:   ")){
-			output.push(git_status_line.slice("\tmodified:   ".length).replaceAll());
+			output.push(git_status_line.slice("\tmodified:   ".length));
 			return;
+		}
+
+		if(git_status_line.startsWith("\trenamed:    ")){
+			output.push(git_status_line.split(" -> ")[1]);
+			return;	
 		}
 
 		if(git_status_line == `  (use "git add <file>..." to include in what will be committed)`){
@@ -70,6 +75,29 @@ const changed_files = function(){
 
 	return output;
 }();
+
+
+
+
+
+class Breadcrumb{
+	title;
+	path;
+
+	constructor(title, path){
+		this.title = title;
+		this.path = path;
+	}
+}
+
+const breadcrumbs = Object.freeze({
+	DEVLOGS               : new Breadcrumb("Devlogs", "/site/devlogs/devlogs.html"),
+	DOCUMENTATION         : new Breadcrumb("Documentation", "/site/documentation/documentation.html"),
+	PANTHER_DOCUMENTATION : new Breadcrumb("Panther Documentation", "/site/documentation/panther/documentation.html"),
+	PANTHER_INTRINSICS    : new Breadcrumb("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html"),
+	TUTORIALS             : new Breadcrumb("Tutorials", "/site/tutorials/tutorials.html"),
+});
+
 
 
 
@@ -85,11 +113,14 @@ class Page{
 	// optional options for `config`
 	#description;
 	#categories;
+	#breadcrumbs;
 	#on_page_title; // default `title`
 	#has_page_title; // default true
+	#article_info; // only used if is an article. Must have `.author, .date_published, .author_url`
 
 	// optional options for `config` that don't become members
-	// allow_in_sitemap; // defaults to true
+	// allow_in_sitemap -> defaults to true
+	// has_categories_in_title -> default true
 
 	constructor(generator_path, config){
 		this.body = "";
@@ -102,17 +133,36 @@ class Page{
 		this.path = config.path;
 		this.description = config.description ?? "Panther Compiler Infrastructure and Technology";
 		this.categories = config.categories;
+		this.breadcrumbs = config.breadcrumbs;
 		this.on_page_title = config.on_page_title ?? config.title;
 		this.has_page_title = config.has_page_title ?? true;
-		this.allow_in_sitemap = config.allow_in_sitemap ?? true;
+		this.article_info = config.article_info;
 
 		if(this.categories !== undefined){
 			search.addSearchTarget(this.on_page_title, "/site/" + this.path, this.categories, this.description);
+
+			if(config.has_categories_in_title ?? true){
+				this.title += " |";
+				this.categories.forEach((category, i) => {
+					this.title += " ";
+					switch(category){
+						case 0: this.title += "Panther"; break;
+						case 1: this.title += "Panther STD"; break;
+						case 2: this.title += "PIR"; break;
+						case 3: this.title += "PLNK"; break;
+						case 4: this.title += "Documentation"; break;
+						case 5: this.title += "Tutorial"; break;
+						case 6: this.title += "Devlog"; break;
+						case 7: this.title += "Download/Build"; break;
+					}
+				});
+			}
 		}
 
 		if(config.allow_in_sitemap ?? true){
 			page_list.push(this);
 		}
+
 
 
 		///////////////////////////////////
@@ -535,8 +585,67 @@ class Page{
 
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
-	<script src="/assets/font-awesome/brands.min.js"></script>
-</head>
+	<script src="/assets/font-awesome/brands.min.js"></script>`;
+
+
+		if(this.breadcrumbs !== undefined){
+			// https://developers.google.com/search/docs/appearance/structured-data/breadcrumb#json-ld
+
+			file_data += `
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{`;
+
+			this.breadcrumbs.forEach((breadcrumb, i) => {
+				file_data += `
+					"@type": "ListItem",
+					"position": ${i + 1},
+					"name": "${breadcrumb.title}",
+					"item": "https://www.pcitproject.org${breadcrumb.path}"
+				},
+				{`;
+			});
+
+			file_data += `
+					"@type": "ListItem",
+			        "position": ${this.breadcrumbs.length + 1},
+			        "name": "${this.on_page_title}"
+				}
+			]
+		}
+	</script>\n`;
+
+		}
+
+		if(this.article_info !== undefined){
+			file_data += `
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "${this.title}",
+			"image": [
+				"https://www.pcitproject.org/assets/LogoBig.png"
+			],
+			"datePublished": "${this.article_info.date_published}T00:00:00-00:00",
+			"dateModified": "${this.last_updated_str}T00:00:00-00:00",
+			"author": [
+				{
+					"@type": "Person",
+					"name": "${this.article_info.author}",
+					"url": "${this.article_info.author_url}"
+				}
+			]
+		}
+	</script>
+`;
+		}
+
+
+		file_data += `</head>
 <body>
 	<div class="navbar">`;
 		if(is_home_page){
@@ -559,7 +668,7 @@ class Page{
 		file_data += `
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -575,7 +684,7 @@ class Page{
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>`;
@@ -595,7 +704,18 @@ class Page{
 	file_data += "\n\n\t<br><div class=\"context\">\n";
 
 	if(this.has_page_title){
+		if(this.breadcrumbs !== undefined){
+			file_data += "\t\t<div>";
+			this.breadcrumbs.forEach((breadcrumb, i) => {
+				file_data += html.link(breadcrumb.title, breadcrumb.path) + " > ";
+			});
+			file_data += this.on_page_title;
+			file_data += "</div>";
+		}
+
+
 		file_data += `\t\t<h1>${this.on_page_title}</h1>\n`;
+
 
 		if(this.categories !== undefined){
 			file_data += "\t\t";
@@ -616,7 +736,17 @@ class Page{
 	}
 
 	file_data += "<br/><br/>";
+
 	file_data += this.body;
+
+	if(this.article_info !== undefined){
+		file_data += `
+		<br/>
+		<p style="color: #878481;">Written by: ${html.link(this.article_info.author, this.article_info.author_url)}</p>
+		<p style="color: #878481;">Published: ${this.article_info.date_published}</p>
+		`;
+	}
+
 
 	file_data += `\t</div>
 
@@ -636,4 +766,5 @@ class Page{
 
 exports.Language = Language;
 exports.Page = Page;
+exports.breadcrumbs =  breadcrumbs;
 exports.page_list = page_list;

@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.38.0"></a>
+## v0.0.38.0
+- Added breadcrumbs
+- Added auto-focus on the text-box on the search page on a desktop
+- Added rounded corners to highlighted search targets
+- Added article structured data for devlogs
+- Changed "Devlog" to "Devlogs" (where appropriate)
+
+
+<!---------------------------------->
 <a name="v0.0.37.2"></a>
 ## v0.0.37.2
 - Fixed Bitwise Intrinsics page of Panther documentation having the UB fo `MAY_WRAP` wrong for `@shl` and `@shr`

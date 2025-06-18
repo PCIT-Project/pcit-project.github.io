@@ -9,16 +9,19 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "documentation/pir/documentation.html",
-	title: "PIR Documentation",
-	categories: [search.Category.PIR, search.Category.DOCUMENTATION],
-	description: "Documentation for PIR (Panther Intermediate Representation)",
+	path                    : "documentation/pir/documentation.html",
+	title                   : "PIR Documentation",
+	categories              : [search.Category.PIR, search.Category.DOCUMENTATION],
+	breadcrumbs             : [breadcrumbs.DOCUMENTATION],
+	description             : "Documentation for PIR (Panther Intermediate Representation)",
+	has_categories_in_title : true,
 });
 
 
@@ -135,7 +138,7 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 
 page.text("Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):", "padding-top: 2em;");
 page.code_block(Language.ASM_x86,
-`	.text
+`   .text
 	.def    @feat.00;
 	.scl    3;
 	.type   0;
@@ -149,28 +152,28 @@ page.code_block(Language.ASM_x86,
 	.type   32;
 	.endef
 	.globl  entry
-	.p2align	4, 0x90
+	.p2align    4, 0x90
 entry:
 	sub     rsp, 56
 .LBB0_1:
-	mov 	eax, 12
-	mov 	qword ptr [rsp + 40], rax
-	mov 	qword ptr [rsp + 48], 2
-	mov 	rax, qword ptr [rsp + 48]
-	mov 	al, 1
-	test 	al, 1
-	jne 	.LBB0_2
-	jmp 	.LBB0_1
+	mov     eax, 12
+	mov     qword ptr [rsp + 40], rax
+	mov     qword ptr [rsp + 48], 2
+	mov     rax, qword ptr [rsp + 48]
+	mov     al, 1
+	test    al, 1
+	jne     .LBB0_2
+	jmp     .LBB0_1
 .LBB0_2:
-	lea 	rcx, [rip + .Lstring]
-	add 	rcx, 14
-	call 	print_message
-	mov 	rax, qword ptr [rsp + 40]
-	add 	rsp, 56
+	lea     rcx, [rip + .Lstring]
+	add     rcx, 14
+	call    print_message
+	mov     rax, qword ptr [rsp + 40]
+	add     rsp, 56
 	ret
 
-	.section	.rdata,"dr"
-	.p2align	2, 0x0
+	.section    .rdata,"dr"
+	.p2align    2, 0x0
 global:
 	.short  18
 	.byte   0
@@ -179,7 +182,7 @@ global:
 .Lstring:
 	.asciz  "[NOT PRINTED] Hello World, I'm PIR!"
 
-	.p2align	2, 0x0
+	.p2align    2, 0x0
 .Lvec2:
 	.long   0x41400000
 	.long   0x41980000`);

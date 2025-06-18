@@ -11,16 +11,15 @@ const Page = require("../Page.js").Page;
 const html = require("../html.js");
 
 let page = new Page(__filename, {
-	path: "about.html",
-	title: "About",
-	description: "About the PCIT Project",
-	on_page_title: "Who are we?",
+	path          : "about.html",
+	title         : "About",
+	description   : "About the PCIT Project",
+	on_page_title : "Who are we?",
 });
 
 page.text("The PCIT Project is owned by the members of the PCIT Project Team:");
 
-
-page.h2("Andrew Feldman");
+page.h2Anchor("Andrew Feldman", "Andrew_Feldman");
 page.raw(`<div style="width: 16em; height: 16em; border-radius: 0.3em; background-color: #1e2122;">`);
 page.image("https://avatars.githubusercontent.com/u/66285818?v=4", "Andrew Feldman Photo", "width: 100%; border-radius: 0.3em;");
 page.raw(`</div>`);

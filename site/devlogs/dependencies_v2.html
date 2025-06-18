@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="New and improved dependency system for the Panther compiler" />
 
-	<meta property="og:title" content="Dependencies V2 | Devlog | PCIT Project" />
+	<meta property="og:title" content="Dependencies V2 | Panther Devlog | PCIT Project" />
 	<meta property="og:description" content="New and improved dependency system for the Panther compiler" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>Dependencies V2 | Devlog | PCIT Project</title>
+	<title>Dependencies V2 | Panther Devlog | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -35,6 +35,45 @@
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
 	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Devlogs",
+					"item": "https://www.pcitproject.org/site/devlogs/devlogs.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 2,
+			        "name": "Dependencies V2"
+				}
+			]
+		}
+	</script>
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "Dependencies V2 | Panther Devlog",
+			"image": [
+				"https://www.pcitproject.org/assets/LogoBig.png"
+			],
+			"datePublished": "2025-02-06T00:00:00-00:00",
+			"dateModified": "2025-06-17T00:00:00-00:00",
+			"author": [
+				{
+					"@type": "Person",
+					"name": "Andrew Feldman",
+					"url": "https://www.pcitproject.org/site/about.html#Andrew_Feldman"
+				}
+			]
+		}
+	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -45,7 +84,7 @@
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -61,17 +100,15 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
 	<br><div class="context">
-		<h1>Dependencies V2</h1>
+		<div><a href="/site/devlogs/devlogs.html">Devlogs</a> > Dependencies V2</div>		<h1>Dependencies V2</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #bbbbbb; background-color: #2d3035; border-color: #575a5d;">Devlog</div>
-<br/><br/>		<p style="color: #878481;">Written by: Andrew Feldman</p>
-		<p style="color: #878481;">February 6th, 2025</p>
-		<p>&emsp;&emsp;In <a href="/site/devlog/new_systems_requires_major_changes.html">my first devlog</a>, I discussed how implementing Order Independent Declarations and the Panther build system required redoing a lot of work for the compiler as well as adding a new stage (Dependency Analysis). Update <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.79.0">v0.0.79.0</a></code> contained the first proof of concept of this new system working. The code required to get it working was complex and difficult to understand, but the system worked and it seemed robust. There was a looming sense of difficulty coming down the line (such as pointers to user-defined types - more on that later), but I plowed through as this was the solution I came up with and I was sticking to it. Through <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.80.0">v0.0.80.0</a></code> and <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.81.0">v0.0.81.0</a></code> it continued to work well, albeit with more and more complexity. I then got to implementing <code>@import</code> and ran face-first into a wall made of pure abstract complexity.</p>
+<br/><br/>		<p>&emsp;&emsp;In <a href="/site/devlog/new_systems_requires_major_changes.html">my first devlog</a>, I discussed how implementing Order Independent Declarations and the Panther build system required redoing a lot of work for the compiler as well as adding a new stage (Dependency Analysis). Update <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.79.0">v0.0.79.0</a></code> contained the first proof of concept of this new system working. The code required to get it working was complex and difficult to understand, but the system worked and it seemed robust. There was a looming sense of difficulty coming down the line (such as pointers to user-defined types - more on that later), but I plowed through as this was the solution I came up with and I was sticking to it. Through <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.80.0">v0.0.80.0</a></code> and <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.81.0">v0.0.81.0</a></code> it continued to work well, albeit with more and more complexity. I then got to implementing <code>@import</code> and ran face-first into a wall made of pure abstract complexity.</p>
 		<p>&emsp;&emsp;The original idea for the Dependency Analysis stage was that it would create a dependency graph of all of the symbols for the entire project. The graph couldn't be made in one go, however, as information only available through semantic analysis would be necessary to do so. For example, until the compiler knows which file an <code>@import</code> call is importing, there would be no way to generate the graph that stemmed from that. This solution was to do this later when it would have more information. Conceptually this seems simple, however the way the AST is purposely laid out makes it difficult to save/organize the information needed to facilitate this. Possible, yes - but difficult to implement cleanly, memory intensive, and slow. Part of the reason for building this new system was that it would increase compilation speed. There had to be a better way.</p>
 		<p>&emsp;&emsp;If I were to come up with a new solution, it would have to solve both this problem as well as other problems such as the pointers to user-defined types issue I mentioned earlier. In C/C++, if I have a variable of type <code>Foo*</code> when type <code>Foo</code> hasn't been defined yet, it's fine as long as the declaration of <code>Foo</code> exists. Ideally the Panther compiler would do something similar. However, for any given function, there would be no way to know if the definition of <code>Foo</code> was needed or just having the declaration is sufficient. If the pointer to <code>Foo</code> never got dereferenced, then semantic analysis wouldn't need to know the definition. In addition, what if a <code>Foo*</code> was returned from a function and was immediately dereferenced - how would dependency analysis know that this occurs without semantic analysis? So either the compiler wouldn't be able to use this neat trick, or it would have to go through a similar process like <code>@import</code> (deferring dependency graph generation), further increasing the complexity and memory usage, and decreasing the performance.</p>
 		<h2>New System</h2>
@@ -81,10 +118,14 @@
 		<h2>Implementation</h2>
 		<p>&emsp;&emsp;The new system now has the name "Symbol Process Building". The first implementation of it can be found in <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.82.0">v0.0.82.0</a></code>. However, it was a bit flawed and <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.83.1">v0.0.83.1</a></code> is a better representation of how it works (it is also the latest version at time of writing). It was significantly simpler to implement, which is I think is a good sign. The only road block was getting the circular dependency detection to never deadlock or race-condition. The solution I came up with for that is not one I'm super happy with (performance wise), but that's something I think I can come back to in the future. I hope these aren't famous last words.</p>
 		<p>&emsp;&emsp;In <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.83.1">v0.0.83.1</a></code>, variables, <code>@import</code> calls, <code><a href="/site/documentation/panther/when_conditionals.html">when conditionals</a></code>, the beginnings of the standard library, and dynamic loading of files through <code>@import</code> all work. My plan is to implement all of the potential pain points of the new Symbol Process Building as fast as possible to make sure this new system works as well as it seems it does.</p>
-	</div>
+
+		<br/>
+		<p style="color: #878481;">Written by: <a href="https://www.pcitproject.org/site/about.html#Andrew_Feldman">Andrew Feldman</a></p>
+		<p style="color: #878481;">Published: 2025-02-06</p>
+			</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-03-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

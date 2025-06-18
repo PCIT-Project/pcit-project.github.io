@@ -9,17 +9,18 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther/uninitialized.html",
-	title: "Uninitialized | Panther Documentation",
-	on_page_title: "Uninitialized",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for \"uninitialized\" in the Panther programming language",
+	path        : "documentation/panther/uninitialized.html",
+	title       : "Uninitialized",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for \"uninitialized\" in the Panther programming language",
 });
 
 

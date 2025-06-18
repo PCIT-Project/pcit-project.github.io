@@ -9,16 +9,17 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 let page = new Page(__filename, {
-	path: "documentation/panther/value_categories.html",
-	title: "Panther Value Categories | Panther Documentation",
-	on_page_title: "Panther Value Categories",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for value categories in the Panther programming language",
+	path        : "documentation/panther/value_categories.html",
+	title       : "Value Categories",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for value categories in the Panther programming language",
 });
 
 

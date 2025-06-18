@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Documentation for PIR (Panther Intermediate Representation)" />
 
-	<meta property="og:title" content="PIR Documentation | PCIT Project" />
+	<meta property="og:title" content="PIR Documentation | PIR Documentation | PCIT Project" />
 	<meta property="og:description" content="Documentation for PIR (Panther Intermediate Representation)" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>PIR Documentation | PCIT Project</title>
+	<title>PIR Documentation | PIR Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -35,6 +35,25 @@
 	<script src="/assets/font-awesome/fontawesome.min.js"></script>
 	<script src="/assets/font-awesome/solid.min.js"></script>
 	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 2,
+			        "name": "PIR Documentation"
+				}
+			]
+		}
+	</script>
 </head>
 <body>
 	<div class="navbar">
@@ -45,7 +64,7 @@
 		
 		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
 		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
-		<a class="navbar-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
 		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="navbar-item" href="/site/search.html">Search</a>
@@ -61,13 +80,13 @@
 		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
 		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
 		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
-		<a class="hamburger-dropdown-item" href="/site/devlog/devlog.html">Devlog</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
 		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>
 
 	<br><div class="context">
-		<h1>PIR Documentation</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > PIR Documentation</div>		<h1>PIR Documentation</h1>
 		<div class="search-category" style="color: #15d273; background-color: #0e2a23; border-color: #105c3b;">PIR</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/>		<p style="padding-top: 2em;">Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.</p>
 		<p>Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.89.0">v0.0.89.0</a></code>. Given that the code is just for testing, it doesn't necessarily make any sense.</p>
@@ -345,7 +364,7 @@ _ALLOCAS_:
 
 <span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#0</span> <span class="code-red">=</span> { nounwind }
 <span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#1</span> <span class="code-red">=</span> { nocallback nofree nosync nounwind speculatable willreturn memory(none) }</div></pre></div>		<p style="padding-top: 2em;">Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):</p>
-<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`	.text
+<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`   .text
 	.def    @feat.00;
 	.scl    3;
 	.type   0;
@@ -359,28 +378,28 @@ _ALLOCAS_:
 	.type   32;
 	.endef
 	.globl  entry
-	.p2align	4, 0x90
+	.p2align    4, 0x90
 entry:
 	sub     rsp, 56
 .LBB0_1:
-	mov 	eax, 12
-	mov 	qword ptr [rsp + 40], rax
-	mov 	qword ptr [rsp + 48], 2
-	mov 	rax, qword ptr [rsp + 48]
-	mov 	al, 1
-	test 	al, 1
-	jne 	.LBB0_2
-	jmp 	.LBB0_1
+	mov     eax, 12
+	mov     qword ptr [rsp + 40], rax
+	mov     qword ptr [rsp + 48], 2
+	mov     rax, qword ptr [rsp + 48]
+	mov     al, 1
+	test    al, 1
+	jne     .LBB0_2
+	jmp     .LBB0_1
 .LBB0_2:
-	lea 	rcx, [rip + .Lstring]
-	add 	rcx, 14
-	call 	print_message
-	mov 	rax, qword ptr [rsp + 40]
-	add 	rsp, 56
+	lea     rcx, [rip + .Lstring]
+	add     rcx, 14
+	call    print_message
+	mov     rax, qword ptr [rsp + 40]
+	add     rsp, 56
 	ret
 
-	.section	.rdata,"dr"
-	.p2align	2, 0x0
+	.section    .rdata,"dr"
+	.p2align    2, 0x0
 global:
 	.short  18
 	.byte   0
@@ -389,7 +408,7 @@ global:
 .Lstring:
 	.asciz  "[NOT PRINTED] Hello World, I'm PIR!"
 
-	.p2align	2, 0x0
+	.p2align    2, 0x0
 .Lvec2:
 	.long   0x41400000
 	.long   0x41980000`);
@@ -443,7 +462,7 @@ global:
 45
 46
 47
-48</div><div class="code-src">	.text
+48</div><div class="code-src">   .text
 	.def    @feat.00;
 	.scl    <span class="code-purple">3</span>;
 	.type   <span class="code-purple">0</span>;
@@ -457,28 +476,28 @@ global:
 	.type   <span class="code-purple">32</span>;
 	.endef
 	.globl  entry
-	.p2align	<span class="code-purple">4</span>, <span class="code-purple">0x90</span>
+	.p2align    <span class="code-purple">4</span>, <span class="code-purple">0x90</span>
 <span class="code-green">entry:</span>
 	<span class="code-red">sub</span>     <span class="code-orange" style="font-style: italic;">rsp</span>, <span class="code-purple">56</span>
 <span class="code-green">.LBB0_1:</span>
-	<span class="code-red">mov</span> 	<span class="code-orange" style="font-style: italic;">eax</span>, <span class="code-purple">12</span>
-	<span class="code-red">mov</span> 	<span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">40</span>], <span class="code-orange" style="font-style: italic;">rax</span>
-	<span class="code-red">mov</span> 	<span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">48</span>], <span class="code-purple">2</span>
-	<span class="code-red">mov</span> 	<span class="code-orange" style="font-style: italic;">rax</span>, <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">48</span>]
-	<span class="code-red">mov</span> 	<span class="code-orange" style="font-style: italic;">al</span>, <span class="code-purple">1</span>
-	<span class="code-red">test</span> 	<span class="code-orange" style="font-style: italic;">al</span>, <span class="code-purple">1</span>
-	<span class="code-red">jne</span> 	.LBB0_2
-	<span class="code-red">jmp</span> 	.LBB0_1
+	<span class="code-red">mov</span>     <span class="code-orange" style="font-style: italic;">eax</span>, <span class="code-purple">12</span>
+	<span class="code-red">mov</span>     <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">40</span>], <span class="code-orange" style="font-style: italic;">rax</span>
+	<span class="code-red">mov</span>     <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">48</span>], <span class="code-purple">2</span>
+	<span class="code-red">mov</span>     <span class="code-orange" style="font-style: italic;">rax</span>, <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">48</span>]
+	<span class="code-red">mov</span>     <span class="code-orange" style="font-style: italic;">al</span>, <span class="code-purple">1</span>
+	<span class="code-red">test</span>    <span class="code-orange" style="font-style: italic;">al</span>, <span class="code-purple">1</span>
+	<span class="code-red">jne</span>     .LBB0_2
+	<span class="code-red">jmp</span>     .LBB0_1
 <span class="code-green">.LBB0_2:</span>
-	<span class="code-red">lea</span> 	<span class="code-orange" style="font-style: italic;">rcx</span>, [<span class="code-orange" style="font-style: italic;">rip</span> <span class="code-red">+</span> .Lstring]
-	<span class="code-red">add</span> 	<span class="code-orange" style="font-style: italic;">rcx</span>, <span class="code-purple">14</span>
-	<span class="code-red">call</span> 	print_message
-	<span class="code-red">mov</span> 	<span class="code-orange" style="font-style: italic;">rax</span>, <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">40</span>]
-	<span class="code-red">add</span> 	<span class="code-orange" style="font-style: italic;">rsp</span>, <span class="code-purple">56</span>
+	<span class="code-red">lea</span>     <span class="code-orange" style="font-style: italic;">rcx</span>, [<span class="code-orange" style="font-style: italic;">rip</span> <span class="code-red">+</span> .Lstring]
+	<span class="code-red">add</span>     <span class="code-orange" style="font-style: italic;">rcx</span>, <span class="code-purple">14</span>
+	<span class="code-red">call</span>    print_message
+	<span class="code-red">mov</span>     <span class="code-orange" style="font-style: italic;">rax</span>, <span class="code-cyan" style="font-style: italic;">qword</span> <span class="code-cyan" style="font-style: italic;">ptr</span> [<span class="code-orange" style="font-style: italic;">rsp</span> <span class="code-red">+</span> <span class="code-purple">40</span>]
+	<span class="code-red">add</span>     <span class="code-orange" style="font-style: italic;">rsp</span>, <span class="code-purple">56</span>
 	<span class="code-red">ret</span>
 
-	.section	.rdata,<span class="code-yellow">"dr"</span>
-	.p2align	<span class="code-purple">2</span>, <span class="code-purple">0x0</span>
+	.section    .rdata,<span class="code-yellow">"dr"</span>
+	.p2align    <span class="code-purple">2</span>, <span class="code-purple">0x0</span>
 <span class="code-green">global:</span>
 	.short  <span class="code-purple">18</span>
 	.byte   <span class="code-purple">0</span>
@@ -487,7 +506,7 @@ global:
 <span class="code-green">.Lstring:</span>
 	.asciz  <span class="code-yellow">"[NOT PRINTED] Hello World, I'm PIR!"</span>
 
-	.p2align	<span class="code-purple">2</span>, <span class="code-purple">0x0</span>
+	.p2align    <span class="code-purple">2</span>, <span class="code-purple">0x0</span>
 <span class="code-green">.Lvec2:</span>
 	.long   <span class="code-purple">0x41400000</span>
 	.long   <span class="code-purple">0x41980000</span></div></pre></div>		<p style="padding-top: 2em;">Here's the output when run through the JIT:</p>
@@ -500,7 +519,7 @@ value returned from entry: 12`);
 value returned from entry: 12</pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-05-22</p>
+		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

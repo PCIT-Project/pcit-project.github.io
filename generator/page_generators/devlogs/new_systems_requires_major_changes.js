@@ -10,22 +10,25 @@
 
 const Page = require("../../Page.js").Page;
 const Language = require("../../Page.js").Language;
+const breadcrumbs = require("../../Page.js").breadcrumbs;
 const html = require("../../html.js");
 const terms = require("../../terms.js");
 const search = require("../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "devlog/new_systems_requires_major_changes.html",
-	title: "New Systems Requires Major Changes | Devlog",
-	on_page_title: "New Systems Requires Major Changes",
-	categories: [search.Category.PANTHER, search.Category.DEVLOG],
-	description: "Adding position independent declaration and the build system to the Panther compiler",
+	path         : "devlogs/new_systems_requires_major_changes.html",
+	title        : "New Systems Requires Major Changes",
+	categories   : [search.Category.PANTHER, search.Category.DEVLOG],
+	breadcrumbs  : [breadcrumbs.DEVLOGS],
+	description  : "Adding position independent declaration and the build system to the Panther compiler",
+	article_info : {
+		author         : "Andrew Feldman",
+		date_published : "2025-01-02",
+		author_url     : "https://www.pcitproject.org/site/about.html#Andrew_Feldman"
+	},
 });
 
-
-page.text("Written by: Andrew Feldman", "color: #878481;");
-page.text("January 2nd, 2025", "color: #878481;");
 
 page.h2("Order Independent Declaration");
 

@@ -9,6 +9,7 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
@@ -18,11 +19,11 @@ const syntax_highlighting = require("../../../syntax_highlighting/syntax_highlig
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther/literals.html",
-	title: "Literals | Panther Documentation",
-	on_page_title: "Literals",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for literals in the Panther programming language",
+	path        : "documentation/panther/literals.html",
+	title       : "Literals",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for literals in the Panther programming language",
 });
 
 

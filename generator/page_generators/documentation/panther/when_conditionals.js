@@ -9,17 +9,18 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 let page = new Page(__filename, {
-	path: "documentation/panther/when_conditionals.html",
-	title: "When Conditionals | Panther Documentation",
-	on_page_title: "When Conditionals",
-	categories: [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	description: "Documentation for when conditionals in the Panther programming language",
+	path        : "documentation/panther/when_conditionals.html",
+	title       : "When Conditionals",
+	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+	description : "Documentation for when conditionals in the Panther programming language",
 });
 
 page.text(`When conditionals are conditionals that are evaluated at compile-time. The condition may be any ${terms.get("constexpr")} value. The bodies may hold 0 or more statements (this includes things like members of structs). Any statements in a when conditional block that is not taken will not exist in semantic analysis or any further compiler stage.`);

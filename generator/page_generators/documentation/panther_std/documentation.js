@@ -9,15 +9,18 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
 let page = new Page(__filename, {
-	path: "documentation/panther_std/documentation.html",
-	title: "Panther STD Documentation",
-	categories: [search.Category.PANTHER_STD, search.Category.DOCUMENTATION],
-	description: "Documentation for the Panther programming language standard library",
+	path                    : "documentation/panther_std/documentation.html",
+	title                   : "Panther STD Documentation",
+	categories              : [search.Category.PANTHER_STD, search.Category.DOCUMENTATION],
+	breadcrumbs             : [breadcrumbs.DOCUMENTATION],
+	description             : "Documentation for the Panther programming language standard library",
+	has_categories_in_title : false,
 });
 
 

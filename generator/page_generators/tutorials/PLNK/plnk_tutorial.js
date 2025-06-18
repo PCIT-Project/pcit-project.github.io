@@ -9,14 +9,17 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 let page = new Page(__filename, {
-	path: "tutorials/plnk/tutorial.html",
-	title: "PLNK Tutorial",
-	categories: [search.Category.PLNK, search.Category.TUTORIAL],
-	description: "Tutorial for PLNK (PCIT Linker)",
+	path                    : "tutorials/plnk/tutorial.html",
+	title                   : "PLNK Tutorial",
+	categories              : [search.Category.PLNK, search.Category.TUTORIAL],
+	breadcrumbs             : [breadcrumbs.TUTORIALS],
+	description             : "Tutorial for PLNK (PCIT Linker)",
+	has_categories_in_title : false,
 });
 
 

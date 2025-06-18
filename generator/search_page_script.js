@@ -24,6 +24,16 @@ class SearchTarget{
 }
 
 
+function is_on_desktop(){
+	if(("ontouchstart" in window) == false){ return true; } // if doesn't have a touchscreen
+	return window.width > 1023;
+}
+
+if(is_on_desktop()){
+	document.getElementById("search_box").focus();
+}
+
+
 function on_search_input(){
 	const search_box = document.getElementById("search_box");
 	const results_div = document.getElementById("results");

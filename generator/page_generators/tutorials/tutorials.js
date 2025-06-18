@@ -11,10 +11,11 @@ const Page = require("../../Page.js").Page;
 const html = require("../../html.js");
 
 let page = new Page(__filename, {
-	path: "tutorials/tutorials.html",
-	title: "Tutorials",
-	categories: [require("../../search.js").Category.TUTORIAL],
-	description: "Learn about and how to use the various parts of the PCIT Project",
+	path                    : "tutorials/tutorials.html",
+	title                   : "Tutorials",
+	categories              : [require("../../search.js").Category.TUTORIAL],
+	description             : "Learn about and how to use the various parts of the PCIT Project",
+	has_categories_in_title : false,
 });
 
 page.text("Learn about and how to use the various parts of the PCIT Project.");

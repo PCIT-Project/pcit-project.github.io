@@ -9,14 +9,17 @@
 
 
 const Page = require("../../../Page.js").Page;
+const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 let page = new Page(__filename, {
-	path: "tutorials/pantherlib/tutorial.html",
-	title: "Panther Library Tutorial",
-	categories: [search.Category.PANTHER_STD, search.Category.TUTORIAL],
-	description: "Tutorial for the Panther programming language library",
+	path                    : "tutorials/pantherlib/tutorial.html",
+	title                   : "Panther Library Tutorial",
+	categories              : [search.Category.PANTHER_STD, search.Category.TUTORIAL],
+	breadcrumbs             : [breadcrumbs.TUTORIALS],
+	description             : "Tutorial for the Panther programming language library",
+	has_categories_in_title : false,
 });
 
 
