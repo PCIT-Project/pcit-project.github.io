@@ -6,7 +6,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/Panther.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-06-21</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/downloads.html</loc>
@@ -30,7 +30,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/documentation.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-06-21</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/fluid_values.html</loc>
@@ -38,7 +38,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-06-21</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/arithmetic_intrinsics.html</loc>
@@ -46,7 +46,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/bitwise_intrinsics.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-06-21</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/comparative_intrinsics.html</loc>
@@ -71,6 +71,14 @@
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/modules.html</loc>
 		<lastmod>2025-06-17</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/operators.html</loc>
+		<lastmod>2025-06-21</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/primitive_types.html</loc>
+		<lastmod>2025-06-21</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/undefined_behavior.html</loc>

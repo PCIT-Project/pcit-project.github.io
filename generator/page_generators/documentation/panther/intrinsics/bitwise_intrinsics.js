@@ -41,17 +41,17 @@ page.text(`Bitwise exclusive or. ${html.inline_code("T")} must be ${terms.get("i
 
 page.h2Searchable("@shl", "shl");
 page.text(page.inline_code_block(Language.PANTHER, "func @shl = <{T: Type, SHIFT_T: Type, MAY_WRAP: Bool}> (lhs: T, rhs: SHIFT_T) -> T;"));
-page.text(`Bitwise shift left. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}. ${html.inline_code("SHIFT_T")} must be unsigned with a width of ${page.inline_code_block(Language.PANTHER, "ceil(log2(@bitWidth<{T}>()))")}`);
+page.text(`Bitwise shift left. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}. ${html.inline_code("SHIFT_T")} must be unsigned with a width of ${page.inline_code_block(Language.PANTHER, "ceil(log2(@numBits<{T}>()))")}`);
 page.text(`If ${html.inline_code("T")} is ${html.italic("unsigned")} and ${html.inline_code("MAY_WRAP")} is ${page.inline_code_block(Language.PANTHER, "false")}, it is ${terms.get("undefined behavior")} if any ${html.inline_code("1")} bits are shifted out.`);
 page.text(`If ${html.inline_code("T")} is ${html.italic("signed")} and ${html.inline_code("MAY_WRAP")} is ${page.inline_code_block(Language.PANTHER, "false")}, it is ${terms.get("undefined behavior")} if the result is a different sign than lhs.`);
 
 page.h2Searchable("@shlSat", "shlSat");
 page.text(page.inline_code_block(Language.PANTHER, "func @shlSat = <{T: Type, SHIFT_T: Type}> (lhs: T, rhs: T) -> T;"));
-page.text(`Bitwise saturating shift left. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}. ${html.inline_code("SHIFT_T")} must be ${terms.get("unsigned integral")} with a width of ${page.inline_code_block(Language.PANTHER, "ceil(log2(@bitWidth<{T}>()))")}.`);
+page.text(`Bitwise saturating shift left. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}. ${html.inline_code("SHIFT_T")} must be ${terms.get("unsigned integral")} with a width of ${page.inline_code_block(Language.PANTHER, "ceil(log2(@numBits<{T}>()))")} (${html.italic("this restriction most likely will change in the future, but more consideration is required")}).`);
 
 page.h2Searchable("@shr", "shr");
 page.text(page.inline_code_block(Language.PANTHER, "func @shr = <{T: Type, SHIFT_T: Type, MAY_WRAP: Bool}> (lhs: T, rhs: SHIFT_T) -> T;"));
-page.text(`Bitwise shift right. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}. ${html.inline_code("SHIFT_T")} must be ${terms.get("unsigned integral")} with a width of ${page.inline_code_block(Language.PANTHER, "ceil(log2(@bitWidth<{T}>()))")}.`);
+page.text(`Bitwise shift right. ${html.inline_code("T")} must be ${terms.get("integral")} or a ${terms.get("vector")} of ${terms.get("integral")}. ${html.inline_code("SHIFT_T")} must be ${terms.get("unsigned integral")} with a width of ${page.inline_code_block(Language.PANTHER, "ceil(log2(@numBits<{T}>()))")}.`);
 page.text(`If ${html.inline_code("MAY_WRAP")} is ${page.inline_code_block(Language.PANTHER, "false")}, it is ${terms.get("undefined behavior")} if any ${html.inline_code("1")} bits are shifted out.`);
 
 page.h2Searchable("@bitReverse", "bitReverse");

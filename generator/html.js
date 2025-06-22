@@ -56,6 +56,10 @@ exports.italic = function(text){
 	return `<span style="font-style: italic;">${text}</span>`;
 }
 
+exports.superscript = function(text){
+	return `<sup>${text}</sup>`;
+}
+
 
 exports.inline_code = function(text){
 	return `<code>${text}</code>`;

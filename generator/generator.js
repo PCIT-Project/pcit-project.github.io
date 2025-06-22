@@ -83,6 +83,8 @@ require("./page_generators/documentation/panther/intrinsics/type_conversion_intr
 require("./page_generators/documentation/panther/intrinsics/type_traits_intrinsics.js");
 require("./page_generators/documentation/panther/literals.js");
 require("./page_generators/documentation/panther/modules.js");
+require("./page_generators/documentation/panther/operators.js");
+require("./page_generators/documentation/panther/primitive_types.js");
 require("./page_generators/documentation/panther/undefined_behavior.js");
 require("./page_generators/documentation/panther/uninitialized.js");
 require("./page_generators/documentation/panther/value_categories.js");

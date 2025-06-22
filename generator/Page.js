@@ -191,6 +191,7 @@ class Page{
 	}
 
 	getPath(){ return this.path; }
+	getCategories(){ return this.categories; }
 	allowInSitemap(){ return this.allow_in_sitemap; }
 	lastUpdatedStr(){ return this.last_updated_str; }
 
@@ -293,8 +294,14 @@ class Page{
 	}
 
 
-	table(rows){
-		this.body += "<table>\n";
+	table(rows, width = null){
+		if(width){
+			// this.body += `<div style="overflow-x: auto; style="width: ${width};"><table style="width: 100%; table-layout: auto;">\n`;
+			this.body += `<div style="overflow-x: auto; style="min-width: ${width};"><table style="min-width: ${width};">\n`;
+
+		}else{
+			this.body += "<div style=\"overflow-x: auto; width: 100%\"><table>\n";
+		}
 
 		for(let row_i = 0; row_i < rows.length; row_i+=1){
 			this.body += "\t<tr>\n";
@@ -310,7 +317,7 @@ class Page{
 			this.body += "\t</tr>\n";
 		}
 
-		this.body += "</table>\n";
+		this.body += "</table></div>\n";
 	}
 
 

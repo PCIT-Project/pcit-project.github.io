@@ -1,6 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.39.0"></a>
+## v0.0.39.0
+- Added Primitive Types page of Panther documentation
+- Added more explainer text to the Intrinsics page of Panther docuemtation
+- Added more explainer text to the Panther Documentation page
+- Changed documentation for Panther `@shl`, `@shlSat`, and `@shr` to reflect removal of `@bitWidth` and addition of `@numBits`
+- Made tables scrollable on overflow
+- Fixed highlighted in Panther code snippets Panther
+	- type `ISize`
+	- operator `.*`
+	- operator `.?`
+	- optional type qualifier (`?`)
+	- operator `forward`
+
+
+<!---------------------------------->
 <a name="v0.0.38.0"></a>
 ## v0.0.38.0
 - Added breadcrumbs

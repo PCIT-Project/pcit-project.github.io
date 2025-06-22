@@ -124,7 +124,7 @@ exports.highlight = function(code){
 				} break;
 
 				case "Void": case "Type":
-				case "Int": case "Size":
+				case "Int": case "ISize":
 				case "UInt": case "USize":
 				case "F16": case "BF16": case "F32": case "F64": case "F80": case "F128":
 				case "Byte": case "Bool": case "Char": case "RawPtr": case "TypeID":
@@ -145,7 +145,7 @@ exports.highlight = function(code){
 					output += `<span class="code-red">${identifier}</span>`;
 				} break;
 
-				case "copy": case "as": case "move": {
+				case "copy": case "as": case "move": case "forward": {
 					output += `<span class="code-red">${identifier}</span>`;
 				} break;
 
@@ -295,6 +295,23 @@ exports.highlight = function(code){
 
 		}else if(stream.peek() == '=' || stream.peek() == ':'){
 			output += `<span class="code-red">${stream.next()}</span>`;
+
+		}else if(stream.peek() == '.'){
+			if(stream.peek(1) == '?'){
+				output += `<span class="code-red">.?</span>`;
+				stream.skip(2);
+				
+			}else if(stream.peek(1) == '*'){
+				output += `<span class="code-red">.*</span>`;
+				stream.skip(2);
+				
+			}else{
+				output += stream.next();
+			}
+
+		}else if(stream.peek() == '?'){
+			output += `<span class="code-red">?</span>`;
+			stream.skip(1);
 
 		}else{
 			output += stream.next();

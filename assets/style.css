@@ -66,7 +66,7 @@ h4{
 
 code{
 	background-color: #1e2122;
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 
 
@@ -74,6 +74,7 @@ table{
 	border-collapse: collapse;
 	overflow-x: auto;
 	table-layout: fixed;
+	font-size: 0.9em;
 }
 
 td, th {
@@ -574,7 +575,7 @@ tr:nth-child(even) {
 
 @media screen and (min-width: 1366px) and (hover: hover) {
 	.context{
-		padding: 4em 25%;
+		padding: 4em 24%;
 	}
 
 	.hamburger-button{
@@ -584,7 +585,7 @@ tr:nth-child(even) {
 
 @media screen and (max-width: 1365px) and (hover: hover) {
 	.context{
-		padding: 4em 20%;
+		padding: 4em 19%;
 	}
 
 	.hamburger-button{
@@ -594,7 +595,7 @@ tr:nth-child(even) {
 
 @media screen and (max-width: 1023px) and (hover: hover) {
 	.context{
-		padding: 4em 15%;
+		padding: 4em 14%;
 	}
 
 	.navbar-item{

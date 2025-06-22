@@ -1,0 +1,547 @@
+<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE` for info.                 -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Documentation for operators in the Panther programming language" />
+
+	<meta property="og:title" content="Operators | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for operators in the Panther programming language" />
+	<meta property="og:image" content="/assets/LogoBig.png" />
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
+
+
+	<title>Operators | Panther Documentation | PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 3,
+			        "name": "Operators"
+				}
+			]
+		}
+	</script>
+</head>
+<body>
+	<div class="navbar">
+		<div id="navbar-fader">
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
+			<a class="navbar-title" href="/">PCIT Project</a>
+		</div>
+		
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="hamburger-button fa-solid fa-bars fa-fw"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
+
+	<br><div class="context">
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Operators</div>		<h1>Operators</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
+<br/><br/>		<p>&emsp;&emsp;Operators are a set of operations that create an expression from one or more sub-expressions. Unless remarked otherwise, all operators support operator overloading and forwarding of <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code> values. In addition, all operators are constexpr (unless they are overloaded, in which case it is overload specific).</p>
+<h2 id="arithmetic">Arithmetic Operators</h2><div style="overflow-x: auto; style="min-width: 68.7em;"><table style="min-width: 68.7em;">
+	<tr>
+		<th>Name</th>
+		<th>Syntax</th>
+		<th>Supported Builtin Types</th>
+		<th>Example</th>
+		<th>Remarks</th>
+	</tr>
+	<tr>
+		<td>Addition</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">+</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>floating-point</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>floating-point</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">1</span> <span class="code-red">+</span> <span class="code-purple">2</span> <span class="code-gray">// 3</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Wrapping Arithmetic</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">+</span><span class="code-red">%</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">1</span> <span class="code-red">+</span><span class="code-red">%</span> (<span class="code-purple">255</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 0</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is allowed (two's compliment).</p>
+</td>
+	</tr>
+	<tr>
+		<td>Saturating Addition</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">+</span><span class="code-red">|</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">1</span> <span class="code-red">+</span><span class="code-red">|</span> (<span class="code-purple">255</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 255</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Subtraction</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">-</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>floating-point</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>floating-point</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">5</span> <span class="code-red">-</span> <span class="code-purple">2</span> <span class="code-gray">// 3</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Wrapping Subtraction</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">-</span><span class="code-red">%</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">5</span> <span class="code-red">-</span><span class="code-red">%</span> (<span class="code-purple">6</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 255</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is allowed (two's compliment).</p>
+</td>
+	</tr>
+	<tr>
+		<td>Saturating Subtraction</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">-</span><span class="code-red">|</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">5</span> <span class="code-red">-</span><span class="code-red">|</span> (<span class="code-purple">6</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 0</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Multiplication</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">*</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>floating-point</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>floating-point</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">5</span> <span class="code-red">*</span> <span class="code-purple">2</span> <span class="code-gray">// 10</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Wrapping Multiplication</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">*</span><span class="code-red">%</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">32</span> <span class="code-red">*</span><span class="code-red">%</span> (<span class="code-purple">8</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 0</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is allowed (two's compliment).</p>
+</td>
+	</tr>
+	<tr>
+		<td>Saturating Multiplication</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">*</span><span class="code-red">|</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">32</span> <span class="code-red">*</span><span class="code-red">|</span> (<span class="code-purple">8</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 255</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Division</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">/</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>floating-point</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>floating-point</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">7</span> <span class="code-red">/</span> <span class="code-purple">3</span> <span class="code-gray">// 2</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Division Remainder</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">%</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>floating-point</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>floating-point</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">7</span> <span class="code-red">%</span> <span class="code-purple">3</span> <span class="code-gray">// 1</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+		<p style="margin: 0.5em 0;">Integer overflowing is allowed (two's compliment).</p>
+</td>
+	</tr>
+	<tr>
+		<td>Negate</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">-</span>a</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>floating-point</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>floating-point</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">-</span><span class="code-purple">12</span> <span class="code-gray">// -12</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of argument.</p>
+</td>
+	</tr>
+</table></div>
+<h2 id="comparative">Comparative Operators</h2><div style="overflow-x: auto; style="min-width: 68.7em;"><table style="min-width: 68.7em;">
+	<tr>
+		<th>Name</th>
+		<th>Syntax</th>
+		<th>Supported Builtin Types</th>
+		<th>Example</th>
+		<th>Remarks</th>
+	</tr>
+	<tr>
+		<td>Equal To</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">=</span><span class="code-red">=</span> b</code></td>
+		<td>any <code>compatable types</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12</span> <span class="code-red">=</span><span class="code-red">=</span> <span class="code-purple">10</span> <span class="code-gray">// false<br/></span>
+<span class="code-purple">12</span> <span class="code-red">=</span><span class="code-red">=</span> <span class="code-purple">12</span> <span class="code-gray">// true<br/></span>
+<span class="code-purple">12</span> <span class="code-red">=</span><span class="code-red">=</span> <span class="code-purple">14</span> <span class="code-gray">// false</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Not Equal To</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">!</span><span class="code-red">=</span> b</code></td>
+		<td>any <code>compatable types</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12</span> <span class="code-red">!</span><span class="code-red">=</span> <span class="code-purple">10</span> <span class="code-gray">// false<br/></span>
+<span class="code-purple">12</span> <span class="code-red">!</span><span class="code-red">=</span> <span class="code-purple">12</span> <span class="code-gray">// true<br/></span>
+<span class="code-purple">12</span> <span class="code-red">!</span><span class="code-red">=</span> <span class="code-purple">14</span> <span class="code-gray">// false</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Less Than</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span> b</code></td>
+		<td>any <code>compatable types</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12</span> <span class="code-red">&lt;</span> <span class="code-purple">10</span> <span class="code-gray">// false<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&lt;</span> <span class="code-purple">12</span> <span class="code-gray">// false<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&lt;</span> <span class="code-purple">14</span> <span class="code-gray">// true</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Less Than or Equal To</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span><span class="code-red">=</span> b</code></td>
+		<td>any <code>compatable types</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12</span> <span class="code-red">&lt;</span><span class="code-red">=</span> <span class="code-purple">10</span> <span class="code-gray">// false<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&lt;</span><span class="code-red">=</span> <span class="code-purple">12</span> <span class="code-gray">// true<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&lt;</span><span class="code-red">=</span> <span class="code-purple">14</span> <span class="code-gray">// true</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Greater Than</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&gt;</span> b</code></td>
+		<td>any <code>compatable types</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12</span> <span class="code-red">&gt;</span> <span class="code-purple">10</span> <span class="code-gray">// true<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&gt;</span> <span class="code-purple">12</span> <span class="code-gray">// false<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&gt;</span> <span class="code-purple">14</span> <span class="code-gray">// false</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Greater Than or Equal To</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&gt;</span><span class="code-red">=</span> b</code></td>
+		<td>any <code>compatable types</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">12</span> <span class="code-red">&gt;</span><span class="code-red">=</span> <span class="code-purple">10</span> <span class="code-gray">// true<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&gt;</span><span class="code-red">=</span> <span class="code-purple">12</span> <span class="code-gray">// true<br/></span>
+<span class="code-purple">12</span> <span class="code-red">&gt;</span><span class="code-red">=</span> <span class="code-purple">14</span> <span class="code-gray">// false</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+</table></div>
+<h2 id="bitwise">Bitwise Operators</h2><div style="overflow-x: auto; style="min-width: 68.7em;"><table style="min-width: 68.7em;">
+	<tr>
+		<th>Name</th>
+		<th>Syntax</th>
+		<th>Supported Builtin Types</th>
+		<th>Example</th>
+		<th>Remarks</th>
+	</tr>
+	<tr>
+		<td>Bitwise And</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">0b1010</span> <span class="code-red">&</span> <span class="code-purple">0b0110</span> <span class="code-gray">// 0b0010</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Bitwise Or</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">|</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">0b1010</span> <span class="code-red">|</span> <span class="code-purple">0b0110</span> <span class="code-gray">// 0b1110</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Bitwise Xor</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">^</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">0b1010</span> <span class="code-red">|</span> <span class="code-purple">0b0110</span> <span class="code-gray">// 0b1100</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of arguments.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Bit Shift Left</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span><span class="code-red">&lt;</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">0b0101</span> <span class="code-red">&lt;</span><span class="code-red">&lt;</span> <span class="code-purple">2</span> <span class="code-gray">// 0b10100</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of <code>LHS</code>.</p>
+		<p style="margin: 0.5em 0;">RHS must be <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan">ceil</span>(<span class="code-cyan">log2</span>(<span class="code-red">@numBits</span>&lt;{LHS}&gt;()))</code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Saturating Bit Shift Left</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span><span class="code-red">&lt;</span><span class="code-red">|</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">(<span class="code-purple">0b11</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-red">&lt;</span><span class="code-red">&lt;</span> <span class="code-purple">7</span> <span class="code-gray">// 255</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of <code>LHS</code>.</p>
+		<p style="margin: 0.5em 0;">RHS must be <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan">ceil</span>(<span class="code-cyan">log2</span>(<span class="code-red">@numBits</span>&lt;{LHS}&gt;()))</code>.<br/><span style="font-style: italic;">This restriction most likely will change in the future,<br/>but more consideration is required.</span></p>
+</td>
+	</tr>
+	<tr>
+		<td>Bit Shift Right</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&gt;</span><span class="code-red">&gt;</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">0b11000</span> <span class="code-red">&gt;</span><span class="code-red">&gt;</span> <span class="code-purple">2</span> <span class="code-gray">// 0b110</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of <code>LHS</code>.</p>
+		<p style="margin: 0.5em 0;">RHS must be <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan">ceil</span>(<span class="code-cyan">log2</span>(<span class="code-red">@numBits</span>&lt;{LHS}&gt;()))</code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Bitwise Not</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">~</span>a</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code>integral</code></p>
+		<p style="margin: 0.5em 0;"><code>vector</code> of <code>integral</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">~</span>(<span class="code-purple">0b10101110</span> <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>) <span class="code-gray">// 0b01010001</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is the type of argument.</p>
+		<p style="margin: 0.5em 0;">Does not support fluid values</p>
+</td>
+	</tr>
+</table></div>
+<h2 id="pointer_optional">Pointer/Optional Operators</h2><div style="overflow-x: auto; style="min-width: 68.7em;"><table style="min-width: 68.7em;">
+	<tr>
+		<th>Name</th>
+		<th>Syntax</th>
+		<th>Supported Builtin Types</th>
+		<th>Example</th>
+		<th>Remarks</th>
+	</tr>
+	<tr>
+		<td>Address Of</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span>a</code></td>
+		<td>		<p style="margin: 0.5em 0;">Any</p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">const</span> num_ptr<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">*</span> <span class="code-red">=</span> <span class="code-red">&</span>num;</code><br/><code class="code-src"; style="background-color: #282923!important;">num_ptr<span class="code-red">.*</span> <span class="code-gray">// 12</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Argument must be <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>.</p>
+		<p style="margin: 0.5em 0;">Using on a const object returns a <code>read-only pointer</code>,<br/>otherwise is a <code>pointer</code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Read-Only Address Of</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span><span class="code-red">|</span>a</code></td>
+		<td>		<p style="margin: 0.5em 0;">Any</p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">const</span> num_ptr<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">*</span><span class="code-red">|</span> <span class="code-red">=</span> <span class="code-red">&</span><span class="code-red">|</span>num;</code><br/><code class="code-src"; style="background-color: #282923!important;">num_ptr<span class="code-red">.*</span> <span class="code-gray">// 12</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Argument must be <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Dereference</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a<span class="code-red">.*</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Any <code>pointer</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">const</span> num_ptr<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">*</span> <span class="code-red">=</span> <span class="code-red">&</span>num;</code><br/><code class="code-src"; style="background-color: #282923!important;">num_ptr<span class="code-red">.*</span> <span class="code-gray">// 12</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Dereferencing a <code>read-only pointer</code> results in a<br/>const value, otherwise the value is mutable.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Unwrap</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a<span class="code-red">.?</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">Any <code>optional</code></p>
+</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> opt_num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">?</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;">opt_num<span class="code-red">.?</span> <span class="code-gray">// 12</span></code></td>
+		<td>		<p style="margin: 0.5em 0;">It is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code> to unwrap an optional<br/> that is <code>null</code>.</p>
+</td>
+	</tr>
+</table></div>
+<h2 id="boolean">Boolean</h2><div style="overflow-x: auto; style="min-width: 68.7em;"><table style="min-width: 68.7em;">
+	<tr>
+		<th>Name</th>
+		<th>Syntax</th>
+		<th>Supported Builtin Types</th>
+		<th>Example</th>
+		<th>Remarks</th>
+	</tr>
+	<tr>
+		<td>Logical And</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&</span><span class="code-red">&</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code></p>
+</td>
+		<td>		<p style="margin: 0.5em 0;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span> <span class="code-red">&</span><span class="code-red">&</span> <span class="code-purple">false</span> <span class="code-gray">// false</span></code></p>
+</td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+		<p style="margin: 0.5em 0;">If <code>LHS</code> is <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">false</span></code>, don't evaluate <code>RHS</code> and return <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">false</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Logical Or</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">|</span><span class="code-red">|</span> b</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code></p>
+</td>
+		<td>		<p style="margin: 0.5em 0;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span> <span class="code-red">|</span><span class="code-red">|</span> <span class="code-purple">false</span> <span class="code-gray">// false</span></code></p>
+</td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+		<p style="margin: 0.5em 0;">If <code>LHS</code> is <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code>, don't evaluate <code>RHS</code> and return <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code>.</p>
+</td>
+	</tr>
+	<tr>
+		<td>Boolean Not</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">!</span>a</code></td>
+		<td>		<p style="margin: 0.5em 0;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code></p>
+</td>
+		<td>		<p style="margin: 0.5em 0;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">!</span><span class="code-purple">true</span> <span class="code-gray">// false</span></code></p>
+</td>
+		<td>		<p style="margin: 0.5em 0;">Type of return is <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code>.</p>
+</td>
+	</tr>
+</table></div>
+<h2 id="type">Object Operators</h2>		<p>&emsp;&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">copy</span> a</code>&emsp;<span style="font-style: italic;">(TODO)</span></p>
+		<p>&emsp;&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">move</span> a</code>&emsp;<span style="font-style: italic;">(TODO)</span></p>
+		<p>&emsp;&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">forward</span> a</code>&emsp;<span style="font-style: italic;">(TODO)</span></p>
+<h2 id="type">Type Conversion Operator</h2>		<p>&emsp;&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">as</span> b</code>&emsp;<span style="font-style: italic;">(TODO)</span></p>
+<h2 id="type">Accessor Operator</h2>		<p>&emsp;&emsp;<code class="code-src"; style="background-color: #282923!important;">a.b</code>&emsp;<span style="font-style: italic;">(TODO)</span></p>
+<h2 id="type">Composite Assignment Operators</h2>		<p>&emsp;&emsp;<span style="font-style: italic;">(TODO)</span></p>
+<h2 id="precedence">Operator Precedence</h2><div style="overflow-x: auto; width: 100%"><table>
+	<tr>
+		<th>Precedence</th>
+		<th>Operators</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a.b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a<span class="code-red">.*</span></code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a<span class="code-red">.?</span></code></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span><span class="code-red">|</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">copy</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">move</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">forward</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">-</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">!</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">~</span>a</code></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">as</span> b</code></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">*</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">*</span><span class="code-red">%</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">*</span><span class="code-red">|</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">/</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">%</span> b</code></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">+</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">+</span><span class="code-red">%</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">+</span><span class="code-red">|</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">-</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">-</span><span class="code-red">%</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">-</span><span class="code-red">|</span> b</code></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span><span class="code-red">&lt;</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span><span class="code-red">&lt;</span><span class="code-red">|</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&gt;</span><span class="code-red">&gt;</span> b</code></td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">|</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">^</span> b</code></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">=</span><span class="code-red">=</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">!</span><span class="code-red">=</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&lt;</span><span class="code-red">=</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&gt;</span> b</code>&emsp;<code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&gt;</span><span class="code-red">=</span> b</code></td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">&</span><span class="code-red">&</span> b</code></td>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td><code class="code-src"; style="background-color: #282923!important;">a <span class="code-red">|</span><span class="code-red">|</span> b</code></td>
+	</tr>
+</table></div>
+	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">Page Last Updated: 2025-06-21</p>
+		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+	</div>
+
+</body>
+<script src="/assets/script.js"></script>
+</html>

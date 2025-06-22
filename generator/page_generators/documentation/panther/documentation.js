@@ -23,18 +23,21 @@ let page = new Page(__filename, {
 });
 
 
-page.text("Documentation for the Panther programming language.");
+page.paragraph(`Documentation for the Panther programming language. If you are looking for documentation for the Panther standard library, it can be found on the ${html.link("Panther STD Documentation", "/site/documentation/panther_std/documentation.html")} page. If you are new the Panther and would like to learn how to get up and running with it, check out ${html.link("Panther Tutorial", "/site/tutorials/panther/tutorial.html")}.`);
+
 
 // TODO: remove at release
 page.begin_info();
 page.h2("Important Note", "margin-top: 0.8em;");
-page.text("As Panther is pre-release, anything in the documentation may change. The documentation is also far from complete");
+page.text("As Panther is pre-release, anything in the documentation may change as the design of the language evolves. The documentation is also far from complete.");
 page.end_info();
 
 page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
 page.text(html.link("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html"));
 page.text(html.link("Literals", "/site/documentation/panther/literals.html"));
 page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
+page.text(html.link("Operators", "/site/documentation/panther/operators.html"));
+page.text(html.link("Primitive Types", "/site/documentation/panther/primitive_types.html"));
 page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
 page.text(html.link("Uninitialized", "/site/documentation/panther/uninitialized.html"));
 page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));

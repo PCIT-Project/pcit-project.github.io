@@ -53,6 +53,8 @@ term("Float literals", "/site/documentation/panther/literals.html#float-literals
 
 term("character escape code");
 
+term("compatable types");
+
 term("fluid", "/site/documentation/panther/fluid_values.html");
 term("Fluid", "/site/documentation/panther/fluid_values.html");
 
@@ -63,6 +65,8 @@ term("LHS");
 term("operator copy");
 term("operator move");
 term("operator forward");
+
+term("operator as");
 
 
 term("variables", "/site/documentation/panther/variables.html");
@@ -79,6 +83,10 @@ term("dereference");
 term("accessor");
 term("unwrap");
 term("optional");
+term("pointer");
+term("read-only pointer");
+
+term("null")
 
 
 term("constexpr", "/site/documentation/panther/value_stages.html#constexpr");
@@ -113,6 +121,10 @@ term("integral");
 term("unsigned integral");
 term("signed integral");
 term("floating-point");
+
+
+term("function");
+
 
 
 
