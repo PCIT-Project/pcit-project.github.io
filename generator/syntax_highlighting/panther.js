@@ -133,7 +133,7 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "return": case "unreachable": {
+				case "return": case "error": case "unreachable": {
 					output += `<span class="code-red">${identifier}</span>`;
 				} break;
 
@@ -149,7 +149,7 @@ exports.highlight = function(code){
 					output += `<span class="code-red">${identifier}</span>`;
 				} break;
 
-				case "if": case "else": case "when": case "while": {
+				case "if": case "else": case "when": case "while": case "try": {
 					output += `<span class="code-red">${identifier}</span>`;
 				} break;
 
@@ -304,7 +304,11 @@ exports.highlight = function(code){
 			}else if(stream.peek(1) == '*'){
 				output += `<span class="code-red">.*</span>`;
 				stream.skip(2);
-				
+
+			}else if(stream.peek(1) == '.' && stream.peek(2) == '.'){
+				output += `<span class="code-red">...</span>`;
+				stream.skip(3);
+
 			}else{
 				output += stream.next();
 			}

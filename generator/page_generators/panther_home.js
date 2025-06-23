@@ -48,8 +48,7 @@ page.bullets([
 ]);
 
 
-page.anchor("example");
-page.h2("Example:");
+page.h2Anchor("Example:", "example");
 page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + page.pcit_cpp_version("v0.0.43.0") + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md") + ". Please keep in mind that any syntax may change in the future.");
 
 

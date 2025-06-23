@@ -38,90 +38,114 @@ page.h2Searchable("Arithmetic Operators", "arithmetic");
 page.table([
 	["Name", "Syntax", "Supported Builtin Types", "Example", "Remarks"],
 	[
-		"Addition",
+		html.anchor("Addition", "addition"),
 		page.inline_code_block(Language.PANTHER, "a + b"),
 		box_item(terms.get("integral")) + box_item(terms.get("floating-point")) + box_item(terms.get("vector") + " of " + terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("floating-point")),
 		page.inline_code_block(Language.PANTHER, "1 + 2 // 3"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is ${terms.get("undefined behavior")}.`),
 	],
 	[
-		"Wrapping Arithmetic",
+		html.anchor("Wrapping Addition", "wrapping_addition"),
 		page.inline_code_block(Language.PANTHER, "a +% b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "1 +% (255 as UI8) // 0"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is allowed (two's compliment).`),
 	],
 	[
-		"Saturating Addition",
+		html.anchor("Saturating Addition", "saturating_addition"),
 		page.inline_code_block(Language.PANTHER, "a +| b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "1 +| (255 as UI8) // 255"),
 		box_item("Type of return is the type of arguments."),
 	],
 	[
-		"Subtraction",
+		html.anchor("Subtraction", "subtraction"),
 		page.inline_code_block(Language.PANTHER, "a - b"),
 		box_item(terms.get("integral")) + box_item(terms.get("floating-point")) + box_item(terms.get("vector") + " of " + terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("floating-point")),
 		page.inline_code_block(Language.PANTHER, "5 - 2 // 3"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is ${terms.get("undefined behavior")}.`),
 	],
 	[
-		"Wrapping Subtraction",
+		html.anchor("Wrapping Subtraction", "wrapping_subtraction"),
 		page.inline_code_block(Language.PANTHER, "a -% b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "5 -% (6 as UI8) // 255"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is allowed (two's compliment).`),
 	],
 	[
-		"Saturating Subtraction",
+		html.anchor("Saturating Subtraction", "saturating_subtraction"),
 		page.inline_code_block(Language.PANTHER, "a -| b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "5 -| (6 as UI8) // 0"),
 		box_item("Type of return is the type of arguments."),
 	],
 	[
-		"Multiplication",
+		html.anchor("Multiplication", "multiplication"),
 		page.inline_code_block(Language.PANTHER, "a * b"),
 		box_item(terms.get("integral")) + box_item(terms.get("floating-point")) + box_item(terms.get("vector") + " of " + terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("floating-point")),
 		page.inline_code_block(Language.PANTHER, "5 * 2 // 10"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is ${terms.get("undefined behavior")}.`),
 	],
 	[
-		"Wrapping Multiplication",
+		html.anchor("Wrapping Multiplication", "wrapping_multiplication"),
 		page.inline_code_block(Language.PANTHER, "a *% b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "32 *% (8 as UI8) // 0"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is allowed (two's compliment).`),
 	],
 	[
-		"Saturating Multiplication",
+		html.anchor("Saturating Multiplication", "saturating_multiplication"),
 		page.inline_code_block(Language.PANTHER, "a *| b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "32 *| (8 as UI8) // 255"),
 		box_item("Type of return is the type of arguments."),
 	],
 	[
-		"Division",
+		html.anchor("Division", "division"),
 		page.inline_code_block(Language.PANTHER, "a / b"),
 		box_item(terms.get("integral")) + box_item(terms.get("floating-point")) + box_item(terms.get("vector") + " of " + terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("floating-point")),
 		page.inline_code_block(Language.PANTHER, "7 / 3 // 2"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is ${terms.get("undefined behavior")}.`),
 	],
 	[
-		"Division Remainder",
+		html.anchor("Division Remainder", "division_remainder"),
 		page.inline_code_block(Language.PANTHER, "a % b"),
 		box_item(terms.get("integral")) + box_item(terms.get("floating-point")) + box_item(terms.get("vector") + " of " + terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("floating-point")),
 		page.inline_code_block(Language.PANTHER, "7 % 3 // 1"),
 		box_item("Type of return is the type of arguments.") + box_item(`Integer overflowing is allowed (two's compliment).`),
 	],
 	[
-		"Negate",
+		html.anchor("Negate", "negate"),
 		page.inline_code_block(Language.PANTHER, "-a"),
 		box_item(terms.get("integral")) + box_item(terms.get("floating-point")) + box_item(terms.get("vector") + " of " + terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("floating-point")),
 		page.inline_code_block(Language.PANTHER, "-12 // -12"),
 		box_item("Type of return is the type of argument."),
 	],
 ], "68.7em");
+search.addSearchTarget("Operator Addition", page.getPath() + "#addition", page.getCategories());
+search.addSearchTarget("Operator +", page.getPath() + "#addition", page.getCategories());
+search.addSearchTarget("Operator Wrapping Addition", page.getPath() + "#wrapping_addition", page.getCategories());
+search.addSearchTarget("Operator +%", page.getPath() + "#wrapping_addition", page.getCategories());
+search.addSearchTarget("Operator Saturating Addition", page.getPath() + "#saturating_addition", page.getCategories());
+search.addSearchTarget("Operator +|", page.getPath() + "#saturating_addition", page.getCategories());
+search.addSearchTarget("Operator Subtraction", page.getPath() + "#subtraction", page.getCategories());
+search.addSearchTarget("Operator - (infix)", page.getPath() + "#subtraction", page.getCategories());
+search.addSearchTarget("Operator Wrapping Subtraction", page.getPath() + "#wrapping_subtraction", page.getCategories());
+search.addSearchTarget("Operator -%", page.getPath() + "#wrapping_subtraction", page.getCategories());
+search.addSearchTarget("Operator Saturating Subtraction", page.getPath() + "#saturating_subtraction", page.getCategories());
+search.addSearchTarget("Operator -|", page.getPath() + "#saturating_subtraction", page.getCategories());
+search.addSearchTarget("Operator Multiplication", page.getPath() + "#multiplication", page.getCategories());
+search.addSearchTarget("Operator *", page.getPath() + "#multiplication", page.getCategories());
+search.addSearchTarget("Operator Wrapping Multiplication", page.getPath() + "#wrapping_multiplication", page.getCategories());
+search.addSearchTarget("Operator *%", page.getPath() + "#wrapping_multiplication", page.getCategories());
+search.addSearchTarget("Operator Saturating Multiplication", page.getPath() + "#saturating_multiplication", page.getCategories());
+search.addSearchTarget("Operator *|", page.getPath() + "#saturating_multiplication", page.getCategories());
+search.addSearchTarget("Operator Division", page.getPath() + "#division", page.getCategories());
+search.addSearchTarget("Operator /", page.getPath() + "#division", page.getCategories());
+search.addSearchTarget("Operator Division Remainder", page.getPath() + "#division_remainder", page.getCategories());
+search.addSearchTarget("Operator %", page.getPath() + "#division_remainder", page.getCategories());
+search.addSearchTarget("Operator Negate", page.getPath() + "#negate", page.getCategories());
+search.addSearchTarget("Operator - (prefix)", page.getPath() + "#negate", page.getCategories());
 
 
 
@@ -129,164 +153,204 @@ page.h2Searchable("Comparative Operators", "comparative");
 page.table([
 	["Name", "Syntax", "Supported Builtin Types", "Example", "Remarks"],
 	[
-		"Equal To",
+		html.anchor("Equal To", "eq"),
 		page.inline_code_block(Language.PANTHER, "a == b"),
 		"any " + terms.get("compatable types"),
 		page.inline_code_block(Language.PANTHER, "12 == 10 // false<br/>\n12 == 12 // true<br/>\n12 == 14 // false"),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 	[
-		"Not Equal To",
+		html.anchor("Not Equal To", "neq"),
 		page.inline_code_block(Language.PANTHER, "a != b"),
 		"any " + terms.get("compatable types"),
 		page.inline_code_block(Language.PANTHER, "12 != 10 // false<br/>\n12 != 12 // true<br/>\n12 != 14 // false"),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 	[
-		"Less Than",
+		html.anchor("Less Than", "lt"),
 		page.inline_code_block(Language.PANTHER, "a < b"),
 		"any " + terms.get("compatable types"),
 		page.inline_code_block(Language.PANTHER, "12 < 10 // false<br/>\n12 < 12 // false<br/>\n12 < 14 // true"),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 	[
-		"Less Than or Equal To",
+		html.anchor("Less Than or Equal To", "lte"),
 		page.inline_code_block(Language.PANTHER, "a <= b"),
 		"any " + terms.get("compatable types"),
 		page.inline_code_block(Language.PANTHER, "12 <= 10 // false<br/>\n12 <= 12 // true<br/>\n12 <= 14 // true"),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 	[
-		"Greater Than",
+		html.anchor("Greater Than", "gt"),
 		page.inline_code_block(Language.PANTHER, "a > b"),
 		"any " + terms.get("compatable types"),
 		page.inline_code_block(Language.PANTHER, "12 > 10 // true<br/>\n12 > 12 // false<br/>\n12 > 14 // false"),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 	[
-		"Greater Than or Equal To",
+		html.anchor("Greater Than or Equal To", "gte"),
 		page.inline_code_block(Language.PANTHER, "a >= b"),
 		"any " + terms.get("compatable types"),
 		page.inline_code_block(Language.PANTHER, "12 >= 10 // true<br/>\n12 >= 12 // true<br/>\n12 >= 14 // false"),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 ], "68.7em");
+search.addSearchTarget("Operator Equal To", page.getPath() + "#eq", page.getCategories());
+search.addSearchTarget("Operator ==", page.getPath() + "#eq", page.getCategories());
+search.addSearchTarget("Operator Not Equal To", page.getPath() + "#neq", page.getCategories());
+search.addSearchTarget("Operator !=", page.getPath() + "#neq", page.getCategories());
+search.addSearchTarget("Operator Less Than", page.getPath() + "#lt", page.getCategories());
+search.addSearchTarget("Operator <", page.getPath() + "#lt", page.getCategories());
+search.addSearchTarget("Operator Less Than or Equal To", page.getPath() + "#lte", page.getCategories());
+search.addSearchTarget("Operator <=", page.getPath() + "#lte", page.getCategories());
+search.addSearchTarget("Operator Greater Than", page.getPath() + "#gt", page.getCategories());
+search.addSearchTarget("Operator >", page.getPath() + "#gt", page.getCategories());
+search.addSearchTarget("Operator Greater Than or Equal To", page.getPath() + "#gte", page.getCategories());
+search.addSearchTarget("Operator >=", page.getPath() + "#gte", page.getCategories());
 
 
 page.h2Searchable("Bitwise Operators", "bitwise");
 page.table([
 	["Name", "Syntax", "Supported Builtin Types", "Example", "Remarks"],
 	[
-		"Bitwise And",
+		html.anchor("Bitwise And", "bitwise_and"),
 		page.inline_code_block(Language.PANTHER, "a & b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "0b1010 & 0b0110 // 0b0010"),
 		box_item("Type of return is the type of arguments."),
 	],
 	[
-		"Bitwise Or",
+		html.anchor("Bitwise Or", "bitwise_or"),
 		page.inline_code_block(Language.PANTHER, "a | b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "0b1010 | 0b0110 // 0b1110"),
 		box_item("Type of return is the type of arguments."),
 	],
 	[
-		"Bitwise Xor",
+		html.anchor("Bitwise Xor", "bitwise_xor"),
 		page.inline_code_block(Language.PANTHER, "a ^ b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "0b1010 | 0b0110 // 0b1100"),
 		box_item("Type of return is the type of arguments."),
 	],
 	[
-		"Bit Shift Left",
+		html.anchor("Bit Shift Left", "bit_shift_left"),
 		page.inline_code_block(Language.PANTHER, "a << b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "0b0101 << 2 // 0b10100"),
 		box_item(`Type of return is the type of ${terms.get("LHS")}.`) + box_item(`RHS must be ${page.inline_code_block(Language.PANTHER, "ceil(log2(@numBits<{LHS}>()))")}.`),
 	],
 	[
-		"Saturating Bit Shift Left",
+		html.anchor("Saturating Bit Shift Left", "saturating_bit_shift_left"),
 		page.inline_code_block(Language.PANTHER, "a <<| b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "(0b11 as UI8) << 7 // 255"),
 		box_item(`Type of return is the type of ${terms.get("LHS")}.`) + box_item(`RHS must be ${page.inline_code_block(Language.PANTHER, "ceil(log2(@numBits<{LHS}>()))")}.<br/>${html.italic("This restriction most likely will change in the future,<br/>but more consideration is required.")}`),
 	],
 	[
-		"Bit Shift Right",
+		html.anchor("Bit Shift Right", "bit_shift_right"),
 		page.inline_code_block(Language.PANTHER, "a >> b"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "0b11000 >> 2 // 0b110"),
 		box_item(`Type of return is the type of ${terms.get("LHS")}.`) + box_item(`RHS must be ${page.inline_code_block(Language.PANTHER, "ceil(log2(@numBits<{LHS}>()))")}.`),
 	],
 	[
-		"Bitwise Not",
+		html.anchor("Bitwise Not", "bitwise_not"),
 		page.inline_code_block(Language.PANTHER, "~a"),
 		box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
 		page.inline_code_block(Language.PANTHER, "~(0b10101110 as UI8) // 0b01010001"),
 		box_item("Type of return is the type of argument.") + box_item("Does not support fluid values"),
 	],
 ], "68.7em");
+search.addSearchTarget("Operator Bitwise And", page.getPath() + "#bitwise_and", page.getCategories());
+search.addSearchTarget("Operator & (infix)", page.getPath() + "#bitwise_and", page.getCategories());
+search.addSearchTarget("Operator Bitwise Or", page.getPath() + "#bitwise_or", page.getCategories());
+search.addSearchTarget("Operator |", page.getPath() + "#bitwise_or", page.getCategories());
+search.addSearchTarget("Operator Bitwise Xor", page.getPath() + "#bitwise_xor", page.getCategories());
+search.addSearchTarget("Operator ^", page.getPath() + "#bitwise_xor", page.getCategories());
+search.addSearchTarget("Operator Bit Shift Left", page.getPath() + "#bit_shift_left", page.getCategories());
+search.addSearchTarget("Operator <<", page.getPath() + "#bit_shift_left", page.getCategories());
+search.addSearchTarget("Operator Saturating Bit Shift Left", page.getPath() + "#saturating_bit_shift_left", page.getCategories());
+search.addSearchTarget("Operator <<|", page.getPath() + "#saturating_bit_shift_left", page.getCategories());
+search.addSearchTarget("Operator Bit Shift Right", page.getPath() + "#bit_shift_right", page.getCategories());
+search.addSearchTarget("Operator >>", page.getPath() + "#bit_shift_right", page.getCategories());
+search.addSearchTarget("Operator Bitwise Not", page.getPath() + "#bitwise_not", page.getCategories());
+search.addSearchTarget("Operator ~", page.getPath() + "#bitwise_not", page.getCategories());
 
 
 page.h2Searchable("Pointer/Optional Operators", "pointer_optional");
 page.table([
 	["Name", "Syntax", "Supported Builtin Types", "Example", "Remarks"],
 	[
-		"Address Of",
+		html.anchor("Address Of", "address_of"),
 		page.inline_code_block(Language.PANTHER, "&a"),
 		box_item("Any"),
 		page.inline_code_block(Language.PANTHER, "var num: Int = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "const num_ptr: Int* = &num;") + "<br/>" + page.inline_code_block(Language.PANTHER, "num_ptr.* // 12"),
 		box_item(`Argument must be ${terms.get("concrete")}.`) + box_item(`Using on a const object returns a ${terms.get("read-only pointer")},<br/>otherwise is a ${terms.get("pointer")}.`),
 	],
 	[
-		"Read-Only Address Of",
+		html.anchor("Read-Only Address Of", "read_only_address_of"),
 		page.inline_code_block(Language.PANTHER, "&|a"),
 		box_item("Any"),
 		page.inline_code_block(Language.PANTHER, "var num: Int = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "const num_ptr: Int*| = &|num;") + "<br/>" + page.inline_code_block(Language.PANTHER, "num_ptr.* // 12"),
 		box_item(`Argument must be ${terms.get("concrete")}.`),
 	],
 	[
-		"Dereference",
+		html.anchor("Dereference", "dereference"),
 		page.inline_code_block(Language.PANTHER, "a.*"),
 		box_item("Any " + terms.get("pointer")),
 		page.inline_code_block(Language.PANTHER, "var num: Int = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "const num_ptr: Int* = &num;") + "<br/>" + page.inline_code_block(Language.PANTHER, "num_ptr.* // 12"),
 		box_item(`Dereferencing a ${terms.get("read-only pointer")} results in a<br/>const value, otherwise the value is mutable.`),
 	],
 	[
-		"Unwrap",
+		html.anchor("Unwrap", "unwrap"),
 		page.inline_code_block(Language.PANTHER, "a.?"),
 		box_item("Any " + terms.get("optional")),
 		page.inline_code_block(Language.PANTHER, "var opt_num: Int? = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "opt_num.? // 12"),
 		box_item(`It is ${terms.get("undefined behavior")} to unwrap an optional<br/> that is ${terms.get("null")}.`),
 	],
 ], "68.7em");
+search.addSearchTarget("Operator Address Of", page.getPath() + "#address_of", page.getCategories());
+search.addSearchTarget("Operator & (prefix)", page.getPath() + "#address_of", page.getCategories());
+search.addSearchTarget("Operator Read-Only Address Of", page.getPath() + "#read_only_address_of", page.getCategories());
+search.addSearchTarget("Operator &|", page.getPath() + "#read_only_address_of", page.getCategories());
+search.addSearchTarget("Operator Dereference", page.getPath() + "#dereference", page.getCategories());
+search.addSearchTarget("Operator .*", page.getPath() + "#dereference", page.getCategories());
+search.addSearchTarget("Operator Unwrap", page.getPath() + "#unwrap", page.getCategories());
+search.addSearchTarget("Operator .?", page.getPath() + "#unwrap", page.getCategories());
 
 
 page.h2Searchable("Boolean", "boolean");
 page.table([
 	["Name", "Syntax", "Supported Builtin Types", "Example", "Remarks"],
 	[
-		"Logical And",
+		html.anchor("Logical And", "logical_and"),
 		page.inline_code_block(Language.PANTHER, "a && b"),
 		box_item(page.inline_code_block(Language.PANTHER, "Bool")),
 		box_item(page.inline_code_block(Language.PANTHER, "true && false // false")),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`) + box_item(`If ${terms.get("LHS")} is ${page.inline_code_block(Language.PANTHER, "false")}, don't evaluate ${terms.get("RHS")} and return ${page.inline_code_block(Language.PANTHER, "false")}.`),
 	],
 	[
-		"Logical Or",
+		html.anchor("Logical Or", "logical_or"),
 		page.inline_code_block(Language.PANTHER, "a || b"),
 		box_item(page.inline_code_block(Language.PANTHER, "Bool")),
 		box_item(page.inline_code_block(Language.PANTHER, "true || false // false")),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`) + box_item(`If ${terms.get("LHS")} is ${page.inline_code_block(Language.PANTHER, "true")}, don't evaluate ${terms.get("RHS")} and return ${page.inline_code_block(Language.PANTHER, "true")}.`),
 	],
 	[
-		"Boolean Not",
+		html.anchor("Boolean Not", "boolean_not"),
 		page.inline_code_block(Language.PANTHER, "!a"),
 		box_item(page.inline_code_block(Language.PANTHER, "Bool")),
 		box_item(page.inline_code_block(Language.PANTHER, "!true // false")),
 		box_item(`Type of return is ${page.inline_code_block(Language.PANTHER, "Bool")}.`),
 	],
 ], "68.7em");
+search.addSearchTarget("Operator Logical And", page.getPath() + "#logical_and", page.getCategories());
+search.addSearchTarget("Operator &&", page.getPath() + "#logical_and", page.getCategories());
+search.addSearchTarget("Operator Logical Or", page.getPath() + "#logical_or", page.getCategories());
+search.addSearchTarget("Operator ||", page.getPath() + "#logical_or", page.getCategories());
+search.addSearchTarget("Operator Boolean Not", page.getPath() + "#boolean_not", page.getCategories());
+search.addSearchTarget("Operator !", page.getPath() + "#boolean_not", page.getCategories());
 
 
 page.h2Searchable("Object Operators", "type");

@@ -64,3 +64,8 @@ exports.superscript = function(text){
 exports.inline_code = function(text){
 	return `<code>${text}</code>`;
 }
+
+
+exports.anchor = function(text, anchor_name){
+	return `<div id="${anchor_name}" style="border-radius: 0.3em;">${text}</div>`;
+}

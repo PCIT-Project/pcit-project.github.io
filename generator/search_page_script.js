@@ -73,8 +73,6 @@ function on_search_input(){
 		let terms_found = 0;
 		let terms_found_match_percentage = 0;
 		search_terms.forEach((search_term) => {
-			if(search_target_search_terms.length == 0){ return; }
-
 			let best_match_index = null;
 			let best_match_score = 0;
 			let found_match = false;

@@ -92,7 +92,6 @@ function generate(){
 		words.forEach((word, i) => {
 			if(word === ""){ return; } // remove extranous spaces
 			if(search_terms.includes(word)){ return; } // prevent duplication
-			if(word === "|"){ return; }
 			
 			search_terms.push(words[i]);
 		});

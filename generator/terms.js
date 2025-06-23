@@ -33,7 +33,15 @@ exports.get = function(text){
 //////////////////////////////////////////////////////////////////////
 // terms
 
+term("Panther style guide");
+
+
 term("undefined behavior", "/site/documentation/panther/undefined_behavior.html");
+
+term("assignment");
+term("initialization");
+term("initialized");
+term("initializer value");
 term("uninitialized", "/site/documentation/panther/uninitialized.html");
 
 term("ephemeral", "/site/documentation/panther/value_categories.html#ephemeral");
@@ -63,10 +71,22 @@ term("LHS");
 
 
 term("operator copy");
+term("operator copy assignment");
 term("operator move");
+term("operator move assignment");
 term("operator forward");
+term("operator forward assignment");
+
+term("trivially-sized");
+term("trivially-copyable");
+term("trivially-moveable");
+term("trivially-destroyable");
 
 term("operator as");
+
+term("return");
+term("error");
+
 
 
 term("variables", "/site/documentation/panther/variables.html");
@@ -75,9 +95,9 @@ term("const variables", "/site/documentation/panther/variables.html#const_variab
 term("def variables", "/site/documentation/panther/variables.html#def_variables");
 
 
-term("read parameters");
-term("mut parameters");
-term("in parameters");
+term("read parameters", "/site/documentation/panther/functions.html#parameters");
+term("mut parameters", "/site/documentation/panther/functions.html#parameters");
+term("in parameters", "/site/documentation/panther/functions.html#parameters");
 
 term("dereference");
 term("accessor");
@@ -86,7 +106,7 @@ term("optional");
 term("pointer");
 term("read-only pointer");
 
-term("null")
+term("null");
 
 
 term("constexpr", "/site/documentation/panther/value_stages.html#constexpr");
@@ -101,11 +121,9 @@ term("operator delete");
 term("in-place new");
 term("in-place delete");
 
-term("initialization");
 
-term("assignment");
 
-term("initializer value");
+
 
 term("array");
 term("vector");
@@ -116,14 +134,15 @@ term("attribute #pub");
 
 term("intrinsic @import");
 
-term("primitive");
+term("primitive", "/site/documentation/panther/primitive_types.html");
 term("integral");
 term("unsigned integral");
 term("signed integral");
 term("floating-point");
 
 
-term("function");
+term("function", "/site/documentation/panther/functions.html");
+term("try");
 
 
 

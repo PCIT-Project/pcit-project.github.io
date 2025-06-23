@@ -34,6 +34,7 @@ page.end_info();
 
 page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
 page.text(html.link("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html"));
+page.text(html.link("Functions", "/site/documentation/panther/functions.html"));
 page.text(html.link("Literals", "/site/documentation/panther/literals.html"));
 page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
 page.text(html.link("Operators", "/site/documentation/panther/operators.html"));

@@ -1,10 +1,23 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.40.0"></a>
+## v0.0.40.0
+- Added Functions page of Panther documentation
+- Improved searchability of Panther operators
+- Fixed search terms that contain word "|"
+- Fixed highlighted in Panther code snippets Panther
+	- `error`
+	- `try`
+	- `...`
+
+
+<!---------------------------------->
 <a name="v0.0.39.0"></a>
 ## v0.0.39.0
 - Added Primitive Types page of Panther documentation
-- Added more explainer text to the Intrinsics page of Panther docuemtation
+- Added Operators page of Panther documentation
+- Added more explainer text to the Intrinsics page of Panther documentation
 - Added more explainer text to the Panther Documentation page
 - Changed documentation for Panther `@shl`, `@shlSat`, and `@shr` to reflect removal of `@bitWidth` and addition of `@numBits`
 - Made tables scrollable on overflow
@@ -47,13 +60,13 @@
 <!---------------------------------->
 <a name="v0.0.36.0"></a>
 ## v0.0.36.0
-- Updated Panther type conversion intrinsics documenation to reflect changes in [PCIT v0.0.118.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.118.0)
+- Updated Panther type conversion intrinsics documentation to reflect changes in [PCIT v0.0.118.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.118.0)
 
 
 <!---------------------------------->
 <a name="v0.0.35.0"></a>
 ## v0.0.35.0
-- Updated PIR documenation page to reflect changes in [PCIT v0.0.117.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.117.0)
+- Updated PIR documentation page to reflect changes in [PCIT v0.0.117.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.117.0)
 	- `@branch` -> `@jump`
 	- `@condBranch` -> `@branch`
 
@@ -90,7 +103,7 @@
 <a name="v0.0.31.0"></a>
 ## v0.0.31.0
 - Added image alt-texts
-- Defered loading of Font-Awesome
+- Deferred loading of Font-Awesome
 - Changed various links text to be more descriptive
 - Added deferred loading for larger files
 
@@ -212,8 +225,8 @@
 <!---------------------------------->
 <a name="v0.0.20.2"></a>
 ## v0.0.20.2
-- Fixed wrong version on PIR Documenation page
-- Fixed alignment of assembly code snipped on PIR Documenation page
+- Fixed wrong version on PIR Documentation page
+- Fixed alignment of assembly code snipped on PIR Documentation page
 
 
 <!---------------------------------->
@@ -225,8 +238,8 @@
 <!---------------------------------->
 <a name="v0.0.20.0"></a>
 ## v0.0.20.0
-- Added suuport for code snippets of PIR, LLVMIR, and x86 assembly (Intel)
-- Added to PIR documentation page to show of testing code stynax / functionality
+- Added support for code snippets of PIR, LLVMIR, and x86 assembly (Intel)
+- Added to PIR documentation page to show of testing code syntax / functionality
 - Added feedback that the code snippet copy button was clicked
 - Added automatic close of hamburger menu
 - Fixed code snippet copy button not working when there is a `\` in the code snippet
@@ -312,7 +325,7 @@
 <!---------------------------------->
 <a name="v0.0.13.0"></a>
 ## v0.0.13.0
-- Added some examples of comptime and constexpr values to the Panther documentaion of Value Stages
+- Added some examples of comptime and constexpr values to the Panther documentation of Value Stages
 
 
 <!---------------------------------->

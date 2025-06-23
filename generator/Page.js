@@ -260,9 +260,6 @@ class Page{
 		this.body += text;
 	}
 
-	anchor(name){
-		this.body += `<div id="${name}"></div>`;
-	}
 
 
 	bullets(points){
