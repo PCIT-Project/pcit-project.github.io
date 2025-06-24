@@ -37,11 +37,17 @@ page.list_table(Language.PANTHER, [
 	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) { {STATEMENTS*} }",
 	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} < {TYPE} > { {STATEMENTS*} }",
 	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) < {ERROR_PARAMETERS*} > { {STATEMENTS*} }",
+	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} { {STATEMENTS*} }",
+	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) { {STATEMENTS*} }",
+	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} < {TYPE} > { {STATEMENTS*} }",
+	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) < {ERROR_PARAMETERS*} > { {STATEMENTS*} }",
+
 ]);
 
-page.paragraph(`Syntaxes 1 and 3 create a function that has a single return value. A return type of ${page.inline_code_block(Language.PANTHER, "Void")} means that the function doesn't return anything. Syntaxes 2 and 4 have explicit return parameters, which allows returning of multiple values. Syntaxes 3 and 4 are for functions that may error.`);
+page.paragraph(`Syntaxes 1, 3, 5, and 7 create a function that has a single return value. A return type of ${page.inline_code_block(Language.PANTHER, "Void")} means that the function doesn't return anything. Syntaxes 2, 4, 6, and 8 have explicit return parameters, which allows returning of multiple values. Syntaxes 3, 4, 7, and 8 are for functions that may ${html.link("error", "#error")}. Syntaxes 5-8 are for ${html.link("templates", "#templates")}.`);
 
 page.paragraph(`The list of parameters, return parameters, and error parameters are delimited by a comma (${html.inline_code(",")}). A comma may also go at the end of a parameter even if there is no following parameter(s).`);
+
 
 
 
@@ -65,7 +71,9 @@ page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "mut")} parameter
 
 page.h3Searchable("In Parameter Qualifier", "in");
 page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "in")} parameter qualifier means that the parameter is mutable. They can only accept ${terms.get("ephemeral")} values. They have a value category of ${"concrete-forwardable"}.`);
-page.paragraph(`The ABI of ${page.inline_code_block(Language.PANTHER, "in")} parameters is passed by pointer. This means that if the argument given is a copy or a move, the copy or move is not actually done at the call-site, rather it is done at a ${terms.get("operator forward assignment")}. This allows for what is known as perfect forwarding - a pointer can be passed through from function to function through ${terms.get("operator forward")} and the copy or move operation is only made once actually necessary. If the value is ${terms.get("trivially-copyable")} or ${terms.get("trivially-moveable")} for a copy or move respectively, and it is ${terms.get("trivially-sized")}, the copy or move is made at the site of any forward.`);
+
+page.h4("ABI note:");
+page.paragraph(`In general, ${page.inline_code_block(Language.PANTHER, "in")} parameters is passed by pointer. This means that if the argument given is a copy or a move, the copy or move is not actually done at the call-site, rather it is done at a ${terms.get("operator forward assignment")}. This allows for what is known as perfect forwarding - a pointer can be passed through from function to function through ${terms.get("operator forward")} and the copy or move operation is only made once actually necessary. If the value is ${terms.get("trivially-copyable")} or ${terms.get("trivially-moveable")} for a copy or move respectively, and it is ${terms.get("trivially-sized")}, the copy or move is made at the site of any forward.`);
 
 
 
@@ -83,10 +91,14 @@ page.paragraph(`Explicit return/error parameters begin as ${terms.get("uninitial
 
 
 
-page.h2Searchable("Erroring Functions", "erroring_funcs");
-page.paragraph(`If a function errors, it must be called through a ${terms.get("try")} expression or statement.`)
+page.h2Searchable("Erroring Functions", "error");
+page.paragraph(`If a function errors, it must be called through a ${terms.get("try")} expression or statement.`);
+page.h4("ABI note:");
+page.paragraph(`Erroring functions signal if the error or not through returning boolean value. If the function has a single return value, that value becomes an "out" parameter. The error return values themselves are in a packed struct stored right on the stack. This allows for a single pointer to be passed to the function as a parameter in the ABI for all the error values needed so as to lower the performance affect on the normal return path as much as possible.`);
 
 
+page.h2Searchable("Function Templates", "templates");
+page.paragraph(html.italic("(TODO)"));
 
 
 page.h2("Example");
@@ -120,6 +132,12 @@ func divide = (lhs: Int, rhs: Int) #rt -> Int <Void> {
 func divide_handled = (lhs: Int, rhs: Int) #rt -> (output: Int) {
 	output = try divide(lhs, rhs) else 0;
 	return...;
+}
+
+
+// template version of the "sum" function
+func sum = <{T: Type}> (lhs: T, rhs: T) -> T {
+	return lhs + rhs;
 }`);
 
 

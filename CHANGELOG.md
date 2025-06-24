@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.41.0"></a>
+## v0.0.41.0
+- Added to the Functions page of Panther documentation
+	- ABI notes about erroring functions
+	- Syntax for template functions
+	- Example for a template function
+
+
+<!---------------------------------->
 <a name="v0.0.40.0"></a>
 ## v0.0.40.0
 - Added Functions page of Panther documentation
