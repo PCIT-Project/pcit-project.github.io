@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.42.0"></a>
+## v0.0.42.0
+- Added to the Functions page of Panther documentation
+	- Simplified syntax section
+	- Added info on function overloading
+	- Added reference to operator overloading
+
+
+<!---------------------------------->
 <a name="v0.0.41.0"></a>
 ## v0.0.41.0
 - Added to the Functions page of Panther documentation

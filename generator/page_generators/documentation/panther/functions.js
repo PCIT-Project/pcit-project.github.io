@@ -28,26 +28,24 @@ let page = new Page(__filename, {
 
 page.paragraph(`Functions are a set of statements that are executable. They can take a number of inputs (known as parameters), and outputs (known as return/error parameters). By default, functions are able to run at compile-time (known as ${terms.get("constexpr")}).`);
 
-page.paragraph(`To return a value from a function, the ${terms.get("return")} statement is used. Likewise, to error a function, the ${terms.get("error")} statement is used (although this may only happen if the declaration defines that the function errors).`);
-
-
 page.h3("Syntax");
 page.list_table(Language.PANTHER, [
-	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} { {STATEMENTS*} }",
-	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) { {STATEMENTS*} }",
-	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} < {TYPE} > { {STATEMENTS*} }",
-	"func {IDENTIFIER} = ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) < {ERROR_PARAMETERS*} > { {STATEMENTS*} }",
-	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} { {STATEMENTS*} }",
-	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) { {STATEMENTS*} }",
-	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} < {TYPE} > { {STATEMENTS*} }",
-	"func {IDENTIFIER} = <{ {TEMPLATE_PARAMETERS*} }> ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) < {ERROR_PARAMETERS*} > { {STATEMENTS*} }",
+	"func {IDENTIFIER|OPERATOR} = {TEMPLATE_PARAMETER_PACK?} ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} { {STATEMENTS*} }",
+	"func {IDENTIFIER|OPERATOR} = {TEMPLATE_PARAMETER_PACK?} ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) { {STATEMENTS*} }",
+	"func {IDENTIFIER|OPERATOR} = {TEMPLATE_PARAMETER_PACK?} ( {PARAMETERS*} ) {ATTRIBUTES*} -> {TYPE} < {TYPE} > { {STATEMENTS*} }",
+	"func {IDENTIFIER|OPERATOR} = {TEMPLATE_PARAMETER_PACK?} ( {PARAMETERS*} ) {ATTRIBUTES*} -> ( {RETURN_PARAMETERS+} ) < {ERROR_PARAMETERS*} > { {STATEMENTS*} }",
 
 ]);
 
-page.paragraph(`Syntaxes 1, 3, 5, and 7 create a function that has a single return value. A return type of ${page.inline_code_block(Language.PANTHER, "Void")} means that the function doesn't return anything. Syntaxes 2, 4, 6, and 8 have explicit return parameters, which allows returning of multiple values. Syntaxes 3, 4, 7, and 8 are for functions that may ${html.link("error", "#error")}. Syntaxes 5-8 are for ${html.link("templates", "#templates")}.`);
+page.paragraph(`Syntaxes 1, and 3 create a function that has a single return value. A return type of ${page.inline_code_block(Language.PANTHER, "Void")} means that the function doesn't return anything. Syntaxes 2 and 4 have explicit return parameters, which allows returning of multiple values. Syntaxes 3 and 4 are for functions that may ${html.link("error", "#error")}.`);
 
 page.paragraph(`The list of parameters, return parameters, and error parameters are delimited by a comma (${html.inline_code(",")}). A comma may also go at the end of a parameter even if there is no following parameter(s).`);
 
+
+page.paragraph(`To return a value from a function, the ${terms.get("return")} statement is used. Likewise, to error a function, the ${terms.get("error")} statement is used (although this may only happen if the declaration defines that the function errors).`);
+
+
+page.paragraph("Function overloading is allowed. This means that two functions may have the same name if they have a different set of template parameters and parameters.");
 
 
 
@@ -98,6 +96,11 @@ page.paragraph(`Erroring functions signal if the error or not through returning 
 
 
 page.h2Searchable("Function Templates", "templates");
+page.paragraph(html.italic("(TODO)"));
+
+
+
+page.h2Searchable("Operator Overloading", "operator_overloading");
 page.paragraph(html.italic("(TODO)"));
 
 
