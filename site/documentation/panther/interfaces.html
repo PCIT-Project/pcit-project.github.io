@@ -1,0 +1,241 @@
+<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE` for info.                 -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Documentation for interfaces in the Panther programming language" />
+
+	<meta property="og:title" content="Interfaces | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for interfaces in the Panther programming language" />
+	<meta property="og:image" content="/assets/LogoBig.png" />
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
+
+
+	<title>Interfaces | Panther Documentation | PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 3,
+			        "name": "Interfaces"
+				}
+			]
+		}
+	</script>
+</head>
+<body>
+	<div class="navbar">
+		<div id="navbar-fader">
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
+			<a class="navbar-title" href="/">PCIT Project</a>
+		</div>
+		
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="hamburger-button fa-solid fa-bars fa-fw"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
+
+	<br><div class="context">
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Interfaces</div>		<h1>Interfaces</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
+<br/><br/>		<p>&emsp;&emsp;<span style="font-style: italic;">(TODO)</span></p>
+		<h2>Example</h2>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// Create Interface
+interface Shape = {
+	func area = (this) -> F32;
+	func num_sides = () -> UInt { return 0;	} // method with default
+}
+
+
+type Quad = struct {
+	var width: F32;
+	var height: F32;
+
+
+	func area = (this) -> F32 {
+		return this.width * this.height;
+	}
+
+	func num_sides = () -> UInt { return 4; }
+
+
+	// implementation of Shape for Quad
+	impl Shape{
+		num_sides = num_sides,
+		area      = area,
+	}
+}
+
+
+type Circle = struct {
+	var radius: F32;
+
+
+	func get_area = (this) -> F32 {
+		return 3.14 * this.radius * this.radius;
+	}
+
+	func get_num_sides = () -> UInt { return 0; }
+
+
+	// Implementation of Shape for Circle
+	impl Shape{
+		num_sides = get_num_sides, // method names don't have to be the same
+		// using default for Shape.area
+	}
+}`);
+
+		document.getElementById("copied_text_0").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</div><div class="code-src"><span class="code-gray">// Create Interface</span>
+<span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">Shape</span> <span class="code-red">=</span> {
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">0</span>;	} <span class="code-gray">// method with default</span>
+}
+
+
+<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Quad</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> width<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> height<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+
+
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
+		<span class="code-red">return</span> <span class="code-orange">this</span>.width <span class="code-red">*</span> <span class="code-orange">this</span>.height;
+	}
+
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">4</span>; }
+
+
+	<span class="code-gray">// implementation of Shape for Quad</span>
+	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
+		num_sides <span class="code-red">=</span> num_sides,
+		area      <span class="code-red">=</span> area,
+	}
+}
+
+
+<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Circle</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> radius<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+
+
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
+		<span class="code-red">return</span> <span class="code-purple">3.14</span> <span class="code-red">*</span> <span class="code-orange">this</span>.radius <span class="code-red">*</span> <span class="code-orange">this</span>.radius;
+	}
+
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">0</span>; }
+
+
+	<span class="code-gray">// Implementation of Shape for Circle</span>
+	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
+		num_sides <span class="code-red">=</span> get_num_sides, <span class="code-gray">// method names don't have to be the same</span>
+		<span class="code-gray">// using default for Shape.area</span>
+	}
+}</div></pre></div>	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">Page Last Updated: 2025-06-28</p>
+		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+	</div>
+
+</body>
+<script src="/assets/script.js"></script>
+</html>

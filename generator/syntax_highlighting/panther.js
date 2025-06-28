@@ -112,7 +112,11 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "func": case "alias": case "type": {
+				case "struct": {
+					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
+				} break;
+
+				case "func": case "alias": case "type": case "interface": case "impl": {
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 					while(is_whitespace(stream.peek())){ output += stream.next(); }
 

@@ -82,6 +82,7 @@ require("./page_generators/documentation/panther/intrinsics/operational_intrinsi
 require("./page_generators/documentation/panther/intrinsics/type_conversion_intrinsics.js");
 require("./page_generators/documentation/panther/intrinsics/type_traits_intrinsics.js");
 require("./page_generators/documentation/panther/functions.js");
+require("./page_generators/documentation/panther/interfaces.js");
 require("./page_generators/documentation/panther/literals.js");
 require("./page_generators/documentation/panther/modules.js");
 require("./page_generators/documentation/panther/operators.js");

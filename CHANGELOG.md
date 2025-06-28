@@ -1,6 +1,17 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.43.0"></a>
+## v0.0.43.0
+- Added the Interfaces page to Panther documentation
+- Fixed syntax highlighting for Panther
+	- `struct`
+	- `interface`
+	- `impl`
+- Fixed alphabetization of Panther documentation home page
+
+
+<!---------------------------------->
 <a name="v0.0.42.0"></a>
 ## v0.0.42.0
 - Added to the Functions page of Panther documentation

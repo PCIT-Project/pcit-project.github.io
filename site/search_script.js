@@ -221,6 +221,7 @@ const search_targets = [
 	new SearchTarget("Erroring Functions", "documentation/panther/functions.html#error", "", ["erroring","functions"], [0,4]),
 	new SearchTarget("Function Templates", "documentation/panther/functions.html#templates", "", ["function","templates"], [0,4]),
 	new SearchTarget("Operator Overloading", "documentation/panther/functions.html#operator_overloading", "", ["operator","overloading"], [0,4]),
+	new SearchTarget("Interfaces", "/site/documentation/panther/interfaces.html", "Documentation for interfaces in the Panther programming language", ["interfaces"], [0,4]),
 	new SearchTarget("Literals", "/site/documentation/panther/literals.html", "Documentation for literals in the Panther programming language", ["literals"], [0,4]),
 	new SearchTarget("Integer Literals", "documentation/panther/literals.html#integer-literals", "", ["integer","literals"], [0,4]),
 	new SearchTarget("Float Literals", "documentation/panther/literals.html#float-literals", "", ["float","literals"], [0,4]),
