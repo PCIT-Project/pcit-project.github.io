@@ -82,23 +82,30 @@
 		</ul>
 <div class="info">		<h3 style="margin-top: 1em;">Info</h3>
 		<p>This has only been tested on Windows with Visual Studio 2022.</p>
-</div>		<h2>Building LLVM</h2>
-		<p>At the moment, PCIT relies on LLVM, so we need to build LLVM first.</p>
+</div><h2 id="llvm">Building LLVM</h2>		<p>At the moment, PCIT relies on LLVM, so we need to build LLVM first.</p>
 <div class="warning">		<h3 style="margin-top: 1em;">Warning!</h3>
 		<p>Please the entirety of this section before doing any of the steps so you can make sure your computer is ready <span style="font-weight: bold;">BEFORE</span> you start!</p>
 </div><h3 id="llvm_1">1) Create a directory on your computer</h3>		<p>&emsp;&emsp;All LLVM source code and build results will go in this directory. The needed files will be moved from this directory once the process is completed (and the rest deleted), so this directory can go wherever you like.</p>
 		<h3>2) Get the scripts</h3>
 		<p>&emsp;&emsp;There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat">Windows version</a> (.bat) and a <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh">Unix version</a> (.sh) exist. Get the correct script for your machine, and put it in the directory you created in <a href="/site/build.html#llvm_1">step 1</a>.</p>
 		<h3>3) Run</h3>
-		<p>&emsp;&emsp;Run the script. This script will clone the <a href="https://github.com/PCIT-Project/llvm-project">PCIT fork of LLVM</a>, and compile it. This took my Windows computer 2+ hours to run and resulted in 88.6GB of storage space used (although only 9.3GB is needed to be kept). It is recommended to have at least 32GB of addressable memory.</p>
-<h3 id="llvm_4">4) Finishing up</h3>		<p>&emsp;&emsp;Once the script has completed, you will see three directories within the one created in <a href="/site/build.html#llvm_1">step 1</a>: <code>build</code>, <code>llvm-project</code>, and <code>output</code>. You may delete <code>build</code> and <code>llvm-project</code> if you wish, as they are not needed to build PCIT.</p>
-		<h2>Building PCIT-CPP</h2>
-		<p>Now that we have build LLVM, we can build PCIT.</p>
-<h3 id="pcit_1">1) Clone the repository</h3><script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive`);
+		<p>&emsp;&emsp;Run the script. The first argument should either be <code>Debug</code> or <code>Release</code>. Here's an example:</p>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`./build_llvm.windows.bat Release`);
 
 		document.getElementById("copied_text_0").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive</pre></div>		<p>&emsp;&emsp;The <code>--recursive</code> argument is required to also clone the <a href="https://github.com/12Thanjo/Evo">Evo</a> standard library. LLVM and Evo are the only dependencies that PCIT-CPP has.</p>
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">./build_llvm.windows.bat Release</pre></div>		<p>&emsp;&emsp;This script will clone the <a href="https://github.com/PCIT-Project/llvm-project">PCIT fork of LLVM</a>, and compile it. If you would like to skip the cloning step (if you already cloned it into this directory), you can add the <code>--no-clone</code> argument at the end.</p>
+		<p>&emsp;&emsp;This results in 76.2GB of storage space used (although only 8.19GB is needed to be kept). It is recommended to have at least 24GB of addressable memory.</p>
+<div class="warning">		<h3 style="margin-top: 1em;">Warning!</h3>
+		<p>The <code>Release</code> build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway</p>
+</div><h3 id="llvm_4">4) Finishing up</h3>		<p>&emsp;&emsp;Once the script has completed, you will see three directories within the one created in <a href="/site/build.html#llvm_1">step 1</a>: <code>build</code>, <code>llvm-project</code>, and <code>output</code>. You may delete <code>build</code> and <code>llvm-project</code> if you wish, as they are not needed to build PCIT. In addition, you can delete <code>output/bin</code>, <code>output/libexec</code>, and <code>output/share</code> as well (keep <code>output/include</code> and <code>output/lib</code>).</p>
+		<h2>Building PCIT-CPP</h2>
+		<p>Now that we have build LLVM, we can build PCIT.</p>
+<h3 id="pcit_1">1) Clone the repository</h3><script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive`);
+
+		document.getElementById("copied_text_1").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_1").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive</pre></div>		<p>&emsp;&emsp;The <code>--recursive</code> argument is required to also clone the <a href="https://github.com/12Thanjo/Evo">Evo</a> standard library. LLVM and Evo are the only dependencies that PCIT-CPP has.</p>
 		<h3>2) Add directory for LLVM</h3>
 		<p>&emsp;&emsp;Inside the <code>/PCIT-CPP/dependencies/</code>, add the directory <code>LLVM_build</code></p>
 		<h3>3) Add LLVM</h3>
@@ -106,16 +113,16 @@
 		<h3>4) Configuring PCIT build system with Premake5</h3>
 		<p>&emsp;&emsp;Premake is a build system configurator, so Premake5 is used to configure the build system. For more information, you can run <code>premake5 --help</code>. Navigate to the main directory of the PCIT-CPP repository, and select one of the following methods of running Premake5:</p>
 		<h4>Using Microsoft Visual Studio:</h4>
-<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`premake5 vs2022`);
-
-		document.getElementById("copied_text_1").style.visibility = "visible";
-		setTimeout(() => {document.getElementById("copied_text_1").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 vs2022</pre></div>		<h4>Using GNU Make:</h4>
-<script type="text/javascript">function copy_code_2(){ navigator.clipboard.writeText(`premake5 gmake --cc=[COMPILER]`);
+<script type="text/javascript">function copy_code_2(){ navigator.clipboard.writeText(`premake5 vs2022`);
 
 		document.getElementById("copied_text_2").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_2").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_2()">Copy</button><div id="copied_text_2" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 gmake --cc=[COMPILER]</pre></div>		<p>&emsp;&emsp;Replace "[COMPILER]" with one of the following options</p>
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_2()">Copy</button><div id="copied_text_2" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 vs2022</pre></div>		<h4>Using GNU Make:</h4>
+<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`premake5 gmake --cc=[COMPILER]`);
+
+		document.getElementById("copied_text_3").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_3").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 gmake --cc=[COMPILER]</pre></div>		<p>&emsp;&emsp;Replace "[COMPILER]" with one of the following options</p>
 		<ul>
 			<li>clang</li>
 			<li>gcc</li>
@@ -126,18 +133,18 @@
 		<h4>Using Microsoft Visual Studio:</h4>
 		<p>&emsp;&emsp;Open <code>PCIT-CPP.sln</code> in Visual Studio, set the build configuration to <code>ReleaseDist</code>, and compile.</p>
 		<h4>Using GNU Make:</h4>
-<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`make configuration=releasedist_linux`);
+<script type="text/javascript">function copy_code_4(){ navigator.clipboard.writeText(`make configuration=releasedist_linux`);
 
-		document.getElementById("copied_text_3").style.visibility = "visible";
-		setTimeout(() => {document.getElementById("copied_text_3").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">make configuration=releasedist_linux</pre></div>		<h3>6) Done!</h3>
+		document.getElementById("copied_text_4").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_4").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_4()">Copy</button><div id="copied_text_4" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">make configuration=releasedist_linux</pre></div>		<h3>6) Done!</h3>
 		<p>&emsp;&emsp;The generated output is in <code>./build/[Windows|Linux]/ReleaseDist/bin/</code>. Enjoy PCIT!</p>
 		<h2>Next Steps</h2>
 		<p>Now that you have successfully built the PCIT Project software, maybe check out one of our <a href="/site/tutorials/tutorials.html">tutorials</a>.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
+		<p style="color: #878481;">Page Last Updated: 2025-07-11</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

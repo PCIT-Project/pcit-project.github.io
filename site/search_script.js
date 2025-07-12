@@ -156,6 +156,7 @@ const search_targets = [
 	new SearchTarget("Panther Programming Language", "/site/Panther.html", "Home page of the Panther programming language", ["panther","programming","language"], [0]),
 	new SearchTarget("Downloads", "/site/downloads.html", "Download the PCIT Project software", ["downloads"], [7]),
 	new SearchTarget("Building PCIT Project Software", "/site/build.html", "How to build the PCIT Project software", ["building","pcit","project","software"], [7]),
+	new SearchTarget("Building LLVM", "build.html#llvm", "", ["building","llvm"], [7]),
 	new SearchTarget("Documentation", "/site/documentation/documentation.html", "Documentation for the PCIT Project tools", ["documentation"], [4]),
 	new SearchTarget("Panther Documentation", "/site/documentation/panther/documentation.html", "Documentation for the Panther programming language", ["panther","documentation"], [0,4]),
 	new SearchTarget("Fluid Values", "/site/documentation/panther/fluid_values.html", "Documentation for fluid values in the Panther programming language", ["fluid","values"], [0,4]),

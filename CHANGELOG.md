@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.44.0"></a>
+## v0.0.44.0
+- Updated build information to changes in LLVM build, and added extra info
+
+
+<!---------------------------------->
 <a name="v0.0.43.0"></a>
 ## v0.0.43.0
 - Added the Interfaces page to Panther documentation

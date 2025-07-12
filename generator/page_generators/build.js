@@ -46,7 +46,7 @@ page.text("This has only been tested on Windows with Visual Studio 2022.");
 page.end_info();
 
 
-page.h2("Building LLVM");
+page.h2Searchable("Building LLVM", "llvm");
 page.text("At the moment, PCIT relies on LLVM, so we need to build LLVM first.");
 
 page.begin_warning();
@@ -62,10 +62,21 @@ page.h3("2) Get the scripts");
 page.paragraph(`There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A ${html.link("Windows version", "https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat")} (.bat) and a ${html.link("Unix version", "https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh")} (.sh) exist. Get the correct script for your machine, and put it in the directory you created in ${html.link("step 1", "/site/build.html#llvm_1")}.`);
 
 page.h3("3) Run");
-page.paragraph(`Run the script. This script will clone the ${html.link("PCIT fork of LLVM", "https://github.com/PCIT-Project/llvm-project")}, and compile it. This took my Windows computer 2+ hours to run and resulted in 88.6GB of storage space used (although only 9.3GB is needed to be kept). It is recommended to have at least 32GB of addressable memory.`);
+page.paragraph(`Run the script. The first argument should either be ${html.inline_code("Debug")} or ${html.inline_code("Release")}. Here's an example:`);
+
+page.code_block(Language.Terminal, "./build_llvm.windows.bat Release");
+
+page.paragraph(`This script will clone the ${html.link("PCIT fork of LLVM", "https://github.com/PCIT-Project/llvm-project")}, and compile it. If you would like to skip the cloning step (if you already cloned it into this directory), you can add the ${html.inline_code("--no-clone")} argument at the end.`);
+
+page.paragraph(`This results in 76.2GB of storage space used (although only 8.19GB is needed to be kept). It is recommended to have at least 24GB of addressable memory.`);
+
+page.begin_warning();
+page.h3("Warning!", "margin-top: 1em;");
+page.text(`The ${html.inline_code("Release")} build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway`);
+page.end_warning();
 
 page.h3Anchor("4) Finishing up", "llvm_4");
-page.paragraph(`Once the script has completed, you will see three directories within the one created in ${html.link("step 1", "/site/build.html#llvm_1")}: ${html.inline_code("build")}, ${html.inline_code("llvm-project")}, and ${html.inline_code("output")}. You may delete ${html.inline_code("build")} and ${html.inline_code("llvm-project")} if you wish, as they are not needed to build PCIT.`);
+page.paragraph(`Once the script has completed, you will see three directories within the one created in ${html.link("step 1", "/site/build.html#llvm_1")}: ${html.inline_code("build")}, ${html.inline_code("llvm-project")}, and ${html.inline_code("output")}. You may delete ${html.inline_code("build")} and ${html.inline_code("llvm-project")} if you wish, as they are not needed to build PCIT. In addition, you can delete ${html.inline_code("output/bin")}, ${html.inline_code("output/libexec")}, and ${html.inline_code("output/share")} as well (keep ${html.inline_code("output/include")} and ${html.inline_code("output/lib")}).`);
 
 
 	
