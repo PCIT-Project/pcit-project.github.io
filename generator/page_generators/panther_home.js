@@ -29,6 +29,7 @@ page.bullets([
 	"Safety features without forcing a programming-paradigm like Rust or Swift",
 	"Powerful generics without needing to be an expert",
 	"Manual memory management with high-quality allocators right out of the box",
+	"No hidden allocations",
 	"Allow as much compile-time computation as possible",
 ]);
 
@@ -48,62 +49,108 @@ page.bullets([
 ]);
 
 
-page.h2Anchor("Example:", "example");
-page.text("Here's a quick taste of the Panther programming language. All of the following currently compiles (as of " + page.pcit_cpp_version("v0.0.43.0") + "). If you want a peek at all currently supported features, maybe look at " + html.link("the change log", "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md") + ". Please keep in mind that any syntax may change in the future.");
+page.h2Anchor("Examples:", "examples");
+page.paragraph("Here are some examples to give a taste of the Panther programming language.");
 
 
-page.begin_info();
-page.h2("Note:", "margin-top: 0.8em;");
-page.text(`The following code snippet (and ${page.pcit_cpp_version("v0.0.43.0")}) are the old implementation of the Panther compiler. The new implementation does not not currently support all of the features shown below. In addition, changes may be made to the language (and already have), and are not necessarily reflected here. Once the new implementation has all the features shown below, the snippet will be updated.`);
-page.end_info();
-
-
-
+page.h3("Error Handling");
 page.code_block(Language.PANTHER,
-`// importing a file
-def some_file = @import("directory/file.pthr");
+`func divide = (lhs: Int, rhs: Int) -> Int <Void> {
+	if(rhs == 0){ error; }
 
-// function declaration (parameter \`num\` is implicitly \`read\`)
-// has the \`#runtime\` attribute which means it can only run at runtime
-func set_num = (num: UI8, num_to_change: UI8 mut) #runtime -> Void {
-	num_to_change = copy num;
+	return lhs / rhs;
 }
 
-// templated function
-// has the \`#pub\` attribute to make it visible to outside files that import this file
-// doesn't have the \`#runtime\` attribute which means it can run at runtime
-func just_return_num = <{T: Type}> (num: T) #pub -> T {
-	func sub_func = (sub_num: T) -> T {
-		return (copy sub_num);
-	}
 
-	return sub_func(num);
-}
+func entry = () #entry -> UI8 {
+	const division_result: Int = try divide(12, 0) else 0;
 
-// entry function (notice the name doesn't matter, but it has the attribute \`#entry\`)
-func asdf = () #entry -> UI8 {
-	func get_compile_time_value = () -> Bool {
-		return true;
-	}
-	def COMPILE_TIME_VALUE: Bool = get_compile_time_value();
-	when(COMPILE_TIME_VALUE){ // compile time conditional (doesn't enter a new scope)
-		var foo = just_return_num<{UI8}>(some_file.get_UI8_12()); // variable declaration with type inference
-	}else{
-		var foo: UI8 = 14; // variable declaration with explicit type
-	}
-
-
-	func get_type_id_of_UI8 = () -> TypeID {
-		// intrinsic function call
-		return @getTypeID<{UI8}>();
-	}
-
-	var bar: Type(get_type_id_of_UI8()) = uninit; // create an uninitialized local variable
-	bar = 0; // initialize the local variable through assignment
-	set_num(foo, bar);
-
-	return (move bar); // should return 12
+	return division_result as UI8;
 }`);
+
+
+
+page.h3("Interfaces");
+page.code_block(Language.PANTHER,
+`// Create Interface
+interface Shape = {
+	func area = (this) -> F32;
+	func num_sides = () -> UInt { return 0;	} // method with default
+}
+
+
+// Create a struct
+type Quad = struct {
+	var width: F32;
+	var height: F32;
+
+	// create a method
+	func area = (this) -> F32 {
+		return this.width * this.height;
+	}
+
+	func num_sides = () -> UInt { return 4; }
+
+
+	// implementation of Shape for Quad
+	impl Shape{
+		num_sides = num_sides,
+		area      = area,
+	}
+}
+
+
+type Circle = struct {
+	var radius: F32;
+
+
+	func get_area = (this) -> F32 {
+		return 3.14 * this.radius * this.radius;
+	}
+
+	func get_num_sides = () -> UInt { return 0; }
+
+
+	// Implementation of Shape for Circle
+	impl Shape{
+		num_sides = get_num_sides, // method names don't have to be the same
+		// using default for Shape.area
+	}
+}
+
+
+
+// this function becomes a template on the shape passed to it
+func get_shape_num_sides = (shape: Shape) -> UInt {
+	return shape.num_sides();
+}
+
+
+// runtime polymorphism
+// \`shape\` is a struct of a pointer to the specific shape and a pointer to a \`vtable\`
+func get_shape_area = (shape: Shape*) -> UInt {
+	return shape.area();
+}
+
+
+
+func entry = () #entry -> UI8 {
+	const quad = new Quad{
+		width  = 1.0,
+		height = 2.0,
+	};
+
+	const circle = new Circle{
+		radius = 2.0,
+	};
+
+	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
+
+	const area_of_circle: F32 = get_shape_area(&circle as Shape*);
+	
+	return 0;
+}`);
+
 
 
 page.h2("Learn More");

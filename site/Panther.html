@@ -75,6 +75,7 @@
 			<li>Safety features without forcing a programming-paradigm like Rust or Swift</li>
 			<li>Powerful generics without needing to be an expert</li>
 			<li>Manual memory management with high-quality allocators right out of the box</li>
+			<li>No hidden allocations</li>
 			<li>Allow as much compile-time computation as possible</li>
 		</ul>
 		<h2>Versatile usage</h2>
@@ -90,57 +91,128 @@
 			<li>Build system for Panther <span style="font-style: italic;">in</span> Panther</li>
 			<li>Fast compile times - hopefully allowing for building of the entire project, every compile</li>
 		</ul>
-<h2 id="example">Example:</h2>		<p>Here's a quick taste of the Panther programming language. All of the following currently compiles (as of <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0">v0.0.43.0</a></code>). If you want a peek at all currently supported features, maybe look at <a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md">the change log</a>. Please keep in mind that any syntax may change in the future.</p>
-<div class="info">		<h2 style="margin-top: 0.8em;">Note:</h2>
-		<p>The following code snippet (and <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.43.0">v0.0.43.0</a></code>) are the old implementation of the Panther compiler. The new implementation does not not currently support all of the features shown below. In addition, changes may be made to the language (and already have), and are not necessarily reflected here. Once the new implementation has all the features shown below, the snippet will be updated.</p>
-</div><script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// importing a file
-def some_file = @import("directory/file.pthr");
+<h2 id="examples">Examples:</h2>		<p>&emsp;&emsp;Here are some examples to give a taste of the Panther programming language.</p>
+		<h3>Error Handling</h3>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`func divide = (lhs: Int, rhs: Int) -> Int <Void> {
+	if(rhs == 0){ error; }
 
-// function declaration (parameter \'num\' is implicitly \'read\')
-// has the \'#runtime\' attribute which means it can only run at runtime
-func set_num = (num: UI8, num_to_change: UI8 mut) #runtime -> Void {
-	num_to_change = copy num;
+	return lhs / rhs;
 }
 
-// templated function
-// has the \'#pub\' attribute to make it visible to outside files that import this file
-// doesn't have the \'#runtime\' attribute which means it can run at runtime
-func just_return_num = <{T: Type}> (num: T) #pub -> T {
-	func sub_func = (sub_num: T) -> T {
-		return (copy sub_num);
-	}
 
-	return sub_func(num);
-}
+func entry = () #entry -> UI8 {
+	const division_result: Int = try divide(12, 0) else 0;
 
-// entry function (notice the name doesn't matter, but it has the attribute \'#entry\')
-func asdf = () #entry -> UI8 {
-	func get_compile_time_value = () -> Bool {
-		return true;
-	}
-	def COMPILE_TIME_VALUE: Bool = get_compile_time_value();
-	when(COMPILE_TIME_VALUE){ // compile time conditional (doesn't enter a new scope)
-		var foo = just_return_num<{UI8}>(some_file.get_UI8_12()); // variable declaration with type inference
-	}else{
-		var foo: UI8 = 14; // variable declaration with explicit type
-	}
-
-
-	func get_type_id_of_UI8 = () -> TypeID {
-		// intrinsic function call
-		return @getTypeID<{UI8}>();
-	}
-
-	var bar: Type(get_type_id_of_UI8()) = uninit; // create an uninitialized local variable
-	bar = 0; // initialize the local variable through assignment
-	set_num(foo, bar);
-
-	return (move bar); // should return 12
+	return division_result as UI8;
 }`);
 
 		document.getElementById("copied_text_0").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
 		}</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</div><div class="code-src"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">divide</span> <span class="code-red">=</span> (lhs<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span>, rhs<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">&lt;</span><span class="code-cyan" style="font-style: italic;">Void</span><span class="code-red">&gt;</span> {
+	<span class="code-red">if</span>(rhs <span class="code-red">=</span><span class="code-red">=</span> <span class="code-purple">0</span>){ <span class="code-red">error</span>; }
+
+	<span class="code-red">return</span> lhs <span class="code-red">/</span> rhs;
+}
+
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">entry</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
+	<span class="code-cyan" style="font-style: italic;">const</span> division_result<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-red">try</span> <span class="code-cyan">divide</span>(<span class="code-purple">12</span>, <span class="code-purple">0</span>) <span class="code-red">else</span> <span class="code-purple">0</span>;
+
+	<span class="code-red">return</span> division_result <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>;
+}</div></pre></div>		<h3>Interfaces</h3>
+<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`// Create Interface
+interface Shape = {
+	func area = (this) -> F32;
+	func num_sides = () -> UInt { return 0;	} // method with default
+}
+
+
+// Create a struct
+type Quad = struct {
+	var width: F32;
+	var height: F32;
+
+	// create a method
+	func area = (this) -> F32 {
+		return this.width * this.height;
+	}
+
+	func num_sides = () -> UInt { return 4; }
+
+
+	// implementation of Shape for Quad
+	impl Shape{
+		num_sides = num_sides,
+		area      = area,
+	}
+}
+
+
+type Circle = struct {
+	var radius: F32;
+
+
+	func get_area = (this) -> F32 {
+		return 3.14 * this.radius * this.radius;
+	}
+
+	func get_num_sides = () -> UInt { return 0; }
+
+
+	// Implementation of Shape for Circle
+	impl Shape{
+		num_sides = get_num_sides, // method names don't have to be the same
+		// using default for Shape.area
+	}
+}
+
+
+
+// this function becomes a template on the shape passed to it
+func get_shape_num_sides = (shape: Shape) -> UInt {
+	return shape.num_sides();
+}
+
+
+// runtime polymorphism
+// \'shape\' is a struct of a pointer to the specific shape and a pointer to a \'vtable\'
+func get_shape_area = (shape: Shape*) -> UInt {
+	return shape.area();
+}
+
+
+
+func entry = () #entry -> UI8 {
+	const quad = new Quad{
+		width  = 1.0,
+		height = 2.0,
+	};
+
+	const circle = new Circle{
+		radius = 2.0,
+	};
+
+	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
+
+	const area_of_circle: F32 = get_shape_area(&circle as Shape*);
+	
+	return 0;
+}`);
+
+		document.getElementById("copied_text_1").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_1").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #06b6d4;">Panther<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div>		<pre class="code code-with-lines"><div class="code-lines"> 1
  2
  3
  4
@@ -183,55 +255,123 @@ func asdf = () #entry -> UI8 {
 41
 42
 43
-44</div><div class="code-src"><span class="code-gray">// importing a file</span>
-<span class="code-cyan" style="font-style: italic;">def</span> some_file <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"directory/file.pthr"</span>);
-
-<span class="code-gray">// function declaration (parameter `num` is implicitly `read`)</span>
-<span class="code-gray">// has the `#runtime` attribute which means it can only run at runtime</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">set_num</span> <span class="code-red">=</span> (num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span>, num_to_change<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">mut</span>) <span class="code-red">#runtime</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span> {
-	num_to_change <span class="code-red">=</span> <span class="code-red">copy</span> num;
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</div><div class="code-src"><span class="code-gray">// Create Interface</span>
+<span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">Shape</span> <span class="code-red">=</span> {
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">0</span>;	} <span class="code-gray">// method with default</span>
 }
 
-<span class="code-gray">// templated function</span>
-<span class="code-gray">// has the `#pub` attribute to make it visible to outside files that import this file</span>
-<span class="code-gray">// doesn't have the `#runtime` attribute which means it can run at runtime</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">just_return_num</span> <span class="code-red">=</span> &lt;{T<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>}&gt; (num<span class="code-red">:</span> T) <span class="code-red">#pub</span> <span class="code-red">-</span><span class="code-red">&gt;</span> T {
-	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">sub_func</span> <span class="code-red">=</span> (sub_num<span class="code-red">:</span> T) <span class="code-red">-</span><span class="code-red">&gt;</span> T {
-		<span class="code-red">return</span> (<span class="code-red">copy</span> sub_num);
+
+<span class="code-gray">// Create a struct</span>
+<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Quad</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> width<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> height<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+
+	<span class="code-gray">// create a method</span>
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
+		<span class="code-red">return</span> <span class="code-orange">this</span>.width <span class="code-red">*</span> <span class="code-orange">this</span>.height;
 	}
 
-	<span class="code-red">return</span> <span class="code-cyan">sub_func</span>(num);
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">4</span>; }
+
+
+	<span class="code-gray">// implementation of Shape for Quad</span>
+	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
+		num_sides <span class="code-red">=</span> num_sides,
+		area      <span class="code-red">=</span> area,
+	}
 }
 
-<span class="code-gray">// entry function (notice the name doesn't matter, but it has the attribute `#entry`)</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">asdf</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
-	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_compile_time_value</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span> {
-		<span class="code-red">return</span> <span class="code-purple">true</span>;
-	}
-	<span class="code-cyan" style="font-style: italic;">def</span> COMPILE_TIME_VALUE<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-cyan">get_compile_time_value</span>();
-	<span class="code-red">when</span>(COMPILE_TIME_VALUE){ <span class="code-gray">// compile time conditional (doesn't enter a new scope)</span>
-		<span class="code-cyan" style="font-style: italic;">var</span> foo <span class="code-red">=</span> just_return_num&lt;{<span class="code-cyan" style="font-style: italic;">UI8</span>}&gt;(some_file.<span class="code-cyan">get_UI8_12</span>()); <span class="code-gray">// variable declaration with type inference</span>
-	}<span class="code-red">else</span>{
-		<span class="code-cyan" style="font-style: italic;">var</span> foo<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> <span class="code-purple">14</span>; <span class="code-gray">// variable declaration with explicit type</span>
+
+<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Circle</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> radius<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
+
+
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
+		<span class="code-red">return</span> <span class="code-purple">3.14</span> <span class="code-red">*</span> <span class="code-orange">this</span>.radius <span class="code-red">*</span> <span class="code-orange">this</span>.radius;
 	}
 
+	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">0</span>; }
 
-	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_type_id_of_UI8</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">TypeID</span> {
-		<span class="code-gray">// intrinsic function call</span>
-		<span class="code-red">return</span> <span class="code-red">@getTypeID</span>&lt;{<span class="code-cyan" style="font-style: italic;">UI8</span>}&gt;();
+
+	<span class="code-gray">// Implementation of Shape for Circle</span>
+	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
+		num_sides <span class="code-red">=</span> get_num_sides, <span class="code-gray">// method names don't have to be the same</span>
+		<span class="code-gray">// using default for Shape.area</span>
 	}
+}
 
-	<span class="code-cyan" style="font-style: italic;">var</span> bar<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>(<span class="code-cyan">get_type_id_of_UI8</span>()) <span class="code-red">=</span> <span class="code-purple">uninit</span>; <span class="code-gray">// create an uninitialized local variable</span>
-	bar <span class="code-red">=</span> <span class="code-purple">0</span>; <span class="code-gray">// initialize the local variable through assignment</span>
-	<span class="code-cyan">set_num</span>(foo, bar);
 
-	<span class="code-red">return</span> (<span class="code-red">move</span> bar); <span class="code-gray">// should return 12</span>
+
+<span class="code-gray">// this function becomes a template on the shape passed to it</span>
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_num_sides</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Shape) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
+	<span class="code-red">return</span> shape.<span class="code-cyan">num_sides</span>();
+}
+
+
+<span class="code-gray">// runtime polymorphism</span>
+<span class="code-gray">// `shape` is a struct of a pointer to the specific shape and a pointer to a `vtable`</span>
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_area</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Shape<span class="code-red">*</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
+	<span class="code-red">return</span> shape.<span class="code-cyan">area</span>();
+}
+
+
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">entry</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
+	<span class="code-cyan" style="font-style: italic;">const</span> quad <span class="code-red">=</span> <span class="code-red">new</span> Quad{
+		width  <span class="code-red">=</span> <span class="code-purple">1.0</span>,
+		height <span class="code-red">=</span> <span class="code-purple">2.0</span>,
+	};
+
+	<span class="code-cyan" style="font-style: italic;">const</span> circle <span class="code-red">=</span> <span class="code-red">new</span> Circle{
+		radius <span class="code-red">=</span> <span class="code-purple">2.0</span>,
+	};
+
+	<span class="code-cyan" style="font-style: italic;">const</span> num_sides_of_quad<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UInt</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_num_sides</span>(quad);
+
+	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(<span class="code-red">&</span>circle <span class="code-red">as</span> Shape<span class="code-red">*</span>);
+	
+	<span class="code-red">return</span> <span class="code-purple">0</span>;
 }</div></pre></div>		<h2>Learn More</h2>
 		<p>Interested in learning more? Check out the <a href="/site/tutorials/panther/tutorial.html">Panther tutorial</a>.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-22</p>
+		<p style="color: #878481;">Page Last Updated: 2025-07-13</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

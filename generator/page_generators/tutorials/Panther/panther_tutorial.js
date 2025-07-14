@@ -25,7 +25,7 @@ let page = new Page(__filename, {
 
 page.text("Coming Soon...", "font-style: italic;");
 
-page.text("For now, maybe look at " + html.link("this code example", "/site/Panther.html#example") + " or " + html.link("the Panther documentation", "/site/documentation/panther/documentation.html") + ".");
+page.text("For now, maybe look at " + html.link("these code example", "/site/Panther.html#examples") + " or " + html.link("the Panther documentation", "/site/documentation/panther/documentation.html") + ".");
 
 
 page.generate();

@@ -73,6 +73,39 @@ type Circle = struct {
 		num_sides = get_num_sides, // method names don't have to be the same
 		// using default for Shape.area
 	}
+}
+
+
+
+// this function becomes a template on the shape passed to it
+func get_shape_num_sides = (shape: Shape) -> UInt {
+	return shape.num_sides();
+}
+
+
+// runtime polymorphism
+// \`shape\` is a struct of a pointer to the specific shape and a pointer to a \`vtable\`
+func get_shape_area = (shape: Shape*) -> UInt {
+	return shape.area();
+}
+
+
+
+func entry = () #entry -> UI8 {
+	const quad = new Quad{
+		width  = 1.0,
+		height = 2.0,
+	};
+
+	const circle = new Circle{
+		radius = 2.0,
+	};
+
+	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
+
+	const area_of_circle: F32 = get_shape_area(&circle as Shape*);
+	
+	return 0;
 }`);
 
 

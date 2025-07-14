@@ -137,7 +137,7 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "return": case "error": case "unreachable": {
+				case "return": case "error": case "unreachable": case "break": case "continue": case "new": {
 					output += `<span class="code-red">${identifier}</span>`;
 				} break;
 

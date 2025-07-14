@@ -139,6 +139,39 @@ type Circle = struct {
 		num_sides = get_num_sides, // method names don't have to be the same
 		// using default for Shape.area
 	}
+}
+
+
+
+// this function becomes a template on the shape passed to it
+func get_shape_num_sides = (shape: Shape) -> UInt {
+	return shape.num_sides();
+}
+
+
+// runtime polymorphism
+// \'shape\' is a struct of a pointer to the specific shape and a pointer to a \'vtable\'
+func get_shape_area = (shape: Shape*) -> UInt {
+	return shape.area();
+}
+
+
+
+func entry = () #entry -> UI8 {
+	const quad = new Quad{
+		width  = 1.0,
+		height = 2.0,
+	};
+
+	const circle = new Circle{
+		radius = 2.0,
+	};
+
+	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
+
+	const area_of_circle: F32 = get_shape_area(&circle as Shape*);
+	
+	return 0;
 }`);
 
 		document.getElementById("copied_text_0").style.visibility = "visible";
@@ -186,7 +219,40 @@ type Circle = struct {
 41
 42
 43
-44</div><div class="code-src"><span class="code-gray">// Create Interface</span>
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</div><div class="code-src"><span class="code-gray">// Create Interface</span>
 <span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">Shape</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">0</span>;	} <span class="code-gray">// method with default</span>
@@ -229,10 +295,43 @@ type Circle = struct {
 		num_sides <span class="code-red">=</span> get_num_sides, <span class="code-gray">// method names don't have to be the same</span>
 		<span class="code-gray">// using default for Shape.area</span>
 	}
+}
+
+
+
+<span class="code-gray">// this function becomes a template on the shape passed to it</span>
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_num_sides</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Shape) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
+	<span class="code-red">return</span> shape.<span class="code-cyan">num_sides</span>();
+}
+
+
+<span class="code-gray">// runtime polymorphism</span>
+<span class="code-gray">// `shape` is a struct of a pointer to the specific shape and a pointer to a `vtable`</span>
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_area</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Shape<span class="code-red">*</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
+	<span class="code-red">return</span> shape.<span class="code-cyan">area</span>();
+}
+
+
+
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">entry</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
+	<span class="code-cyan" style="font-style: italic;">const</span> quad <span class="code-red">=</span> <span class="code-red">new</span> Quad{
+		width  <span class="code-red">=</span> <span class="code-purple">1.0</span>,
+		height <span class="code-red">=</span> <span class="code-purple">2.0</span>,
+	};
+
+	<span class="code-cyan" style="font-style: italic;">const</span> circle <span class="code-red">=</span> <span class="code-red">new</span> Circle{
+		radius <span class="code-red">=</span> <span class="code-purple">2.0</span>,
+	};
+
+	<span class="code-cyan" style="font-style: italic;">const</span> num_sides_of_quad<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UInt</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_num_sides</span>(quad);
+
+	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(<span class="code-red">&</span>circle <span class="code-red">as</span> Shape<span class="code-red">*</span>);
+	
+	<span class="code-red">return</span> <span class="code-purple">0</span>;
 }</div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-28</p>
+		<p style="color: #878481;">Page Last Updated: 2025-07-13</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

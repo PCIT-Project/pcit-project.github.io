@@ -97,7 +97,7 @@
 		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">./build_llvm.windows.bat Release</pre></div>		<p>&emsp;&emsp;This script will clone the <a href="https://github.com/PCIT-Project/llvm-project">PCIT fork of LLVM</a>, and compile it. If you would like to skip the cloning step (if you already cloned it into this directory), you can add the <code>--no-clone</code> argument at the end.</p>
 		<p>&emsp;&emsp;This results in 76.2GB of storage space used (although only 8.19GB is needed to be kept). It is recommended to have at least 24GB of addressable memory.</p>
 <div class="warning">		<h3 style="margin-top: 1em;">Warning!</h3>
-		<p>The <code>Release</code> build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway</p>
+		<p>The <code>Release</code> build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway. The PCIT build system accounts for this to allow for release builds of PCIT to still work.</p>
 </div><h3 id="llvm_4">4) Finishing up</h3>		<p>&emsp;&emsp;Once the script has completed, you will see three directories within the one created in <a href="/site/build.html#llvm_1">step 1</a>: <code>build</code>, <code>llvm-project</code>, and <code>output</code>. You may delete <code>build</code> and <code>llvm-project</code> if you wish, as they are not needed to build PCIT. In addition, you can delete <code>output/bin</code>, <code>output/libexec</code>, and <code>output/share</code> as well (keep <code>output/include</code> and <code>output/lib</code>).</p>
 		<h2>Building PCIT-CPP</h2>
 		<p>Now that we have build LLVM, we can build PCIT.</p>
@@ -144,7 +144,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-07-11</p>
+		<p style="color: #878481;">Page Last Updated: 2025-07-13</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

@@ -72,7 +72,7 @@ page.paragraph(`This results in 76.2GB of storage space used (although only 8.19
 
 page.begin_warning();
 page.h3("Warning!", "margin-top: 1em;");
-page.text(`The ${html.inline_code("Release")} build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway`);
+page.text(`The ${html.inline_code("Release")} build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway. The PCIT build system accounts for this to allow for release builds of PCIT to still work.`);
 page.end_warning();
 
 page.h3Anchor("4) Finishing up", "llvm_4");

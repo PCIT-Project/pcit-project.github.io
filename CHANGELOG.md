@@ -1,8 +1,20 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.45.0"></a>
+## v0.0.45.0
+- Added new and improved examples on the Panther Programming Lanugage page
+- Added "No hidden allocations" to Panther Programming Lanugage page
+- Added syntax highlighting for keywords in Panther
+	- `break`
+	- `continue`
+	- `new`
+
+
+<!---------------------------------->
 <a name="v0.0.44.0"></a>
 ## v0.0.44.0
+- Added "Building LLVM" to search
 - Updated build information to changes in LLVM build, and added extra info
 
 
