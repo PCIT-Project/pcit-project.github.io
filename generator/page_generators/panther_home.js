@@ -21,7 +21,7 @@ let page = new Page(__filename, {
 	has_categories_in_title : false,
 });
 
-page.text("Statically typed, high-performance, general-purpose programming language. Panther is an alternative to programming languages like C++, Rust, and Zig.");
+page.text("Statically typed, high-performance, systems programming language. Panther is an alternative to programming languages like C++, Rust, and Zig.");
 
 page.h2("Help programmers write good/fast code, without getting in the way");
 page.bullets([

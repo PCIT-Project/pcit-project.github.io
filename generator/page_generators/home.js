@@ -15,7 +15,7 @@ let page = new Page(__filename, {
 	path          : "../index.html",
 	title         : "Home",
 	on_page_title : "What is PCIT Project?",
-	description   : "The PCIT Project is \"Panther Compiler Infrastructure and Toolchain\", and the home of the Panther programming language",
+	description   : "The PCIT Project is 'Panther Compiler Infrastructure and Toolchain', and the home of the Panther programming language",
 });
 
 page.text(`The PCIT Project is "Panther Compiler Infrastructure and Toolchain", and the home of the Panther programming language. PCIT (pronounced "P-Kit") relies on the ${html.link("LLVM Project", "https://github.com/llvm/llvm-project")}, but the goal is to eventually be self-reliant. It is written entirely in C++, but a self-hosted version (written entirely in Panther) is planned.`);
@@ -33,7 +33,7 @@ page.end_info();
 page.h2("Tools");
 
 page.h3("Panther / pthr");
-page.text(`Statically typed, high-performance, general-purpose programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. You can see more on the ${html.link("Panther home page", "/site/Panther.html")}.`);
+page.text(`Statically typed, high-performance, systems programming language. Designed to help programmers write good/fast code that, without getting in the way. Seamless interoperability with C and (hopefully) C++. All this while being enjoyable to use. You can see more on the ${html.link("Panther home page", "/site/Panther.html")}.`);
 
 page.h3("PIR");
 page.text(`Pronounced "P I R". Compiler IR and SSA-based optimizing back-end. For more information, check out the ${html.link("PIR documentation", "/site/documentation/PIR/documentation.html")}.`);

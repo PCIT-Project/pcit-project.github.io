@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.46.0"></a>
+## v0.0.46.0
+- Updated pages saying that Panther is a systems programming language (from a general purpose programming language)
+
+
+<!---------------------------------->
 <a name="v0.0.45.0"></a>
 ## v0.0.45.0
 - Added new and improved examples on the Panther Programming Lanugage page
