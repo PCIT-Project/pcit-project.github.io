@@ -29,11 +29,11 @@ let page = new Page(__filename, {
 
 page.h2Searchable("@eq", "eq");
 page.text(page.inline_code_block(Language.PANTHER, "func @eq = <{T: Type}> (lhs: T, rhs: T) -> Bool;"));
-page.text(`Calcualte equality. ${html.inline_code("T")} must be ${terms.get("primitive")} or a ${terms.get("vector")} or ${terms.get("primitive")}.`);
+page.text(`Calcualte equality. ${html.inline_code("T")} must be ${terms.get("primitive")}, ${terms.get("vector")} or ${terms.get("primitive")}, or ${terms.get("pointer")}.`);
 
 page.h2Searchable("@neq", "neq");
 page.text(page.inline_code_block(Language.PANTHER, "func @neq = <{T: Type}> (lhs: T, rhs: T) -> Bool;"));
-page.text(`Calcualte non-equality. ${html.inline_code("T")} must be ${terms.get("primitive")} or a ${terms.get("vector")} or ${terms.get("primitive")}.`);
+page.text(`Calcualte non-equality. ${html.inline_code("T")} must be ${terms.get("primitive")}, ${terms.get("vector")} or ${terms.get("primitive")}, or ${terms.get("pointer")}.`);
 
 page.h2Searchable("@lt", "lt");
 page.text(page.inline_code_block(Language.PANTHER, "func @lt = <{T: Type}> (lhs: T, rhs: T) -> Bool;"));

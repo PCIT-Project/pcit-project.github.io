@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.47.0"></a>
+## v0.0.47.0
+- Added to `@eq` and `@neq` of Panther documentation that it supports pointers
+
+
+<!---------------------------------->
 <a name="v0.0.46.0"></a>
 ## v0.0.46.0
 - Updated pages saying that Panther is a systems programming language (from a general purpose programming language)
