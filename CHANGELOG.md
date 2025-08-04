@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.48.0"></a>
+## v0.0.48.0
+- Made changes to documentation to `in` parameters to reflect changes
+- Made changes to names of various terms
+
+
+<!---------------------------------->
 <a name="v0.0.47.0"></a>
 ## v0.0.47.0
 - Added to `@eq` and `@neq` of Panther documentation that it supports pointers

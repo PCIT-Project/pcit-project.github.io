@@ -103,7 +103,7 @@
 			<li><code><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></code></li>
 			<li>template parameters</li>
 		</ul>
-<h2 id="concrete">Concrete Value Category</h2>		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code> or a <code>operator move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#concrete_forwardable">concrete-forwardable</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
+<h2 id="concrete">Concrete Value Category</h2>		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code> or a <code>operator move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#forwardable">forwardable</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
 <h3 id="concrete_mutable">Concrete-Mutable Value Category</h3>		<p>Concrete-mutable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and mutable.</p>
 		<p>The following are concrete-mutable expressions:</p>
 		<ul>
@@ -113,8 +113,8 @@
 			<li><code>unwrap</code> of a non-const <code>optional</code></li>
 			<li><code>accessor</code> of a concrete-mutable value</li>
 		</ul>
-<h3 id="concrete_forwardable">Concrete-Forwardable Value Category</h3>		<p>Concrete-forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and mutable. Concrete-forwardable is the only value category that is allowed to be argument of an <code>operator forward</code>.</p>
-		<p>The following are concrete-forwardable expressions:</p>
+<h3 id="forwardable">Forwardable Value Category</h3>		<p>forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and non-mutable other than by <code>operator forward</code>. Forwardable is the only value category that is allowed to be argument of an <code>operator forward</code>.</p>
+		<p>The following are forwardable expressions:</p>
 		<ul>
 			<li><code><a href="/site/documentation/panther/functions.html#parameters">in parameters</a></code></li>
 		</ul>
@@ -129,7 +129,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
+		<p style="color: #878481;">Page Last Updated: 2025-08-03</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

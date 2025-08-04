@@ -62,13 +62,13 @@ page.paragraph(`Parameters are references values. The value the parameter refere
 page.paragraph(`All parameters have a qualifier. If a parameter does not have an explicit qualifier (syntaxes 1 and 3), then they are defaulted to the ${page.inline_code_block(Language.PANTHER, "read")} qualifier.`);
 
 page.h3Searchable("Read Parameter Qualifier", "read");
-page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "read")} parameter qualifier means that the parameter is read-only. They have a value category of ${"concrete-const"}. If the parameter type ${terms.get("trivially-sized")}, ${terms.get("trivially-copyable")}, and ${terms.get("trivially-destroyable")}, the ABI guarantees that the parameter passing will be by copy (instead of by pointer).`);
+page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "read")} parameter qualifier means that the parameter is read-only. They have a value category of ${"concrete-const"}. If the parameter type ${terms.get("trivially-sized")}, ${terms.get("trivially-copyable")}, and ${terms.get("trivially-deinitable")}, the ABI guarantees that the parameter passing will be by copy (instead of by pointer).`);
 
 page.h3Searchable("Mut Parameter Qualifier", "mut");
 page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "mut")} parameter qualifier means that the parameter is mutable. If the parameter is not a ${page.inline_code_block(Language.PANTHER, "this")} parameter, it can only accept ${terms.get("concrete")} values. They have a value category of ${terms.get("concrete-mutable")}.`);
 
 page.h3Searchable("In Parameter Qualifier", "in");
-page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "in")} parameter qualifier means that the parameter is mutable. They can only accept ${terms.get("ephemeral")} values. They have a value category of ${"concrete-forwardable"}.`);
+page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "in")} parameter qualifier means that the parameter is non-mutable other than by ${terms.get("operator forward")}. They can only accept ${terms.get("ephemeral")} values. They have a value category of ${terms.get("forwardable")}.`);
 
 page.h4("ABI note:");
 page.paragraph(`In general, ${page.inline_code_block(Language.PANTHER, "in")} parameters is passed by pointer. This means that if the argument given is a copy or a move, the copy or move is not actually done at the call-site, rather it is done at a ${terms.get("operator forward assignment")}. This allows for what is known as perfect forwarding - a pointer can be passed through from function to function through ${terms.get("operator forward")} and the copy or move operation is only made once actually necessary. If the value is ${terms.get("trivially-copyable")} or ${terms.get("trivially-moveable")} for a copy or move respectively, and it is ${terms.get("trivially-sized")}, the copy or move is made at the site of any forward.`);

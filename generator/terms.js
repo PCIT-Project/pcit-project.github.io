@@ -47,7 +47,7 @@ term("uninitialized", "/site/documentation/panther/uninitialized.html");
 term("ephemeral", "/site/documentation/panther/value_categories.html#ephemeral");
 term("concrete", "/site/documentation/panther/value_categories.html#concrete");
 term("concrete-mutable", "/site/documentation/panther/value_categories.html#concrete_mutable");
-term("concrete-forwardable", "/site/documentation/panther/value_categories.html#concrete_forwardable");
+term("forwardable", "/site/documentation/panther/value_categories.html#forwardable");
 term("concrete-const", "/site/documentation/panther/value_categories.html#concrete_const");
 
 term("literal", "/site/documentation/panther/literals.html");
@@ -78,9 +78,13 @@ term("operator forward");
 term("operator forward assignment");
 
 term("trivially-sized");
+term("default-initable");
+term("trivially-default-initable");
+term("trivially-deinitable");
 term("trivially-copyable");
+term("copyable");
 term("trivially-moveable");
-term("trivially-destroyable");
+term("moveable");
 
 term("operator as");
 

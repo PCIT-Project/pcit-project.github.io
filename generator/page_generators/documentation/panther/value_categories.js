@@ -38,7 +38,7 @@ page.bullets([
 
 
 page.h2Searchable("Concrete Value Category", "concrete");
-page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an ${terms.get("operator copy")} or a ${terms.get("operator move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("concrete-forwardable")}, and ${terms.get("concrete-const")}.`);
+page.text(`Concrete values are similar to ${terms.get("lvalue")} values. Concrete values are any value that have storage. An important difference between concrete values ${terms.get("lvalue")} values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an ${terms.get("operator copy")} or a ${terms.get("operator move")}. There are three subcategories of concrete values: ${terms.get("concrete-mutable")}, ${terms.get("forwardable")}, and ${terms.get("concrete-const")}.`);
 
 
 page.h3Searchable("Concrete-Mutable Value Category", "concrete_mutable");
@@ -54,9 +54,9 @@ page.bullets([
 
 
 
-page.h3Searchable("Concrete-Forwardable Value Category", "concrete_forwardable");
-page.text(`Concrete-forwardable values are values that are ${terms.get("concrete")}, and mutable. Concrete-forwardable is the only value category that is allowed to be argument of an ${terms.get("operator forward")}.`);
-page.text("The following are concrete-forwardable expressions:");
+page.h3Searchable("Forwardable Value Category", "forwardable");
+page.text(`forwardable values are values that are ${terms.get("concrete")}, and non-mutable other than by ${terms.get("operator forward")}. Forwardable is the only value category that is allowed to be argument of an ${terms.get("operator forward")}.`);
+page.text("The following are forwardable expressions:");
 page.bullets([
 	terms.get("in parameters"),
 ]);
