@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.49.0"></a>
+## v0.0.49.0
+
+### Panther Documentation
+- Added `@getTypeID`, `@arrayElementTypeID`, and `@arrayRefElementTypeID`
+- Updated `@numBytes` and `@numBits` to include name change and `INCLUDE_PADDING`
+- Updated interface code examples to reflect the change from interface pointers to polymorphic interface references
+
+
+<!---------------------------------->
 <a name="v0.0.48.0"></a>
 ## v0.0.48.0
 - Made changes to documentation to `in` parameters to reflect changes

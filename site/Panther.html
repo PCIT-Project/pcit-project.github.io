@@ -131,19 +131,17 @@ func entry = () #entry -> UI8 {
 
 	<span class="code-red">return</span> division_result <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>;
 }</div></pre></div>		<h3>Interfaces</h3>
-<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`// Create Interface
-interface Shape = {
+<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`interface Shape = #polymorphic {
 	func area = (this) -> F32;
 	func num_sides = () -> UInt { return 0;	} // method with default
 }
 
 
-// Create a struct
 type Quad = struct {
 	var width: F32;
 	var height: F32;
 
-	// create a method
+
 	func area = (this) -> F32 {
 		return this.width * this.height;
 	}
@@ -153,8 +151,8 @@ type Quad = struct {
 
 	// implementation of Shape for Quad
 	impl Shape{
-		num_sides = num_sides,
-		area      = area,
+		area      = area, // defining with an existing method
+		num_sides = () -> UInt { return 4; }, // defining with an inline method
 	}
 }
 
@@ -172,8 +170,8 @@ type Circle = struct {
 
 	// Implementation of Shape for Circle
 	impl Shape{
-		num_sides = get_num_sides, // method names don't have to be the same
-		// using default for Shape.area
+		area = get_area, // method names don't have to be the same
+		// using default for Shape.num_sides
 	}
 }
 
@@ -185,9 +183,9 @@ func get_shape_num_sides = (shape: Shape) -> UInt {
 }
 
 
-// runtime polymorphism
-// \'shape\' is a struct of a pointer to the specific shape and a pointer to a \'vtable\'
-func get_shape_area = (shape: Shape*) -> UInt {
+// runtime polymorphism (allowed becuase the interface has attribute \'#polymorphic\')
+// \'shape\' is a struct of a pointer to the shape object and a pointer to a vtable
+func get_shape_area = (shape: Shape^) -> F32 {
 	return shape.area();
 }
 
@@ -205,7 +203,7 @@ func entry = () #entry -> UI8 {
 
 	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
 
-	const area_of_circle: F32 = get_shape_area(&circle as Shape*);
+	const area_of_circle: F32 = get_shape_area(circle as Shape^);
 	
 	return 0;
 }`);
@@ -287,21 +285,17 @@ func entry = () #entry -> UI8 {
 73
 74
 75
-76
-77
-78</div><div class="code-src"><span class="code-gray">// Create Interface</span>
-<span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">Shape</span> <span class="code-red">=</span> {
+76</div><div class="code-src"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">Shape</span> <span class="code-red">=</span> <span class="code-red">#polymorphic</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">num_sides</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">0</span>;	} <span class="code-gray">// method with default</span>
 }
 
 
-<span class="code-gray">// Create a struct</span>
 <span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Quad</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> {
 	<span class="code-cyan" style="font-style: italic;">var</span> width<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
 	<span class="code-cyan" style="font-style: italic;">var</span> height<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span>;
 
-	<span class="code-gray">// create a method</span>
+
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">area</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
 		<span class="code-red">return</span> <span class="code-orange">this</span>.width <span class="code-red">*</span> <span class="code-orange">this</span>.height;
 	}
@@ -311,8 +305,8 @@ func entry = () #entry -> UI8 {
 
 	<span class="code-gray">// implementation of Shape for Quad</span>
 	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
-		num_sides <span class="code-red">=</span> num_sides,
-		area      <span class="code-red">=</span> area,
+		area      <span class="code-red">=</span> area, <span class="code-gray">// defining with an existing method</span>
+		num_sides <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">4</span>; }, <span class="code-gray">// defining with an inline method</span>
 	}
 }
 
@@ -330,8 +324,8 @@ func entry = () #entry -> UI8 {
 
 	<span class="code-gray">// Implementation of Shape for Circle</span>
 	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
-		num_sides <span class="code-red">=</span> get_num_sides, <span class="code-gray">// method names don't have to be the same</span>
-		<span class="code-gray">// using default for Shape.area</span>
+		area <span class="code-red">=</span> get_area, <span class="code-gray">// method names don't have to be the same</span>
+		<span class="code-gray">// using default for Shape.num_sides</span>
 	}
 }
 
@@ -343,9 +337,9 @@ func entry = () #entry -> UI8 {
 }
 
 
-<span class="code-gray">// runtime polymorphism</span>
-<span class="code-gray">// `shape` is a struct of a pointer to the specific shape and a pointer to a `vtable`</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_area</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Shape<span class="code-red">*</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
+<span class="code-gray">// runtime polymorphism (allowed becuase the interface has attribute `#polymorphic`)</span>
+<span class="code-gray">// `shape` is a struct of a pointer to the shape object and a pointer to a vtable</span>
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_area</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Shape<span class="code-red">^</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
 	<span class="code-red">return</span> shape.<span class="code-cyan">area</span>();
 }
 
@@ -363,7 +357,7 @@ func entry = () #entry -> UI8 {
 
 	<span class="code-cyan" style="font-style: italic;">const</span> num_sides_of_quad<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UInt</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_num_sides</span>(quad);
 
-	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(<span class="code-red">&</span>circle <span class="code-red">as</span> Shape<span class="code-red">*</span>);
+	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(circle <span class="code-red">as</span> Shape<span class="code-red">^</span>);
 	
 	<span class="code-red">return</span> <span class="code-purple">0</span>;
 }</div></pre></div>		<h2>Learn More</h2>
@@ -371,7 +365,7 @@ func entry = () #entry -> UI8 {
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-07-30</p>
+		<p style="color: #878481;">Page Last Updated: 2025-11-25</p>
 		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

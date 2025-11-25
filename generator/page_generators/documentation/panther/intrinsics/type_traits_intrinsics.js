@@ -27,13 +27,27 @@ let page = new Page(__filename, {
 });
 
 
-page.h2Searchable("@bitWidth", "bitWidth");
-page.text(page.inline_code_block(Language.PANTHER, "func @bitWidth = <{T: Type}> () -> USize;"));
-page.text(`Get the bitwidth of type ${html.inline_code("T")}. ${html.inline_code("T")} must be ${terms.get("integral")}.`);
 
-page.h2Searchable("@sizeOf", "sizeOf");
-page.text(page.inline_code_block(Language.PANTHER, "func @sizeOf = <{T: Type}> () -> USize;"));
-page.text(`Get the size of type ${html.inline_code("T")}. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
+page.h2Searchable("@getTypeID", "getTypeID");
+page.text(page.inline_code_block(Language.PANTHER, "func @getTypeID = <{T: Type}> () -> TypeID;"));
+page.text(`Get the TypeID of type ${html.inline_code("T")}. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
+
+page.h2Searchable("@arrayElementTypeID", "arrayElementTypeID");
+page.text(page.inline_code_block(Language.PANTHER, "func @arrayElementTypeID = <{T: Type}> () -> TypeID;"));
+page.text(`Get the TypeID of the elements of an ${terms.get("array")} type ${html.inline_code("T")}. ${html.inline_code("T")} must be an ${terms.get("array")} type.`);
+
+page.h2Searchable("@arrayRefElementTypeID", "arrayRefElementTypeID");
+page.text(page.inline_code_block(Language.PANTHER, "func @arrayRefElementTypeID = <{T: Type}> () -> TypeID;"));
+page.text(`Get the TypeID of the elements of an ${terms.get("array reference")} type ${html.inline_code("T")}. ${html.inline_code("T")} must be an ${terms.get("array reference")} type.`);
+
+
+page.h2Searchable("@numBytes", "numBytes");
+page.text(page.inline_code_block(Language.PANTHER, "func @numBytes = <{T: Type, INCLUDE_PADDING: Bool}> () -> USize;"));
+page.text(`Get the number of bytes of type ${html.inline_code("T")}. ${html.inline_code("INCLUDE_PADDING")} if should include padding bytes. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
+
+page.h2Searchable("@numBits", "numBits");
+page.text(page.inline_code_block(Language.PANTHER, "func @numBits = <{T: Type, INCLUDE_PADDING: Bool}> () -> USize;"));
+page.text(`Get the number of bits of type ${html.inline_code("T")}. ${html.inline_code("INCLUDE_PADDING")} if should include padding bits. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
 
 
 

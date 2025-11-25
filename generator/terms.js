@@ -130,6 +130,7 @@ term("in-place delete");
 
 
 term("array");
+term("array reference");
 term("vector");
 
 

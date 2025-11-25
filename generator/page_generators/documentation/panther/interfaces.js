@@ -30,8 +30,7 @@ page.paragraph(html.italic("(TODO)"));
 page.h2("Example");
 
 page.code_block(Language.PANTHER,
-`// Create Interface
-interface Shape = {
+`interface Shape = #polymorphic {
 	func area = (this) -> F32;
 	func num_sides = () -> UInt { return 0;	} // method with default
 }
@@ -51,8 +50,8 @@ type Quad = struct {
 
 	// implementation of Shape for Quad
 	impl Shape{
-		num_sides = num_sides,
-		area      = area,
+		area      = area, // defining with an existing method
+		num_sides = () -> UInt { return 4; }, // defining with an inline method
 	}
 }
 
@@ -70,8 +69,8 @@ type Circle = struct {
 
 	// Implementation of Shape for Circle
 	impl Shape{
-		num_sides = get_num_sides, // method names don't have to be the same
-		// using default for Shape.area
+		area = get_area, // method names don't have to be the same
+		// using default for Shape.num_sides
 	}
 }
 
@@ -83,9 +82,9 @@ func get_shape_num_sides = (shape: Shape) -> UInt {
 }
 
 
-// runtime polymorphism
-// \`shape\` is a struct of a pointer to the specific shape and a pointer to a \`vtable\`
-func get_shape_area = (shape: Shape*) -> UInt {
+// runtime polymorphism (allowed becuase the interface has attribute \`#polymorphic\`)
+// \`shape\` is a struct of a pointer to the shape object and a pointer to a vtable
+func get_shape_area = (shape: Shape^) -> F32 {
 	return shape.area();
 }
 
@@ -103,7 +102,7 @@ func entry = () #entry -> UI8 {
 
 	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
 
-	const area_of_circle: F32 = get_shape_area(&circle as Shape*);
+	const area_of_circle: F32 = get_shape_area(circle as Shape^);
 	
 	return 0;
 }`);
