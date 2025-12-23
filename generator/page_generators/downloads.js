@@ -19,7 +19,7 @@ let page = new Page(__filename, {
 	has_categories_in_title : false,
 });
 
-page.text("No official releases have been made yet, but you follow " + html.link("these instructions", "/site/build.html") + " to build it yourself.");
+page.text("No official releases have been made yet, but you can follow " + html.link("these instructions", "/site/build.html") + " to build it yourself.");
 
 page.generate();
 

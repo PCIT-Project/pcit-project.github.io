@@ -77,14 +77,21 @@ type Circle = struct {
 
 
 // this function becomes a template on the shape passed to it
-func get_shape_num_sides = (shape: Shape) -> UInt {
+func get_shape_num_sides = (shape: impl($$:Shape)) -> UInt {
 	return shape.num_sides();
 }
 
+// this function is equivalent to the one above in terms of the actual instructions emitted
+func get_shape_num_sides = (shape: Quad) -> UInt {
+	return (shape as impl(Quad:Shape)).num_sides();
+}
 
-// runtime polymorphism (allowed becuase the interface has attribute \`#polymorphic\`)
-// \`shape\` is a struct of a pointer to the shape object and a pointer to a vtable
-func get_shape_area = (shape: Shape^) -> F32 {
+
+
+
+// runtime polymorphism (allowed becuase the interface has attribute '#polymorphic')
+// 'shape' is a struct of a pointer to the shape object and a pointer to a vtable
+func get_shape_area = (shape: impl(*:Shape)) -> F32 {
 	return shape.area();
 }
 
@@ -100,9 +107,9 @@ func entry = () #entry -> UI8 {
 		radius = 2.0,
 	};
 
-	const num_sides_of_quad: UInt = get_shape_num_sides(quad);
+	const num_sides_of_quad: UInt = get_shape_num_sides(quad as impl(Quad:Shape));
 
-	const area_of_circle: F32 = get_shape_area(circle as Shape^);
+	const area_of_circle: F32 = get_shape_area(circle as impl(*:Shape));
 	
 	return 0;
 }`);

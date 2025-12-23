@@ -14,7 +14,6 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 const Language = require("../../../Page.js").Language;
 const breadcrumbs = require("../../../Page.js").breadcrumbs;
-const syntax_highlighting = require("../../../syntax_highlighting/syntax_highlighting.js");
 
 
 

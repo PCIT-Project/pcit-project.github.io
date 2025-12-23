@@ -132,7 +132,7 @@ exports.highlight = function(code){
 				case "UInt": case "USize":
 				case "F16": case "BF16": case "F32": case "F64": case "F80": case "F128":
 				case "Byte": case "Bool": case "Char": case "RawPtr": case "TypeID":
-				case "CShort": case "CUShort": case "CInt": case "CUInt": case "CLong": case "CULong": case "CLongLong": case "CULongLong": case "CLongDouble":
+				case "CWChar": case "CShort": case "CUShort": case "CInt": case "CUInt": case "CLong": case "CULong": case "CLongLong": case "CULongLong": case "CLongDouble":
 				{
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;

@@ -42,8 +42,13 @@ page.bullets([
 
 page.begin_info();
 page.h3("Info", "margin-top: 1em;");
-page.text("This has only been tested on Windows with Visual Studio 2022.");
+page.text("This has only been tested on Windows.");
 page.end_info();
+
+page.begin_warning();
+page.h3("Warning!", "margin-top: 1em;");
+page.text("As of 2025-12-20, any non-debug build of PCIT with Visual Studio 2026 will not work. It seems there's a bug in the code generation of MSVC v145.");
+page.end_warning();
 
 
 page.h2Searchable("Building LLVM", "llvm");

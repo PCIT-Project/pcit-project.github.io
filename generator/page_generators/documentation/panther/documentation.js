@@ -32,6 +32,7 @@ page.h2("Important Note", "margin-top: 0.8em;");
 page.text("As Panther is pre-release, anything in the documentation may change as the design of the language evolves. The documentation is also far from complete.");
 page.end_info();
 
+page.text(html.link("Character Escape Codes", "/site/documentation/panther/character_escape_codes.html"));
 page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
 page.text(html.link("Functions", "/site/documentation/panther/functions.html"));
 page.text(html.link("Interfaces", "/site/documentation/panther/interfaces.html"));

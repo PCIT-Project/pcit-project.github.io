@@ -57,9 +57,14 @@ term("Integer literals", "/site/documentation/panther/literals.html#integer-lite
 term("integer literals", "/site/documentation/panther/literals.html#integer-literals");
 term("float literals", "/site/documentation/panther/literals.html#float-literals");
 term("Float literals", "/site/documentation/panther/literals.html#float-literals");
+term("Character literals", "/site/documentation/panther/literals.html#character-literals");
+term("character literals", "/site/documentation/panther/literals.html#character-literals");
+term("String literals", "/site/documentation/panther/literals.html#string-literals");
+term("string literals", "/site/documentation/panther/literals.html#string-literals");
 
 
-term("character escape code");
+
+term("character escape code", "/site/documentation/panther/character_escape_codes.html");
 
 term("compatable types");
 

@@ -73,6 +73,7 @@ require("./page_generators/documentation/documentation.js");
 
 require("./page_generators/documentation/panther/documentation.js");
 
+require("./page_generators/documentation/panther/character_escape_codes.js");
 require("./page_generators/documentation/panther/fluid_values.js");
 require("./page_generators/documentation/panther/intrinsics/intrinsics.js");
 require("./page_generators/documentation/panther/intrinsics/arithmetic_intrinsics.js");

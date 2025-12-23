@@ -10,7 +10,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/downloads.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/about.html</loc>
@@ -22,7 +22,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/build.html</loc>
-		<lastmod>2025-07-13</lastmod>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/documentation.html</loc>
@@ -30,11 +30,15 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/documentation.html</loc>
-		<lastmod>2025-06-28</lastmod>
+		<lastmod>2025-12-22</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/character_escape_codes.html</loc>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/fluid_values.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
@@ -70,11 +74,11 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/interfaces.html</loc>
-		<lastmod>2025-11-25</lastmod>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/literals.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/modules.html</loc>
@@ -86,7 +90,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/primitive_types.html</loc>
-		<lastmod>2025-06-22</lastmod>
+		<lastmod>2025-12-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/undefined_behavior.html</loc>

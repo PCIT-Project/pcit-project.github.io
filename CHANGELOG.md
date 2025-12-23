@@ -1,6 +1,20 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.50.0"></a>
+## v0.0.50.0
+- Added warning that building on Windows MSVC 2026 (v145) on a optimized build will fail
+- Added `CWChar` to Panther syntax highlighting
+- Added `wchar_t` to C/C++ syntax highlighting
+
+### Panther Documentation
+- Added Character Escape Codes page
+- Added `CWChar` to primitive type documentation
+- Updated interface code examples to reflect the change to interface maps
+- Fixed literals documentation having incorrect types for string literals
+
+
+<!---------------------------------->
 <a name="v0.0.49.0"></a>
 ## v0.0.49.0
 

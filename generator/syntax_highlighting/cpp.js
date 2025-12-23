@@ -123,6 +123,7 @@ exports.highlight = function(code){
 				case "int8_t": case "int16_t": case "int32_t": case "int64_t":
 				case "float": case "double":
 				case "size_t": case "ptrdiff_t":
+				case "wchar_t":
 				{
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;

@@ -14,7 +14,6 @@ const Language = require("../../../Page.js").Language;
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
-const syntax_highlighting = require("../../../syntax_highlighting/syntax_highlighting.js");
 
 
 
@@ -59,13 +58,13 @@ page.h2Searchable("Integer Literals", "integer-literals");
 page.text(`Integer literals are expressions that represent an unsigned integral value. They are ${terms.get("fluid")} and thus not explicitly typed, but they may only convert to integral types. They are represented as one of the following:`);
 page.bullets([
 	nums[0],
-	`non-zero decimal digit (${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}) followed by 0 or more decimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]})`,
-	`${html.inline_code("0b")} followed by 1 or more binary digits (${nums[0]}, ${nums[1]})`,
-	`${html.inline_code("0o")} followed by 1 or more octal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]})`,
-	`${html.inline_code("0x")} followed by 1 or more hexadecimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}, ${nums['a']}, ${nums['A']}, ${nums['b']}, ${nums['B']}, ${nums['c']}, ${nums['C']}, ${nums['d']}, ${nums['D']}, ${nums['e']}, ${nums['E']}, ${nums['f']}, ${nums['F']})`,
+	`${html.inline_code("[1-9][0-9]*")}: non-zero decimal digit (${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}) followed by 0 or more decimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]})`,
+	`${html.inline_code("0b[0-1]+")}:  ${html.inline_code("0b")} followed by 1 or more binary digits (${nums[0]}, ${nums[1]})`,
+	`${html.inline_code("0o[0-7]+")}:  ${html.inline_code("0o")} followed by 1 or more octal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]})`,
+	`${html.inline_code("0x[0-9a-fA-F]+")}:  ${html.inline_code("0x")} followed by 1 or more hexadecimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}, ${nums['a']}, ${nums['A']}, ${nums['b']}, ${nums['B']}, ${nums['c']}, ${nums['C']}, ${nums['d']}, ${nums['D']}, ${nums['e']}, ${nums['E']}, ${nums['f']}, ${nums['F']})`,
 ]);
 page.text(`An integer literal may optionally have a suffix of scientific notation which is: an ${html.inline_code("E")} or an ${html.inline_code("e")}, followed by an optional ${html.inline_code("+")} or ${html.inline_code("-")} (omitting is equivalent to ${html.inline_code("+")}), followed by 1 or more decimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}).`);
-page.text(`Integer literals may optionally be broken up by underscores ( ${html.inline_code('_')} ) anywhere except for the beginning. This means that ${page.inline_code_block(Language.PANTHER, "12_345_")} is equivalent to ${page.inline_code_block(Language.PANTHER, "12345")}.`);
+page.text(`Integer literals may optionally be broken up by underscores ( ${html.inline_code('_')} ) anywhere except for the beginning. This means that ${page.inline_code_block(Language.PANTHER, "12_345")} and ${page.inline_code_block(Language.PANTHER, "12__3_45_")} are both equivalent to ${page.inline_code_block(Language.PANTHER, "12345")}.`);
 
 
 page.h2Searchable("Float Literals", "float-literals");
@@ -74,7 +73,7 @@ page.bullets([
 	`1 or more decimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}), followed by  followed a period (${html.inline_code('.')}), followed by 1 or more decimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}). This may optionally be have suffix of scientific notation which is: an ${html.inline_code("E")} or an ${html.inline_code("e")}, followed by an optional ${html.inline_code("+")} or ${html.inline_code("-")} (omitting is equivalent to ${html.inline_code("+")}), followed by 1 or more decimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}).`,
 	`${html.inline_code("0x")}, followed by 1 or more hexadecimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}, ${nums['a']}, ${nums['A']}, ${nums['b']}, ${nums['B']}, ${nums['c']}, ${nums['C']}, ${nums['d']}, ${nums['D']}, ${nums['e']}, ${nums['E']}, ${nums['f']}, ${nums['F']}), followed by a period (${html.inline_code('.')}), followed by 1 or more hexadecimal digits (${nums[0]}, ${nums[1]}, ${nums[2]}, ${nums[3]}, ${nums[4]}, ${nums[5]}, ${nums[6]}, ${nums[7]}, ${nums[8]}, ${nums[9]}, ${nums['a']}, ${nums['A']}, ${nums['b']}, ${nums['B']}, ${nums['c']}, ${nums['C']}, ${nums['d']}, ${nums['D']}, ${nums['e']}, ${nums['E']}, ${nums['f']}, ${nums['F']})`,
 ]);
-page.text(`Float literals may optionally be broken up by underscores ( ${html.inline_code('_')} ) anywhere except for the beginning. This means that ${page.inline_code_block(Language.PANTHER, "1_234.5")} is equivalent to ${page.inline_code_block(Language.PANTHER, "1234.5")}.`);
+page.text(`Float literals may optionally be broken up by underscores ( ${html.inline_code('_')} ) anywhere except for the beginning. This means that ${page.inline_code_block(Language.PANTHER, "1_234.5")} and ${page.inline_code_block(Language.PANTHER, "1_23__4._5_")} is equivalent to ${page.inline_code_block(Language.PANTHER, "1234.5")}.`);
 
 
 
@@ -95,15 +94,15 @@ page.bullets([
 
 
 page.h2Searchable("String Literals", "string-literals");
-page.text(`String literals are expressions that represent a string of text. They are type ${page.inline_code_block(Language.PANTHER, "[Char:N;'\\0']")} where ${html.inline_code("N")} is the number of characters in the string literal. They are represented by two double-quotes characters (${html.inline_code('"')}) containing 0 or more of the following:`);
+page.text(`String literals are expressions that represent a string of text. They are type ${page.inline_code_block(Language.PANTHER, "[Char:N;'\\0']*")} where ${html.inline_code("N")} is the number of characters in the string literal. They are represented by two double-quotes characters (${html.inline_code('"')}) containing 0 or more of the following:`);
 page.bullets([
 	`Any basic ASCII printable character excluding ${html.inline_code('"')}, and ${html.inline_code("\\")}`,
 	`A ${terms.get("character escape code")}`
 ]);
 
 page.h3("Notes");
-page.text(`As suggested by the type, string literals automatically have a null-terminator appended. This means that ${page.inline_code_block(Language.PANTHER, "\"\\0\"")} is represented in memory as two null-terminator.`);
-page.text("Unlike languages like C/C++ and Zig, nothing special needs to be done to allow string literals to be multi-line.");
+page.text(`As suggested by the type, string literals automatically have a null-terminator appended. This means that ${page.inline_code_block(Language.PANTHER, "\"\\0\"")} is represented in memory as two null-terminators.`);
+page.text("Unlike most languages, nothing special needs to be done to allow string literals to be multi-line.");
 
 
 page.h2("Examples");
@@ -124,8 +123,8 @@ def CHARACTER: Char = 'a';
 def NULL_TERMINATOR: Char = '\\0';
 
 // string literals literals
-def STRING_LITERAL: [Char:28;'\\0'] = "Hello, I am a string literal";
-def MULTI_LINE_STRING_LITERAL: [Char:38;'\\0'] = "Hello, I 
+def STRING_LITERAL: [Char:28;'\\0']* = "Hello, I am a string literal";
+def MULTI_LINE_STRING_LITERAL: [Char:43;'\\0']* = "Hello, I 
 am a
 	multi-line\\n string 
 literal";`);

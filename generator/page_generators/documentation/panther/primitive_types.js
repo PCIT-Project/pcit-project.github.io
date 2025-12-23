@@ -55,6 +55,7 @@ search.addSearchTarget("USize", page.getPath() + "#target_integral", page.getCat
 page.h3Searchable("Integral Types for C/C++ Compatibility", "c_integral");
 page.table([
 	["Type", "C/C++ equivalent"],
+	[page.inline_code_block(Language.PANTHER, "CWChar"), page.inline_code_block(Language.C, "wchar_t")],
 	[page.inline_code_block(Language.PANTHER, "CShort"), page.inline_code_block(Language.C, "short")],
 	[page.inline_code_block(Language.PANTHER, "CUShort"), page.inline_code_block(Language.C, "unsigned short")],
 	[page.inline_code_block(Language.PANTHER, "CInt"), page.inline_code_block(Language.C, "int")],
@@ -64,6 +65,7 @@ page.table([
 	[page.inline_code_block(Language.PANTHER, "CLongLong"), page.inline_code_block(Language.C, "long long")],
 	[page.inline_code_block(Language.PANTHER, "CULongLong"), page.inline_code_block(Language.C, "unsigned long long")],
 ]);
+search.addSearchTarget("CWChar", page.getPath() + "#c_integral", page.getCategories());
 search.addSearchTarget("CShort", page.getPath() + "#c_integral", page.getCategories());
 search.addSearchTarget("CUShort", page.getPath() + "#c_integral", page.getCategories());
 search.addSearchTarget("CInt", page.getPath() + "#c_integral", page.getCategories());
