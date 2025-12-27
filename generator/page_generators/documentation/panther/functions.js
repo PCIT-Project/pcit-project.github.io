@@ -55,7 +55,7 @@ page.list_table(Language.PANTHER, [
 	"{IDENTIFIER}: {TYPE} {ATTRIBUTES*}",
 	"{IDENTIFIER}: {TYPE} {read|mut|in} {ATTRIBUTES*}",
 	"this",
-	"this {read|mut}",
+	"this {read|mut|in}",
 ]);
 
 page.paragraph(`Parameters are references values. The value the parameter references may not be changed.`);
@@ -70,8 +70,8 @@ page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "mut")} parameter
 page.h3Searchable("In Parameter Qualifier", "in");
 page.paragraph(`The ${page.inline_code_block(Language.PANTHER, "in")} parameter qualifier means that the parameter is non-mutable other than by ${terms.get("operator forward")}. They can only accept ${terms.get("ephemeral")} values. They have a value category of ${terms.get("forwardable")}.`);
 
-page.h4("ABI note:");
-page.paragraph(`In general, ${page.inline_code_block(Language.PANTHER, "in")} parameters is passed by pointer. This means that if the argument given is a copy or a move, the copy or move is not actually done at the call-site, rather it is done at a ${terms.get("operator forward assignment")}. This allows for what is known as perfect forwarding - a pointer can be passed through from function to function through ${terms.get("operator forward")} and the copy or move operation is only made once actually necessary. If the value is ${terms.get("trivially-copyable")} or ${terms.get("trivially-moveable")} for a copy or move respectively, and it is ${terms.get("trivially-sized")}, the copy or move is made at the site of any forward.`);
+page.h4("ABI Note:");
+page.paragraph(`In general, ${page.inline_code_block(Language.PANTHER, "in")} parameters are passed by pointer. This means that if the argument given is a copy or a move, the copy/move is not actually done at the call-site, rather it is done at a ${terms.get("operator forward")} ${terms.get("concrete initialization")} or ${terms.get("operator forward")} ${terms.get("assignment")}. This allows for automatic perfect forwarding - a pointer can be passed through arbitrary levels of function calls with ${terms.get("operator forward")} and the copy or move operation is only made once actually necessary. However, if the value is ${terms.get("trivially-copyable")} or ${terms.get("trivially-moveable")} (for a copy or move respectively) and it is ${terms.get("trivially-sized")}, the copy/move is done immediately and the value is passed by value instead.`);
 
 
 
@@ -91,7 +91,7 @@ page.paragraph(`Explicit return/error parameters begin as ${terms.get("uninitial
 
 page.h2Searchable("Erroring Functions", "error");
 page.paragraph(`If a function errors, it must be called through a ${terms.get("try")} expression or statement.`);
-page.h4("ABI note:");
+page.h4("ABI Note:");
 page.paragraph(`Erroring functions signal if the error or not through returning boolean value. If the function has a single return value, that value becomes an "out" parameter. The error return values themselves are in a packed struct stored right on the stack. This allows for a single pointer to be passed to the function as a parameter in the ABI for all the error values needed so as to lower the performance affect on the normal return path as much as possible.`);
 
 

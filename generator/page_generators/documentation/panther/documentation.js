@@ -41,6 +41,7 @@ page.text(html.link("Literals", "/site/documentation/panther/literals.html"));
 page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
 page.text(html.link("Operators", "/site/documentation/panther/operators.html"));
 page.text(html.link("Primitive Types", "/site/documentation/panther/primitive_types.html"));
+page.text(html.link("Structs", "/site/documentation/panther/structs.html"));
 page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
 page.text(html.link("Uninitialized", "/site/documentation/panther/uninitialized.html"));
 page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));

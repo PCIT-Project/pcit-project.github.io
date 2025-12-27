@@ -121,7 +121,7 @@ exports.highlight = function(code){
 					while(is_whitespace(stream.peek())){ output += stream.next(); }
 
 					identifier = "";
-					while(is_letter(stream.peek()) || is_number(stream.peek()) || stream.peek() == '_'){
+					while(is_whitespace(stream.peek()) == false){
 						identifier += stream.next();
 					}
 					output += `<span class="code-green">${identifier}</span>`;

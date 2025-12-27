@@ -304,7 +304,7 @@ func entry = () #entry -> UI8 {
 
 
 	<span class="code-gray">// implementation of Shape for Quad</span>
-	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
+	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape{</span>
 		area      <span class="code-red">=</span> area, <span class="code-gray">// defining with an existing method</span>
 		num_sides <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">4</span>; }, <span class="code-gray">// defining with an inline method</span>
 	}
@@ -323,7 +323,7 @@ func entry = () #entry -> UI8 {
 
 
 	<span class="code-gray">// Implementation of Shape for Circle</span>
-	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape</span>{
+	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape{</span>
 		area <span class="code-red">=</span> get_area, <span class="code-gray">// method names don't have to be the same</span>
 		<span class="code-gray">// using default for Shape.num_sides</span>
 	}

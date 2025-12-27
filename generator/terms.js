@@ -40,6 +40,7 @@ term("undefined behavior", "/site/documentation/panther/undefined_behavior.html"
 
 term("assignment");
 term("initialization");
+term("concrete initialization");
 term("initialized");
 term("initializer value");
 term("uninitialized", "/site/documentation/panther/uninitialized.html");
@@ -76,11 +77,8 @@ term("LHS");
 
 
 term("operator copy");
-term("operator copy assignment");
 term("operator move");
-term("operator move assignment");
 term("operator forward");
-term("operator forward assignment");
 
 term("trivially-sized");
 term("default-initable");
@@ -114,6 +112,9 @@ term("unwrap");
 term("optional");
 term("pointer");
 term("read-only pointer");
+
+term("structs", "/site/documentation/panther/structs.html");
+
 
 term("null");
 

@@ -1,6 +1,16 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.51.0"></a>
+## v0.0.51.0
+
+### Panther Documentation
+- Added "Structs" page
+- Added to "Functions" page that `this` parameters can now be `in`
+- Edited ABI Note of `in` parameters on "Functions" page for readability/clarity
+
+
+<!---------------------------------->
 <a name="v0.0.50.0"></a>
 ## v0.0.50.0
 - Added warning that building on Windows MSVC 2026 (v145) on a optimized build will fail
@@ -46,8 +56,8 @@
 <!---------------------------------->
 <a name="v0.0.45.0"></a>
 ## v0.0.45.0
-- Added new and improved examples on the Panther Programming Lanugage page
-- Added "No hidden allocations" to Panther Programming Lanugage page
+- Added new and improved examples on the Panther Programming Language page
+- Added "No hidden allocations" to Panther Programming Language page
 - Added syntax highlighting for keywords in Panther
 	- `break`
 	- `continue`

@@ -30,7 +30,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/documentation.html</loc>
-		<lastmod>2025-12-22</lastmod>
+		<lastmod>2025-12-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/character_escape_codes.html</loc>
@@ -70,7 +70,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/functions.html</loc>
-		<lastmod>2025-08-04</lastmod>
+		<lastmod>2025-12-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/interfaces.html</loc>
@@ -91,6 +91,10 @@
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/primitive_types.html</loc>
 		<lastmod>2025-12-22</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/structs.html</loc>
+		<lastmod>2025-12-27</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/undefined_behavior.html</loc>

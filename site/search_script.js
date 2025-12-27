@@ -342,6 +342,7 @@ const search_targets = [
 	new SearchTarget("Char", "documentation/panther/primitive_types.html#misc", "", ["char"], [0,4]),
 	new SearchTarget("RawPtr", "documentation/panther/primitive_types.html#misc", "", ["rawptr"], [0,4]),
 	new SearchTarget("TypeID", "documentation/panther/primitive_types.html#misc", "", ["typeid"], [0,4]),
+	new SearchTarget("Structs", "/site/documentation/panther/structs.html", "Documentation for structs in the Panther programming language", ["structs"], [0,4]),
 	new SearchTarget("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html", "Documentation for Undefined Behavior in the Panther programming language", ["undefined","behavior"], [0,4]),
 	new SearchTarget("Uninitialized", "/site/documentation/panther/uninitialized.html", "Documentation for \"uninitialized\" in the Panther programming language", ["uninitialized"], [0,4]),
 	new SearchTarget("Value Categories", "/site/documentation/panther/value_categories.html", "Documentation for value categories in the Panther programming language", ["value","categories"], [0,4]),
