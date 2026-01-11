@@ -286,21 +286,14 @@ page.table([
 		page.inline_code_block(Language.PANTHER, "&a"),
 		box_item("Any"),
 		page.inline_code_block(Language.PANTHER, "var num: Int = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "const num_ptr: Int* = &num;") + "<br/>" + page.inline_code_block(Language.PANTHER, "num_ptr.* // 12"),
-		box_item(`Argument must be ${terms.get("concrete")}.`) + box_item(`Using on a const object returns a ${terms.get("read-only pointer")},<br/>otherwise is a ${terms.get("pointer")}.`),
-	],
-	[
-		html.anchor("Read-Only Address Of", "read_only_address_of"),
-		page.inline_code_block(Language.PANTHER, "&|a"),
-		box_item("Any"),
-		page.inline_code_block(Language.PANTHER, "var num: Int = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "const num_ptr: Int*| = &|num;") + "<br/>" + page.inline_code_block(Language.PANTHER, "num_ptr.* // 12"),
-		box_item(`Argument must be ${terms.get("concrete")}.`),
+		box_item(`Argument must be ${terms.get("concrete")}.`) + box_item(`Using on a mutable object returns a ${terms.get("mut-qualified pointer")},<br/>otherwise is a ${terms.get("pointer")}.`),
 	],
 	[
 		html.anchor("Dereference", "dereference"),
 		page.inline_code_block(Language.PANTHER, "a.*"),
 		box_item("Any " + terms.get("pointer")),
 		page.inline_code_block(Language.PANTHER, "var num: Int = 12;") + "<br/>" + page.inline_code_block(Language.PANTHER, "const num_ptr: Int* = &num;") + "<br/>" + page.inline_code_block(Language.PANTHER, "num_ptr.* // 12"),
-		box_item(`Dereferencing a ${terms.get("read-only pointer")} results in a<br/>const value, otherwise the value is mutable.`),
+		box_item(`Dereferencing a ${terms.get("mut-qualified pointer")} results in a<br/>mutable value, otherwise the value is constant.`),
 	],
 	[
 		html.anchor("Unwrap", "unwrap"),
@@ -312,8 +305,6 @@ page.table([
 ], "68.7em");
 search.addSearchTarget("Operator Address Of", page.getPath() + "#address_of", page.getCategories());
 search.addSearchTarget("Operator & (prefix)", page.getPath() + "#address_of", page.getCategories());
-search.addSearchTarget("Operator Read-Only Address Of", page.getPath() + "#read_only_address_of", page.getCategories());
-search.addSearchTarget("Operator &|", page.getPath() + "#read_only_address_of", page.getCategories());
 search.addSearchTarget("Operator Dereference", page.getPath() + "#dereference", page.getCategories());
 search.addSearchTarget("Operator .*", page.getPath() + "#dereference", page.getCategories());
 search.addSearchTarget("Operator Unwrap", page.getPath() + "#unwrap", page.getCategories());
@@ -373,7 +364,7 @@ page.h2Searchable("Operator Precedence", "precedence");
 page.table([
 	["Precedence", "Operators"],
 	["1", page.inline_code_block(Language.PANTHER, "a.b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a.*") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a.?")],
-	["2", page.inline_code_block(Language.PANTHER, "&a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "&|a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "copy a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "move a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "forward a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "-a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "!a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "~a")],
+	["2", page.inline_code_block(Language.PANTHER, "&a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "copy a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "move a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "forward a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "-a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "!a") + "&emsp;" + page.inline_code_block(Language.PANTHER, "~a")],
 	["3", page.inline_code_block(Language.PANTHER, "a as b")],
 	["4", page.inline_code_block(Language.PANTHER, "a * b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a *% b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a *| b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a / b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a % b")],
 	["5", page.inline_code_block(Language.PANTHER, "a + b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a +% b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a +| b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a - b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a -% b") + "&emsp;" + page.inline_code_block(Language.PANTHER, "a -| b")],

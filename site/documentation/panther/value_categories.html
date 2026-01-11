@@ -108,9 +108,9 @@
 		<p>The following are concrete-mutable expressions:</p>
 		<ul>
 			<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code></li>
-			<li><code>dereference</code> of a non-read-only pointer</li>
+			<li><code>dereference</code> of a <code>mut-qualified pointer</code></li>
 			<li><code><a href="/site/documentation/panther/functions.html#parameters">mut parameters</a></code></li>
-			<li><code>unwrap</code> of a non-const <code>optional</code></li>
+			<li><code>unwrap</code> of a mutable <code>optional</code></li>
 			<li><code>accessor</code> of a concrete-mutable value</li>
 		</ul>
 <h3 id="forwardable">Forwardable Value Category</h3>		<p>forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and non-mutable other than by <code>operator forward</code>. Forwardable is the only value category that is allowed to be argument of an <code>operator forward</code>.</p>
@@ -123,14 +123,14 @@
 		<ul>
 			<li><code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code></li>
 			<li><code><a href="/site/documentation/panther/functions.html#parameters">read parameters</a></code></li>
-			<li><code>dereference</code> of a read-only pointer</li>
+			<li><code>dereference</code> of a pointer that is not mut-qualified</li>
 			<li><code>accessor</code> of a concrete-const value</li>
 		</ul>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-08-04</p>
-		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+		<p style="color: #878481;">Page Last Updated: 2026-01-10</p>
+		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
 </body>

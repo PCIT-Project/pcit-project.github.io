@@ -100,17 +100,23 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > Operational Intrinsics</div>		<h1>Operational Intrinsics</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><h2 id="abort">@abort</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">@abort</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
+<br/><br/><h2 id="abort">@abort</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@abort</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
 		<p>Abort the program. Lowers to a trap instruction if the target has one, otherwise lowered to LIBC <code>abort()</code>.</p>
-<h2 id="breakpoint">@breakpoint</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">@breakpoint</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
+<h2 id="breakpoint">@breakpoint</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@breakpoint</span> <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
 		<p>Cause an execution trap to request the debugger break execution.</p>
-<h2 id="import">@import</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">@import</span> <span class="code-red">=</span> (filepath<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]) <span class="code-red">-</span><span class="code-red">&gt;</span> {MODULE};</code></p>
-		<p>Import a module.</p>
+<h2 id="makeInitPtr">@makeInitPtr</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@makeInitPtr</span> <span class="code-red">=</span> (uninit_ptr<span class="code-red">:</span> {T}<span class="code-red">*</span><span class="code-red">!</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> {T}<span class="code-red">*</span>;</code></p>
+		<p>Converts an <code>uninitialized-qualified pointer</code> to a <code>pointer</code>. Paramter <code>uninit_ptr</code> must be <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, a local variable, and the <code>pointee</code> must be known to be initialized.</p>
+<h2 id="import">@import</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@import</span> <span class="code-red">=</span> (filepath<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]) <span class="code-red">-</span><span class="code-red">&gt;</span> {MODULE};</code></p>
+		<p>Import a Panther file.</p>
+<h2 id="importC">@importC</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@importC</span> <span class="code-red">=</span> (filepath<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]) <span class="code-red">-</span><span class="code-red">&gt;</span> {MODULE};</code></p>
+		<p>Import a C file.</p>
+<h2 id="importCPP">@importCPP</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@importCPP</span> <span class="code-red">=</span> (filepath<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]) <span class="code-red">-</span><span class="code-red">&gt;</span> {MODULE};</code></p>
+		<p>Import a C++ file.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
-		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+		<p style="color: #878481;">Page Last Updated: 2026-01-10</p>
+		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
 </body>

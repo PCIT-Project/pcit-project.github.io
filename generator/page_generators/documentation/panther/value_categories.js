@@ -46,9 +46,9 @@ page.text(`Concrete-mutable values are values that are ${terms.get("concrete")} 
 page.text("The following are concrete-mutable expressions:");
 page.bullets([
 	terms.get("var variables"),
-	terms.get("dereference") + " of a non-read-only pointer",
+	`${terms.get("dereference")} of a ${terms.get("mut-qualified pointer")}`,
 	terms.get("mut parameters"),
-	`${terms.get("unwrap")} of a non-const ${terms.get("optional")}`,
+	`${terms.get("unwrap")} of a mutable ${terms.get("optional")}`,
 	terms.get("accessor") + " of a concrete-mutable value",
 ]);
 
@@ -69,7 +69,7 @@ page.text("The following are concrete-const expressions:");
 page.bullets([
 	terms.get("const variables"),
 	terms.get("read parameters"),
-	terms.get("dereference") + " of a read-only pointer",
+	`${terms.get("dereference")} of a pointer that is not mut-qualified`,
 	terms.get("accessor") + " of a concrete-const value",
 ]);
 

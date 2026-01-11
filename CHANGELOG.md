@@ -1,6 +1,20 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.52.0"></a>
+## v0.0.52.0
+- Fixed syntax highlighting for intrinsic function declarations
+
+### Panther Documentation
+- Added `@importC` and `@importCPP`
+- Added `@makeInitPtr`
+- Removed read-only address-of operator (removed from the language)
+- Renamed read-only pointer to not mut-qualified pointer
+- Fixed incorrect and out-of-date information in intrinsics
+- Fixed typos
+
+
+<!---------------------------------->
 <a name="v0.0.51.0"></a>
 ## v0.0.51.0
 

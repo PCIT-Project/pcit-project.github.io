@@ -35,9 +35,21 @@ page.h2Searchable("@breakpoint", "breakpoint");
 page.text(page.inline_code_block(Language.PANTHER, "func @breakpoint = () -> Void;"));
 page.text("Cause an execution trap to request the debugger break execution.");
 
+page.h2Searchable("@makeInitPtr", "makeInitPtr");
+page.text(page.inline_code_block(Language.PANTHER, "func @makeInitPtr = (uninit_ptr: {T}*!) -> {T}*;"));
+page.text(`Converts an ${terms.get("uninitialized-qualified pointer")} to a ${terms.get("pointer")}. Paramter ${html.inline_code("uninit_ptr")} must be ${terms.get("concrete")}, a local variable, and the ${terms.get("pointee")} must be known to be initialized.`);
+
 page.h2Searchable("@import", "import");
 page.text(page.inline_code_block(Language.PANTHER, "func @import = (filepath: [Char:*]) -> {MODULE};"));
-page.text("Import a module.");
+page.text("Import a Panther file.");
+
+page.h2Searchable("@importC", "importC");
+page.text(page.inline_code_block(Language.PANTHER, "func @importC = (filepath: [Char:*]) -> {MODULE};"));
+page.text("Import a C file.");
+
+page.h2Searchable("@importCPP", "importCPP");
+page.text(page.inline_code_block(Language.PANTHER, "func @importCPP = (filepath: [Char:*]) -> {MODULE};"));
+page.text("Import a C++ file.");
 
 
 

@@ -97,6 +97,7 @@ term("error");
 
 
 term("variables", "/site/documentation/panther/variables.html");
+term("variable", "/site/documentation/panther/variables.html");
 term("var variables", "/site/documentation/panther/variables.html#var_variables");
 term("const variables", "/site/documentation/panther/variables.html#const_variables");
 term("def variables", "/site/documentation/panther/variables.html#def_variables");
@@ -111,7 +112,9 @@ term("accessor");
 term("unwrap");
 term("optional");
 term("pointer");
-term("read-only pointer");
+term("pointee");
+term("mut-qualified pointer");
+term("uninitialized-qualified pointer");
 
 term("structs", "/site/documentation/panther/structs.html");
 

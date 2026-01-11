@@ -124,7 +124,12 @@ exports.highlight = function(code){
 					while(is_whitespace(stream.peek()) == false){
 						identifier += stream.next();
 					}
-					output += `<span class="code-green">${identifier}</span>`;
+
+					if(identifier[0] == '@'){
+						output += `<span class="code-red">${identifier}</span>`;
+					}else{
+						output += `<span class="code-green">${identifier}</span>`;
+					}
 				} break;
 
 				case "Void": case "Type":

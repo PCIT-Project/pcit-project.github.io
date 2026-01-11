@@ -411,16 +411,7 @@
 </td>
 		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">const</span> num_ptr<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">*</span> <span class="code-red">=</span> <span class="code-red">&</span>num;</code><br/><code class="code-src"; style="background-color: #282923!important;">num_ptr<span class="code-red">.*</span> <span class="code-gray">// 12</span></code></td>
 		<td>		<p style="margin: 0.5em 0;">Argument must be <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>.</p>
-		<p style="margin: 0.5em 0;">Using on a const object returns a <code>read-only pointer</code>,<br/>otherwise is a <code>pointer</code>.</p>
-</td>
-	</tr>
-	<tr>
-		<td><div id="read_only_address_of" style="border-radius: 0.3em;">Read-Only Address Of</div></td>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span><span class="code-red">|</span>a</code></td>
-		<td>		<p style="margin: 0.5em 0;">Any</p>
-</td>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">const</span> num_ptr<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">*</span><span class="code-red">|</span> <span class="code-red">=</span> <span class="code-red">&</span><span class="code-red">|</span>num;</code><br/><code class="code-src"; style="background-color: #282923!important;">num_ptr<span class="code-red">.*</span> <span class="code-gray">// 12</span></code></td>
-		<td>		<p style="margin: 0.5em 0;">Argument must be <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>.</p>
+		<p style="margin: 0.5em 0;">Using on a mutable object returns a <code>mut-qualified pointer</code>,<br/>otherwise is a <code>pointer</code>.</p>
 </td>
 	</tr>
 	<tr>
@@ -429,7 +420,7 @@
 		<td>		<p style="margin: 0.5em 0;">Any <code>pointer</code></p>
 </td>
 		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">var</span> num<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">12</span>;</code><br/><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">const</span> num_ptr<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span><span class="code-red">*</span> <span class="code-red">=</span> <span class="code-red">&</span>num;</code><br/><code class="code-src"; style="background-color: #282923!important;">num_ptr<span class="code-red">.*</span> <span class="code-gray">// 12</span></code></td>
-		<td>		<p style="margin: 0.5em 0;">Dereferencing a <code>read-only pointer</code> results in a<br/>const value, otherwise the value is mutable.</p>
+		<td>		<p style="margin: 0.5em 0;">Dereferencing a <code>mut-qualified pointer</code> results in a<br/>mutable value, otherwise the value is constant.</p>
 </td>
 	</tr>
 	<tr>
@@ -500,7 +491,7 @@
 	</tr>
 	<tr>
 		<td>2</td>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span><span class="code-red">|</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">copy</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">move</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">forward</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">-</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">!</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">~</span>a</code></td>
+		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-red">&</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">copy</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">move</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">forward</span> a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">-</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">!</span>a</code>&emsp;<code class="code-src"; style="background-color: #282923!important;"><span class="code-red">~</span>a</code></td>
 	</tr>
 	<tr>
 		<td>3</td>
@@ -538,8 +529,8 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-22</p>
-		<p style="color: #878481;">© 2023-2025 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+		<p style="color: #878481;">Page Last Updated: 2026-01-10</p>
+		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
 </body>
