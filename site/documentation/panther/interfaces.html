@@ -283,7 +283,7 @@ func entry = () #entry -> UI8 {
 
 
 	<span class="code-gray">// implementation of Shape for Quad</span>
-	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape{</span>
+	<span class="code-cyan" style="font-style: italic;">impl</span> Shape{
 		area      <span class="code-red">=</span> area, <span class="code-gray">// defining with an existing method</span>
 		num_sides <span class="code-red">=</span> () <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> { <span class="code-red">return</span> <span class="code-purple">4</span>; }, <span class="code-gray">// defining with an inline method</span>
 	}
@@ -302,7 +302,7 @@ func entry = () #entry -> UI8 {
 
 
 	<span class="code-gray">// Implementation of Shape for Circle</span>
-	<span class="code-cyan" style="font-style: italic;">impl</span> <span class="code-green">Shape{</span>
+	<span class="code-cyan" style="font-style: italic;">impl</span> Shape{
 		area <span class="code-red">=</span> get_area, <span class="code-gray">// method names don't have to be the same</span>
 		<span class="code-gray">// using default for Shape.num_sides</span>
 	}
@@ -311,13 +311,13 @@ func entry = () #entry -> UI8 {
 
 
 <span class="code-gray">// this function becomes a template on the shape passed to it</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_num_sides</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">impl</span><span class="code-green">($$:Shape))</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_num_sides</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span>Shape)) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
 	<span class="code-red">return</span> shape.<span class="code-cyan">num_sides</span>();
 }
 
 <span class="code-gray">// this function is equivalent to the one above in terms of the actual instructions emitted</span>
 <span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_num_sides</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> Quad) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UInt</span> {
-	<span class="code-red">return</span> (shape <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span><span class="code-green">(Quad:Shape)).num_sides();</span>
+	<span class="code-red">return</span> (shape <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span>(Quad<span class="code-red">:</span>Shape)).<span class="code-cyan">num_sides</span>();
 }
 
 
@@ -325,7 +325,7 @@ func entry = () #entry -> UI8 {
 
 <span class="code-gray">// runtime polymorphism (allowed becuase the interface has attribute '#polymorphic')</span>
 <span class="code-gray">// 'shape' is a struct of a pointer to the shape object and a pointer to a vtable</span>
-<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_area</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">impl</span><span class="code-green">(*:Shape))</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
+<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get_shape_area</span> <span class="code-red">=</span> (shape<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">impl</span>(<span class="code-red">*</span><span class="code-red">:</span>Shape)) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">F32</span> {
 	<span class="code-red">return</span> shape.<span class="code-cyan">area</span>();
 }
 
@@ -341,9 +341,9 @@ func entry = () #entry -> UI8 {
 		radius <span class="code-red">=</span> <span class="code-purple">2.0</span>,
 	};
 
-	<span class="code-cyan" style="font-style: italic;">const</span> num_sides_of_quad<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UInt</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_num_sides</span>(quad <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span><span class="code-green">(Quad:Shape));</span>
+	<span class="code-cyan" style="font-style: italic;">const</span> num_sides_of_quad<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UInt</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_num_sides</span>(quad <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span>(Quad<span class="code-red">:</span>Shape));
 
-	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(circle <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span><span class="code-green">(*:Shape));</span>
+	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(circle <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span>(<span class="code-red">*</span><span class="code-red">:</span>Shape));
 	
 	<span class="code-red">return</span> <span class="code-purple">0</span>;
 }</div></pre></div>	</div>

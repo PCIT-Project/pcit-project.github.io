@@ -1,9 +1,18 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.52.1"></a>
+## v0.0.52.1
+- Fixed syntax highlighting for panther after keyword `impl`
+
+### Panther Documentation
+- Fixed Panther home page using out-dated interfaces example
+
+
+<!---------------------------------->
 <a name="v0.0.52.0"></a>
 ## v0.0.52.0
-- Fixed syntax highlighting for intrinsic function declarations
+- Fixed syntax highlighting for panther intrinsic function declarations
 
 ### Panther Documentation
 - Added `@importC` and `@importCPP`

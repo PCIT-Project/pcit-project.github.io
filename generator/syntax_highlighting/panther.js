@@ -116,12 +116,12 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "func": case "alias": case "type": case "interface": case "impl": {
+				case "func": case "alias": case "type": case "interface": {
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 					while(is_whitespace(stream.peek())){ output += stream.next(); }
 
 					identifier = "";
-					while(is_whitespace(stream.peek()) == false){
+					while(is_whitespace(stream.peek()) == false && stream.peek() != '='){
 						identifier += stream.next();
 					}
 
@@ -130,6 +130,10 @@ exports.highlight = function(code){
 					}else{
 						output += `<span class="code-green">${identifier}</span>`;
 					}
+				} break;
+
+				case "impl": {
+					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
 				case "Void": case "Type":
