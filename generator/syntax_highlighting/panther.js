@@ -112,7 +112,7 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "struct": {
+				case "struct": case "enum": {
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 

@@ -160,6 +160,7 @@ const search_targets = [
 	new SearchTarget("Documentation", "/site/documentation/documentation.html", "Documentation for the PCIT Project tools", ["documentation"], [4]),
 	new SearchTarget("Panther Documentation", "/site/documentation/panther/documentation.html", "Documentation for the Panther programming language", ["panther","documentation"], [0,4]),
 	new SearchTarget("Character Escape Codes", "/site/documentation/panther/character_escape_codes.html", "Documentation for literals in the Panther programming language", ["character","escape","codes"], [0,4]),
+	new SearchTarget("Enums", "/site/documentation/panther/enums.html", "Documentation for enums in the Panther programming language", ["enums"], [0,4]),
 	new SearchTarget("Fluid Values", "/site/documentation/panther/fluid_values.html", "Documentation for fluid values in the Panther programming language", ["fluid","values"], [0,4]),
 	new SearchTarget("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html", "Documentation for intrinsics in the Panther programming language", ["intrinsics"], [0,4]),
 	new SearchTarget("Arithmetic Intrinsics", "/site/documentation/panther/intrinsics/arithmetic_intrinsics.html", "Documentation for arithmetic intrinsics in the Panther programming language", ["arithmetic","intrinsics"], [0,4]),

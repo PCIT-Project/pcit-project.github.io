@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.53.0"></a>
+## v0.0.53.0
+
+### Panther Documentation
+- Added "Enums" page
+
+
+<!---------------------------------->
 <a name="v0.0.52.1"></a>
 ## v0.0.52.1
 - Fixed syntax highlighting for panther after keyword `impl`

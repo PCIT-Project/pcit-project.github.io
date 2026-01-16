@@ -33,6 +33,7 @@ page.text("As Panther is pre-release, anything in the documentation may change a
 page.end_info();
 
 page.text(html.link("Character Escape Codes", "/site/documentation/panther/character_escape_codes.html"));
+page.text(html.link("Enums", "/site/documentation/panther/enums.html"));
 page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
 page.text(html.link("Functions", "/site/documentation/panther/functions.html"));
 page.text(html.link("Interfaces", "/site/documentation/panther/interfaces.html"));
