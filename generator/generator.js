@@ -110,13 +110,13 @@ require("./page_generators/documentation/pir/pir_documentation.js");
 
 require("./page_generators/tutorials/tutorials.js");
 
-require("./page_generators/tutorials/Panther/panther_tutorial.js");
+require("./page_generators/tutorials/panther/panther_tutorial.js");
 
-require("./page_generators/tutorials/PantherLib/panther_lib_tutorial.js");
+require("./page_generators/tutorials/panther_lib/panther_lib_tutorial.js");
 
-require("./page_generators/tutorials/PIR/pir_tutorial.js");
+require("./page_generators/tutorials/pir/pir_tutorial.js");
 
-require("./page_generators/tutorials/PLNK/plnk_tutorial.js");
+require("./page_generators/tutorials/plnk/plnk_tutorial.js");
 
 
 
