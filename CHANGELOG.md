@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.55.0"></a>
+## v0.0.55.0
+
+### Panther Documentation
+- Made description of intrinsic functions for internal use more clear
+
+
+<!---------------------------------->
 <a name="v0.0.54.0"></a>
 ## v0.0.54.0
 - Improved search - now considers `.` as a delimiter

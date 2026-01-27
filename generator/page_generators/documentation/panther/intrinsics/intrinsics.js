@@ -40,24 +40,22 @@ page.text(html.link("@build",  "/site/documentation/panther/intrinsics/builtin_m
 
 page.h2("Intrinsic Functions");
 
-page.paragraph(`Intrinsic functions are generally not meant to be used by the programmer as there is usually a better way of doing the same thing. For example, type conversion intrinsic functions do exist but it is preferred to use ${terms.get("operator as")} instead. In addition, the standard library provides wrappers around almost all intrinsic functions.`);
-
 page.paragraph(`Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.`);
 
-page.h3("Meant for general use:");
 page.text(html.link("Importing", "/site/documentation/panther/intrinsics/importing_intrinsics.html"));
 page.text(html.link("Operational", "/site/documentation/panther/intrinsics/operational_intrinsics.html"));
 
 
-page.h3("Not meant for general use:");
+page.h3("Intrinsic Functions for Internal Use");
+
+page.paragraph(`These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.`);
+
 page.text(html.link("Arithmetic", "/site/documentation/panther/intrinsics/arithmetic_intrinsics.html"));
 page.text(html.link("Bitwise", "/site/documentation/panther/intrinsics/bitwise_intrinsics.html"));
 // page.text(html.link("Build System", "/site/documentation/panther/intrinsics/build system_intrinsics.html"));
 page.text(html.link("Comparative", "/site/documentation/panther/intrinsics/comparative_intrinsics.html"));
 page.text(html.link("Type Conversion", "/site/documentation/panther/intrinsics/type_conversion_intrinsics.html"));
 page.text(html.link("Type Traits", "/site/documentation/panther/intrinsics/type_traits_intrinsics.html"));
-
-
 
 
 page.generate();
