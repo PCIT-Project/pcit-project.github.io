@@ -17,17 +17,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="Documentation for literals in the Panther programming language" />
+	<meta name="description" content="Documentation for the builtin module @build in the Panther programming language" />
 
-	<meta property="og:title" content="Character Escape Codes | Panther Documentation | PCIT Project" />
-	<meta property="og:description" content="Documentation for literals in the Panther programming language" />
+	<meta property="og:title" content="Builtin Module @build | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for the builtin module @build in the Panther programming language" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>Character Escape Codes | Panther Documentation | PCIT Project</title>
+	<title>Builtin Module @build | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -54,8 +54,14 @@
 				},
 				{
 					"@type": "ListItem",
-			        "position": 3,
-			        "name": "Character Escape Codes"
+					"position": 3,
+					"name": "Intrinsics",
+					"item": "https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 4,
+			        "name": "Builtin Module @build"
 				}
 			]
 		}
@@ -92,51 +98,20 @@
 	</div>
 
 	<br><div class="context">
-		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Character Escape Codes</div>		<h1>Character Escape Codes</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > Builtin Module @build</div>		<h1>Builtin Module @build</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>Character escape codes are used to represent special characters within <code><a href="/site/documentation/panther/literals.html#character-literals">character literals</a></code> and <code><a href="/site/documentation/panther/literals.html#string-literals">string literals</a></code>.</p>
-<div style="overflow-x: auto; width: 100%"><table>
-	<tr>
-		<th>Escape code</th>
-		<th>ASCII value representation</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\0</span>'</span></code></td>
-		<td>0x00</td>
-		<td>null terminator</td>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\t</span>'</span></code></td>
-		<td>0x09</td>
-		<td>horizontal tab</td>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\n</span>'</span></code></td>
-		<td>0x0a</td>
-		<td>new line</td>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\r</span>'</span></code></td>
-		<td>0x0d</td>
-		<td>carriage return</td>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\"</span>'</span></code></td>
-		<td>0x22</td>
-		<td>double quote</td>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\'</span>'</span></code></td>
-		<td>0x27</td>
-		<td>single quote</td>
-	</tr>
-	<tr>
-		<td><code class="code-src"; style="background-color: #282923!important;"><span class="code-yellow">'<span class="code-purple">\\</span>'</span></code></td>
-		<td>0x5c</td>
-		<td>backslash</td>
-	</tr>
-</table></div>
+<br/><br/><h2 id="PackageID">PackageID</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PackageID</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">alias</span> <span class="code-cyan" style="font-style: italic;">UI32</span>;</code></p>
+		<p>Unique ID for a package.</p>
+<h2 id="PackageWarningSettings">PackageWarningSettings</h2>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PackageWarningSettings</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> methodCallOnNonMethod        <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> deleteMovedFromExpr          <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> deleteTriviallyDeletableType <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> constexprIfCond              <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> alreadyUnsafe                <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> experimentalF80              <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+	<span class="code-cyan" style="font-style: italic;">var</span> PackageWarningSettings       <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
+}</pre></p>
+		<p>Structure for which warning should be enabled for a package.</p>
 	</div>
 
 	<div class="footer">

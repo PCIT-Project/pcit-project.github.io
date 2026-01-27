@@ -112,11 +112,11 @@ exports.highlight = function(code){
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "struct": case "enum": {
+				case "struct": case "enum": case "alias": {
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 				} break;
 
-				case "func": case "alias": case "type": case "interface": {
+				case "func": case "type": case "interface": {
 					output += `<span class="code-cyan" style="font-style: italic;">${identifier}</span>`;
 					while(is_whitespace(stream.peek())){ output += stream.next(); }
 
@@ -172,7 +172,11 @@ exports.highlight = function(code){
 
 				default: {
 					if(identifier[0] == "@"){
-						output += `<span class="code-red">${identifier}</span>`;
+						if(identifier == "@pthr" || identifier == "@build"){
+							output += `<span class="code-orange">${identifier}</span>`;
+						}else{
+							output += `<span class="code-red">${identifier}</span>`;
+						}
 						break;
 
 					}else if(identifier[0] == "#"){

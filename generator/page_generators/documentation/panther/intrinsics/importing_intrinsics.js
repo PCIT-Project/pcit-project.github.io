@@ -19,25 +19,25 @@ const syntax_highlighting = require("../../../../syntax_highlighting/syntax_high
 
 
 let page = new Page(__filename, {
-	path        : "documentation/panther/intrinsics/operational_intrinsics.html",
-	title       : "Operational Intrinsics",
+	path        : "documentation/panther/intrinsics/importing_intrinsics.html",
+	title       : "Importing Intrinsics",
 	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
 	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
-	description : "Documentation for operational intrinsics in the Panther programming language",
+	description : "Documentation for importing intrinsics in the Panther programming language",
 });
 
 
-page.h2Searchable("@abort", "abort");
-page.text(page.inline_code(Language.PANTHER, "func @abort = () -> Void;"));
-page.text(`Abort the program. Lowers to a trap instruction if the target has one, otherwise lowered to LIBC ${html.inline_code("abort()")}.`);
+page.h2Searchable("@import", "import");
+page.text(page.inline_code(Language.PANTHER, "func @import = (filepath: [Char:*]) -> {MODULE};"));
+page.text("Import a Panther file.");
 
-page.h2Searchable("@breakpoint", "breakpoint");
-page.text(page.inline_code(Language.PANTHER, "func @breakpoint = () -> Void;"));
-page.text("Cause an execution trap to request the debugger break execution.");
+page.h2Searchable("@importC", "importC");
+page.text(page.inline_code(Language.PANTHER, "func @importC = (filepath: [Char:*]) -> {MODULE};"));
+page.text("Import a C file.");
 
-page.h2Searchable("@makeInitPtr", "makeInitPtr");
-page.text(page.inline_code(Language.PANTHER, "func @makeInitPtr = (uninit_ptr: {T}*!) -> {T}*;"));
-page.text(`Converts an ${terms.get("uninitialized-qualified pointer")} to a ${terms.get("pointer")}. Paramter ${html.inline_code("uninit_ptr")} must be ${terms.get("concrete")}, a local variable, and the ${terms.get("pointee")} must be known to be initialized.`);
+page.h2Searchable("@importCPP", "importCPP");
+page.text(page.inline_code(Language.PANTHER, "func @importCPP = (filepath: [Char:*]) -> {MODULE};"));
+page.text("Import a C++ file.");
 
 
 

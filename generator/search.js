@@ -86,7 +86,7 @@ function generate(){
 
 		file_data += `\tnew SearchTarget("${page.title}", "${page.path}", "${page.description}", `;
 
-		const words = page.title.toLowerCase().split(" ");
+		const words = page.title.toLowerCase().split(/(\.| )/);
 
 		let search_terms = [];
 		words.forEach((word, i) => {

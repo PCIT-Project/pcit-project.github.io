@@ -34,7 +34,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/character_escape_codes.html</loc>
-		<lastmod>2025-12-22</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/enums.html</loc>
@@ -46,35 +46,47 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
-		<lastmod>2025-06-22</lastmod>
+		<lastmod>2026-01-26</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_build.html</loc>
+		<lastmod>2026-01-26</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_pthr.html</loc>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/arithmetic_intrinsics.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/bitwise_intrinsics.html</loc>
-		<lastmod>2026-01-10</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/comparative_intrinsics.html</loc>
-		<lastmod>2026-01-10</lastmod>
+		<lastmod>2026-01-26</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/importing_intrinsics.html</loc>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/operational_intrinsics.html</loc>
-		<lastmod>2026-01-10</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/type_conversion_intrinsics.html</loc>
-		<lastmod>2026-01-10</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/type_traits_intrinsics.html</loc>
-		<lastmod>2026-01-10</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/functions.html</loc>
-		<lastmod>2025-12-27</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/interfaces.html</loc>
@@ -82,7 +94,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/literals.html</loc>
-		<lastmod>2025-12-22</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/modules.html</loc>
@@ -90,11 +102,11 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/operators.html</loc>
-		<lastmod>2026-01-10</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/primitive_types.html</loc>
-		<lastmod>2025-12-22</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/structs.html</loc>
@@ -118,7 +130,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/variables.html</loc>
-		<lastmod>2025-06-17</lastmod>
+		<lastmod>2026-01-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/when_conditionals.html</loc>

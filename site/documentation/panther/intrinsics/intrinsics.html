@@ -94,20 +94,26 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Intrinsics</div>		<h1>Intrinsics</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>&emsp;&emsp;Instrinsics are any symbol (excluding types) that is builtin. They mainly exist add some sort of functionality into the language such as reflection or a runtime operation that otherwise would require inline assembly.</p>
+<br/><br/>		<p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <code>@</code> or are part of a builtin module (which itself begins with an <code>@</code>).</p>
+		<h2>Builtin Modules</h2>
+		<p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html">@pthr</a></p>
+		<p><a href="/site/documentation/panther/intrinsics/builtin_module_build.html">@build</a></p>
 		<h2>Intrinsic Functions</h2>
-		<p>&emsp;&emsp;Intrinsic functions are generally not meant to be used by the programmer as there is usually a better way of doing the same thing. For example, type conversion intrinsic functions do exist but it is preferred to use <code>operator as</code> instead.</p>
+		<p>&emsp;&emsp;Intrinsic functions are generally not meant to be used by the programmer as there is usually a better way of doing the same thing. For example, type conversion intrinsic functions do exist but it is preferred to use <code>operator as</code> instead. In addition, the standard library provides wrappers around almost all intrinsic functions.</p>
 		<p>&emsp;&emsp;Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.</p>
+		<h3>Meant for general use:</h3>
+		<p><a href="/site/documentation/panther/intrinsics/importing_intrinsics.html">Importing</a></p>
+		<p><a href="/site/documentation/panther/intrinsics/operational_intrinsics.html">Operational</a></p>
+		<h3>Not meant for general use:</h3>
 		<p><a href="/site/documentation/panther/intrinsics/arithmetic_intrinsics.html">Arithmetic</a></p>
 		<p><a href="/site/documentation/panther/intrinsics/bitwise_intrinsics.html">Bitwise</a></p>
 		<p><a href="/site/documentation/panther/intrinsics/comparative_intrinsics.html">Comparative</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/operational_intrinsics.html">Operational</a></p>
 		<p><a href="/site/documentation/panther/intrinsics/type_conversion_intrinsics.html">Type Conversion</a></p>
 		<p><a href="/site/documentation/panther/intrinsics/type_traits_intrinsics.html">Type Traits</a></p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-22</p>
+		<p style="color: #878481;">Page Last Updated: 2026-01-26</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

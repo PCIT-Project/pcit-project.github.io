@@ -31,13 +31,13 @@ page.text(`Character escape codes are used to represent special characters withi
 
 page.table([
 	["Escape code", "ASCII value representation", "Description"],
-	[page.inline_code_block(Language.PANTHER, "'\\0'"),  "0x00", "null terminator" ],
-	[page.inline_code_block(Language.PANTHER, "'\\t'"),  "0x09", "horizontal tab"  ],
-	[page.inline_code_block(Language.PANTHER, "'\\n'"),  "0x0a", "new line"        ],
-	[page.inline_code_block(Language.PANTHER, "'\\r'"),  "0x0d", "carriage return" ],
-	[page.inline_code_block(Language.PANTHER, "'\\\"'"), "0x22", "double quote"    ],
-	[page.inline_code_block(Language.PANTHER, "'\\''"),  "0x27", "single quote"    ],
-	[page.inline_code_block(Language.PANTHER, "'\\\\'"), "0x5c", "backslash"       ],
+	[page.inline_code(Language.PANTHER, "'\\0'"),  "0x00", "null terminator" ],
+	[page.inline_code(Language.PANTHER, "'\\t'"),  "0x09", "horizontal tab"  ],
+	[page.inline_code(Language.PANTHER, "'\\n'"),  "0x0a", "new line"        ],
+	[page.inline_code(Language.PANTHER, "'\\r'"),  "0x0d", "carriage return" ],
+	[page.inline_code(Language.PANTHER, "'\\\"'"), "0x22", "double quote"    ],
+	[page.inline_code(Language.PANTHER, "'\\''"),  "0x27", "single quote"    ],
+	[page.inline_code(Language.PANTHER, "'\\\\'"), "0x5c", "backslash"       ],
 ]);
 
 

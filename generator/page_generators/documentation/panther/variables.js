@@ -70,7 +70,7 @@ page.h3("#pub");
 page.text( `Make the variable accessable outside this module (such as through ${terms.get("intrinsic @import")})`);
 page.table([
 	["Argument Index", "Description", "Type", "Is Required"],
-	["0", "If the attribute is enabled", page.inline_code_block(Language.PANTHER, "Bool"), "no"],
+	["0", "If the attribute is enabled", page.inline_code(Language.PANTHER, "Bool"), "no"],
 ]);
 
 

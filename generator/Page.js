@@ -102,21 +102,21 @@ const breadcrumbs = Object.freeze({
 
 
 class Page{
-	#body;
-	#counter;
-	#last_updated_str;
+	body;
+	counter;
+	last_updated_str;
 
 	// required options for `config`
-	#path;
-	#title;
+	path;
+	title;
 
 	// optional options for `config`
-	#description;
-	#categories;
-	#breadcrumbs;
-	#on_page_title; // default `title`
-	#has_page_title; // default true
-	#article_info; // only used if is an article. Must have `.author, .date_published, .author_url`
+	description;
+	categories;
+	breadcrumbs;
+	on_page_title; // default `title`
+	has_page_title; // default true
+	article_info; // only used if is an article. Must have `.author, .date_published, .author_url`
 
 	// optional options for `config` that don't become members
 	// allow_in_sitemap -> defaults to true
@@ -325,7 +325,7 @@ class Page{
 			this.body +=
 `	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">${i + 1}:</td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${this.inline_code_block(language, item)}</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${this.inline_code(language, item)}</td>
 	</tr>
 `;
 		});
@@ -353,7 +353,7 @@ class Page{
 
 
 
-	inline_code_block(language, code){
+	inline_code(language, code){
 		let output = "<code class=\"code-src\"; style=\"background-color: #282923!important;\">"
 
 		switch(language){
@@ -387,6 +387,45 @@ class Page{
 			} break;
 		}
 		output += "</code>";
+
+		return output;
+	}
+
+	// unline inline_code, inline_code_block has scroll bar if too wide (instead of wrapping)
+	inline_code_block(language, code){
+		let output = "<pre class=\"code code-src code-inline-block\">";
+
+		switch(language){
+			case Language.PANTHER: {
+				output += syntax_highlighting.panther(code);
+			} break;
+
+			case Language.PIR: {
+				output += syntax_highlighting.pir(code);
+			} break;
+
+			case Language.CPP: case Language.C: {
+				output += syntax_highlighting.cpp(code);
+			} break;
+
+			case Language.LLVMIR: {
+				output += syntax_highlighting.llvmir(code);
+			} break;
+
+			case Language.ASM_x86: {
+				output += syntax_highlighting.asm_x86(code);
+			} break;
+
+			case Language.Diagnostic: {
+				output += syntax_highlighting.diagnostic(code);
+			} break;
+
+			default: {
+				assert(language === null, "Not a valid language");
+				output += html.santitize(code);
+			} break;
+		}
+		output += "</pre>";
 
 		return output;
 	}

@@ -330,12 +330,18 @@ tr:nth-child(even) {
 	width: calc(100% - 20px);
 }
 
+.code-inline-block{
+	/*padding: 0 10px 5px 10px;*/
+	width: fit-content;
+}
+
 
 .code-lines{
 	color: #90918b;
 	text-align: center;
 	margin-right: 10px;
 	user-select: none;
+	margin-top: 1px;
 	/*margin-left: 1em;*/
 	/*margin-right: 1.5em;*/
 }
@@ -343,6 +349,7 @@ tr:nth-child(even) {
 
 .code-src{
 	overflow: auto;
+	white-space-collapse: break-spaces;
 }
 
 .code-src::selection{

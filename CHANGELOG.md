@@ -1,6 +1,20 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.54.0"></a>
+## v0.0.54.0
+- Improved search - now considers `.` as a delimiter
+
+### Panther Documentation
+- Added page for `@pthr`
+- Added page for `@build`
+- Improved page for intrinsics
+	- Added more details about intrinsics
+	- Separated which intrinsics are meant for general use
+- Separated importing intrinsics into their own page
+
+
+<!---------------------------------->
 <a name="v0.0.53.1"></a>
 ## v0.0.53.1
 - Fixed link to PIR documentation on homepage

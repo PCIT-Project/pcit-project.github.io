@@ -29,25 +29,25 @@ let page = new Page(__filename, {
 
 
 page.h2Searchable("@getTypeID", "getTypeID");
-page.text(page.inline_code_block(Language.PANTHER, "func @getTypeID = <{T: Type}> () -> TypeID;"));
-page.text(`Get the ${page.inline_code_block(Language.PANTHER, "TypeID")} of type ${html.inline_code("T")}. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
+page.text(page.inline_code(Language.PANTHER, "func @getTypeID = <{T: Type}> () -> TypeID;"));
+page.text(`Get the ${page.inline_code(Language.PANTHER, "TypeID")} of type ${html.inline_code("T")}. ${html.inline_code("T")} cannot be ${page.inline_code(Language.PANTHER, "Void")}.`);
 
 page.h2Searchable("@arrayElementTypeID", "arrayElementTypeID");
-page.text(page.inline_code_block(Language.PANTHER, "func @arrayElementTypeID = <{T: Type}> () -> TypeID;"));
-page.text(`Get the ${page.inline_code_block(Language.PANTHER, "TypeID")} of the elements of an ${terms.get("array")} type ${html.inline_code("T")}. ${html.inline_code("T")} must be an ${terms.get("array")} type.`);
+page.text(page.inline_code(Language.PANTHER, "func @arrayElementTypeID = <{T: Type}> () -> TypeID;"));
+page.text(`Get the ${page.inline_code(Language.PANTHER, "TypeID")} of the elements of an ${terms.get("array")} type ${html.inline_code("T")}. ${html.inline_code("T")} must be an ${terms.get("array")} type.`);
 
 page.h2Searchable("@arrayRefElementTypeID", "arrayRefElementTypeID");
-page.text(page.inline_code_block(Language.PANTHER, "func @arrayRefElementTypeID = <{T: Type}> () -> TypeID;"));
-page.text(`Get the ${page.inline_code_block(Language.PANTHER, "TypeID")} of the elements of an ${terms.get("array reference")} type ${html.inline_code("T")}. ${html.inline_code("T")} must be an ${terms.get("array reference")} type.`);
+page.text(page.inline_code(Language.PANTHER, "func @arrayRefElementTypeID = <{T: Type}> () -> TypeID;"));
+page.text(`Get the ${page.inline_code(Language.PANTHER, "TypeID")} of the elements of an ${terms.get("array reference")} type ${html.inline_code("T")}. ${html.inline_code("T")} must be an ${terms.get("array reference")} type.`);
 
 
 page.h2Searchable("@numBytes", "numBytes");
-page.text(page.inline_code_block(Language.PANTHER, "func @numBytes = <{T: Type, INCLUDE_PADDING: Bool}> () -> USize;"));
-page.text(`Get the number of bytes of type ${html.inline_code("T")}. ${html.inline_code("INCLUDE_PADDING")} should be true if should include padding bytes. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
+page.text(page.inline_code(Language.PANTHER, "func @numBytes = <{T: Type, INCLUDE_PADDING: Bool}> () -> USize;"));
+page.text(`Get the number of bytes of type ${html.inline_code("T")}. ${html.inline_code("INCLUDE_PADDING")} should be true if should include padding bytes. ${html.inline_code("T")} cannot be ${page.inline_code(Language.PANTHER, "Void")}.`);
 
 page.h2Searchable("@numBits", "numBits");
-page.text(page.inline_code_block(Language.PANTHER, "func @numBits = <{T: Type, INCLUDE_PADDING: Bool}> () -> USize;"));
-page.text(`Get the number of bits of type ${html.inline_code("T")}. ${html.inline_code("INCLUDE_PADDING")} should be true if should include padding bits. ${html.inline_code("T")} cannot be ${page.inline_code_block(Language.PANTHER, "Void")}.`);
+page.text(page.inline_code(Language.PANTHER, "func @numBits = <{T: Type, INCLUDE_PADDING: Bool}> () -> USize;"));
+page.text(`Get the number of bits of type ${html.inline_code("T")}. ${html.inline_code("INCLUDE_PADDING")} should be true if should include padding bits. ${html.inline_code("T")} cannot be ${page.inline_code(Language.PANTHER, "Void")}.`);
 
 
 
