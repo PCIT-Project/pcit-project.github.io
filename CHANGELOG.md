@@ -1,6 +1,17 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.56.0"></a>
+## v0.0.56.0
+
+### Panther Documentation
+- Added atomic intrinsics page
+	- `@atomicLoad`
+	- `@atomicStore`
+- Added `@pthr.AtomicOrdering`
+
+
+<!---------------------------------->
 <a name="v0.0.55.0"></a>
 ## v0.0.55.0
 

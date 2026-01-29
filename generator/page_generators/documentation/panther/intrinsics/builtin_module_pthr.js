@@ -27,7 +27,38 @@ let page = new Page(__filename, {
 });
 
 
-page.h2("Iterable Interfaces");
+
+page.h2Anchor("AtomicOrdering", "AtomicOrdering");
+search.addSearchTarget("@pthr.AtomicOrdering", page.path + "#AtomicOrdering", page.categories);
+page.text(page.inline_code_block(Language.PANTHER, `type AtomicOrdering = enum {
+	MONOTONIC,
+	ACQUIRE,
+	RELEASE,
+	ACQ_REL,
+	SEQ_CST,
+}`));
+page.text(`Enum to specify the different atomic orderings. All orderings guarantee atomicity. Use of any ordering other than ${html.inline_code("SEQ_CST")} should only be done if the developer is 100% sure it is safe to do so.`);
+
+page.h3("MONOTONIC");
+page.paragraph("Has no synchronization or ordering constraints. Can be used on any atomic operation.");
+page.paragraph("This is equivalent to \"relaxed\" in C/C++.");
+
+page.h3("ACQUIRE");
+page.paragraph("No memory operations in the current thread can be reordered to before this operation. Can be used on load atomic operations.");
+
+page.h3("RELEASE");
+page.paragraph("No memory operations in the current thread can be reordered to after this operation. Can be used on store atomic operations.");
+
+page.h3("ACQ_REL");
+page.paragraph("Acquire Release. Performs an acquire and a release operation. No memory operations in the current thread can be reordered to before acquire or to after the release. Can be used on read-modify-write atomic operation.");
+
+page.h3("SEQ_CST");
+page.paragraph("Sequentially-consistent. Performs an acquire for a load, a release for a store, acquire-release for a read-modify-write operation. In addition, all threads observe all modifications in the same order. Can be used on any atomic operation.");
+
+
+
+
+page.h2Searchable("Iterable Interfaces");
 
 page.h3Anchor("IIterable / IIterableRT", "IIterable");
 search.addSearchTarget("@pthr.IIterable", page.path + "#IIterable", page.categories);
@@ -71,7 +102,7 @@ page.text("Interface to define iterable types. Should be used if the type uses t
 
 
 
-page.h2("Iterator Interfaces");
+page.h2Searchable("Iterator Interfaces");
 
 page.h3Anchor("IIterator / IIteratorRT", "IIterator");
 search.addSearchTarget("@pthr.IIterator", page.path + "#IIterator", page.categories);

@@ -17,17 +17,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="Documentation for intrinsics in the Panther programming language" />
+	<meta name="description" content="Documentation for atomic intrinsics in the Panther programming language" />
 
-	<meta property="og:title" content="Intrinsics | Panther Documentation | PCIT Project" />
-	<meta property="og:description" content="Documentation for intrinsics in the Panther programming language" />
+	<meta property="og:title" content="Atomic Intrinsics | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for atomic intrinsics in the Panther programming language" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>Intrinsics | Panther Documentation | PCIT Project</title>
+	<title>Atomic Intrinsics | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -54,8 +54,14 @@
 				},
 				{
 					"@type": "ListItem",
-			        "position": 3,
-			        "name": "Intrinsics"
+					"position": 3,
+					"name": "Intrinsics",
+					"item": "https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 4,
+			        "name": "Atomic Intrinsics"
 				}
 			]
 		}
@@ -92,24 +98,12 @@
 	</div>
 
 	<br><div class="context">
-		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Intrinsics</div>		<h1>Intrinsics</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > Atomic Intrinsics</div>		<h1>Atomic Intrinsics</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <code>@</code> or are part of a builtin module (which itself begins with an <code>@</code>).</p>
-		<h2>Builtin Modules</h2>
-		<p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html">@pthr</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/builtin_module_build.html">@build</a></p>
-		<h2>Intrinsic Functions</h2>
-		<p>&emsp;&emsp;Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.</p>
-		<p><a href="/site/documentation/panther/intrinsics/importing_intrinsics.html">Importing</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/operational_intrinsics.html">Operational</a></p>
-		<h3>Intrinsic Functions for Internal Use</h3>
-		<p>&emsp;&emsp;These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.</p>
-		<p><a href="/site/documentation/panther/intrinsics/atomic_intrinsics.html">Atomic</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/arithmetic_intrinsics.html">Arithmetic</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/bitwise_intrinsics.html">Bitwise</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/comparative_intrinsics.html">Comparative</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/type_conversion_intrinsics.html">Type Conversion</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/type_traits_intrinsics.html">Type Traits</a></p>
+<br/><br/><h2 id="atomicLoad">@atomicLoad</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@atomicLoad</span> <span class="code-red">=</span> &lt;{TARGET<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, OUTPUT<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, ORDER<span class="code-red">:</span> <span class="code-orange">@pthr</span>.AtomicOrdering}&gt; (target<span class="code-red">:</span> TARGET) <span class="code-red">-</span><span class="code-red">&gt;</span> OUTPUT;</code></p>
+		<p>Atomic load. <code>TARGET</code> must be a non-optional pointer. <code>TARGET</code> must be the result of a dereference of <code>TARGET</code>.</p>
+<h2 id="atomicStore">@atomicStore</h2>		<p><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-red">@atomicStore</span> <span class="code-red">=</span> &lt;{TARGET<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, VALUE<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, ORDER<span class="code-red">:</span> <span class="code-orange">@pthr</span>.AtomicOrdering}&gt; (target<span class="code-red">:</span> TARGET, value<span class="code-red">:</span> VALUE) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></p>
+		<p>Atomic load. <code>TARGET</code> must be a non-optional pointer. <code>TARGET</code> must be the result of a dereference of <code>TARGET</code>.</p>
 	</div>
 
 	<div class="footer">

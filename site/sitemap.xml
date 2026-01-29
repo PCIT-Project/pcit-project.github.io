@@ -46,7 +46,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
-		<lastmod>2026-01-27</lastmod>
+		<lastmod>2026-01-29</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_build.html</loc>
@@ -54,7 +54,11 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_pthr.html</loc>
-		<lastmod>2026-01-26</lastmod>
+		<lastmod>2026-01-29</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/atomic_intrinsics.html</loc>
+		<lastmod>2026-01-29</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/arithmetic_intrinsics.html</loc>

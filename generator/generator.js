@@ -79,6 +79,7 @@ require("./page_generators/documentation/panther/fluid_values.js");
 require("./page_generators/documentation/panther/intrinsics/intrinsics.js");
 require("./page_generators/documentation/panther/intrinsics/builtin_module_build.js");
 require("./page_generators/documentation/panther/intrinsics/builtin_module_pthr.js");
+require("./page_generators/documentation/panther/intrinsics/atomic_intrinsics.js");
 require("./page_generators/documentation/panther/intrinsics/arithmetic_intrinsics.js");
 require("./page_generators/documentation/panther/intrinsics/bitwise_intrinsics.js");
 require("./page_generators/documentation/panther/intrinsics/comparative_intrinsics.js");
