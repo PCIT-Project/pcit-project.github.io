@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.57.1"></a>
+## v0.0.57.1
+
+### Panther Documentation
+- Fixed `@makeInitPtr` definition
+
+
+<!---------------------------------->
 <a name="v0.0.57.0"></a>
 ## v0.0.57.0
 

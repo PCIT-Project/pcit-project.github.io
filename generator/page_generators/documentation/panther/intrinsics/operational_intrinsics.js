@@ -36,7 +36,7 @@ page.text(page.inline_code(Language.PANTHER, "func @breakpoint = () -> Void;"));
 page.text("Cause an execution trap to request the debugger break execution.");
 
 page.h2Searchable("@makeInitPtr", "makeInitPtr");
-page.text(page.inline_code(Language.PANTHER, "func @makeInitPtr = (uninit_ptr: {T}*!) -> {T}*;"));
+page.text(page.inline_code(Language.PANTHER, "func @makeInitPtr = (uninit_ptr: $T*!) -> T*;"));
 page.text(`Converts an ${terms.get("uninitialized-qualified pointer")} to a ${terms.get("pointer")}. Paramter ${html.inline_code("uninit_ptr")} must be ${terms.get("concrete")}, a local variable, and the ${terms.get("pointee")} must be known to be initialized.`);
 
 
