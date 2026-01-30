@@ -183,6 +183,7 @@ const search_targets = [
 	new SearchTarget("Atomic Intrinsics", "/site/documentation/panther/intrinsics/atomic_intrinsics.html", "Documentation for atomic intrinsics in the Panther programming language", ["atomic"," ","intrinsics"], [0,4]),
 	new SearchTarget("@atomicLoad", "documentation/panther/intrinsics/atomic_intrinsics.html#atomicLoad", "", ["@atomicload"], [0,4]),
 	new SearchTarget("@atomicStore", "documentation/panther/intrinsics/atomic_intrinsics.html#atomicStore", "", ["@atomicstore"], [0,4]),
+	new SearchTarget("@cmpxchg", "documentation/panther/intrinsics/atomic_intrinsics.html#cmpxchg", "", ["@cmpxchg"], [0,4]),
 	new SearchTarget("Arithmetic Intrinsics", "/site/documentation/panther/intrinsics/arithmetic_intrinsics.html", "Documentation for arithmetic intrinsics in the Panther programming language", ["arithmetic"," ","intrinsics"], [0,4]),
 	new SearchTarget("@add", "documentation/panther/intrinsics/arithmetic_intrinsics.html#add", "", ["@add"], [0,4]),
 	new SearchTarget("@addWrap", "documentation/panther/intrinsics/arithmetic_intrinsics.html#addWrap", "", ["@addwrap"], [0,4]),

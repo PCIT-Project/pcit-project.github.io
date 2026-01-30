@@ -33,8 +33,13 @@ page.text(`Atomic load. ${html.inline_code("TARGET")} must be a non-optional poi
 
 
 page.h2Searchable("@atomicStore", "atomicStore");
-page.text(page.inline_code(Language.PANTHER, "func @atomicStore = <{TARGET: Type, VALUE: Type, ORDER: @pthr.AtomicOrdering}> (target: TARGET, value: VALUE) -> Void;"));
+page.text(page.inline_code(Language.PANTHER, "func @atomicStore = <{TARGET: Type, VALUE: Type, ORDER: @pthr.AtomicOrdering}> (target: TARGET, value: VALUE in) -> Void;"));
 page.text(`Atomic load. ${html.inline_code("TARGET")} must be a non-optional pointer. ${html.inline_code("TARGET")} must be the result of a dereference of ${html.inline_code("TARGET")}.`);
+
+
+page.h2Searchable("@cmpxchg", "cmpxchg");
+page.text(page.inline_code(Language.PANTHER, "func @cmpxchg = <{TARGET: Type, VALUE: Type, IS_WEAK: Bool, SUCCESS_ORDER: @pthr.AtomicOrdering, FAILURE_ORDER: @pthr.AtomicOrdering}> (target: TARGET, expected: VALUE, desired: VALUE in) -> (loaded: VALUE, succeeded: Bool);"));
+page.text(`Atomic compare-exchange. ${html.inline_code("TARGET")} must be a non-optional pointer. ${html.inline_code("TARGET")} must be the result of a dereference of ${html.inline_code("TARGET")}. Return parameter ${html.inline_code("loaded")} is the value of ${html.inline_code("target")} that was atomically loaded. Return parameter ${html.inline_code("succeeded")} is ${page.inline_code(Language.PANTHER, "true")} if the exchange was successful.`);
 
 
 page.generate();
