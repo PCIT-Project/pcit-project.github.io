@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.59.1"></a>
+## v0.0.59.1
+
+### Panther Documentation
+- Fixed links on Panther Documentation main page not being on separate lines
+
+
+<!---------------------------------->
 <a name="v0.0.59.0"></a>
 ## v0.0.59.0
 - Improved highlighted text

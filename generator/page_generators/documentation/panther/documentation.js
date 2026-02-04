@@ -32,23 +32,23 @@ exports.getPageGenerator = function(){
 			// TODO: remove at release
 			page.info("Important Note", "As Panther is pre-release, anything in the documentation may change as the design of the language evolves. The documentation is also far from complete.");
 
-			page.raw(html.link("Character Escape Codes", "/site/documentation/panther/character_escape_codes.html"));
-			page.raw(html.link("Enums", "/site/documentation/panther/enums.html"));
-			page.raw(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
-			page.raw(html.link("Functions", "/site/documentation/panther/functions.html"));
-			page.raw(html.link("Interfaces", "/site/documentation/panther/interfaces.html"));
-			page.raw(html.link("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html"));
-			page.raw(html.link("Literals", "/site/documentation/panther/literals.html"));
-			page.raw(html.link("Modules", "/site/documentation/panther/modules.html"));
-			page.raw(html.link("Operators", "/site/documentation/panther/operators.html"));
-			page.raw(html.link("Primitive Types", "/site/documentation/panther/primitive_types.html"));
-			page.raw(html.link("Structs", "/site/documentation/panther/structs.html"));
-			page.raw(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
-			page.raw(html.link("Uninitialized", "/site/documentation/panther/uninitialized.html"));
-			page.raw(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));
-			page.raw(html.link("Value Stages", "/site/documentation/panther/value_stages.html"));
-			page.raw(html.link("Variables", "/site/documentation/panther/variables.html"));
-			page.raw(html.link("When Conditionals", "/site/documentation/panther/when_conditionals.html"));
+			page.text(html.link("Character Escape Codes", "/site/documentation/panther/character_escape_codes.html"));
+			page.text(html.link("Enums", "/site/documentation/panther/enums.html"));
+			page.text(html.link("Fluid Values", "/site/documentation/panther/fluid_values.html"));
+			page.text(html.link("Functions", "/site/documentation/panther/functions.html"));
+			page.text(html.link("Interfaces", "/site/documentation/panther/interfaces.html"));
+			page.text(html.link("Intrinsics", "/site/documentation/panther/intrinsics/intrinsics.html"));
+			page.text(html.link("Literals", "/site/documentation/panther/literals.html"));
+			page.text(html.link("Modules", "/site/documentation/panther/modules.html"));
+			page.text(html.link("Operators", "/site/documentation/panther/operators.html"));
+			page.text(html.link("Primitive Types", "/site/documentation/panther/primitive_types.html"));
+			page.text(html.link("Structs", "/site/documentation/panther/structs.html"));
+			page.text(html.link("Undefined Behavior", "/site/documentation/panther/undefined_behavior.html"));
+			page.text(html.link("Uninitialized", "/site/documentation/panther/uninitialized.html"));
+			page.text(html.link("Value Categories", "/site/documentation/panther/value_categories.html"));
+			page.text(html.link("Value Stages", "/site/documentation/panther/value_stages.html"));
+			page.text(html.link("Variables", "/site/documentation/panther/variables.html"));
+			page.text(html.link("When Conditionals", "/site/documentation/panther/when_conditionals.html"));
 		}
 	);
 }
