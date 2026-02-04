@@ -57,8 +57,8 @@ exports.superscript = function(text){
 }
 
 
-exports.inline_code = function(text){
-	return `<code>${text}</code>`;
+exports.highlight = function(text){
+	return `<span class="highlight">${text}</span>`;
 }
 
 

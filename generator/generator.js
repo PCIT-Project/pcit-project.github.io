@@ -83,30 +83,40 @@ let completed_step = -1;
 function start_step(name){
 	completed_step += 1;
 
-	const width = process.stdout.columns - 7;
+	const width = process.stdout.columns - 19;
 	const percent_completed = completed_step / total_steps;
 
-	let bar = "[";
+	let bar = "Progress: [";
+	const printed_percent = Math.floor(percent_completed * 100);
+	if(printed_percent < 10){
+		bar += '  ';
+	}else if(printed_percent < 100){
+		bar += ' ';
+	}
+	bar += "\x1b[36m";
+	bar += printed_percent;
+
+	bar += "%\x1b[0m] [";
 	for(let i = 0; i < width; i+=1){
 		if(i < percent_completed * width){
-			bar += '=';
+			bar += "\x1b[36m=\x1b[0m";
 		}else{
-			bar += ' ';
+			bar += "\x1b[90m=\x1b[0m";
 		}
 	}
-	bar += "] ";
-
-	bar += Math.floor(percent_completed * 100);
-	bar += "%";
+	bar += "]";
 
 
+	if(completed_step == 0){
+		process.stdout.write("\x1B7");  // save cursor position
+		process.stdout.write(bar);
 
-	if(completed_step > 0){
-		process.stdout.clearLine(0);
-		readline.cursorTo(process.stdout, 0);
+	}else{
+		process.stdout.write("\x1B8");   // Restore the cursor position util new size is calculated
+		process.stdout.write("\x1B[0J"); // restore cursor position
+		process.stdout.write(bar);
 	}
 
-	process.stdout.write(bar);
 }
 
 
@@ -176,3 +186,4 @@ fs.writeFileSync("../site/sitemap.xml", sitemap_str);
 
 
 start_step();
+

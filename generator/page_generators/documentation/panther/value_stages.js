@@ -8,8 +8,7 @@
 
 
 
-const Page = require("../../../Page.js").Page;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
+const Page = require("../../../Page.js");
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
@@ -18,11 +17,11 @@ const search = require("../../../search.js");
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path        : "documentation/panther/value_stages.html",
 				title       : "Value Stages",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION],
 				description : "Documentation for value stages in the Panther programming language",
 			});
 		},

@@ -133,7 +133,7 @@ exports.highlight = function(code){
 
 					if(identifier[0] == '@'){
 						if(intrinsic_funcs.has(identifier)){
-							output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).page.getPath()}">${identifier}</a>`;
+							output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).getPath()}">${identifier}</a>`;
 						}else{
 							output += `<span class="code-red">${identifier}</span>`;
 						}
@@ -186,7 +186,7 @@ exports.highlight = function(code){
 							output += `<span class="code-orange">${identifier}</span>`;
 						}else{
 							if(intrinsic_funcs.has(identifier)){
-								output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).page.getPath()}">${identifier}</a>`;
+								output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).getPath()}">${identifier}</a>`;
 							}else{
 								output += `<span class="code-red">${identifier}</span>`;
 							}

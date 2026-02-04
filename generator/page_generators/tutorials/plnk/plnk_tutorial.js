@@ -8,19 +8,17 @@
 
 
 
-const Page = require("../../../Page.js").Page;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
-const html = require("../../../html.js");
+const Page = require("../../../Page.js");
 const search = require("../../../search.js");
 
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path                    : "tutorials/plnk/tutorial.html",
 				title                   : "PLNK Tutorial",
 				categories              : [search.Category.PLNK, search.Category.TUTORIAL],
-				breadcrumbs             : [breadcrumbs.TUTORIALS],
+				breadcrumbs             : [Page.Breadcrumbs.TUTORIALS],
 				description             : "Tutorial for PLNK (PCIT Linker)",
 				has_categories_in_title : false,
 			});

@@ -89,6 +89,21 @@ tr:nth-child(even) {
 }
 
 
+.highlight{
+	background-color: #282923;
+	display: inline-block;
+	margin: 1px 2px;
+	padding: 0px 2px;
+	display: inline-block;
+	font-size: 0.9em;
+
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	border-color: #878481;
+}
+
+
 /**************************************************/
 /* navbar */
 

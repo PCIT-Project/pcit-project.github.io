@@ -8,22 +8,20 @@
 
 
 
-const Page = require("../../../Page.js").Page;
+const Page = require("../../../Page.js");
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
-const Language = require("../../../Page.js").Language;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
 
 
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path        : "documentation/panther/fluid_values.html",
 				title       : "Fluid Values",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION],
 				description : "Documentation for fluid values in the Panther programming language",
 			});
 		},
@@ -32,7 +30,7 @@ exports.getPageGenerator = function(){
 
 			page.paragraph(`In addition, the result of a operator where all operands are fluid is itself also fluid. The fluid kind of the result is the same as the operands. The use of parentheses are also supported.`);
 
-			page.code_block(Language.PANTHER, 
+			page.codeBlock(Page.Language.PANTHER, 
 ` // valid
 const fluid_int_1: UInt = 12;
 const fluid_int_2: I32 = 2 * (5 + -1) + 4;
@@ -53,7 +51,7 @@ const fluid_float_3: F32 = 12;`
 
 			page.paragraph(`${terms.get("def variables")} that are implicitly typed and are declared with a fluid value are themselves fluid.`);
 
-			page.code_block(Language.PANTHER, 
+			page.codeBlock(Page.Language.PANTHER, 
 ` // valid becase this \`def\` variable has no explicit type and therefore is fluid
 def NUM = 12;
 const num: Int = NUM;

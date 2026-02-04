@@ -94,13 +94,13 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Uninitialized</div>		<h1>Uninitialized</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><p>&emsp;&emsp;The term "uninitialized" refers to any value is not initialized and therefore in an unusable state. If a value is uninitialized, the only valid operations on it are writes. The only way for an uninitialized value to stop being uninitialized is for it to undergo <code>initialization</code>. This does not include <code>assignment</code> even if the <code>operator delete</code> of the type of the value does not contain any read operations.</p>
+<br/><br/><p>&emsp;&emsp;The term "uninitialized" refers to any value is not initialized and therefore in an unusable state. If a value is uninitialized, the only valid operations on it are writes. The only way for an uninitialized value to stop being uninitialized is for it to undergo <span class="highlight">initialization</span>. This does not include <span class="highlight">assignment</span> even if the <span class="highlight">operator delete</span> of the type of the value does not contain any read operations.</p>
 <p>Examples:</p>
 		<ul>
-<li>variables defined with an <code>initializer value</code></li>
-<li>value that undergoes <code>operator delete</code></li>
-<li>value that undergoes <code>operator forward</code></li>
-<li>element of an <code>array</code> after the <code>array</code> undergoes <code>initialization</code></li>
+<li>variables defined with an <span class="highlight">initializer value</span></li>
+<li>value that undergoes <span class="highlight">operator delete</span></li>
+<li>value that undergoes <span class="highlight">operator forward</span></li>
+<li>element of an <span class="highlight">array</span> after the <span class="highlight">array</span> undergoes <span class="highlight">initialization</span></li>
 		</ul>
 	</div>
 

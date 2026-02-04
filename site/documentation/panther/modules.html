@@ -94,13 +94,13 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Modules</div>		<h1>Modules</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><p>A module is a set of symbols that are sort of namespaced together. To import modules, you can use the <code>@import</code> intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:</p>
+<br/><br/><p>A module is a set of symbols that are sort of namespaced together. To import modules, you can use the <span class="highlight">@import</span> intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:</p>
 		<ul>
 <li>std - standard library</li>
 <li>math - math library (sub-module of std)</li>
 		</ul>
-<p>To import a file, you give the <code>@import</code> intrinsic the path of the file. If the path starts with a "./", the path will resolve relative to the current file, otherwise it will resolve relative to the current project.</p>
-<p>For a symbol declared in the file to be accessible through the module of that file, it must be in global scope and have the <code>#pub</code> attribute, or be a member of a type declared in that file with has the <code>#pub</code> attribute.</p>
+<p>To import a file, you give the <span class="highlight">@import</span> intrinsic the path of the file. If the path starts with a "./", the path will resolve relative to the current file, otherwise it will resolve relative to the current project.</p>
+<p>For a symbol declared in the file to be accessible through the module of that file, it must be in global scope and have the <span class="highlight">#pub</span> attribute, or be a member of a type declared in that file with has the <span class="highlight">#pub</span> attribute.</p>
 <h2>Example</h2>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// importing the standard library
 def std = @import("std");

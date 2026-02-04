@@ -8,9 +8,7 @@
 
 
 
-const Page = require("../../../Page.js").Page;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
-const Language = require("../../../Page.js").Language;
+const Page = require("../../../Page.js");
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
@@ -19,16 +17,16 @@ const search = require("../../../search.js");
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path        : "documentation/panther/modules.html",
 				title       : "Modules",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION],
 				description : "Documentation for modules in the Panther programming language",
 			});
 		},
 		(page) => {
-			page.text(`A module is a set of symbols that are sort of namespaced together. To import modules, you can use the ${html.inline_code("@import")} intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:`);
+			page.text(`A module is a set of symbols that are sort of namespaced together. To import modules, you can use the ${html.highlight("@import")} intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:`);
 
 			page.bullets([
 				"std - standard library",
@@ -36,14 +34,14 @@ exports.getPageGenerator = function(){
 			]);
 
 
-			page.text(`To import a file, you give the ${html.inline_code("@import")} intrinsic the path of the file. If the path starts with a \"./\", the path will resolve relative to the current file, otherwise it will resolve relative to the current project.`);
+			page.text(`To import a file, you give the ${html.highlight("@import")} intrinsic the path of the file. If the path starts with a \"./\", the path will resolve relative to the current file, otherwise it will resolve relative to the current project.`);
 
-			page.text(`For a symbol declared in the file to be accessible through the module of that file, it must be in global scope and have the ${html.inline_code("#pub")} attribute, or be a member of a type declared in that file with has the ${html.inline_code("#pub")} attribute.`);
+			page.text(`For a symbol declared in the file to be accessible through the module of that file, it must be in global scope and have the ${html.highlight("#pub")} attribute, or be a member of a type declared in that file with has the ${html.highlight("#pub")} attribute.`);
 
 
 			page.h2("Example");
 
-			page.code_block(Language.PANTHER,
+			page.codeBlock(Page.Language.PANTHER,
 `// importing the standard library
 def std = @import("std");
 

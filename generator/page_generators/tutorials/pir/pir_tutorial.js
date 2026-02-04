@@ -9,8 +9,7 @@
 
 
 
-const Page = require("../../../Page.js").Page;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
+const Page = require("../../../Page.js");
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
@@ -18,11 +17,11 @@ const search = require("../../../search.js");
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path                    : "tutorials/pir/tutorial.html",
 				title                   : "PIR Tutorial",
 				categories              : [search.Category.PIR, search.Category.TUTORIAL],
-				breadcrumbs             : [breadcrumbs.TUTORIALS],
+				breadcrumbs             : [Page.Breadcrumbs.TUTORIALS],
 				description             : "Tutorial for PIR (Panther Intermediate Representation)",
 				has_categories_in_title : false,
 			});

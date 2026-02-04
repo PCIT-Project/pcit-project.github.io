@@ -1,11 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.59.0"></a>
+## v0.0.59.0
+- Improved highlighted text
+- Improved generator progress bar
+	- Fixed flickering
+	- Improved visual
+- Fixed missing elements
+- Code cleanup
+
+
+<!---------------------------------->
 <a name="v0.0.58.0"></a>
 ## v0.0.58.0
-- Greatly improved performance of site generation
 - Added clickable symbols in Panther syntax highlighting that link to relevant documentation
 	- Just atomic intrinsic functions for now
+- Generator now has progress bar instead of listing all the files added
 
 ### Panther Documentation
 - Added `@atomicRMW`

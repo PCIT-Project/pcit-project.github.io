@@ -18,6 +18,14 @@ const child_process = require("node:child_process");
 
 
 
+const SymbolKind = Object.freeze({
+	NONE               : 0,
+	FUNCTION           : 1,
+	INTRINSIC_FUNCTION : 2,
+	STRUCT             : 3,
+	METHOD             : 4,
+});
+
 const Language = Object.freeze({
 	PANTHER: 0,
 	PIR: 1,
@@ -31,7 +39,67 @@ const Language = Object.freeze({
 });
 
 
+const SymbolElemAdded = Object.freeze({
+	NONE            : 0,
+	DECL            : 1,
+	DESCRIPTION     : 2,
+	TEMPLATE_PARAMS : 3,
+	PARAMS          : 4,
+	RETURNS         : 5,
+	NOTES           : 6,
+	EXAMPLE         : 7,
+	SEE_ALSO        : 8,
+});
+
+function stringify_symbol_elem_added(elem_added){
+	switch(elem_added){
+		case SymbolElemAdded.NONE:            return "NONE";
+		case SymbolElemAdded.DECL:            return "DECL";
+		case SymbolElemAdded.DESCRIPTION:     return "DESCRIPTION";
+		case SymbolElemAdded.TEMPLATE_PARAMS: return "TEMPLATE_PARAMS";
+		case SymbolElemAdded.PARAMS:          return "PARAMS";
+		case SymbolElemAdded.RETURNS:         return "RETURNS";
+		case SymbolElemAdded.NOTES:           return "NOTES";
+		case SymbolElemAdded.EXAMPLE:         return "EXAMPLE";
+		case SymbolElemAdded.SEE_ALSO:        return "SEE_ALSO";
+	}
+}
+
+
+class TemplateParam{
+	name;
+	description;
+
+	constructor(name, description){
+		this.name = name;
+		this.description = description;
+	}
+}
+
+class Param{
+	name;
+	description;
+
+	constructor(name, description){
+		this.name = name;
+		this.description = description;
+	}
+}
+
+class ReturnParam{
+	name;
+	description;
+
+	constructor(name, description){
+		this.name = name;
+		this.description = description;
+	}
+}
+
+
+
 let page_list = [];
+let symbols = new Map();
 
 
 const changed_files = function(){
@@ -90,7 +158,7 @@ class Breadcrumb{
 	}
 }
 
-const breadcrumbs = Object.freeze({
+const Breadcrumbs = Object.freeze({
 	DEVLOGS               : new Breadcrumb("Devlogs", "/site/devlogs/devlogs.html"),
 	DOCUMENTATION         : new Breadcrumb("Documentation", "/site/documentation/documentation.html"),
 	PANTHER_DOCUMENTATION : new Breadcrumb("Panther Documentation", "/site/documentation/panther/documentation.html"),
@@ -105,6 +173,7 @@ class Page{
 	#body;
 	#counter;
 	#last_updated_str;
+	#symbol_elems_added;
 
 	// required options for `config`
 	#path;
@@ -117,8 +186,9 @@ class Page{
 	#breadcrumbs;
 	#on_page_title; // default `title`
 	#has_page_title; // default true
+	#symbol_kind; // default to SymbolKind.NONE
 	#article_info; // only used if is an article. Must have `.author, .date_published, .author_url`
-	#is_home;
+	#is_home_page;
 
 	// optional options for `config` that don't become members
 	// allow_in_sitemap -> defaults to true
@@ -127,20 +197,22 @@ class Page{
 	constructor(generator_path, config){
 		this.body = "";
 		this.counter = 0;
+		this.elems_added = [];
 
-		assert(config.path !== undefined, "Must have path");
-		assert(config.title !== undefined, "Must have title");
+		this.assert(config.path !== undefined, "Must have path");
+		this.assert(config.title !== undefined, "Must have title");
 
-		this.title = config.title;
 		this.path = config.path;
+		this.title = config.title;
 		this.description = config.description ?? "Panther Compiler Infrastructure and Technology";
 		this.on_site_description = config.on_site_description ?? this.description;
 		this.categories = config.categories;
 		this.breadcrumbs = config.breadcrumbs;
 		this.on_page_title = config.on_page_title ?? config.title;
 		this.has_page_title = config.has_page_title ?? true;
+		this.symbol_kind = config.symbol_kind ?? SymbolKind.NONE;
 		this.article_info = config.article_info;
-		this.is_home = config.is
+		this.is_home_page = config.is_home_page ?? false;
 
 		if(this.categories !== undefined){
 			search.addSearchTarget(this.on_page_title, "/site/" + this.path, this.categories, this.on_site_description);
@@ -168,6 +240,31 @@ class Page{
 		}
 
 
+		if(this.symbol_kind != SymbolKind.NONE){
+			symbols.set(config.title, this);
+			switch(this.symbol_kind){
+				case SymbolKind.FUNCTION: {
+
+				} break;
+
+				case SymbolKind.INTRINSIC_FUNCTION: {
+					syntax_highlighting.addPantherIntrinsicFunc(config.title, this);
+				} break;
+
+				case SymbolKind.STRUCT: {
+
+				} break;
+
+				case SymbolKind.METHOD: {
+
+				} break;
+			}
+
+
+			this.symbol_elems_added = [SymbolElemAdded.NONE];
+		}
+
+
 
 		///////////////////////////////////
 		// get `last_updated_str``
@@ -185,10 +282,10 @@ class Page{
 			try{
 				last_commit_res = child_process.execSync(get_last_commit_str).toString();
 			}catch(e){
-				assert(false, "git error: \n\n" + e.toString() + "\n");
+				this.assert(false, "git error: \n\n" + e.toString() + "\n");
 			}
 
-			assert(last_commit_res != "", "failed to get last updated time. Perhaps run `git add .` to fix this");
+			this.assert(last_commit_res != "", "failed to get last updated time. Perhaps run `git add .` to fix this");
 
 			this.last_updated_str = last_commit_res.split(" ")[0];
 		}
@@ -234,14 +331,14 @@ class Page{
 
 
 	h2Searchable(text, anchor_name, style=null){
-		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
+		this.assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
 
 		this.h2Anchor(text, anchor_name, style);
 		search.addSearchTarget(text, this.path + "#" + anchor_name, this.categories);
 	}
 
 	h3Searchable(text, anchor_name, style=null){
-		assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
+		this.assert(this.categories !== undefined, "Cannot make searchable for page that doesn't have categories");
 
 		this.h3Anchor(text, anchor_name, style);
 		search.addSearchTarget(text, this.path + "#" + anchor_name, this.categories);
@@ -256,8 +353,8 @@ class Page{
 		this.text("&emsp;&emsp;" + text, style);
 	}
 
-	pcit_cpp_version(version){
-		return html.inline_code(html.link(version, "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#" + version));
+	pcitCppVersion(version){
+		return html.highlight(html.link(version, "https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#" + version));
 	}
 
 	raw(text){
@@ -276,7 +373,7 @@ class Page{
 		this.body += "\t\t</ul>\n";
 	}
 
-	ordered_list(points){
+	orderedList(points){
 		this.body += "\t\t<ol>\n";
 
 		for(var i=0; i<points.length;i++){
@@ -322,14 +419,14 @@ class Page{
 	}
 
 
-	decl_list(language, items){
+	declList(items, language = Language.PANTHER){
 		this.body += "<div style=\"overflow-x: auto;\"><table style=\"margin-bottom: 2em;\">\n";
 
 		items.forEach((item, i) => {
 			this.body +=
 `	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">${i + 1}:</td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${this.inline_code(language, item)}</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${this.inlineCode(item, language)}</td>
 	</tr>
 `;
 		});
@@ -340,25 +437,24 @@ class Page{
 
 
 
-	begin_info(){
+	info(header, text){
 		this.body += "<div class=\"info\">";
-	}
-
-	end_info(){
+		this.h3(header, "margin-top: 1em;");
+		this.text(text);
 		this.body += "</div>";
 	}
 
-	begin_warning(){
+
+	warning(header, text){
 		this.body += "<div class=\"warning\">";
-	}
-
-	end_warning(){
+		this.h3(header, "margin-top: 1em;");
+		this.text(text);
 		this.body += "</div>";
 	}
 
 
 
-	inline_code(language, code){
+	inlineCode(code, language = Language.PANTHER){
 		let output = "<code class=\"code-src\"; style=\"background-color: #282923!important;\">"
 
 		switch(language){
@@ -387,7 +483,7 @@ class Page{
 			} break;
 
 			default: {
-				assert(language === null, "Not a valid language");
+				this.assert(language === null, "Not a valid language");
 				output += html.santitize(code);
 			} break;
 		}
@@ -396,8 +492,8 @@ class Page{
 		return output;
 	}
 
-	// unline inline_code, inline_code_block has scroll bar
-	inline_code_block(language, code){
+	// unline code_block, has scroll bar
+	inlineCodeBlock(language, code){
 		let output = "<pre class=\"code code-src code-inline-block\">";
 
 		switch(language){
@@ -426,7 +522,7 @@ class Page{
 			} break;
 
 			default: {
-				assert(language === null, "Not a valid language");
+				this.assert(language === null, "Not a valid language");
 				output += html.santitize(code);
 			} break;
 		}
@@ -436,7 +532,7 @@ class Page{
 	}
 
 
-	code_block(language, code){
+	codeBlock(language, code){
 		let requires_lines = false;
 
 		switch(language){
@@ -448,7 +544,7 @@ class Page{
 				// do nothing...
 			} break;
 
-			default: assert(false, `Unknown language \"${language}\"`);
+			default: this.assert(false, `Unknown language \"${language}\"`);
 		}
 
 		this.body += `<script type=\"text/javascript\">function copy_code_${this.counter}(){ navigator.clipboard.writeText(\``;
@@ -596,7 +692,158 @@ class Page{
 	}
 
 
-	generate(is_home_page = false){
+
+	symbolList(list, width = null){
+		this.assert(Array.isArray(list), "see also list must be an array");
+
+		this.raw("<div style=\"overflow-x: auto;\"><table style=\"margin-bottom: 2em;\">\n");
+
+		let width_str = "";
+		if(width !== null){
+			width_str = ` width: ${width}em;`;
+		}
+
+		for(const item of list){
+			this.assert(symbols.has(item), `No symbol "${item}" exists`);
+
+			this.raw(
+`	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;${width_str}">${this.inlineCode(item)}</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${symbols.get(item).on_site_description}</td>
+	</tr>`
+			);
+		}
+
+		this.raw("</table></div>\n");
+	}
+
+
+	//////////////////////////////////////////////////////////////////////
+	// symbol specific
+
+	addSymbolDecls(decls){
+		this.assert(Array.isArray(decls), "decls must be an array");
+		this.mark_symbol_elem_added(SymbolElemAdded.DECL, SymbolElemAdded.NONE);
+
+		this.declList(decls);
+	}
+
+
+	addSymbolDescription(text){
+		this.mark_symbol_elem_added(SymbolElemAdded.DESCRIPTION, SymbolElemAdded.DECL);
+
+		this.paragraph(text);
+	}
+
+
+	addSymbolTemplateParams(params){
+		this.assert(Array.isArray(params), "template params must be an array");
+		this.mark_symbol_elem_added(SymbolElemAdded.TEMPLATE_PARAMS, SymbolElemAdded.DESCRIPTION);
+
+		this.h3("Template Parameters");
+
+		for(const param of params){
+			this.assert(param instanceof TemplateParam, "template param must be a TemplateParam");
+			this.paragraph(html.bold(param.name) + ": " + param.description);
+		}
+	}
+
+
+	addSymbolParams(params){
+		this.assert(Array.isArray(params), "template params must be an array");
+		this.assert(this.symbol_kind == SymbolKind.FUNCTION || this.symbol_kind == SymbolKind.INTRINSIC_FUNCTION || this.symbol_kind == SymbolKind.METHOD, "can only add parameters to functions, intrinsic functions, and methods");
+		this.mark_symbol_elem_added(SymbolElemAdded.PARAMS, [SymbolElemAdded.DESCRIPTION, SymbolElemAdded.TEMPLATE_PARAMS]);
+
+		this.h3("Parameters");
+
+		for(const param of params){
+			this.assert(param instanceof Param, "param must be a Param");
+			this.paragraph(html.bold(param.name) + ": " + param.description);
+		}
+	}
+
+
+
+	addSymbolReturnVoid(){
+		this.assert(this.symbol_kind == SymbolKind.FUNCTION || this.symbol_kind == SymbolKind.INTRINSIC_FUNCTION || this.symbol_kind == SymbolKind.METHOD, "can only add returns to functions, intrinsic functions, and methods");
+		this.mark_symbol_elem_added(SymbolElemAdded.RETURNS, SymbolElemAdded.PARAMS);
+
+		this.h3("Return Value");
+		this.paragraph(`Returns ${this.inlineCode("Void")}.`);
+	}
+
+	addSymbolReturn(return_desc){
+		this.assert(typeof return_desc === "string", "single return description should be a string");
+		this.assert(this.symbol_kind == SymbolKind.FUNCTION || this.symbol_kind == SymbolKind.INTRINSIC_FUNCTION || this.symbol_kind == SymbolKind.METHOD, "can only add returns to functions, intrinsic functions, and methods");
+		this.mark_symbol_elem_added(SymbolElemAdded.RETURNS, SymbolElemAdded.PARAMS);
+
+		this.h3("Return Value");
+		this.paragraph(return_desc);
+	}
+
+
+	addSymbolReturnParams(return_params){
+		this.assert(Array.isArray(return_params), "multiple returns should be an array");
+		this.assert(this.symbol_kind == SymbolKind.FUNCTION || this.symbol_kind == SymbolKind.INTRINSIC_FUNCTION || this.symbol_kind == SymbolKind.METHOD, "can only add returns to functions, intrinsic functions, and methods");
+		this.mark_symbol_elem_added(SymbolElemAdded.RETURNS, SymbolElemAdded.PARAMS);
+
+
+		this.h3("Return Values");
+
+		for(const ret_param of return_params){
+			this.assert(ret_param instanceof ReturnParam, "return param must be a ReturnParam");
+			this.paragraph(html.bold(ret_param.name) + ": " + ret_param.description);
+		}
+	}
+
+
+	addSymbolNotes(text){
+		this.assert(typeof text === "string", "notes text must be a string");
+		this.mark_symbol_elem_added(SymbolElemAdded.NOTES, SymbolElemAdded.RETURNS);
+
+		this.h2("Notes");
+		this.paragraph(text);
+	}
+
+
+	addSymbolExample(code, output){
+		this.assert(typeof code === "string", "example code must be a string");
+		this.assert(typeof output === "string", "example output must be a string");
+		this.mark_symbol_elem_added(SymbolElemAdded.EXAMPLE, [SymbolElemAdded.RETURNS, SymbolElemAdded.NOTES]);
+
+		this.h2("Example");
+		this.codeBlock(Language.PANTHER, code);
+		this.codeBlock(Language.TERMINAL, code);
+	}
+
+
+	addSymbolExampleTodo(){
+		this.mark_symbol_elem_added(SymbolElemAdded.EXAMPLE, [SymbolElemAdded.RETURNS, SymbolElemAdded.NOTES]);
+
+		this.h2("Example");
+		this.text(html.italic("(TODO)"));
+	}
+
+
+	addSymbolSeeAlso(list){
+		this.assert(Array.isArray(list), "see also list must be an array");
+		this.mark_symbol_elem_added(SymbolElemAdded.SEE_ALSO, SymbolElemAdded.EXAMPLE);
+
+		this.h2("See Also");
+		this.symbolList(list);
+	}
+
+
+	//////////////////////////////////////////////////////////////////////
+	// generate
+
+
+	generate(){
+		if(this.symbol_kind != SymbolKind.NONE){
+			this.assert(this.symbol_elems_added.includes(SymbolElemAdded.SEE_ALSO), "must include SEE_ALSO");
+		}
+
+
 		let file_data = `<!-- This page was generated -->
 
 <!-------------------------------------------------------------------------------------------------->
@@ -696,7 +943,7 @@ class Page{
 		file_data += `</head>
 <body>
 	<div class="navbar">`;
-		if(is_home_page){
+		if(this.is_home_page){
 				file_data += `
 			<div id="navbar-fader" class="navbar-fader-hidden">
 				<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
@@ -737,7 +984,7 @@ class Page{
 		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
 	</div>`;
 
-	if(is_home_page){
+	if(this.is_home_page){
 		file_data += `
 	<div id="home-splash">
 		<script src="/assets/script.js"></script>
@@ -810,9 +1057,66 @@ class Page{
 		fs.writeFileSync("../site/" + this.path, file_data);
 		// console.log(`Generated page \x1b[35m(${this.title})\x1b[0m: \x1b[33m"${this.path}"\x1b[0m`);
 	}
+
+
+	//////////////////////////////////////////////////////////////////////
+	// internal
+
+	mark_symbol_elem_added(new_elem_added, required_previous){
+		this.assert(this.symbol_kind != SymbolKind.NONE, "Not a symbol elem, cannot call a symbol elem only function");
+
+		const last_added = this.symbol_elems_added[this.symbol_elems_added.length - 1];
+
+		if(Array.isArray(required_previous)){
+			let found = false;
+			for(const prev of required_previous){
+				if(prev == last_added){
+					found = true;
+					break;
+				}
+			}
+
+			if(found == false){
+				let required_previous_str = "[";
+				let i = 0;
+				for(const prev of required_previous){
+					required_previous_str += stringify_symbol_elem_added(prev);
+
+					if(i + 1 < required_previous.length){
+						required_previous_str += ", ";
+					}
+
+					i += 1;
+				}
+				required_previous_str += ']';
+
+				this.assert(false, `When adding ${stringify_symbol_elem_added(new_elem_added)}, last elem added must be ${required_previous_str} (currently ${stringify_symbol_elem_added(last_added)})`);
+			}
+
+		}else{
+			this.assert(last_added == required_previous, `When adding ${stringify_symbol_elem_added(new_elem_added)}, last elem added must be ${stringify_symbol_elem_added(required_previous)} (currently ${stringify_symbol_elem_added(last_added)})`);
+		}
+		
+		this.symbol_elems_added.push(new_elem_added);
+	}
+
+	assert(cond, message){
+		if(cond == false){
+			console.error(`\x1b[31mAssert failed in \"${this.path}\"`);
+			console.error("\t" + message + "\x1b[0m");
+
+			process.exit();
+		}
+	}
+
 }
 
-exports.Language = Language;
 exports.Page = Page;
-exports.breadcrumbs =  breadcrumbs;
+exports.Language = Language;
+exports.Breadcrumbs =  Breadcrumbs;
 exports.page_list = page_list;
+
+exports.SymbolKind = SymbolKind;
+exports.TemplateParam = TemplateParam;
+exports.Param = Param;
+exports.ReturnParam = ReturnParam;

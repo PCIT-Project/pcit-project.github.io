@@ -98,17 +98,17 @@
 <h2 id="constexpr">Constexpr Value Stage</h2><p>Constexpr values are values that are known at compile-time and can be used as constexpr expressions. Anywhere that requires a comptime or a runtime value also accept constexpr values.</p>
 <p>The following are constexpr expressions:</p>
 		<ul>
-<li><code><a href="/site/documentation/panther/literals.html">literals</a></code></li>
-<li><code><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></code></li>
+<li><span class="highlight"><a href="/site/documentation/panther/literals.html">literals</a></span></li>
+<li><span class="highlight"><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></span></li>
 <li>template parameters</li>
 <li>constexpr function calls with all arguments being constexpr</li>
 		</ul>
 <h2 id="comptime">Comptime Value Stage</h2><p>Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a runtime values also accept comptime values.</p>
 <p>The following are comptime expressions:</p>
 		<ul>
-<li>global <code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code></li>
-<li><code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code> defined in a constexpr function</li>
-<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code> defined in a constexpr function</li>
+<li>global <span class="highlight"><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></span></li>
+<li><span class="highlight"><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></span> defined in a constexpr function</li>
+<li><span class="highlight"><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></span> defined in a constexpr function</li>
 <li>function parameters in a constexpr function</li>
 <li>return parameters in a constexpr function</li>
 <li>error parameters in a constexpr function</li>
@@ -117,8 +117,8 @@
 <h2 id="runtime">Runtime Value Stage</h2><p>Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept comptime and constexpr values.</p>
 <p>The following are runtime expressions:</p>
 		<ul>
-<li>global <code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code></li>
-<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code> and <code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code> declared in function scope</li>
+<li>global <span class="highlight"><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></span></li>
+<li><span class="highlight"><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></span> and <span class="highlight"><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></span> declared in function scope</li>
 <li>calls to external functions that are unknown / not linked in by the build system</li>
 <li>calls to runtime functions</li>
 <li>calls to comptime functions with at least 1 runtime argument</li>

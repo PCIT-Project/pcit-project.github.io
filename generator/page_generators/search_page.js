@@ -8,14 +8,14 @@
 
 
 
-const Page = require("../Page.js").Page;
+const Page = require("../Page.js");
 const html = require("../html.js");
 
 
 exports.getPageGenerator = function(){
 	return new (require("../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path: "search.html",
 				title: "Search",
 			});

@@ -8,31 +8,28 @@
 
 
 
-const Page = require("../../../../Page.js").Page;
-const breadcrumbs = require("../../../../Page.js").breadcrumbs;
+const Page = require("../../../../Page.js");
 const html = require("../../../../html.js");
 const terms = require("../../../../terms.js");
 const search = require("../../../../search.js");
-const Language = require("../../../../Page.js").Language;
-const syntax_highlighting = require("../../../../syntax_highlighting/syntax_highlighting.js");
 
 
 
 exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path        : "documentation/panther/intrinsics/builtin_module_pthr.html",
 				title       : "Builtin Module @pthr",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
+				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION, Page.Breadcrumbs.PANTHER_INTRINSICS],
 				description : "Documentation for the builtin module @pthr in the Panther programming language",
 			});
 		},
 		(page) => {
 			page.h2Anchor("AtomicOrdering", "AtomicOrdering");
 			search.addSearchTarget("@pthr.AtomicOrdering", page.path + "#AtomicOrdering", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type AtomicOrdering = enum {
 	MONOTONIC,
 	ACQUIRE,
@@ -41,7 +38,7 @@ exports.getPageGenerator = function(){
 	SEQ_CST,
 }`
 			));
-			page.text(`Enum to specify the different atomic orderings. All orderings guarantee atomicity. Use of any ordering other than ${html.inline_code("SEQ_CST")} should only be done if the developer is 100% sure it is safe to do so.`);
+			page.text(`Enum to specify the different atomic orderings. All orderings guarantee atomicity. Use of any ordering other than ${html.highlight("SEQ_CST")} should only be done if the developer is 100% sure it is safe to do so.`);
 
 			page.h3("MONOTONIC");
 			page.paragraph("Has no synchronization or ordering constraints. Can be used on any atomic operation.");
@@ -63,7 +60,7 @@ exports.getPageGenerator = function(){
 
 			page.h2Anchor("AtomicRMWOp", "AtomicRMWOp");
 			search.addSearchTarget("@pthr.AtomicRMWOp", page.path + "#AtomicRMWOp", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type AtomicRMWOp = enum {
 	XCHG,
 	ADD,
@@ -76,7 +73,7 @@ exports.getPageGenerator = function(){
 	MAX,
 }`
 			));
-			page.paragraph(`For use in ${html.link(page.inline_code(Language.PANTHER, "@atomicRMW"), "/site/documentation/panther/intrinsics/atomic_intrinsics.html#atomicRMW")} to denote the operation to use.`);
+			page.paragraph(`For use in ${html.link(page.inlineCode("@atomicRMW"), "/site/documentation/panther/intrinsics/atomic_intrinsics.html#atomicRMW")} to denote the operation to use.`);
 
 
 
@@ -86,7 +83,7 @@ exports.getPageGenerator = function(){
 			page.h3Anchor("IIterable / IIterableRT", "IIterable");
 			search.addSearchTarget("@pthr.IIterable", page.path + "#IIterable", page.categories);
 			search.addSearchTarget("@pthr.IIterableRT", page.path + "#IIterable", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `interface IIterable = {
 	func createIterator = (this) -> impl($$:@pthr.IIterator);
 	func createIterator = (this mut) -> impl($$:@pthr.IMutIterator);
@@ -103,7 +100,7 @@ interface IIterableRT = {
 			page.h3Anchor("IIterableRef / IIterableRefRT", "IIterableRef");
 			search.addSearchTarget("@pthr.IIterableRef", page.path + "#IIterableRef", page.categories);
 			search.addSearchTarget("@pthr.IIterableRefRT", page.path + "#IIterableRef", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `interface IIterableRef = {
 	func createIterator = (this) -> impl($$:@pthr.IIterator);
 }
@@ -118,7 +115,7 @@ interface IIterableRefRT = {
 			page.h3Anchor("IIterableMutRef / IIterableMutRefRT", "IIterableMutRef");
 			search.addSearchTarget("@pthr.IIterableMutRef", page.path + "#IIterableMutRef", page.categories);
 			search.addSearchTarget("@pthr.IIterableMutRefRT", page.path + "#IIterableMutRef", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `interface IIterableMutRef = {
 	func createIterator = (this) -> impl($$:@pthr.IMutIterator);
 }
@@ -136,7 +133,7 @@ interface IIterableMutRefRT = {
 			page.h3Anchor("IIterator / IIteratorRT", "IIterator");
 			search.addSearchTarget("@pthr.IIterator", page.path + "#IIterator", page.categories);
 			search.addSearchTarget("@pthr.IIteratorRT", page.path + "#IIterator", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `interface IIterator = {
 	func next = (this mut) -> Void;
 	func get = (this) -> $$*;
@@ -155,7 +152,7 @@ interface IIteratorRT = {
 			page.h3Anchor("IMutIterator / IMutIteratorRT", "IMutIterator");
 			search.addSearchTarget("@pthr.IMutIterator", page.path + "#IMutIterator", page.categories);
 			search.addSearchTarget("@pthr.IMutIteratorRT", page.path + "#IMutIterator", page.categories);
-			page.text(page.inline_code_block(Language.PANTHER,
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `interface IMutIterator = {
 	func next = (this mut) -> Void;
 	func get = (this) -> $$*mut;

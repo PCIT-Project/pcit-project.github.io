@@ -8,28 +8,26 @@
 
 
 
-const Page = require("../../../Page.js").Page;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
+const Page = require("../../../Page.js");
 const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
-const Language = require("../../../Page.js").Language;
 
 
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path        : "documentation/panther/variables.html",
 				title       : "Variables",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION],
 				description : "Documentation for variables in the Panther programming language",
 			});
 		},
 		(page) => {
 			page.h3("Syntax");
-			page.decl_list(Language.PANTHER, [
+			page.declList([
 				"{var|const|def} {IDENTIFIER}: {TYPE} {ATTTRIBUTES*} = {EXPRESSION};",
 				"{var|const|def} {IDENTIFIER} {ATTTRIBUTES*} = {EXPRESSION};",
 			]);
@@ -72,14 +70,14 @@ exports.getPageGenerator = function(){
 			page.text( `Make the variable accessable outside this module (such as through ${terms.get("intrinsic @import")})`);
 			page.table([
 				["Argument Index", "Description", "Type", "Is Required"],
-				["0", "If the attribute is enabled", page.inline_code(Language.PANTHER, "Bool"), "no"],
+				["0", "If the attribute is enabled", page.inlineCode("Bool"), "no"],
 			]);
 
 
 
 
 			page.h2("Examples:");
-			page.code_block(Language.PANTHER,
+			page.codeBlock(Page.Language.PANTHER,
 `var var_variable: Int = 12; // var variable
 const const_variable = true; // const variable that's implicitly-typed
 

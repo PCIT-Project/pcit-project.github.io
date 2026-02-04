@@ -8,53 +8,51 @@
 
 
 
-const Page = require("../../../../Page.js").Page;
-const breadcrumbs = require("../../../../Page.js").breadcrumbs;
+const Page = require("../../../../Page.js");
 const html = require("../../../../html.js");
 const terms = require("../../../../terms.js");
 const search = require("../../../../search.js");
-const Language = require("../../../../Page.js").Language;
-const SymbolDocumentationPage = require("../../../../SymbolDocumentationPage.js");
 
 
 exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new SymbolDocumentationPage.SymbolDocumentationPage(SymbolDocumentationPage.Kind.INTRINSIC_FUNCTION, __filename, {
+			return new Page.Page(__filename, {
 				path                : "documentation/panther/intrinsics/atomicStore.html",
 				title               : "@atomicStore",
 				categories          : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs         : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
-				on_site_description : "Atomically store a value"
+				breadcrumbs         : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION, Page.Breadcrumbs.PANTHER_INTRINSICS],
+				on_site_description : "Atomically store a value",
+				symbol_kind         : Page.SymbolKind.INTRINSIC_FUNCTION,
 			})
 		},
 		(page) => {
-			page.addDecls(["func @atomicStore = <{TARGET: Type, VALUE: Type, ORDER: @pthr.AtomicOrdering}> (target: TARGET, value: VALUE in) -> Void;"]);
+			page.addSymbolDecls(["func @atomicStore = <{TARGET: Type, VALUE: Type, ORDER: @pthr.AtomicOrdering}> (target: TARGET, value: VALUE in) -> Void;"]);
 
-			page.addDescription(`Atomically store a value.`);
+			page.addSymbolDescription(`Atomically store a value.`);
 
 
-			page.addTemplateParams([
-				new SymbolDocumentationPage.TemplateParam("TARGET", `must be a non-optional pointer, and is a pointer to the type of value to store to`),
-				new SymbolDocumentationPage.TemplateParam("VALUE", `must be the result of a dereference of ${html.inline_code("TARGET")}, ${terms.get("trivially-copyable")}, and cannot be ${page.inlineCode("F80")}`),
-				new SymbolDocumentationPage.TemplateParam("ORDER", `cannot be ${page.inlineCode("@pthr.AtomicOrdering.ACQUIRE")} or ${page.inlineCode("@pthr.AtomicOrdering.ACQ_REL")}`),
+			page.addSymbolTemplateParams([
+				new Page.TemplateParam("TARGET", `must be a non-optional pointer, and is a pointer to the type of value to store to`),
+				new Page.TemplateParam("VALUE", `must be the result of a dereference of ${html.highlight("TARGET")}, ${terms.get("trivially-copyable")}, and cannot be ${page.inlineCode("F80")}`),
+				new Page.TemplateParam("ORDER", `cannot be ${page.inlineCode("@pthr.AtomicOrdering.ACQUIRE")} or ${page.inlineCode("@pthr.AtomicOrdering.ACQ_REL")}`),
 			]);
 
 
-			page.addParams([
-				new SymbolDocumentationPage.Param("target", "target to store to"),
-				new SymbolDocumentationPage.Param("value", "value to store to target"),
+			page.addSymbolParams([
+				new Page.Param("target", "target to store to"),
+				new Page.Param("value", "value to store to target"),
 			]);
 
 
-			page.addReturnVoid();
+			page.addSymbolReturnVoid();
 
 
 
-			page.addExampleTodo();
+			page.addSymbolExampleTodo();
 
 
-			page.addSeeAlso(["@atomicLoad", "@atomicRMW", "@cmpxchg"]);
+			page.addSymbolSeeAlso(["@atomicLoad", "@atomicRMW", "@cmpxchg"]);
 		}
 	);
 }

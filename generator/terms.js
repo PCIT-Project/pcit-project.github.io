@@ -15,9 +15,9 @@ let terms = {};
 
 function term(text, link=null){
 	if(link === null){
-		terms[text] = html.inline_code(text);
+		terms[text] = html.highlight(text);
 	}else{
-		terms[text] = html.inline_code(html.link(text, link));	
+		terms[text] = html.highlight(html.link(text, link));	
 	}	
 }
 

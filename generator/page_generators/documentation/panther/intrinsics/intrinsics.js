@@ -8,29 +8,26 @@
 
 
 
-const Page = require("../../../../Page.js").Page;
-const breadcrumbs = require("../../../../Page.js").breadcrumbs;
+const Page = require("../../../../Page.js");
 const html = require("../../../../html.js");
 const terms = require("../../../../terms.js");
 const search = require("../../../../search.js");
-const Language = require("../../../../Page.js").Language;
-const syntax_highlighting = require("../../../../syntax_highlighting/syntax_highlighting.js");
 
 
 
 exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path        : "documentation/panther/intrinsics/intrinsics.html",
 				title       : "Intrinsics",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION],
 				description : "Documentation for intrinsics in the Panther programming language",
 			});
 		},
 		(page) => {
-			page.paragraph(`Instrinsics are special symbols builtin to the compiler. They are all either begin with an ${html.inline_code("@")} or are part of a builtin module (which itself begins with an ${html.inline_code("@")}).`);
+			page.paragraph(`Instrinsics are special symbols builtin to the compiler. They are all either begin with an ${html.highlight("@")} or are part of a builtin module (which itself begins with an ${html.highlight("@")}).`);
 
 			page.paragraph(`Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.`);
 
@@ -47,10 +44,7 @@ exports.getPageGenerator = function(){
 			page.paragraph(`These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.`);
 
 			page.h3("Atomic");
-			page.text(html.link("@atomicLoad", "/site/documentation/panther/intrinsics/atomicLoad.html"));
-			page.text(html.link("@atomicStore", "/site/documentation/panther/intrinsics/atomicStore.html"));
-			page.text(html.link("@atomicRMW", "/site/documentation/panther/intrinsics/atomicRMW.html"));
-			page.text(html.link("@cmpxchg", "/site/documentation/panther/intrinsics/cmpxchg.html"));
+			page.symbolList(["@atomicLoad", "@atomicStore", "@atomicRMW", "@cmpxchg"]);
 
 
 			page.h3("Arithmetic");

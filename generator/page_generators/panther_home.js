@@ -8,20 +8,20 @@
 
 
 
-const Page = require("../Page.js").Page;
-const Language = require("../Page.js").Language;
+const Page = require("../Page.js");
 const html = require("../html.js");
 
 
 exports.getPageGenerator = function(){
 	return new (require("../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path                    : "Panther.html",
 				title                   : "Panther Programming Language",
 				categories              : [require("../search.js").Category.PANTHER],
 				description             : "Home page of the Panther programming language",
 				has_categories_in_title : false,
+				is_home_page            : true,
 			});
 		},
 		(page) => {
@@ -58,7 +58,7 @@ exports.getPageGenerator = function(){
 
 
 			page.h3("Error Handling");
-			page.code_block(Language.PANTHER,
+			page.codeBlock(Page.Language.PANTHER,
 `func divide = (lhs: Int, rhs: Int) -> Int <Void> {
 	if(rhs == 0){ error; }
 
@@ -75,7 +75,7 @@ func entry = () #entry -> UI8 {
 
 
 			page.h3("Interfaces");
-			page.code_block(Language.PANTHER,
+			page.codeBlock(Page.Language.PANTHER,
 `interface Shape = #polymorphic {
 	func area = (this) -> F32;
 	func num_sides = () -> UInt { return 0;	} // method with default

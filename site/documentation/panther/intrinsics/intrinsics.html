@@ -94,7 +94,7 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Intrinsics</div>		<h1>Intrinsics</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <code>@</code> or are part of a builtin module (which itself begins with an <code>@</code>).</p>
+<br/><br/><p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <span class="highlight">@</span> or are part of a builtin module (which itself begins with an <span class="highlight">@</span>).</p>
 <p>&emsp;&emsp;Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.</p>
 <h2>Intrinsic Functions</h2>
 <p><a href="/site/documentation/panther/intrinsics/importing_intrinsics.html">Importing</a></p>
@@ -102,10 +102,20 @@
 <h2>Intrinsic functions for Internal Use</h2>
 <p>&emsp;&emsp;These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.</p>
 <h3>Atomic</h3>
-<p><a href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></p>
-<p><a href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a></p>
-<p><a href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></p>
-<p><a href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></p>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically load a value</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically store a value</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic read-modify-write</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic compare-exchange</td>
+	</tr></table></div>
 <h3>Arithmetic</h3>
 <p><a href="/site/documentation/panther/intrinsics/arithmetic_intrinsics.html">Arithmetic</a></p>
 <h3>Bitwise</h3>

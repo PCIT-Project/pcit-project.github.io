@@ -17,10 +17,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="Documentation for @cmpxchg in the Panther programming language" />
+	<meta name="description" content="Panther Compiler Infrastructure and Technology" />
 
 	<meta property="og:title" content="@cmpxchg | Panther Documentation | PCIT Project" />
-	<meta property="og:description" content="Documentation for @cmpxchg in the Panther programming language" />
+	<meta property="og:description" content="Panther Compiler Infrastructure and Technology" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -106,10 +106,10 @@
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a> <span class="code-red">=</span> &lt;{TARGET<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, VALUE<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, IS_WEAK<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span>, SUCCESS_ORDER<span class="code-red">:</span> <span class="code-orange">@pthr</span>.AtomicOrdering, FAILURE_ORDER<span class="code-red">:</span> <span class="code-orange">@pthr</span>.AtomicOrdering}&gt; (target<span class="code-red">:</span> TARGET, expected<span class="code-red">:</span> VALUE, desired<span class="code-red">:</span> VALUE <span class="code-red">in</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> (loaded<span class="code-red">:</span> VALUE, succeeded<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span>);</code></td>
 	</tr>
 </table></div>
-<p>&emsp;&emsp;Atomic compare-exchange. <code>Trivially-compare</code> the target against the expected value. If the are equal, store the desired value to target - this is considered a success. If the values differ, this is considered a failure, and no store is made.</p>
+<p>&emsp;&emsp;Atomic compare-exchange. <span class="highlight">Trivially-compare</span> the target against the expected value. If the are equal, store the desired value to target - this is considered a success. If the values differ, this is considered a failure, and no store is made.</p>
 <h3>Template Parameters</h3>
 <p>&emsp;&emsp;<span style="font-weight: bold;">TARGET</span>: must be a non-optional pointer, and is a pointer to the type of value to store to</p>
-<p>&emsp;&emsp;<span style="font-weight: bold;">VALUE</span>: must be the result of a dereference of <code>TARGET</code>. Must be <code>integral</code>, <code>pointer</code>, or <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code></p>
+<p>&emsp;&emsp;<span style="font-weight: bold;">VALUE</span>: must be the result of a dereference of <span class="highlight">TARGET</span>. Must be <span class="highlight">integral</span>, <span class="highlight">pointer</span>, or <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Bool</span></code></p>
 <p>&emsp;&emsp;<span style="font-weight: bold;">IS_WEAK</span>: If true, the operation is allowed to spuriously fail</p>
 <p>&emsp;&emsp;<span style="font-weight: bold;">SUCCESS_ORDER</span>: Atomic memory order for the operation if it successfully stores the desired value</p>
 <p>&emsp;&emsp;<span style="font-weight: bold;">FAILURE_ORDER</span>: Atomic memory order for the operation if it fails to store the desired value - cannot be <code class="code-src"; style="background-color: #282923!important;"><span class="code-orange">@pthr</span>.AtomicOrdering.RELEASE</code> or <code class="code-src"; style="background-color: #282923!important;"><span class="code-orange">@pthr</span>.AtomicOrdering.ACQ_REL</code></p>
@@ -121,20 +121,20 @@
 <p>&emsp;&emsp;<span style="font-weight: bold;">loaded</span>: value loaded at target</p>
 <p>&emsp;&emsp;<span style="font-weight: bold;">succeeded</span>: is <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code> if the value was successfully stored</p>
 <h2>Notes</h2>
-<p>&emsp;&emsp;If calling from a loop, <code>IS_WEAK</code> should usually be <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code> as it can result in better performance on the platforms that support weak compare-exchange. On platforms that do not support weak compare-exchange, setting <code>IS_WEAK</code> to <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code> has no effect.</p>
+<p>&emsp;&emsp;If calling from a loop, <span class="highlight">IS_WEAK</span> should usually be <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code> as it can result in better performance on the platforms that support weak compare-exchange. On platforms that do not support weak compare-exchange, setting <span class="highlight">IS_WEAK</span> to <code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code> has no effect.</p>
 <h2>Example</h2>
 <p><span style="font-style: italic;">(TODO)</span></p>
 <h2>See Also</h2>
 <div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></code></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; font-style: italic;">Atomically load a value</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically load a value</td>
 	</tr>	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a></code></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; font-style: italic;">Atomically store a value</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically store a value</td>
 	</tr>	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></code></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; font-style: italic;">Atomic read-modify-write</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic read-modify-write</td>
 	</tr></table></div>
 	</div>
 

@@ -8,7 +8,7 @@
 
 
 
-const Page = require("../../Page.js").Page;
+const Page = require("../../Page.js");
 const html = require("../../html.js");
 const search = require("../../search.js");
 
@@ -17,7 +17,7 @@ const search = require("../../search.js");
 exports.getPageGenerator = function(){
 	return new (require("../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path                    : "devlogs/devlogs.html",
 				title                   : "Devlogs",
 				categories              : [search.Category.DEVLOG],

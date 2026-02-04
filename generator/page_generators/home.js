@@ -8,14 +8,14 @@
 
 
 
-const Page = require("../Page.js").Page;
+const Page = require("../Page.js");
 const html = require("../html.js");
 
 
 exports.getPageGenerator = function(){
 	return new (require("../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path          : "../index.html",
 				title         : "Home",
 				on_page_title : "What is PCIT Project?",
@@ -31,10 +31,7 @@ exports.getPageGenerator = function(){
 			page.text("Not only can all tools be used as a standalone program, all tools are designed to be embedded in your own projects as well.");
 
 			// TODO: remove at release
-			page.begin_info();
-			page.h2("Important Note", "margin-top: 0.8em;");
-			page.text("PCIT Project software (including this site) is in pre-alpha. Feel free to poke around and try things out, but please do not use any tools to create anything yet as drastic changes may be made.");
-			page.end_info();
+			page.info("Important Note", "PCIT Project software (including this site) is in pre-alpha. Feel free to poke around and try things out, but please do not use any tools to create anything yet as drastic changes may be made.");
 
 			page.h2("Tools");
 

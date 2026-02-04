@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                              //
 // Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. //
 // You may not use this file except in compliance with the License.                             //
@@ -8,9 +8,7 @@
 
 
 
-const Page = require("../../../Page.js").Page;
-const breadcrumbs = require("../../../Page.js").breadcrumbs;
-const Language = require("../../../Page.js").Language;
+const Page = require("../../../Page.js");
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
@@ -18,11 +16,11 @@ const search = require("../../../search.js");
 exports.getPageGenerator = function(){
 	return new (require("../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page(__filename, {
+			return new Page.Page(__filename, {
 				path                    : "documentation/pir/documentation.html",
 				title                   : "PIR Documentation",
 				categories              : [search.Category.PIR, search.Category.DOCUMENTATION],
-				breadcrumbs             : [breadcrumbs.DOCUMENTATION],
+				breadcrumbs             : [Page.Breadcrumbs.DOCUMENTATION],
 				description             : "Documentation for PIR (Panther Intermediate Representation)",
 				has_categories_in_title : true,
 			});
@@ -30,12 +28,12 @@ exports.getPageGenerator = function(){
 		(page) => {
 			page.text(`Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.`, "padding-top: 2em;");
 
-			page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version ${page.pcit_cpp_version("v0.0.89.0")}. Given that the code is just for testing, it doesn't necessarily make any sense.`);
+			page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version ${page.pcitCppVersion("v0.0.89.0")}. Given that the code is just for testing, it doesn't necessarily make any sense.`);
 
 
 			page.text("Here's the starting code:", "padding-top: 2em;");
 
-			page.code_block(Language.PIR,
+			page.codeBlock(Page.Language.PIR,
 `// module: PIR testing
 
 type &Vec2 = struct #packed {F32, F32}
@@ -65,7 +63,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 
 
 			page.text("Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:", "padding-top: 2em;");
-			page.code_block(Language.PIR,
+			page.codeBlock(Page.Language.PIR,
 `// module: PIR testing
 
 type &Vec2 = struct #packed {F32, F32}
@@ -91,7 +89,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 
 
 			page.text("Here's the un-optimized code ouptut converted to LLVMIR:", "padding-top: 2em;");
-			page.code_block(Language.LLVMIR,
+			page.codeBlock(Page.Language.LLVMIR,
 `; ModuleID = 'PIR testing'
 source_filename = "PIR testing"
 target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
@@ -142,7 +140,7 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 
 
 			page.text("Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):", "padding-top: 2em;");
-			page.code_block(Language.ASM_x86,
+			page.codeBlock(Page.Language.ASM_x86,
 `   .text
 	.def    @feat.00;
 	.scl    3;
@@ -195,7 +193,7 @@ global:
 
 
 			page.text("Here's the output when run through the JIT:", "padding-top: 2em;");
-			page.code_block(Language.TERMINAL,
+			page.codeBlock(Page.Language.TERMINAL,
 `Message: "Hello World, I'm PIR!"
 value returned from entry: 12`
 			);

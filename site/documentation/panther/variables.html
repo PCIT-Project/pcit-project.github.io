@@ -106,7 +106,7 @@
 	</tr>
 </table></div>
 <p>&emsp;&emsp;Variables in Panther are a mechanism to give a specific value a name. They can be declared in global scope or in local function scope. Syntax 1 creates an explicitly typed variable whereas syntax 2 creates an implicitly typed variable.</p>
-<h2 id="var_variables">Var Variables</h2><p>&emsp;&emsp;Var variables are values that have storage and are mutable. The assignment value may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>.</p>
+<h2 id="var_variables">Var Variables</h2><p>&emsp;&emsp;Var variables are values that have storage and are mutable. The assignment value may be an <span class="highlight">initializer value</span>. The value category of def variables is <span class="highlight"><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></span>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -115,21 +115,21 @@
 	</tr>
 	<tr>
 		<td>in global scope</td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
 	</tr>
 	<tr>
 		<td>in a constexpr function</td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
 	</tr>
 	<tr>
 		<td>in a runtime function </td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
 	</tr>
 </table></div>
-<h2 id="const_variables">Const Variables</h2><p>&emsp;&emsp;Const variables are values that have storage and are not mutable. The assignment value may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
+<h2 id="const_variables">Const Variables</h2><p>&emsp;&emsp;Const variables are values that have storage and are not mutable. The assignment value may be an <span class="highlight">initializer value</span>. The value category of def variables is <span class="highlight"><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></span>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -138,21 +138,21 @@
 	</tr>
 	<tr>
 		<td>in global scope</td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
 	</tr>
 	<tr>
 		<td>in a constexpr function</td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
 	</tr>
 	<tr>
 		<td>in a runtime function </td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
 	</tr>
 </table></div>
-<h2 id="def_variables">Def Variables</h2><p>&emsp;&emsp;Const variables are values that do not have storage and are not mutable. The assignment value must be <code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code> and it may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. If declared without an explicit type and with an assignment value that is <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code>, the def variable is <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code>.</p>
+<h2 id="def_variables">Def Variables</h2><p>&emsp;&emsp;Const variables are values that do not have storage and are not mutable. The assignment value must be <span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span> and it may be an <span class="highlight">initializer value</span>. The value category of def variables is <span class="highlight"><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></span>. If declared without an explicit type and with an assignment value that is <span class="highlight"><a href="/site/documentation/panther/fluid_values.html">fluid</a></span>, the def variable is <span class="highlight"><a href="/site/documentation/panther/fluid_values.html">fluid</a></span>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -161,12 +161,12 @@
 	</tr>
 	<tr>
 		<td>anywhere allowed</td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code></td>
-		<td><code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
 	</tr>
 </table></div>
 <h2 id="variable_attributes">Variable Attributes</h2><h3>#pub</h3>
-<p>Make the variable accessable outside this module (such as through <code>intrinsic @import</code>)</p>
+<p>Make the variable accessable outside this module (such as through <span class="highlight">intrinsic @import</span>)</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>Argument Index</th>
