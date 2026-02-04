@@ -88,9 +88,9 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > PIR Documentation</div>		<h1>PIR Documentation</h1>
 		<div class="search-category" style="color: #15d273; background-color: #0e2a23; border-color: #105c3b;">PIR</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p style="padding-top: 2em;">Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.</p>
-		<p>Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.89.0">v0.0.89.0</a></code>. Given that the code is just for testing, it doesn't necessarily make any sense.</p>
-		<p style="padding-top: 2em;">Here's the starting code:</p>
+<br/><br/><p style="padding-top: 2em;">Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.</p>
+<p>Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version <code><a href="https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.89.0">v0.0.89.0</a></code>. Given that the code is just for testing, it doesn't necessarily make any sense.</p>
+<p style="padding-top: 2em;">Here's the starting code:</p>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// module: PIR testing
 
 type &Vec2 = struct #packed {F32, F32}
@@ -164,7 +164,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] &string, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
 		<span class="code-red">@call</span> &print_hello($.6)
 		<span class="code-red">@ret</span> $ADD_WRAP.RESULT.1
-}</div></pre></div>		<p style="padding-top: 2em;">Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:</p>
+}</div></pre></div><p style="padding-top: 2em;">Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:</p>
 <script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`// module: PIR testing
 
 type &Vec2 = struct #packed {F32, F32}
@@ -226,7 +226,7 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.6 <span class="code-red">=</span> <span class="code-red">@calcPtr</span> [<span class="code-cyan" style="font-style: italic;">I8</span><span class="code-red">:</span><span class="code-purple">36</span>] &string, <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">0</span>), <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">14</span>)
 		<span class="code-red">@call</span> &print_hello($.6)
 		<span class="code-red">@ret</span> <span class="code-cyan" style="font-style: italic;">I64</span>(<span class="code-purple">12</span>)
-}</div></pre></div>		<p style="padding-top: 2em;">Here's the un-optimized code ouptut converted to LLVMIR:</p>
+}</div></pre></div><p style="padding-top: 2em;">Here's the un-optimized code ouptut converted to LLVMIR:</p>
 <script type="text/javascript">function copy_code_2(){ navigator.clipboard.writeText(`; ModuleID = 'PIR testing'
 source_filename = "PIR testing"
 target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
@@ -363,7 +363,7 @@ _ALLOCAS_:
 <span class="code-cyan" style="font-style: italic;">declare</span> { <span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i1</span> } <span class="code-green">@llvm.uadd.with.overflow.i64</span>(<span class="code-cyan" style="font-style: italic;">i64</span>, <span class="code-cyan" style="font-style: italic;">i64</span>) <span class="code-red">#1</span>
 
 <span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#0</span> <span class="code-red">=</span> { nounwind }
-<span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#1</span> <span class="code-red">=</span> { nocallback nofree nosync nounwind speculatable willreturn memory(none) }</div></pre></div>		<p style="padding-top: 2em;">Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):</p>
+<span class="code-cyan" style="font-style: italic;">attributes</span> <span class="code-red">#1</span> <span class="code-red">=</span> { nocallback nofree nosync nounwind speculatable willreturn memory(none) }</div></pre></div><p style="padding-top: 2em;">Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):</p>
 <script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`   .text
 	.def    @feat.00;
 	.scl    3;
@@ -509,7 +509,7 @@ global:
 	.p2align    <span class="code-purple">2</span>, <span class="code-purple">0x0</span>
 <span class="code-green">.Lvec2:</span>
 	.long   <span class="code-purple">0x41400000</span>
-	.long   <span class="code-purple">0x41980000</span></div></pre></div>		<p style="padding-top: 2em;">Here's the output when run through the JIT:</p>
+	.long   <span class="code-purple">0x41980000</span></div></pre></div><p style="padding-top: 2em;">Here's the output when run through the JIT:</p>
 <script type="text/javascript">function copy_code_4(){ navigator.clipboard.writeText(`Message: "Hello World, I'm PIR!"
 value returned from entry: 12`);
 
@@ -519,7 +519,7 @@ value returned from entry: 12`);
 value returned from entry: 12</pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

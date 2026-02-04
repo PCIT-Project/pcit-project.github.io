@@ -1,6 +1,18 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.58.0"></a>
+## v0.0.58.0
+- Greatly improved performance of site generation
+- Added clickable symbols in Panther syntax highlighting that link to relevant documentation
+	- Just atomic intrinsic functions for now
+
+### Panther Documentation
+- Added `@atomicRMW`
+- Made `@atomicLoad`, `@atomicStore`, and `@cmpxchg` have separate symbol pages
+
+
+<!---------------------------------->
 <a name="v0.0.57.1"></a>
 ## v0.0.57.1
 

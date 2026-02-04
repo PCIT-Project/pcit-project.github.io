@@ -68,31 +68,31 @@
 	<br><div class="context">
 		<h1>Panther Programming Language</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div>
-<br/><br/>		<p>Statically typed, high-performance, systems programming language. Panther is an alternative to programming languages like C++, Rust, and Zig.</p>
-		<h2>Help programmers write good/fast code, without getting in the way</h2>
+<br/><br/><p>Statically typed, high-performance, systems programming language. Panther is an alternative to programming languages like C++, Rust, and Zig.</p>
+<h2>Help programmers write good/fast code, without getting in the way</h2>
 		<ul>
-			<li>Low level control with high level features (zero-cost abstraction)</li>
-			<li>Safety features without forcing a programming-paradigm like Rust or Swift</li>
-			<li>Powerful generics without needing to be an expert</li>
-			<li>Manual memory management with high-quality allocators right out of the box</li>
-			<li>No hidden allocations</li>
-			<li>Allow as much compile-time computation as possible</li>
+<li>Low level control with high level features (zero-cost abstraction)</li>
+<li>Safety features without forcing a programming-paradigm like Rust or Swift</li>
+<li>Powerful generics without needing to be an expert</li>
+<li>Manual memory management with high-quality allocators right out of the box</li>
+<li>No hidden allocations</li>
+<li>Allow as much compile-time computation as possible</li>
 		</ul>
-		<h2>Versatile usage</h2>
+<h2>Versatile usage</h2>
 		<ul>
-			<li>Seamless interoperability with C and the C ABI (hopefully C++ as well)</li>
-			<li>Use as a compiled or scripting language without loss of runtime performance</li>
-			<li>Compile to any modern target or platform (hopefully including WASM and SPIR-V)</li>
+<li>Seamless interoperability with C and the C ABI (hopefully C++ as well)</li>
+<li>Use as a compiled or scripting language without loss of runtime performance</li>
+<li>Compile to any modern target or platform (hopefully including WASM and SPIR-V)</li>
 		</ul>
-		<h2>Enjoyable to use</h2>
+<h2>Enjoyable to use</h2>
 		<ul>
-			<li>Nice / helpful error messages</li>
-			<li>Readable and explicit syntax without being overly verbose</li>
-			<li>Build system for Panther <span style="font-style: italic;">in</span> Panther</li>
-			<li>Fast compile times - hopefully allowing for building of the entire project, every compile</li>
+<li>Nice / helpful error messages</li>
+<li>Readable and explicit syntax without being overly verbose</li>
+<li>Build system for Panther <span style="font-style: italic;">in</span> Panther</li>
+<li>Fast compile times - hopefully allowing for building of the entire project, every compile</li>
 		</ul>
-<h2 id="examples">Examples:</h2>		<p>&emsp;&emsp;Here are some examples to give a taste of the Panther programming language.</p>
-		<h3>Error Handling</h3>
+<h2 id="examples">Examples:</h2><p>&emsp;&emsp;Here are some examples to give a taste of the Panther programming language.</p>
+<h3>Error Handling</h3>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`func divide = (lhs: Int, rhs: Int) -> Int <Void> {
 	if(rhs == 0){ error; }
 
@@ -130,7 +130,7 @@ func entry = () #entry -> UI8 {
 	<span class="code-cyan" style="font-style: italic;">const</span> division_result<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-red">try</span> <span class="code-cyan">divide</span>(<span class="code-purple">12</span>, <span class="code-purple">0</span>) <span class="code-red">else</span> <span class="code-purple">0</span>;
 
 	<span class="code-red">return</span> division_result <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">UI8</span>;
-}</div></pre></div>		<h3>Interfaces</h3>
+}</div></pre></div><h3>Interfaces</h3>
 <script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`interface Shape = #polymorphic {
 	func area = (this) -> F32;
 	func num_sides = () -> UInt { return 0;	} // method with default
@@ -381,12 +381,12 @@ func entry = () #entry -> UI8 {
 	<span class="code-cyan" style="font-style: italic;">const</span> area_of_circle<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">F32</span> <span class="code-red">=</span> <span class="code-cyan">get_shape_area</span>(circle <span class="code-red">as</span> <span class="code-cyan" style="font-style: italic;">impl</span>(<span class="code-red">*</span><span class="code-red">:</span>Shape));
 	
 	<span class="code-red">return</span> <span class="code-purple">0</span>;
-}</div></pre></div>		<h2>Learn More</h2>
-		<p>Interested in learning more? Check out the <a href="/site/tutorials/panther/tutorial.html">Panther tutorial</a>.</p>
+}</div></pre></div><h2>Learn More</h2>
+<p>Interested in learning more? Check out the <a href="/site/tutorials/panther/tutorial.html">Panther tutorial</a>.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-01-12</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

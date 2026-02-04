@@ -94,42 +94,42 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Value Categories</div>		<h1>Value Categories</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
-<h2 id="ephemeral">Ephemeral Value Category</h2>		<p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code> <code><a href="/site/documentation/panther/literals.html">literals</a></code> are ephemeral but not explicitly typed.</p>
-		<p>The following are ephemeral expressions:</p>
+<br/><br/><p>All expressions have a value category. In C-like languages, the two main value categories are usually <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code>. In Panther, there are also two main categories: <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. These are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> and <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> respectively, but they are different enough that it warranted new names.</p>
+<h2 id="ephemeral">Ephemeral Value Category</h2><p>Ephemeral values are very similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#rvalue">rvalue</a></code> values. Ephemeral values are any values that do not have storage. This means they cannot be assigned to nor can the address of them be gotten. Ephemeral values are not necessarily explicitly typed as <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code> <code><a href="/site/documentation/panther/literals.html">literals</a></code> are ephemeral but not explicitly typed.</p>
+<p>The following are ephemeral expressions:</p>
 		<ul>
-			<li><code><a href="/site/documentation/panther/literals.html">literals</a></code></li>
-			<li>values returned from functions / built-in operators</li>
-			<li><code><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></code></li>
-			<li>template parameters</li>
+<li><code><a href="/site/documentation/panther/literals.html">literals</a></code></li>
+<li>values returned from functions / built-in operators</li>
+<li><code><a href="/site/documentation/panther/variables.html#def_variables">def variables</a></code></li>
+<li>template parameters</li>
 		</ul>
-<h2 id="concrete">Concrete Value Category</h2>		<p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code> or a <code>operator move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#forwardable">forwardable</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
-<h3 id="concrete_mutable">Concrete-Mutable Value Category</h3>		<p>Concrete-mutable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and mutable.</p>
-		<p>The following are concrete-mutable expressions:</p>
+<h2 id="concrete">Concrete Value Category</h2><p>Concrete values are similar to <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values. Concrete values are any value that have storage. An important difference between concrete values <code><a href="https://en.cppreference.com/w/cpp/language/value_category#lvalue">lvalue</a></code> values is that ephemeral values cannot be used as an assignment value. The correct way to use a concrete value as an assignment value is with an <code>operator copy</code> or a <code>operator move</code>. There are three subcategories of concrete values: <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>, <code><a href="/site/documentation/panther/value_categories.html#forwardable">forwardable</a></code>, and <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
+<h3 id="concrete_mutable">Concrete-Mutable Value Category</h3><p>Concrete-mutable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and mutable.</p>
+<p>The following are concrete-mutable expressions:</p>
 		<ul>
-			<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code></li>
-			<li><code>dereference</code> of a <code>mut-qualified pointer</code></li>
-			<li><code><a href="/site/documentation/panther/functions.html#parameters">mut parameters</a></code></li>
-			<li><code>unwrap</code> of a mutable <code>optional</code></li>
-			<li><code>accessor</code> of a concrete-mutable value</li>
+<li><code><a href="/site/documentation/panther/variables.html#var_variables">var variables</a></code></li>
+<li><code>dereference</code> of a <code>mut-qualified pointer</code></li>
+<li><code><a href="/site/documentation/panther/functions.html#parameters">mut parameters</a></code></li>
+<li><code>unwrap</code> of a mutable <code>optional</code></li>
+<li><code>accessor</code> of a concrete-mutable value</li>
 		</ul>
-<h3 id="forwardable">Forwardable Value Category</h3>		<p>forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and non-mutable other than by <code>operator forward</code>. Forwardable is the only value category that is allowed to be argument of an <code>operator forward</code>.</p>
-		<p>The following are forwardable expressions:</p>
+<h3 id="forwardable">Forwardable Value Category</h3><p>forwardable values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code>, and non-mutable other than by <code>operator forward</code>. Forwardable is the only value category that is allowed to be argument of an <code>operator forward</code>.</p>
+<p>The following are forwardable expressions:</p>
 		<ul>
-			<li><code><a href="/site/documentation/panther/functions.html#parameters">in parameters</a></code></li>
+<li><code><a href="/site/documentation/panther/functions.html#parameters">in parameters</a></code></li>
 		</ul>
-<h3 id="concrete_const">Concrete-Const Value Category</h3>		<p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
-		<p>The following are concrete-const expressions:</p>
+<h3 id="concrete_const">Concrete-Const Value Category</h3><p>Concrete-const values are values that are <code><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></code> and non-mutable. Mutating a concrete-const value is <code><a href="/site/documentation/panther/undefined_behavior.html">undefined behavior</a></code>.</p>
+<p>The following are concrete-const expressions:</p>
 		<ul>
-			<li><code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code></li>
-			<li><code><a href="/site/documentation/panther/functions.html#parameters">read parameters</a></code></li>
-			<li><code>dereference</code> of a pointer that is not mut-qualified</li>
-			<li><code>accessor</code> of a concrete-const value</li>
+<li><code><a href="/site/documentation/panther/variables.html#const_variables">const variables</a></code></li>
+<li><code><a href="/site/documentation/panther/functions.html#parameters">read parameters</a></code></li>
+<li><code>dereference</code> of a pointer that is not mut-qualified</li>
+<li><code>accessor</code> of a concrete-const value</li>
 		</ul>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-01-10</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

@@ -88,6 +88,7 @@ term("trivially-copyable");
 term("copyable");
 term("trivially-moveable");
 term("moveable");
+term("Trivially-compare");
 
 term("operator as");
 

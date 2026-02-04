@@ -94,22 +94,22 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Undefined Behavior</div>		<h1>Undefined Behavior</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>&emsp;&emsp;The term "Undefined Behavior" (commonly shortened to "UB") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.</p>
-		<p>&emsp;&emsp;The Panther compiler attempts to detect undefined behavior at compile time. In addition, there are build settings that can be enabled that check for undefined behavior at runtime (both for debug and release builds). It is impossible to detect all undefined behavior however, so these detection mechanisms do not guarantee that no undefined behavior exists in the Panther code.</p>
-		<h2>Example</h2>
+<br/><br/><p>&emsp;&emsp;The term "Undefined Behavior" (commonly shortened to "UB") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.</p>
+<p>&emsp;&emsp;The Panther compiler attempts to detect undefined behavior at compile time. In addition, there are build settings that can be enabled that check for undefined behavior at runtime (both for debug and release builds). It is impossible to detect all undefined behavior however, so these detection mechanisms do not guarantee that no undefined behavior exists in the Panther code.</p>
+<h2>Example</h2>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`func entry = () #entry -> UI8 {
-	const foo: UI8 = 12;
+				const foo: UI8 = 12;
 
 
-	// This is undefined behavior as addition is not allowed to overflow
-	const sum_1: UI8 = foo + 255;
+				// This is undefined behavior as addition is not allowed to overflow
+				const sum_1: UI8 = foo + 255;
 
-	// This is not undefined behavior as wrapping addition is allowed to overflow
-	const sum_2: UI8 = foo +% 255;
+				// This is not undefined behavior as wrapping addition is allowed to overflow
+				const sum_2: UI8 = foo +% 255;
 
 
-	return 0;
-}`);
+				return 0;
+			}`);
 
 		document.getElementById("copied_text_0").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
@@ -126,21 +126,21 @@
 11
 12
 13</div><div class="code-src"><span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">entry</span> <span class="code-red">=</span> () <span class="code-red">#entry</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI8</span> {
-	<span class="code-cyan" style="font-style: italic;">const</span> foo<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> <span class="code-purple">12</span>;
+				<span class="code-cyan" style="font-style: italic;">const</span> foo<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> <span class="code-purple">12</span>;
 
 
-	<span class="code-gray">// This is undefined behavior as addition is not allowed to overflow</span>
-	<span class="code-cyan" style="font-style: italic;">const</span> sum_1<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> foo <span class="code-red">+</span> <span class="code-purple">255</span>;
+				<span class="code-gray">// This is undefined behavior as addition is not allowed to overflow</span>
+				<span class="code-cyan" style="font-style: italic;">const</span> sum_1<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> foo <span class="code-red">+</span> <span class="code-purple">255</span>;
 
-	<span class="code-gray">// This is not undefined behavior as wrapping addition is allowed to overflow</span>
-	<span class="code-cyan" style="font-style: italic;">const</span> sum_2<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> foo <span class="code-red">+</span><span class="code-red">%</span> <span class="code-purple">255</span>;
+				<span class="code-gray">// This is not undefined behavior as wrapping addition is allowed to overflow</span>
+				<span class="code-cyan" style="font-style: italic;">const</span> sum_2<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">UI8</span> <span class="code-red">=</span> foo <span class="code-red">+</span><span class="code-red">%</span> <span class="code-purple">255</span>;
 
 
-	<span class="code-red">return</span> <span class="code-purple">0</span>;
-}</div></pre></div>	</div>
+				<span class="code-red">return</span> <span class="code-purple">0</span>;
+			}</div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

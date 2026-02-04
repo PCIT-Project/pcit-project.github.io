@@ -13,48 +13,52 @@ const Language = require("../Page.js").Language;
 const html = require("../html.js");
 
 
-let page = new Page(__filename, {
-	path                    : "Panther.html",
-	title                   : "Panther Programming Language",
-	categories              : [require("../search.js").Category.PANTHER],
-	description             : "Home page of the Panther programming language",
-	has_categories_in_title : false,
-});
+exports.getPageGenerator = function(){
+	return new (require("../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path                    : "Panther.html",
+				title                   : "Panther Programming Language",
+				categories              : [require("../search.js").Category.PANTHER],
+				description             : "Home page of the Panther programming language",
+				has_categories_in_title : false,
+			});
+		},
+		(page) => {
+			page.text("Statically typed, high-performance, systems programming language. Panther is an alternative to programming languages like C++, Rust, and Zig.");
 
-page.text("Statically typed, high-performance, systems programming language. Panther is an alternative to programming languages like C++, Rust, and Zig.");
+			page.h2("Help programmers write good/fast code, without getting in the way");
+			page.bullets([
+				"Low level control with high level features (zero-cost abstraction)",
+				"Safety features without forcing a programming-paradigm like Rust or Swift",
+				"Powerful generics without needing to be an expert",
+				"Manual memory management with high-quality allocators right out of the box",
+				"No hidden allocations",
+				"Allow as much compile-time computation as possible",
+			]);
 
-page.h2("Help programmers write good/fast code, without getting in the way");
-page.bullets([
-	"Low level control with high level features (zero-cost abstraction)",
-	"Safety features without forcing a programming-paradigm like Rust or Swift",
-	"Powerful generics without needing to be an expert",
-	"Manual memory management with high-quality allocators right out of the box",
-	"No hidden allocations",
-	"Allow as much compile-time computation as possible",
-]);
+			page.h2("Versatile usage");
+			page.bullets([
+				"Seamless interoperability with C and the C ABI (hopefully C++ as well)",
+				"Use as a compiled or scripting language without loss of runtime performance",
+				"Compile to any modern target or platform (hopefully including WASM and SPIR-V)",
+			]);
 
-page.h2("Versatile usage");
-page.bullets([
-	"Seamless interoperability with C and the C ABI (hopefully C++ as well)",
-	"Use as a compiled or scripting language without loss of runtime performance",
-	"Compile to any modern target or platform (hopefully including WASM and SPIR-V)",
-]);
-
-page.h2("Enjoyable to use");
-page.bullets([
-	"Nice / helpful error messages",
-	"Readable and explicit syntax without being overly verbose",
-	"Build system for Panther " + html.italic("in") + " Panther",
-	"Fast compile times - hopefully allowing for building of the entire project, every compile",
-]);
+			page.h2("Enjoyable to use");
+			page.bullets([
+				"Nice / helpful error messages",
+				"Readable and explicit syntax without being overly verbose",
+				"Build system for Panther " + html.italic("in") + " Panther",
+				"Fast compile times - hopefully allowing for building of the entire project, every compile",
+			]);
 
 
-page.h2Anchor("Examples:", "examples");
-page.paragraph("Here are some examples to give a taste of the Panther programming language.");
+			page.h2Anchor("Examples:", "examples");
+			page.paragraph("Here are some examples to give a taste of the Panther programming language.");
 
 
-page.h3("Error Handling");
-page.code_block(Language.PANTHER,
+			page.h3("Error Handling");
+			page.code_block(Language.PANTHER,
 `func divide = (lhs: Int, rhs: Int) -> Int <Void> {
 	if(rhs == 0){ error; }
 
@@ -70,8 +74,8 @@ func entry = () #entry -> UI8 {
 
 
 
-page.h3("Interfaces");
-page.code_block(Language.PANTHER,
+			page.h3("Interfaces");
+			page.code_block(Language.PANTHER,
 `interface Shape = #polymorphic {
 	func area = (this) -> F32;
 	func num_sides = () -> UInt { return 0;	} // method with default
@@ -158,8 +162,9 @@ func entry = () #entry -> UI8 {
 
 
 
-page.h2("Learn More");
-page.text(`Interested in learning more? Check out the ${html.link("Panther tutorial", "/site/tutorials/panther/tutorial.html")}.`);
+			page.h2("Learn More");
+			page.text(`Interested in learning more? Check out the ${html.link("Panther tutorial", "/site/tutorials/panther/tutorial.html")}.`);
+		}
+	);
+}
 
-
-page.generate();

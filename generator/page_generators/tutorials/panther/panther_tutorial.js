@@ -13,20 +13,24 @@ const breadcrumbs = require("../../../Page.js").breadcrumbs;
 const html = require("../../../html.js");
 const search = require("../../../search.js");
 
-let page = new Page(__filename, {
-	path                    : "tutorials/panther/tutorial.html",
-	title                   : "Panther Tutorial",
-	categories              : [search.Category.PANTHER, search.Category.TUTORIAL],
-	breadcrumbs             : [breadcrumbs.TUTORIALS],
-	description             : "Tutorial for the Panther programming language",
-	has_categories_in_title : false,
-});
 
+exports.getPageGenerator = function(){
+	return new (require("../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path                    : "tutorials/panther/tutorial.html",
+				title                   : "Panther Tutorial",
+				categories              : [search.Category.PANTHER, search.Category.TUTORIAL],
+				breadcrumbs             : [breadcrumbs.TUTORIALS],
+				description             : "Tutorial for the Panther programming language",
+				has_categories_in_title : false,
+			});
+		},
+		(page) => {
+			page.text("Coming Soon...", "font-style: italic;");
 
-page.text("Coming Soon...", "font-style: italic;");
-
-page.text("For now, maybe look at " + html.link("these code example", "/site/Panther.html#examples") + " or " + html.link("the Panther documentation", "/site/documentation/panther/documentation.html") + ".");
-
-
-page.generate();
+			page.text("For now, maybe look at " + html.link("these code example", "/site/Panther.html#examples") + " or " + html.link("the Panther documentation", "/site/documentation/panther/documentation.html") + ".");
+		}
+	);
+}
 

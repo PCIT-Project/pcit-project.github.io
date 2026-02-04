@@ -26,8 +26,8 @@ const Language = Object.freeze({
 	LLVMIR: 4,
 	ASM_x86: 5,
 	TEXT: 6,
-	Terminal: 7,
-	Diagnostic: 8,
+	TERMINAL: 7,
+	DIAGNOSTIC: 8,
 });
 
 
@@ -102,21 +102,23 @@ const breadcrumbs = Object.freeze({
 
 
 class Page{
-	body;
-	counter;
-	last_updated_str;
+	#body;
+	#counter;
+	#last_updated_str;
 
 	// required options for `config`
-	path;
-	title;
+	#path;
+	#title;
 
 	// optional options for `config`
-	description;
-	categories;
-	breadcrumbs;
-	on_page_title; // default `title`
-	has_page_title; // default true
-	article_info; // only used if is an article. Must have `.author, .date_published, .author_url`
+	#description;
+	#on_site_description;
+	#categories;
+	#breadcrumbs;
+	#on_page_title; // default `title`
+	#has_page_title; // default true
+	#article_info; // only used if is an article. Must have `.author, .date_published, .author_url`
+	#is_home;
 
 	// optional options for `config` that don't become members
 	// allow_in_sitemap -> defaults to true
@@ -132,14 +134,16 @@ class Page{
 		this.title = config.title;
 		this.path = config.path;
 		this.description = config.description ?? "Panther Compiler Infrastructure and Technology";
+		this.on_site_description = config.on_site_description ?? this.description;
 		this.categories = config.categories;
 		this.breadcrumbs = config.breadcrumbs;
 		this.on_page_title = config.on_page_title ?? config.title;
 		this.has_page_title = config.has_page_title ?? true;
 		this.article_info = config.article_info;
+		this.is_home = config.is
 
 		if(this.categories !== undefined){
-			search.addSearchTarget(this.on_page_title, "/site/" + this.path, this.categories, this.description);
+			search.addSearchTarget(this.on_page_title, "/site/" + this.path, this.categories, this.on_site_description);
 
 			if(config.has_categories_in_title ?? true){
 				this.title += " |";
@@ -318,7 +322,7 @@ class Page{
 	}
 
 
-	list_table(language, items){
+	decl_list(language, items){
 		this.body += "<div style=\"overflow-x: auto;\"><table style=\"margin-bottom: 2em;\">\n";
 
 		items.forEach((item, i) => {
@@ -331,8 +335,9 @@ class Page{
 		});
 
 		this.body += "</table></div>\n";
-
 	}
+
+
 
 
 	begin_info(){
@@ -377,7 +382,7 @@ class Page{
 				output += syntax_highlighting.asm_x86(code);
 			} break;
 
-			case Language.Diagnostic: {
+			case Language.DIAGNOSTIC: {
 				output += syntax_highlighting.diagnostic(code);
 			} break;
 
@@ -391,7 +396,7 @@ class Page{
 		return output;
 	}
 
-	// unline inline_code, inline_code_block has scroll bar if too wide (instead of wrapping)
+	// unline inline_code, inline_code_block has scroll bar
 	inline_code_block(language, code){
 		let output = "<pre class=\"code code-src code-inline-block\">";
 
@@ -416,7 +421,7 @@ class Page{
 				output += syntax_highlighting.asm_x86(code);
 			} break;
 
-			case Language.Diagnostic: {
+			case Language.DIAGNOSTIC: {
 				output += syntax_highlighting.diagnostic(code);
 			} break;
 
@@ -439,7 +444,7 @@ class Page{
 				requires_lines = true;
 			} break;
 
-			case Language.Terminal: case Language.Diagnostic: {
+			case Language.TERMINAL: case Language.DIAGNOSTIC: {
 				// do nothing...
 			} break;
 
@@ -474,8 +479,8 @@ class Page{
 			case Language.C:          header_title_style = "background-color: #004283; color: #ffffff;"; break;
 			case Language.LLVMIR:     header_title_style = "background-color: #556293; color: #ffffff;"; break;
 			case Language.ASM_x86:    header_title_style = "background-color: #25334d; color: #ffffff;"; break;
-			case Language.Terminal:   header_title_style = "background-color: #333333; color: #ffffff;"; break;
-			case Language.Diagnostic: header_title_style = "background-color: #333333; color: #ffffff;"; break;
+			case Language.TERMINAL:   header_title_style = "background-color: #333333; color: #ffffff;"; break;
+			case Language.DIAGNOSTIC: header_title_style = "background-color: #333333; color: #ffffff;"; break;
 		}
 
 
@@ -488,8 +493,8 @@ class Page{
 			case Language.C:          this.body += "C";                       break;
 			case Language.LLVMIR:     this.body += "LLVM IR";                 break;
 			case Language.ASM_x86:    this.body += "x86-64 Assembly (Intel)"; break;
-			case Language.Terminal:   this.body += "Terminal";                break;
-			case Language.Diagnostic: this.body += "Terminal (Diagnostic)";   break;
+			case Language.TERMINAL:   this.body += "Terminal";                break;
+			case Language.DIAGNOSTIC: this.body += "Terminal (Diagnostic)";   break;
 		}
 
 
@@ -541,7 +546,7 @@ class Page{
 			this.body += "</div><div class=\"code-src\">";
 
 		}else{
-			if(language === Language.Terminal || language === Language.Diagnostic){
+			if(language === Language.TERMINAL || language === Language.DIAGNOSTIC){
 				this.body += "<pre class=\"code code-src code-without-lines\" style=\"background-color: black; color: #ffffff;\">";
 
 			}else{
@@ -571,7 +576,7 @@ class Page{
 				this.body += syntax_highlighting.asm_x86(code);
 			} break;
 
-			case Language.Diagnostic: {
+			case Language.DIAGNOSTIC: {
 				this.body += syntax_highlighting.diagnostic(code);
 			} break;
 
@@ -803,7 +808,7 @@ class Page{
 </html>`;
 
 		fs.writeFileSync("../site/" + this.path, file_data);
-		console.log(`Generated page \x1b[35m(${this.title})\x1b[0m: \x1b[33m"${this.path}"\x1b[0m`);
+		// console.log(`Generated page \x1b[35m(${this.title})\x1b[0m: \x1b[33m"${this.path}"\x1b[0m`);
 	}
 }
 

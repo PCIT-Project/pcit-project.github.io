@@ -15,25 +15,27 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
-let page = new Page(__filename, {
-	path                    : "documentation/pir/documentation.html",
-	title                   : "PIR Documentation",
-	categories              : [search.Category.PIR, search.Category.DOCUMENTATION],
-	breadcrumbs             : [breadcrumbs.DOCUMENTATION],
-	description             : "Documentation for PIR (Panther Intermediate Representation)",
-	has_categories_in_title : true,
-});
+exports.getPageGenerator = function(){
+	return new (require("../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path                    : "documentation/pir/documentation.html",
+				title                   : "PIR Documentation",
+				categories              : [search.Category.PIR, search.Category.DOCUMENTATION],
+				breadcrumbs             : [breadcrumbs.DOCUMENTATION],
+				description             : "Documentation for PIR (Panther Intermediate Representation)",
+				has_categories_in_title : true,
+			});
+		},
+		(page) => {
+			page.text(`Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.`, "padding-top: 2em;");
+
+			page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version ${page.pcit_cpp_version("v0.0.89.0")}. Given that the code is just for testing, it doesn't necessarily make any sense.`);
 
 
+			page.text("Here's the starting code:", "padding-top: 2em;");
 
-page.text(`Pronounced "P I R". PIR is a compiler IR and SSA-based optimizing back-end.`, "padding-top: 2em;");
-
-page.text(`Proper documentation for PIR does not exist yet since the PIR is very much a work in progress is likely to change in the future. To give a sneak peek into the current syntax, the following code snippets are from the output from the PIR compiler test program in version ${page.pcit_cpp_version("v0.0.89.0")}. Given that the code is just for testing, it doesn't necessarily make any sense.`);
-
-
-page.text("Here's the starting code:", "padding-top: 2em;");
-
-page.code_block(Language.PIR,
+			page.code_block(Language.PIR,
 `// module: PIR testing
 
 type &Vec2 = struct #packed {F32, F32}
@@ -57,12 +59,13 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.6 = @calcPtr [I8:36] &string, I64(0), I64(14)
 		@call &print_hello($.6)
 		@ret $ADD_WRAP.RESULT.1
-}`);
+}`
+			);
 
 
 
-page.text("Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:", "padding-top: 2em;");
-page.code_block(Language.PIR,
+			page.text("Here's the output after the optimizer runs. Note: since it's in early development it isn't as optimized as it could be:", "padding-top: 2em;");
+			page.code_block(Language.PIR,
 `// module: PIR testing
 
 type &Vec2 = struct #packed {F32, F32}
@@ -82,12 +85,13 @@ func &entry = () #callConv(fast) #linkage(external) -> I64 {
 		$.6 = @calcPtr [I8:36] &string, I64(0), I64(14)
 		@call &print_hello($.6)
 		@ret I64(12)
-}`);
+}`
+			);
 
 
 
-page.text("Here's the un-optimized code ouptut converted to LLVMIR:", "padding-top: 2em;");
-page.code_block(Language.LLVMIR,
+			page.text("Here's the un-optimized code ouptut converted to LLVMIR:", "padding-top: 2em;");
+			page.code_block(Language.LLVMIR,
 `; ModuleID = 'PIR testing'
 source_filename = "PIR testing"
 target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
@@ -132,12 +136,13 @@ _ALLOCAS_:
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #1
 
 attributes #0 = { nounwind }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }`);
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }`
+			);
 
 
 
-page.text("Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):", "padding-top: 2em;");
-page.code_block(Language.ASM_x86,
+			page.text("Here's the un-optimized code ouptut converted to x86-64 assembly (Intel):", "padding-top: 2em;");
+			page.code_block(Language.ASM_x86,
 `   .text
 	.def    @feat.00;
 	.scl    3;
@@ -185,16 +190,18 @@ global:
 	.p2align    2, 0x0
 .Lvec2:
 	.long   0x41400000
-	.long   0x41980000`);
+	.long   0x41980000`
+				);
 
 
-page.text("Here's the output when run through the JIT:", "padding-top: 2em;");
-page.code_block(Language.Terminal,
+			page.text("Here's the output when run through the JIT:", "padding-top: 2em;");
+			page.code_block(Language.TERMINAL,
 `Message: "Hello World, I'm PIR!"
-value returned from entry: 12`);
+value returned from entry: 12`
+			);
+		}
+	);
+}
 
 
-
-
-page.generate();
 

@@ -7,14 +7,23 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 const fs = require("node:fs");
+const path = require('node:path');
+const readline = require("node:readline");
 
-console.log("\x1b[36mPCIT Project website generator");
-console.log("\x1b[90m------------------------------\x1b[0m")
+console.log("\x1b[36mPCIT Project website generator\x1b[0m");
 
 
-function directory_exists(path){
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// directories
+
+
+function directory_exists(dir_path){
 	try{
-		fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK);
+		fs.accessSync(dir_path, fs.constants.R_OK | fs.constants.W_OK);
 		return true;
 	}catch(err){
 		return false;
@@ -22,125 +31,122 @@ function directory_exists(path){
 }
 
 
-function make_directory(path){
-	if(directory_exists(path)){
-		console.log("Recreating directory: \x1b[33m\"" + path.substr(2) + "\"\x1b[0m");
-		fs.rmSync(path, {recursive: true});
-		fs.mkdirSync(path);
-	}else{
-		console.log("Creating directory: \x1b[33m\"" + path.substr(2) + "\"\x1b[0m");
-		fs.mkdirSync(path);
+const create_directories_list = [
+	"../site",
+	"../site/tutorials",
+	"../site/tutorials/panther",
+	"../site/tutorials/pantherlib",
+	"../site/tutorials/pir",
+	"../site/tutorials/plnk",
+	"../site/documentation",
+	"../site/documentation/panther",
+	"../site/documentation/panther/intrinsics",
+	"../site/documentation/panther_std",
+	"../site/documentation/pir",
+	"../site/devlogs",
+];
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// add page generators
+
+let page_generators = [];
+
+function add_all_page_generators_in_directory_recursive(dir){
+	for(const file of fs.readdirSync(dir)){
+		const absolute_path = dir + "/" + file;
+		if(fs.statSync(absolute_path).isFile()){
+			page_generators.push(require(absolute_path).getPageGenerator());
+		}else{
+			add_all_page_generators_in_directory_recursive(absolute_path);
+		}
 	}
 }
 
 
+add_all_page_generators_in_directory_recursive("./page_generators");
 
-//////////////////////////////////////////////////////////////////////
-// directories
-
-make_directory("../site");
-make_directory("../site/tutorials");
-make_directory("../site/tutorials/panther");
-make_directory("../site/tutorials/pantherlib");
-make_directory("../site/tutorials/pir");
-make_directory("../site/tutorials/plnk");
-make_directory("../site/documentation");
-make_directory("../site/documentation/panther");
-make_directory("../site/documentation/panther/intrinsics");
-make_directory("../site/documentation/panther_std");
-make_directory("../site/documentation/pir");
-make_directory("../site/devlogs");
 
 
 //////////////////////////////////////////////////////////////////////
-// top pages
-
-require("./page_generators/home.js");
-require("./page_generators/404.js");
-require("./page_generators/panther_home.js");
-require("./page_generators/downloads.js");
-require("./page_generators/about.js");
-require("./page_generators/search_page.js");
-
-require("./page_generators/build.js");
+// begin generation
 
 
+const total_steps = create_directories_list.length + (page_generators.length * 2) + 1;
 
-///////////////////////////////////
-// documentation
-
-require("./page_generators/documentation/documentation.js");
-
-require("./page_generators/documentation/panther/documentation.js");
-
-require("./page_generators/documentation/panther/character_escape_codes.js");
-require("./page_generators/documentation/panther/enums.js");
-require("./page_generators/documentation/panther/fluid_values.js");
-require("./page_generators/documentation/panther/intrinsics/intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/builtin_module_build.js");
-require("./page_generators/documentation/panther/intrinsics/builtin_module_pthr.js");
-require("./page_generators/documentation/panther/intrinsics/atomic_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/arithmetic_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/bitwise_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/comparative_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/importing_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/operational_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/type_conversion_intrinsics.js");
-require("./page_generators/documentation/panther/intrinsics/type_traits_intrinsics.js");
-require("./page_generators/documentation/panther/functions.js");
-require("./page_generators/documentation/panther/interfaces.js");
-require("./page_generators/documentation/panther/literals.js");
-require("./page_generators/documentation/panther/modules.js");
-require("./page_generators/documentation/panther/operators.js");
-require("./page_generators/documentation/panther/primitive_types.js");
-require("./page_generators/documentation/panther/structs.js");
-require("./page_generators/documentation/panther/undefined_behavior.js");
-require("./page_generators/documentation/panther/uninitialized.js");
-require("./page_generators/documentation/panther/value_categories.js");
-require("./page_generators/documentation/panther/value_stages.js");
-require("./page_generators/documentation/panther/variables.js");
-require("./page_generators/documentation/panther/when_conditionals.js");
+let completed_step = -1;
 
 
-require("./page_generators/documentation/panther_std/documentation.js");
+function start_step(name){
+	completed_step += 1;
 
+	const width = process.stdout.columns - 7;
+	const percent_completed = completed_step / total_steps;
 
-require("./page_generators/documentation/pir/pir_documentation.js");
+	let bar = "[";
+	for(let i = 0; i < width; i+=1){
+		if(i < percent_completed * width){
+			bar += '=';
+		}else{
+			bar += ' ';
+		}
+	}
+	bar += "] ";
+
+	bar += Math.floor(percent_completed * 100);
+	bar += "%";
 
 
 
-///////////////////////////////////
-// tutorials
+	if(completed_step > 0){
+		process.stdout.clearLine(0);
+		readline.cursorTo(process.stdout, 0);
+	}
 
-require("./page_generators/tutorials/tutorials.js");
-
-require("./page_generators/tutorials/panther/panther_tutorial.js");
-
-require("./page_generators/tutorials/panther_lib/panther_lib_tutorial.js");
-
-require("./page_generators/tutorials/pir/pir_tutorial.js");
-
-require("./page_generators/tutorials/plnk/plnk_tutorial.js");
+	process.stdout.write(bar);
+}
 
 
 
-///////////////////////////////////
-// devlogs
+for(const dir of create_directories_list){
+	start_step();
+	if(directory_exists(dir)){
+		fs.rmSync(dir, {recursive: true});
+		fs.mkdirSync(dir);
+	}else{
+		fs.mkdirSync(dir);
+	}
+}
 
-require("./page_generators/devlogs/devlogs.js");
 
-require("./page_generators/devlogs/new_systems_requires_major_changes.js");
-require("./page_generators/devlogs/dependencies_v2.js");
+for(const page_generator of page_generators){
+	start_step();
+	page_generator.init();
+}
+
+
+for(const page_generator of page_generators){
+	start_step();
+	page_generator.generate();
+}
+
+
+
 
 
 
 //////////////////////////////////////////////////////////////////////
 // script generators
 
+start_step();
+
+
 require("./search.js").generate();
 
 
-const path = require('node:path');
 const page_list = require("./Page.js").page_list;
 
 let sitemap_str = `<?xml version="1.0" encoding="UTF-8"?>
@@ -169,4 +175,4 @@ sitemap_str += "</urlset>";
 fs.writeFileSync("../site/sitemap.xml", sitemap_str);
 
 
-
+start_step();

@@ -100,26 +100,38 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > Builtin Module @pthr</div>		<h1>Builtin Module @pthr</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><h2 id="AtomicOrdering">AtomicOrdering</h2>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">AtomicOrdering</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+<br/><br/><h2 id="AtomicOrdering">AtomicOrdering</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">AtomicOrdering</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
 	MONOTONIC,
 	ACQUIRE,
 	RELEASE,
 	ACQ_REL,
 	SEQ_CST,
 }</pre></p>
-		<p>Enum to specify the different atomic orderings. All orderings guarantee atomicity. Use of any ordering other than <code>SEQ_CST</code> should only be done if the developer is 100% sure it is safe to do so.</p>
-		<h3>MONOTONIC</h3>
-		<p>&emsp;&emsp;Has no synchronization or ordering constraints. Can be used on any atomic operation.</p>
-		<p>&emsp;&emsp;This is equivalent to "relaxed" in C/C++.</p>
-		<h3>ACQUIRE</h3>
-		<p>&emsp;&emsp;No memory operations in the current thread can be reordered to before this operation. Can be used on load atomic operations.</p>
-		<h3>RELEASE</h3>
-		<p>&emsp;&emsp;No memory operations in the current thread can be reordered to after this operation. Can be used on store atomic operations.</p>
-		<h3>ACQ_REL</h3>
-		<p>&emsp;&emsp;Acquire Release. Performs an acquire and a release operation. No memory operations in the current thread can be reordered to before acquire or to after the release. Can be used on read-modify-write atomic operation.</p>
-		<h3>SEQ_CST</h3>
-		<p>&emsp;&emsp;Sequentially-consistent. Performs an acquire for a load, a release for a store, acquire-release for a read-modify-write operation. In addition, all threads observe all modifications in the same order. Can be used on any atomic operation.</p>
-<h2 id="undefined">Iterable Interfaces</h2><h3 id="IIterable">IIterable / IIterableRT</h3>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterable</span> <span class="code-red">=</span> {
+<p>Enum to specify the different atomic orderings. All orderings guarantee atomicity. Use of any ordering other than <code>SEQ_CST</code> should only be done if the developer is 100% sure it is safe to do so.</p>
+<h3>MONOTONIC</h3>
+<p>&emsp;&emsp;Has no synchronization or ordering constraints. Can be used on any atomic operation.</p>
+<p>&emsp;&emsp;This is equivalent to "relaxed" in C/C++.</p>
+<h3>ACQUIRE</h3>
+<p>&emsp;&emsp;No memory operations in the current thread can be reordered to before this operation. Can be used on load atomic operations.</p>
+<h3>RELEASE</h3>
+<p>&emsp;&emsp;No memory operations in the current thread can be reordered to after this operation. Can be used on store atomic operations.</p>
+<h3>ACQ_REL</h3>
+<p>&emsp;&emsp;Acquire Release. Performs an acquire and a release operation. No memory operations in the current thread can be reordered to before acquire or to after the release. Can be used on read-modify-write atomic operation.</p>
+<h3>SEQ_CST</h3>
+<p>&emsp;&emsp;Sequentially-consistent. Performs an acquire for a load, a release for a store, acquire-release for a read-modify-write operation. In addition, all threads observe all modifications in the same order. Can be used on any atomic operation.</p>
+<h2 id="AtomicRMWOp">AtomicRMWOp</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">AtomicRMWOp</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+	XCHG,
+	ADD,
+	SUB,
+	AND,
+	NAND,
+	OR,
+	XOR,
+	MIN,
+	MAX,
+}</pre></p>
+<p>&emsp;&emsp;For use in <a href="/site/documentation/panther/intrinsics/atomic_intrinsics.html#atomicRMW"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></code></a> to denote the operation to use.</p>
+<h2 id="undefined">Iterable Interfaces</h2><h3 id="IIterable">IIterable / IIterableRT</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterable</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IIterator);
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span> <span class="code-red">mut</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IMutIterator);
 }
@@ -128,24 +140,24 @@
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IIterator);
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span> <span class="code-red">mut</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IMutIterator);
 }</pre></p>
-		<p>Interface to define iterable types. Should be used if the type uses the array iterable model.</p>
-<h3 id="IIterableRef">IIterableRef / IIterableRefRT</h3>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterableRef</span> <span class="code-red">=</span> {
+<p>Interface to define iterable types. Should be used if the type uses the array iterable model.</p>
+<h3 id="IIterableRef">IIterableRef / IIterableRefRT</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterableRef</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IIterator);
 }
 
 <span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterableRefRT</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IIterator);
 }</pre></p>
-		<p>Interface to define iterable types. Should be used if the type uses the array reference iterable model.</p>
-<h3 id="IIterableMutRef">IIterableMutRef / IIterableMutRefRT</h3>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterableMutRef</span> <span class="code-red">=</span> {
+<p>Interface to define iterable types. Should be used if the type uses the array reference iterable model.</p>
+<h3 id="IIterableMutRef">IIterableMutRef / IIterableMutRefRT</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterableMutRef</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IMutIterator);
 }
 
 <span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterableMutRefRT</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">createIterator</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">impl</span>($$<span class="code-red">:</span><span class="code-orange">@pthr</span>.IMutIterator);
 }</pre></p>
-		<p>Interface to define iterable types. Should be used if the type uses the mutable array reference iterable model.</p>
-<h2 id="undefined">Iterator Interfaces</h2><h3 id="IIterator">IIterator / IIteratorRT</h3>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterator</span> <span class="code-red">=</span> {
+<p>Interface to define iterable types. Should be used if the type uses the mutable array reference iterable model.</p>
+<h2 id="undefined">Iterator Interfaces</h2><h3 id="IIterator">IIterator / IIteratorRT</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IIterator</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">next</span> <span class="code-red">=</span> (<span class="code-orange">this</span> <span class="code-red">mut</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> $$<span class="code-red">*</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">atEnd</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span>;
@@ -156,8 +168,8 @@
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> $$<span class="code-red">*</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">atEnd</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span>;
 }</pre></p>
-		<p>Interface to define an iterator.</p>
-<h3 id="IMutIterator">IMutIterator / IMutIteratorRT</h3>		<p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IMutIterator</span> <span class="code-red">=</span> {
+<p>Interface to define an iterator.</p>
+<h3 id="IMutIterator">IMutIterator / IMutIteratorRT</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">interface</span> <span class="code-green">IMutIterator</span> <span class="code-red">=</span> {
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">next</span> <span class="code-red">=</span> (<span class="code-orange">this</span> <span class="code-red">mut</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> $$<span class="code-red">*</span><span class="code-red">mut</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">atEnd</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span>;
@@ -168,11 +180,11 @@
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">get</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> $$<span class="code-red">*</span><span class="code-red">mut</span>;
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">atEnd</span> <span class="code-red">=</span> (<span class="code-orange">this</span>) <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span>;
 }</pre></p>
-		<p>Interface to define a mut iterator.</p>
+<p>Interface to define a mut iterator.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-01-29</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

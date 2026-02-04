@@ -1,0 +1,142 @@
+<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE` for info.                 -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Documentation for @atomicStore in the Panther programming language" />
+
+	<meta property="og:title" content="@atomicStore | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Documentation for @atomicStore in the Panther programming language" />
+	<meta property="og:image" content="/assets/LogoBig.png" />
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
+
+
+	<title>@atomicStore | Panther Documentation | PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 3,
+					"name": "Intrinsics",
+					"item": "https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 4,
+			        "name": "@atomicStore"
+				}
+			]
+		}
+	</script>
+</head>
+<body>
+	<div class="navbar">
+		<div id="navbar-fader">
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
+			<a class="navbar-title" href="/">PCIT Project</a>
+		</div>
+		
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="hamburger-button fa-solid fa-bars fa-fw"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
+
+	<br><div class="context">
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > @atomicStore</div>		<h1>@atomicStore</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
+<br/><br/><div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">1:</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a> <span class="code-red">=</span> &lt;{TARGET<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, VALUE<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, ORDER<span class="code-red">:</span> <span class="code-orange">@pthr</span>.AtomicOrdering}&gt; (target<span class="code-red">:</span> TARGET, value<span class="code-red">:</span> VALUE <span class="code-red">in</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></td>
+	</tr>
+</table></div>
+<p>&emsp;&emsp;Atomically store a value.</p>
+<h3>Template Parameters</h3>
+<p>&emsp;&emsp;<span style="font-weight: bold;">TARGET</span>: must be a non-optional pointer, and is a pointer to the type of value to store to</p>
+<p>&emsp;&emsp;<span style="font-weight: bold;">VALUE</span>: must be the result of a dereference of <code>TARGET</code>, <code>trivially-copyable</code>, and cannot be <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">F80</span></code></p>
+<p>&emsp;&emsp;<span style="font-weight: bold;">ORDER</span>: cannot be <code class="code-src"; style="background-color: #282923!important;"><span class="code-orange">@pthr</span>.AtomicOrdering.ACQUIRE</code> or <code class="code-src"; style="background-color: #282923!important;"><span class="code-orange">@pthr</span>.AtomicOrdering.ACQ_REL</code></p>
+<h3>Parameters</h3>
+<p>&emsp;&emsp;<span style="font-weight: bold;">target</span>: target to store to</p>
+<p>&emsp;&emsp;<span style="font-weight: bold;">value</span>: value to store to target</p>
+<h3>Return Value</h3>
+<p>&emsp;&emsp;Returns <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Void</span></code>.</p>
+<h2>Example</h2>
+<p><span style="font-style: italic;">(TODO)</span></p>
+<h2>See Also</h2>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; font-style: italic;">Atomically load a value</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; font-style: italic;">Atomic read-modify-write</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; font-style: italic;">Atomic compare-exchange</td>
+	</tr></table></div>
+	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
+		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+	</div>
+
+</body>
+<script src="/assets/script.js"></script>
+</html>

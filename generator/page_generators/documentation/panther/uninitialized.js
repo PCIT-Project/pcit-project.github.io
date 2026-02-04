@@ -15,26 +15,30 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 
-let page = new Page(__filename, {
-	path        : "documentation/panther/uninitialized.html",
-	title       : "Uninitialized",
-	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
-	description : "Documentation for \"uninitialized\" in the Panther programming language",
-});
+
+exports.getPageGenerator = function(){
+	return new (require("../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path        : "documentation/panther/uninitialized.html",
+				title       : "Uninitialized",
+				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				description : "Documentation for \"uninitialized\" in the Panther programming language",
+			});
+		},
+		(page) => {
+			page.paragraph(`The term "uninitialized" refers to any value is not initialized and therefore in an unusable state. If a value is uninitialized, the only valid operations on it are writes. The only way for an uninitialized value to stop being uninitialized is for it to undergo ${terms.get("initialization")}. This does not include ${terms.get("assignment")} even if the ${terms.get("operator delete")} of the type of the value does not contain any read operations.`);
 
 
-page.paragraph(`The term "uninitialized" refers to any value is not initialized and therefore in an unusable state. If a value is uninitialized, the only valid operations on it are writes. The only way for an uninitialized value to stop being uninitialized is for it to undergo ${terms.get("initialization")}. This does not include ${terms.get("assignment")} even if the ${terms.get("operator delete")} of the type of the value does not contain any read operations.`);
-
-
-page.text("Examples:");
-page.bullets([
-	`variables defined with an ${terms.get("initializer value")}`,
-	`value that undergoes ${terms.get("operator delete")}`,
-	`value that undergoes ${terms.get("operator forward")}`,
-	`element of an ${terms.get("array")} after the ${terms.get("array")} undergoes ${terms.get("initialization")}`
-]);
-
-
-page.generate();
+			page.text("Examples:");
+			page.bullets([
+				`variables defined with an ${terms.get("initializer value")}`,
+				`value that undergoes ${terms.get("operator delete")}`,
+				`value that undergoes ${terms.get("operator forward")}`,
+				`element of an ${terms.get("array")} after the ${terms.get("array")} undergoes ${terms.get("initialization")}`
+			]);
+		}
+	);
+}
 

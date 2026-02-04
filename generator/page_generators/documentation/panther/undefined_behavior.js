@@ -16,35 +16,38 @@ const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
 
-let page = new Page(__filename, {
-	path        : "documentation/panther/undefined_behavior.html",
-	title       : "Undefined Behavior",
-	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
-	description : "Documentation for Undefined Behavior in the Panther programming language",
-});
+exports.getPageGenerator = function(){
+	return new (require("../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path        : "documentation/panther/undefined_behavior.html",
+				title       : "Undefined Behavior",
+				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				description : "Documentation for Undefined Behavior in the Panther programming language",
+			});
+		},
+		(page) => {
+			page.paragraph("The term \"Undefined Behavior\" (commonly shortened to \"UB\") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.");
+
+			page.paragraph("The Panther compiler attempts to detect undefined behavior at compile time. In addition, there are build settings that can be enabled that check for undefined behavior at runtime (both for debug and release builds). It is impossible to detect all undefined behavior however, so these detection mechanisms do not guarantee that no undefined behavior exists in the Panther code.");
 
 
-page.paragraph("The term \"Undefined Behavior\" (commonly shortened to \"UB\") refers to any behavior that cannot be defined by the language. This could be because the behavior would differ depending on the platform, or because the compiler assumes that the behavior never happens and generates instructions accordingly. Anything that is undefined behavior is explicitly disallowed by the Panther language specification and should be avoided.");
-
-page.paragraph("The Panther compiler attempts to detect undefined behavior at compile time. In addition, there are build settings that can be enabled that check for undefined behavior at runtime (both for debug and release builds). It is impossible to detect all undefined behavior however, so these detection mechanisms do not guarantee that no undefined behavior exists in the Panther code.");
-
-
-page.h2("Example");
-page.code_block(Language.PANTHER, `func entry = () #entry -> UI8 {
-	const foo: UI8 = 12;
+			page.h2("Example");
+			page.code_block(Language.PANTHER, `func entry = () #entry -> UI8 {
+				const foo: UI8 = 12;
 
 
-	// This is undefined behavior as addition is not allowed to overflow
-	const sum_1: UI8 = foo + 255;
+				// This is undefined behavior as addition is not allowed to overflow
+				const sum_1: UI8 = foo + 255;
 
-	// This is not undefined behavior as wrapping addition is allowed to overflow
-	const sum_2: UI8 = foo +% 255;
-
-
-	return 0;
-}`);
+				// This is not undefined behavior as wrapping addition is allowed to overflow
+				const sum_2: UI8 = foo +% 255;
 
 
-page.generate();
+				return 0;
+			}`);
+		}
+	);
+}
 

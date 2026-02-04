@@ -15,21 +15,25 @@ const html = require("../../../html.js");
 const terms = require("../../../terms.js");
 const search = require("../../../search.js");
 
-let page = new Page(__filename, {
-	path        : "documentation/panther/structs.html",
-	title       : "Structs",
-	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
-	description : "Documentation for structs in the Panther programming language",
-});
+
+exports.getPageGenerator = function(){
+	return new (require("../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path        : "documentation/panther/structs.html",
+				title       : "Structs",
+				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION],
+				description : "Documentation for structs in the Panther programming language",
+			});
+		},
+		(page) => {
+			page.paragraph(html.italic("(TODO)"));
 
 
-page.paragraph(html.italic("(TODO)"));
+			page.h2("Example");
 
-
-page.h2("Example");
-
-page.code_block(Language.PANTHER,
+			page.code_block(Language.PANTHER,
 `type Vec2 = struct {
 	var x: F32; // member variable
 	var y: F32;
@@ -129,8 +133,10 @@ func entry = () #entry -> UI8 {
 	bar = move foo; // 1 NonTrivialNum exists
 	
 	return NonTrivialNum.getNumExisting() as UI8; // returns 1
-}`);
+}`
+			);
+		}
+	);
+}
 
-
-page.generate();
 

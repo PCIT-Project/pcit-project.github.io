@@ -83,6 +83,12 @@ function is_hex_number(character){
 }
 
 
+let intrinsic_funcs = new Map();
+exports.addIntrinsicFunc = function(name, page){
+	intrinsic_funcs.set(name, page);
+}
+
+
 
 exports.highlight = function(code){
 	let output = "";
@@ -126,7 +132,11 @@ exports.highlight = function(code){
 					}
 
 					if(identifier[0] == '@'){
-						output += `<span class="code-red">${identifier}</span>`;
+						if(intrinsic_funcs.has(identifier)){
+							output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).page.getPath()}">${identifier}</a>`;
+						}else{
+							output += `<span class="code-red">${identifier}</span>`;
+						}
 					}else{
 						output += `<span class="code-green">${identifier}</span>`;
 					}
@@ -175,7 +185,11 @@ exports.highlight = function(code){
 						if(identifier == "@pthr" || identifier == "@build"){
 							output += `<span class="code-orange">${identifier}</span>`;
 						}else{
-							output += `<span class="code-red">${identifier}</span>`;
+							if(intrinsic_funcs.has(identifier)){
+								output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).page.getPath()}">${identifier}</a>`;
+							}else{
+								output += `<span class="code-red">${identifier}</span>`;
+							}
 						}
 						break;
 

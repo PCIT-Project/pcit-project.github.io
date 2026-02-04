@@ -18,29 +18,30 @@ const syntax_highlighting = require("../../../../syntax_highlighting/syntax_high
 
 
 
-let page = new Page(__filename, {
-	path        : "documentation/panther/intrinsics/importing_intrinsics.html",
-	title       : "Importing Intrinsics",
-	categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
-	breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
-	description : "Documentation for importing intrinsics in the Panther programming language",
-});
+exports.getPageGenerator = function(){
+	return new (require("../../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path        : "documentation/panther/intrinsics/importing_intrinsics.html",
+				title       : "Importing Intrinsics",
+				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
+				breadcrumbs : [breadcrumbs.DOCUMENTATION, breadcrumbs.PANTHER_DOCUMENTATION, breadcrumbs.PANTHER_INTRINSICS],
+				description : "Documentation for importing intrinsics in the Panther programming language",
+			});
+		},
+		(page) => {
+			page.h2Searchable("@import", "import");
+			page.text(page.inline_code(Language.PANTHER, "func @import = (filepath: [Char:*]) -> {MODULE};"));
+			page.text("Import a Panther file.");
 
+			page.h2Searchable("@importC", "importC");
+			page.text(page.inline_code(Language.PANTHER, "func @importC = (filepath: [Char:*]) -> {MODULE};"));
+			page.text("Import a C file.");
 
-page.h2Searchable("@import", "import");
-page.text(page.inline_code(Language.PANTHER, "func @import = (filepath: [Char:*]) -> {MODULE};"));
-page.text("Import a Panther file.");
-
-page.h2Searchable("@importC", "importC");
-page.text(page.inline_code(Language.PANTHER, "func @importC = (filepath: [Char:*]) -> {MODULE};"));
-page.text("Import a C file.");
-
-page.h2Searchable("@importCPP", "importCPP");
-page.text(page.inline_code(Language.PANTHER, "func @importCPP = (filepath: [Char:*]) -> {MODULE};"));
-page.text("Import a C++ file.");
-
-
-
-
-page.generate();
+			page.h2Searchable("@importCPP", "importCPP");
+			page.text(page.inline_code(Language.PANTHER, "func @importCPP = (filepath: [Char:*]) -> {MODULE};"));
+			page.text("Import a C++ file.");
+		}
+	);
+}
 

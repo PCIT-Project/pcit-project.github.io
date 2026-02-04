@@ -94,26 +94,36 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Intrinsics</div>		<h1>Intrinsics</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <code>@</code> or are part of a builtin module (which itself begins with an <code>@</code>).</p>
-		<h2>Builtin Modules</h2>
-		<p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html">@pthr</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/builtin_module_build.html">@build</a></p>
-		<h2>Intrinsic Functions</h2>
-		<p>&emsp;&emsp;Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.</p>
-		<p><a href="/site/documentation/panther/intrinsics/importing_intrinsics.html">Importing</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/operational_intrinsics.html">Operational</a></p>
-		<h3>Intrinsic Functions for Internal Use</h3>
-		<p>&emsp;&emsp;These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.</p>
-		<p><a href="/site/documentation/panther/intrinsics/atomic_intrinsics.html">Atomic</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/arithmetic_intrinsics.html">Arithmetic</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/bitwise_intrinsics.html">Bitwise</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/comparative_intrinsics.html">Comparative</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/type_conversion_intrinsics.html">Type Conversion</a></p>
-		<p><a href="/site/documentation/panther/intrinsics/type_traits_intrinsics.html">Type Traits</a></p>
+<br/><br/><p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <code>@</code> or are part of a builtin module (which itself begins with an <code>@</code>).</p>
+<p>&emsp;&emsp;Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.</p>
+<h2>Intrinsic Functions</h2>
+<p><a href="/site/documentation/panther/intrinsics/importing_intrinsics.html">Importing</a></p>
+<p><a href="/site/documentation/panther/intrinsics/operational_intrinsics.html">Operational</a></p>
+<h2>Intrinsic functions for Internal Use</h2>
+<p>&emsp;&emsp;These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.</p>
+<h3>Atomic</h3>
+<p><a href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></p>
+<p><a href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a></p>
+<p><a href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></p>
+<p><a href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></p>
+<h3>Arithmetic</h3>
+<p><a href="/site/documentation/panther/intrinsics/arithmetic_intrinsics.html">Arithmetic</a></p>
+<h3>Bitwise</h3>
+<p><a href="/site/documentation/panther/intrinsics/bitwise_intrinsics.html">Bitwise</a></p>
+<h3>Comparative</h3>
+<p><a href="/site/documentation/panther/intrinsics/comparative_intrinsics.html">Comparative</a></p>
+<h3>Type Conversion</h3>
+<p><a href="/site/documentation/panther/intrinsics/type_conversion_intrinsics.html">Type Conversion</a></p>
+<h3>Type Traits</h3>
+<p><a href="/site/documentation/panther/intrinsics/type_traits_intrinsics.html">Type Traits</a></p>
+<h2>Intrinsic modules for Internal Use</h2>
+<p>&emsp;&emsp;These intrinsic modules contain types that are helpers for intrinsics meant for internal use by the standard library.</p>
+<p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html">@pthr</a></p>
+<p><a href="/site/documentation/panther/intrinsics/builtin_module_build.html">@build</a></p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-01-29</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

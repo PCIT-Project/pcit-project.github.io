@@ -14,17 +14,22 @@ const html = require("../../../html.js");
 const search = require("../../../search.js");
 
 
-let page = new Page(__filename, {
-	path                    : "documentation/panther_std/documentation.html",
-	title                   : "Panther STD Documentation",
-	categories              : [search.Category.PANTHER_STD, search.Category.DOCUMENTATION],
-	breadcrumbs             : [breadcrumbs.DOCUMENTATION],
-	description             : "Documentation for the Panther programming language standard library",
-	has_categories_in_title : false,
-});
+exports.getPageGenerator = function(){
+	return new (require("../../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path                    : "documentation/panther_std/documentation.html",
+				title                   : "Panther STD Documentation",
+				categories              : [search.Category.PANTHER_STD, search.Category.DOCUMENTATION],
+				breadcrumbs             : [breadcrumbs.DOCUMENTATION],
+				description             : "Documentation for the Panther programming language standard library",
+				has_categories_in_title : false,
+			});
+		},
+		(page) => {
+			page.text("The design of the Panther standard library is not solidified enough to write documentation about it yet", "font-style: italic;");
+		}
+	);
+}
 
-
-page.text("The design of the Panther standard library is not solidified enough to write documentation about it yet", "font-style: italic;");
-
-page.generate();
 

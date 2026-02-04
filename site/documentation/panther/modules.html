@@ -94,25 +94,22 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Modules</div>		<h1>Modules</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<p>A module is a set of symbols that are sort of namespaced together. To import modules, you can use the <code>@import</code> intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:</p>
+<br/><br/><p>A module is a set of symbols that are sort of namespaced together. To import modules, you can use the <code>@import</code> intrinsic. This intrinsic takes just takes a single argument: a string of the path of the file or name of a named module. The special named modules are:</p>
 		<ul>
-			<li>std - standard library</li>
-			<li>math - math library (sub-module of std)</li>
+<li>std - standard library</li>
+<li>math - math library (sub-module of std)</li>
 		</ul>
-		<p>To import a file, you give the <code>@import</code> intrinsic the path of the file. If the path starts with a "./", the path will resolve relative to the current file, otherwise it will resolve relative to the current project.</p>
-		<p>For a symbol declared in the file to be accessible through the module of that file, it must be in global scope and have the <code>#pub</code> attribute, or be a member of a type declared in that file with has the <code>#pub</code> attribute.</p>
-		<h2>Example</h2>
+<p>To import a file, you give the <code>@import</code> intrinsic the path of the file. If the path starts with a "./", the path will resolve relative to the current file, otherwise it will resolve relative to the current project.</p>
+<p>For a symbol declared in the file to be accessible through the module of that file, it must be in global scope and have the <code>#pub</code> attribute, or be a member of a type declared in that file with has the <code>#pub</code> attribute.</p>
+<h2>Example</h2>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`// importing the standard library
 def std = @import("std");
 
 // importing the math library
-def math = @import("math");
+def math = @import("std").math;
 
 // because the math module is a sub-module of the std module, \'math2\' is equivalent to \'math\'
 def math2 = std.math;
-
-// just like with \'math2\', \'math3\' is equivalent to \'math\'
-def math3 = @import("std").math;
 
 
 
@@ -139,20 +136,14 @@ def some_relative_path = @import("./relative/path/relative_file.pthr");`);
 13
 14
 15
-16
-17
-18
-19</div><div class="code-src"><span class="code-gray">// importing the standard library</span>
+16</div><div class="code-src"><span class="code-gray">// importing the standard library</span>
 <span class="code-cyan" style="font-style: italic;">def</span> std <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"std"</span>);
 
 <span class="code-gray">// importing the math library</span>
-<span class="code-cyan" style="font-style: italic;">def</span> math <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"math"</span>);
+<span class="code-cyan" style="font-style: italic;">def</span> math <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"std"</span>).math;
 
 <span class="code-gray">// because the math module is a sub-module of the std module, `math2` is equivalent to `math`</span>
 <span class="code-cyan" style="font-style: italic;">def</span> math2 <span class="code-red">=</span> std.math;
-
-<span class="code-gray">// just like with `math2`, `math3` is equivalent to `math`</span>
-<span class="code-cyan" style="font-style: italic;">def</span> math3 <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"std"</span>).math;
 
 
 
@@ -163,7 +154,7 @@ def some_relative_path = @import("./relative/path/relative_file.pthr");`);
 <span class="code-cyan" style="font-style: italic;">def</span> some_relative_path <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"./relative/path/relative_file.pthr"</span>);</div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2025-06-17</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

@@ -94,7 +94,7 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > Variables</div>		<h1>Variables</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/>		<h3>Syntax</h3>
+<br/><br/><h3>Syntax</h3>
 <div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">1:</td>
@@ -105,8 +105,8 @@
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;">{<span class="code-cyan" style="font-style: italic;">var</span><span class="code-red">|</span><span class="code-cyan" style="font-style: italic;">const</span><span class="code-red">|</span><span class="code-cyan" style="font-style: italic;">def</span>} {IDENTIFIER} {ATTTRIBUTES<span class="code-red">*</span>} <span class="code-red">=</span> {EXPRESSION};</code></td>
 	</tr>
 </table></div>
-		<p>&emsp;&emsp;Variables in Panther are a mechanism to give a specific value a name. They can be declared in global scope or in local function scope. Syntax 1 creates an explicitly typed variable whereas syntax 2 creates an implicitly typed variable.</p>
-<h2 id="var_variables">Var Variables</h2>		<p>&emsp;&emsp;Var variables are values that have storage and are mutable. The assignment value may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>.</p>
+<p>&emsp;&emsp;Variables in Panther are a mechanism to give a specific value a name. They can be declared in global scope or in local function scope. Syntax 1 creates an explicitly typed variable whereas syntax 2 creates an implicitly typed variable.</p>
+<h2 id="var_variables">Var Variables</h2><p>&emsp;&emsp;Var variables are values that have storage and are mutable. The assignment value may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#concrete_mutable">concrete-mutable</a></code>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -129,7 +129,7 @@
 		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
 	</tr>
 </table></div>
-<h2 id="const_variables">Const Variables</h2>		<p>&emsp;&emsp;Const variables are values that have storage and are not mutable. The assignment value may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
+<h2 id="const_variables">Const Variables</h2><p>&emsp;&emsp;Const variables are values that have storage and are not mutable. The assignment value may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#concrete_const">concrete-const</a></code>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -152,7 +152,7 @@
 		<td><code><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></code></td>
 	</tr>
 </table></div>
-<h2 id="def_variables">Def Variables</h2>		<p>&emsp;&emsp;Const variables are values that do not have storage and are not mutable. The assignment value must be <code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code> and it may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. If declared without an explicit type and with an assignment value that is <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code>, the def variable is <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code>.</p>
+<h2 id="def_variables">Def Variables</h2><p>&emsp;&emsp;Const variables are values that do not have storage and are not mutable. The assignment value must be <code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code> and it may be an <code>initializer value</code>. The value category of def variables is <code><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></code>. If declared without an explicit type and with an assignment value that is <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code>, the def variable is <code><a href="/site/documentation/panther/fluid_values.html">fluid</a></code>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -165,8 +165,8 @@
 		<td><code><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></code></td>
 	</tr>
 </table></div>
-<h2 id="variable_attributes">Variable Attributes</h2>		<h3>#pub</h3>
-		<p>Make the variable accessable outside this module (such as through <code>intrinsic @import</code>)</p>
+<h2 id="variable_attributes">Variable Attributes</h2><h3>#pub</h3>
+<p>Make the variable accessable outside this module (such as through <code>intrinsic @import</code>)</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>Argument Index</th>
@@ -181,7 +181,7 @@
 		<td>no</td>
 	</tr>
 </table></div>
-		<h2>Examples:</h2>
+<h2>Examples:</h2>
 <script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`var var_variable: Int = 12; // var variable
 const const_variable = true; // const variable that's implicitly-typed
 
@@ -201,7 +201,7 @@ def DEF_VARIABLE_FLUID = 12; // def variable that's fluid`);
 <span class="code-cyan" style="font-style: italic;">def</span> DEF_VARIABLE_FLUID <span class="code-red">=</span> <span class="code-purple">12</span>; <span class="code-gray">// def variable that's fluid</span></div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-01-26</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

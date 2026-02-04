@@ -11,23 +11,26 @@ const html = require("../../html.js");
 const search = require("../../search.js");
 
 
-let page = new Page(__filename, {
-	path                    : "documentation/documentation.html",
-	title                   : "Documentation",
-	categories              : [search.Category.DOCUMENTATION],
-	description             : "Documentation for the PCIT Project tools",
-	has_categories_in_title : false,
-});
+exports.getPageGenerator = function(){
+	return new (require("../../PageGenerator.js").PageGenerator)(
+		() => {
+			return new Page(__filename, {
+				path                    : "documentation/documentation.html",
+				title                   : "Documentation",
+				categories              : [search.Category.DOCUMENTATION],
+				description             : "Documentation for the PCIT Project tools",
+				has_categories_in_title : false,
+			});
+		},
+		(page) => {
+			page.h2(html.link("Panther", "/site/documentation/panther/documentation.html"));
+			page.text("Documentation for the Panther programming language");
 
+			page.h2(html.link("Panther STD", "/site/documentation/panther_std/documentation.html"));
+			page.text("Documentation for the Panther standard library");
 
-page.h2(html.link("Panther", "/site/documentation/panther/documentation.html"));
-page.text("Documentation for the Panther programming language");
-
-page.h2(html.link("Panther STD", "/site/documentation/panther_std/documentation.html"));
-page.text("Documentation for the Panther standard library");
-
-page.h2(html.link("PIR", "/site/documentation/pir/documentation.html"));
-page.text("Documentation for the PIR (Panther Intermediate Representation) language");
-
-page.generate();
-
+			page.h2(html.link("PIR", "/site/documentation/pir/documentation.html"));
+			page.text("Documentation for the PIR (Panther Intermediate Representation) language");
+		}
+	);
+}

@@ -26,12 +26,8 @@ exports.santitize = function(text){
 	return output;
 }
 
-exports.tag = function(tag, contents, style=null, indentation=2){
+exports.tag = function(tag, contents, style=null){
 	let output = "";
-
-	for(var i=0; i<indentation;i++){
-		output += '\t';
-	}
 
 	if(style == null){
 		output += `<${tag}>${contents}</${tag}>\n`;
