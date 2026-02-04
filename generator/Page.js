@@ -706,10 +706,12 @@ class Page{
 		for(const item of list){
 			this.assert(symbols.has(item), `No symbol "${item}" exists`);
 
+			const symbol = symbols.get(item);
+
 			this.raw(
 `	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;${width_str}">${this.inlineCode(item)}</td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${symbols.get(item).on_site_description}</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;${width_str}"><a href="/site/${symbol.getPath()}">${item}</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${symbol.on_site_description}</td>
 	</tr>`
 			);
 		}

@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.60.0"></a>
+## v0.0.60.0
+- Made symbol list look like a link instead of having syntax highlighting
+
+
+<!---------------------------------->
 <a name="v0.0.59.1"></a>
 ## v0.0.59.1
 
