@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.62.0"></a>
+## v0.0.62.0
+- Added `-quick-date` command-line argument to generator
+
+
+<!---------------------------------->
 <a name="v0.0.61.0"></a>
 ## v0.0.61.0
 

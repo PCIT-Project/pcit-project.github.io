@@ -13,8 +13,11 @@ const readline = require("node:readline");
 console.log("\x1b[36mPCIT Project website generator\x1b[0m");
 
 
+const using_quick_date = process.argv.includes("-quick-date");
 
-
+if(using_quick_date){
+	console.log("\x1b[35m(Quick Date)\x1b[0m");
+}
 
 
 //////////////////////////////////////////////////////////////////////
@@ -93,13 +96,19 @@ function start_step(name){
 	}else if(printed_percent < 100){
 		bar += ' ';
 	}
+
 	bar += "\x1b[36m";
 	bar += printed_percent;
 
 	bar += "%\x1b[0m] [";
 	for(let i = 0; i < width; i+=1){
 		if(i < percent_completed * width){
-			bar += "\x1b[36m=\x1b[0m";
+			if(using_quick_date){
+				bar += "\x1b[36m=\x1b[0m";
+			}else{
+				bar += "\x1b[32m=\x1b[0m";
+			}
+
 		}else{
 			bar += "\x1b[90m=\x1b[0m";
 		}

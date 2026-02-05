@@ -105,7 +105,7 @@ let symbols = new Map();
 const changed_files = function(){
 	let git_status;
 	try{
-		git_status = child_process.execSync("git status").toString();
+		git_status = child_process.execSync("git --no-pager status --porcelain=v1").toString();
 	}catch(e){
 		assert(false, "git status error: \n\n" + e.toString() + "\n");
 	}
@@ -114,31 +114,13 @@ const changed_files = function(){
 
 	let output = [];
 	git_status.split("\n").forEach((git_status_line) => {
-		if(found_added_section){
-			if(git_status_line.startsWith("\t")){
-				output.push(git_status_line.slice("\t".length));
-			}
-			return;
-		}
+		if(git_status_line.length == 0){ return; }
 
-		if(git_status_line.startsWith("\tnew file:   ")){
-			output.push(git_status_line.slice("\tnew file:   ".length));
-			return;
-		}
+		git_status_line = git_status_line.slice(3);
 
-		if(git_status_line.startsWith("\tmodified:   ")){
-			output.push(git_status_line.slice("\tmodified:   ".length));
-			return;
-		}
+		if(git_status_line.startsWith("generator/") == false){ return; }
 
-		if(git_status_line.startsWith("\trenamed:    ")){
-			output.push(git_status_line.split(" -> ")[1]);
-			return;	
-		}
-
-		if(git_status_line == `  (use "git add <file>..." to include in what will be committed)`){
-			found_added_section = true;
-		}
+		output.push(git_status_line.slice("generator/".length));
 	});
 
 	return output;
@@ -270,14 +252,14 @@ class Page{
 		// get `last_updated_str``
 
 
-		if(changed_files.includes(path.relative(process.cwd(), generator_path).replaceAll("\\", "/"))){
+		if(process.argv.includes("-quick-date") || changed_files.includes(path.relative(process.cwd(), generator_path).replaceAll("\\", "/"))){
 			let date = new Date();
 			const month = date.getMonth() + 1;
 			const day = date.getDate();
 			this.last_updated_str = `${date.getFullYear()}-${month > 9 ? month : "0" + month}-${day > 9 ? day : "0" + day}`;
 			
 		}else{
-			const get_last_commit_str = `git log -1 --pretty="format:%ci" -- "${generator_path}"`;
+			const get_last_commit_str = `git --no-pager log -1 --pretty="format:%ci" -- "${generator_path}"`;
 			let last_commit_res;
 			try{
 				last_commit_res = child_process.execSync(get_last_commit_str).toString();
