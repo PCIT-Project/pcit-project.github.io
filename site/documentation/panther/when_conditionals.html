@@ -96,9 +96,9 @@
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/><p>When conditionals are conditionals that are evaluated at compile-time. The condition may be any <span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span> value. The bodies may hold 0 or more statements (this includes things like members of structs). Any statements in a when conditional block that is not taken will not exist in semantic analysis or any further compiler stage.</p>
 <h2>Example</h2>
-<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`def math = @import("math");
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`def std = @import("std");
 
-when(math.PI < 2.0){
+when(std.math.PI < 2.0){
 	// since this branch is not taken, this function won't exist
 	func sum = (lhs: Int, rhs: Int) #pub -> Int {
 		return lhs + rhs;
@@ -106,7 +106,7 @@ when(math.PI < 2.0){
 
 }else when(true){
 	// this branch is taken, so this version of \'Integer\' is used
-	alias Integer = I64;
+	type Integer = alias I64;
 
 }else when(false){
 	// empty...
@@ -116,7 +116,7 @@ when(math.PI < 2.0){
 	const foo: Int = true;
 
 	// since this branch is not taken, this version of \'Integer\' is not used
-	alias Integer = I32;
+	type Integer = alias I32;
 }
 
 // \'num\' is of type I64
@@ -148,9 +148,9 @@ const num: Integer = 14;`);
 22
 23
 24
-25</div><div class="code-src"><span class="code-cyan" style="font-style: italic;">def</span> math <span class="code-red">=</span> <span class="code-red">@import</span>(<span class="code-yellow">"math"</span>);
+25</div><div class="code-src"><span class="code-cyan" style="font-style: italic;">def</span> std <span class="code-red">=</span> <a class="code-red" href="/site/documentation/panther/intrinsics/import.html">@import</a>(<span class="code-yellow">"std"</span>);
 
-<span class="code-red">when</span>(math.PI <span class="code-red">&lt;</span> <span class="code-purple">2.0</span>){
+<span class="code-red">when</span>(std.math.PI <span class="code-red">&lt;</span> <span class="code-purple">2.0</span>){
 	<span class="code-gray">// since this branch is not taken, this function won't exist</span>
 	<span class="code-cyan" style="font-style: italic;">func</span> <span class="code-green">sum</span> <span class="code-red">=</span> (lhs<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span>, rhs<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span>) <span class="code-red">#pub</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Int</span> {
 		<span class="code-red">return</span> lhs <span class="code-red">+</span> rhs;
@@ -158,7 +158,7 @@ const num: Integer = 14;`);
 
 }<span class="code-red">else</span> <span class="code-red">when</span>(<span class="code-purple">true</span>){
 	<span class="code-gray">// this branch is taken, so this version of `Integer` is used</span>
-	<span class="code-cyan" style="font-style: italic;">alias</span> Integer <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">I64</span>;
+	<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Integer</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">alias</span> <span class="code-cyan" style="font-style: italic;">I64</span>;
 
 }<span class="code-red">else</span> <span class="code-red">when</span>(<span class="code-purple">false</span>){
 	<span class="code-gray">// empty...</span>
@@ -168,14 +168,14 @@ const num: Integer = 14;`);
 	<span class="code-cyan" style="font-style: italic;">const</span> foo<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Int</span> <span class="code-red">=</span> <span class="code-purple">true</span>;
 
 	<span class="code-gray">// since this branch is not taken, this version of `Integer` is not used</span>
-	<span class="code-cyan" style="font-style: italic;">alias</span> Integer <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">I32</span>;
+	<span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Integer</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">alias</span> <span class="code-cyan" style="font-style: italic;">I32</span>;
 }
 
 <span class="code-gray">// `num` is of type I64</span>
 <span class="code-cyan" style="font-style: italic;">const</span> num<span class="code-red">:</span> Integer <span class="code-red">=</span> <span class="code-purple">14</span>;</div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-04</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

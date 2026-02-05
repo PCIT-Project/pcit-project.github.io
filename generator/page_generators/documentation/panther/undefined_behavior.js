@@ -32,19 +32,21 @@ exports.getPageGenerator = function(){
 
 
 			page.h2("Example");
-			page.codeBlock(Page.Language.PANTHER, `func entry = () #entry -> UI8 {
-				const foo: UI8 = 12;
+			page.codeBlock(Page.Language.PANTHER,
+`func entry = () #entry -> UI8 {
+	const foo: UI8 = 12;
 
 
-				// This is undefined behavior as addition is not allowed to overflow
-				const sum_1: UI8 = foo + 255;
+	// This is undefined behavior as addition is not allowed to overflow
+	const sum_1: UI8 = foo + 255;
 
-				// This is not undefined behavior as wrapping addition is allowed to overflow
-				const sum_2: UI8 = foo +% 255;
+	// This is not undefined behavior as wrapping addition is allowed to overflow
+	const sum_2: UI8 = foo +% 255;
 
 
-				return 0;
-			}`);
+	return 0;
+}`
+			);
 		}
 	);
 }

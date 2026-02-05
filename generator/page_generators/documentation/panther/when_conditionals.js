@@ -32,9 +32,9 @@ exports.getPageGenerator = function(){
 			page.h2("Example");
 
 			page.codeBlock(Page.Language.PANTHER,
-`def math = @import("math");
+`def std = @import("std");
 
-when(math.PI < 2.0){
+when(std.math.PI < 2.0){
 	// since this branch is not taken, this function won't exist
 	func sum = (lhs: Int, rhs: Int) #pub -> Int {
 		return lhs + rhs;
@@ -42,7 +42,7 @@ when(math.PI < 2.0){
 
 }else when(true){
 	// this branch is taken, so this version of \`Integer\` is used
-	alias Integer = I64;
+	type Integer = alias I64;
 
 }else when(false){
 	// empty...
@@ -52,7 +52,7 @@ when(math.PI < 2.0){
 	const foo: Int = true;
 
 	// since this branch is not taken, this version of \`Integer\` is not used
-	alias Integer = I32;
+	type Integer = alias I32;
 }
 
 // \`num\` is of type I64

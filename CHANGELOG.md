@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.61.0"></a>
+## v0.0.61.0
+
+### Panther Documentation
+- Separated all intrinsic functions into separate symbol pages
+- Updated When Conditionals page
+
+
+<!---------------------------------->
 <a name="v0.0.60.0"></a>
 ## v0.0.60.0
 - Made symbol list look like a link instead of having syntax highlighting

@@ -1,0 +1,136 @@
+<!-- This page was generated -->
+
+<!-------------------------------------------------------------------------------------------------->
+<!--                                                                                              -->
+<!-- Part of pcit-project.github.io, under the Apache License v2.0 with LLVM and PCIT exceptions. -->
+<!-- You may not use this file except in compliance with the License.                             -->
+<!-- See `https://github.com/PCIT-Project/PCIT-CPP/blob/main/LICENSE` for info.                 -->
+<!--                                                                                              -->
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Panther Compiler Infrastructure and Technology" />
+
+	<meta property="og:title" content="@trunc | Panther Documentation | PCIT Project" />
+	<meta property="og:description" content="Panther Compiler Infrastructure and Technology" />
+	<meta property="og:image" content="/assets/LogoBig.png" />
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
+
+
+	<title>@trunc | Panther Documentation | PCIT Project</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+	<script src="/assets/font-awesome/fontawesome.min.js"></script>
+	<script src="/assets/font-awesome/solid.min.js"></script>
+	<script src="/assets/font-awesome/brands.min.js"></script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Panther Documentation",
+					"item": "https://www.pcitproject.org/site/documentation/panther/documentation.html"
+				},
+				{
+					"@type": "ListItem",
+					"position": 3,
+					"name": "Intrinsics",
+					"item": "https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html"
+				},
+				{
+					"@type": "ListItem",
+			        "position": 4,
+			        "name": "@trunc"
+				}
+			]
+		}
+	</script>
+</head>
+<body>
+	<div class="navbar">
+		<div id="navbar-fader">
+			<div class="navbar-img-box"><img class="navbar-img" src="/assets/Logo.png" alt="PCIT Project Logo"></div>
+			<a class="navbar-title" href="/">PCIT Project</a>
+		</div>
+		
+		<a class="navbar-item" href="https://github.com/PCIT-Project">Source Code <i class="fa-brands fa-github"></i></a>
+		<a class="navbar-item" href="/site/downloads.html">Downloads</a>
+		<a class="navbar-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="navbar-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="navbar-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="navbar-item" href="/site/search.html">Search</a>
+		<a class="navbar-item" href="/site/Panther.html">Panther</a>
+
+		<div class="hamburger-button" onclick="toggle_hamburger()">
+			<i class="hamburger-button fa-solid fa-bars fa-fw"></i>
+		</div>
+	</div>
+
+	<div class="hamburger-dropdown">
+		<a class="hamburger-dropdown-item" href="/site/Panther.html">Panther</a>
+		<a class="hamburger-dropdown-item" href="/site/search.html">Search</a>
+		<a class="hamburger-dropdown-item" href="/site/documentation/documentation.html">Documentation</a>
+		<a class="hamburger-dropdown-item" href="/site/tutorials/tutorials.html">Tutorials</a>
+		<a class="hamburger-dropdown-item" href="/site/devlogs/devlogs.html">Devlogs</a>
+		<a class="hamburger-dropdown-item" href="/site/downloads.html">Downloads</a>
+		<a class="hamburger-dropdown-item" href="https://github.com/PCIT-Project" style="padding-bottom: 1em;">Source Code <i class="fa-brands fa-github"></i></a>
+	</div>
+
+	<br><div class="context">
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > @trunc</div>		<h1>@trunc</h1>
+		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
+<br/><br/><div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">1:</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/trunc.html">@trunc</a> <span class="code-red">=</span> &lt;{FROM<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, TO<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>}&gt; (from<span class="code-red">:</span> FROM) <span class="code-red">#unsafe</span> <span class="code-red">-</span><span class="code-red">&gt;</span> TO;</code></td>
+	</tr>
+</table></div>
+<p>&emsp;&emsp;Truncate any <span class="highlight">integral</span> type to any other smaller <span class="highlight">integral</span> type. Requires that <code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/numBits.html">@numBits</a>&lt;{FROM, <span class="code-purple">false</span>}&gt;() <span class="code-red">&gt;</span> <a class="code-red" href="/site/documentation/panther/intrinsics/numBits.html">@numBits</a>&lt;{TO, <span class="code-purple">false</span>}&gt;()</code>.</p>
+<h3>Template Parameters</h3>
+<p>&emsp;&emsp;<span style="font-weight: bold;">FROM</span>: type to convert from - must be <span class="highlight">integral</span> or <span class="highlight">vector</span> or <span class="highlight">integral</span></p>
+<p>&emsp;&emsp;<span style="font-weight: bold;">TO</span>: type to convert to - must be <span class="highlight">integral</span> or <span class="highlight">vector</span> or <span class="highlight">integral</span></p>
+<h3>Parameters</h3>
+<p>&emsp;&emsp;<span style="font-weight: bold;">from</span>: value to convert</p>
+<h3>Return Value</h3>
+<p>&emsp;&emsp;Returns converted value</p>
+<h2>Notes</h2>
+<p>&emsp;&emsp;<span class="highlight">FROM</span> and <span class="highlight">TO</span> must be both a <span class="highlight">vector</span> or neither a <span class="highlight">vector</span>. If they are a <span class="highlight">vector</span>, they must contain the same number of elements.</p>
+<h2>Example</h2>
+<p><span style="font-style: italic;">(TODO)</span></p>
+<h2>See Also</h2>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/ftrunc.html">@ftrunc</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Truncate any <span class="highlight">floating-point</span> type to any other smaller <span class="highlight">floating-point</span> type</td>
+	</tr></table></div>
+	</div>
+
+	<div class="footer">
+		<p style="color: #878481;">Page Last Updated: 2026-02-04</p>
+		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
+	</div>
+
+</body>
+<script src="/assets/script.js"></script>
+</html>

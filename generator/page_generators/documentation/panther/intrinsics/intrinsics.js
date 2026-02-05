@@ -27,6 +27,9 @@ exports.getPageGenerator = function(){
 			});
 		},
 		(page) => {
+			const SYMBOL_LIST_SYMBOL_WIDTH = 10;
+			const SYMBOL_LIST_DESC_WIDTH = 34;
+
 			page.paragraph(`Instrinsics are special symbols builtin to the compiler. They are all either begin with an ${html.highlight("@")} or are part of a builtin module (which itself begins with an ${html.highlight("@")}).`);
 
 			page.paragraph(`Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.`);
@@ -34,8 +37,12 @@ exports.getPageGenerator = function(){
 
 			page.h2("Intrinsic Functions");
 
-			page.text(html.link("Importing", "/site/documentation/panther/intrinsics/importing_intrinsics.html"));
-			page.text(html.link("Operational", "/site/documentation/panther/intrinsics/operational_intrinsics.html"));
+			page.h3("Importing");
+			page.symbolList(["@import", "@importC", "@importCpp"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+
+
+			page.h3("Operational");
+			page.symbolList(["@abort", "@breakpoint", "@makeInitPtr"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 
 
@@ -44,23 +51,26 @@ exports.getPageGenerator = function(){
 			page.paragraph(`These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.`);
 
 			page.h3("Atomic");
-			page.symbolList(["@atomicLoad", "@atomicStore", "@atomicRMW", "@cmpxchg"]);
+			page.symbolList(["@atomicLoad", "@atomicStore", "@atomicRMW", "@cmpxchg"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 
 			page.h3("Arithmetic");
-			page.text(html.link("Arithmetic", "/site/documentation/panther/intrinsics/arithmetic_intrinsics.html"));
+			page.symbolList(
+				["@add", "@addWrap", "@addSat", "@fadd", "@sub", "@subWrap", "@subSat", "@fsub", "@mul", "@mulWrap", "@mulSat", "@fmul", "@div", "@fdiv", "@rem", "@fneg"],
+				SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH
+			);
 
 			page.h3("Bitwise");
-			page.text(html.link("Bitwise", "/site/documentation/panther/intrinsics/bitwise_intrinsics.html"));
+			page.symbolList(["@and", "@or", "@xor", "@shl", "@shlSat", "@shr", "@bitReverse", "@byteSwap", "@ctPop", "@ctlz", "@cttz"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 			page.h3("Comparative");
-			page.text(html.link("Comparative", "/site/documentation/panther/intrinsics/comparative_intrinsics.html"));
+			page.symbolList(["@eq", "@neq", "@lt", "@lte", "@gt", "@gte"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 			page.h3("Type Conversion");
-			page.text(html.link("Type Conversion", "/site/documentation/panther/intrinsics/type_conversion_intrinsics.html"));
+			page.symbolList(["@bitCast", "@trunc", "@ftrunc", "@sext", "@zext", "@fext", "@iToF", "@fToI"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 			page.h3("Type Traits");
-			page.text(html.link("Type Traits", "/site/documentation/panther/intrinsics/type_traits_intrinsics.html"));
+			page.symbolList(["@getTypeID", "@arrayElementTypeID", "@arrayRefElementTypeID", "@numBytes", "@numBits"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 
 

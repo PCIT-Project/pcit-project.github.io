@@ -97,35 +97,200 @@
 <br/><br/><p>&emsp;&emsp;Instrinsics are special symbols builtin to the compiler. They are all either begin with an <span class="highlight">@</span> or are part of a builtin module (which itself begins with an <span class="highlight">@</span>).</p>
 <p>&emsp;&emsp;Intrinsic functions are almost always inlined and some (such as type trait intrinsics) don't have any runtime execution at all. As such, you cannot take the address of an intrinsic function.</p>
 <h2>Intrinsic Functions</h2>
-<p><a href="/site/documentation/panther/intrinsics/importing_intrinsics.html">Importing</a></p>
-<p><a href="/site/documentation/panther/intrinsics/operational_intrinsics.html">Operational</a></p>
+<h3>Importing</h3>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/import.html">@import</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Import a Panther file</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/importC.html">@importC</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Import a C file</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/importCpp.html">@importCpp</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Import a C++ file</td>
+	</tr></table></div>
+<h3>Operational</h3>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/abort.html">@abort</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Abort the program</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/breakpoint.html">@breakpoint</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Cause an execution trap to request the debugger break execution</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/makeInitPtr.html">@makeInitPtr</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Converts an uninitialized-qualified pointer to a pointer</td>
+	</tr></table></div>
 <h2>Intrinsic functions for Internal Use</h2>
 <p>&emsp;&emsp;These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.</p>
 <h3>Atomic</h3>
 <div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically load a value</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Atomically load a value</td>
 	</tr>	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically store a value</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Atomically store a value</td>
 	</tr>	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic read-modify-write</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Atomic read-modify-write</td>
 	</tr>	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic compare-exchange</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Atomic compare-exchange</td>
 	</tr></table></div>
 <h3>Arithmetic</h3>
-<p><a href="/site/documentation/panther/intrinsics/arithmetic_intrinsics.html">Arithmetic</a></p>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/add.html">@add</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer addition</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/addWrap.html">@addWrap</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer addition that returns if operation wrapped</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/addSat.html">@addSat</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer saturating addition</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fadd.html">@fadd</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Floating-point addition</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/sub.html">@sub</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer subtraction</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/subWrap.html">@subWrap</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer subtraction that returns if operation wrapped</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/subSat.html">@subSat</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer saturating subtraction</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fsub.html">@fsub</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Floating-point subtraction</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/mul.html">@mul</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer multiplication</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/mulWrap.html">@mulWrap</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer multiplication that returns if operation wrapped</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/mulSat.html">@mulSat</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer saturating multiplication</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fmul.html">@fmul</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Floating-point multiplication</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/div.html">@div</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Integer division</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fdiv.html">@fdiv</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Floating-point division</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/rem.html">@rem</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Division remainder</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fneg.html">@fneg</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Floating-point negation</td>
+	</tr></table></div>
 <h3>Bitwise</h3>
-<p><a href="/site/documentation/panther/intrinsics/bitwise_intrinsics.html">Bitwise</a></p>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/and.html">@and</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise and</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/or.html">@or</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise or</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/xor.html">@xor</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise xor</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/shl.html">@shl</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise shift left</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/shlSat.html">@shlSat</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise saturating shift left</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/shr.html">@shr</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise saturating shift left</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/bitReverse.html">@bitReverse</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Reverse the bits</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/byteSwap.html">@byteSwap</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Swap the bytes</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/ctPop.html">@ctPop</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Count the number of one bits</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/ctlz.html">@ctlz</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Count the number of leading zero bits</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/cttz.html">@cttz</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Count the number of trailing zero bits</td>
+	</tr></table></div>
 <h3>Comparative</h3>
-<p><a href="/site/documentation/panther/intrinsics/comparative_intrinsics.html">Comparative</a></p>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/eq.html">@eq</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate equality</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/neq.html">@neq</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate non-equality</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/lt.html">@lt</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate less than</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/lte.html">@lte</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate less than or equal to</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/gt.html">@gt</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate greater than</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/gte.html">@gte</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate greater than or equal to</td>
+	</tr></table></div>
 <h3>Type Conversion</h3>
-<p><a href="/site/documentation/panther/intrinsics/type_conversion_intrinsics.html">Type Conversion</a></p>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/bitCast.html">@bitCast</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Bitwise convert a value of any type to any other tpe of the same size</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/trunc.html">@trunc</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Truncate any <span class="highlight">integral</span> type to any other smaller <span class="highlight">integral</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/ftrunc.html">@ftrunc</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Truncate any <span class="highlight">floating-point</span> type to any other smaller <span class="highlight">floating-point</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/sext.html">@sext</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Sign extend any <span class="highlight">integral</span> type to any other larger <span class="highlight">integral</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/zext.html">@zext</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Zero extend any <span class="highlight">integral</span> type to any other larger <span class="highlight">integral</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fext.html">@fext</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Extend any <span class="highlight">floating-point</span> type to any other larger <span class="highlight">floating-point</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/iToF.html">@iToF</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Convert any <span class="highlight">integral</span> type to any <span class="highlight">floating-point</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/fToI.html">@fToI</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Convert any <span class="highlight">floating-point</span> type to any <span class="highlight">integral</span> type</td>
+	</tr></table></div>
 <h3>Type Traits</h3>
-<p><a href="/site/documentation/panther/intrinsics/type_traits_intrinsics.html">Type Traits</a></p>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/getTypeID.html">@getTypeID</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get the <span class="highlight">TypeID</span> of a type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/arrayElementTypeID.html">@arrayElementTypeID</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get the <span class="highlight">TypeID</span> of the elements of an <span class="highlight">array</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/arrayRefElementTypeID.html">@arrayRefElementTypeID</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get the <span class="highlight">TypeID</span> of the elements of an <span class="highlight">array reference</span> type</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/numBytes.html">@numBytes</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get the number of bytes of <span class="highlight">TypeID</span></td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/numBits.html">@numBits</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get the number of bits of <span class="highlight">TypeID</span></td>
+	</tr></table></div>
 <h2>Intrinsic modules for Internal Use</h2>
 <p>&emsp;&emsp;These intrinsic modules contain types that are helpers for intrinsics meant for internal use by the standard library.</p>
 <p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html">@pthr</a></p>
@@ -133,7 +298,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-04</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

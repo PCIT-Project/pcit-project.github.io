@@ -693,14 +693,19 @@ class Page{
 
 
 
-	symbolList(list, width = null){
+	symbolList(list, symbol_width = null, description_width = null){
 		this.assert(Array.isArray(list), "see also list must be an array");
 
 		this.raw("<div style=\"overflow-x: auto;\"><table style=\"margin-bottom: 2em;\">\n");
 
-		let width_str = "";
-		if(width !== null){
-			width_str = ` width: ${width}em;`;
+		let symbol_width_str = "";
+		if(symbol_width !== null){
+			symbol_width_str = ` width: ${symbol_width}em;`;
+		}
+
+		let description_width_str = "";
+		if(description_width !== null){
+			description_width_str = ` width: ${description_width}em;`;
 		}
 
 		for(const item of list){
@@ -710,8 +715,8 @@ class Page{
 
 			this.raw(
 `	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;${width_str}"><a href="/site/${symbol.getPath()}">${item}</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">${symbol.on_site_description}</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;${symbol_width_str}"><a href="/site/${symbol.getPath()}">${item}</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;${description_width_str}">${symbol.on_site_description}</td>
 	</tr>`
 			);
 		}
@@ -752,15 +757,18 @@ class Page{
 
 
 	addSymbolParams(params){
-		this.assert(Array.isArray(params), "template params must be an array");
+		this.assert(Array.isArray(params), "params must be an array");
 		this.assert(this.symbol_kind == SymbolKind.FUNCTION || this.symbol_kind == SymbolKind.INTRINSIC_FUNCTION || this.symbol_kind == SymbolKind.METHOD, "can only add parameters to functions, intrinsic functions, and methods");
 		this.mark_symbol_elem_added(SymbolElemAdded.PARAMS, [SymbolElemAdded.DESCRIPTION, SymbolElemAdded.TEMPLATE_PARAMS]);
 
 		this.h3("Parameters");
-
-		for(const param of params){
-			this.assert(param instanceof Param, "param must be a Param");
-			this.paragraph(html.bold(param.name) + ": " + param.description);
+		if(params.length > 0){
+			for(const param of params){
+				this.assert(param instanceof Param, "param must be a Param");
+				this.paragraph(html.bold(param.name) + ": " + param.description);
+			}
+		}else{
+			this.paragraph("None.");
 		}
 	}
 
@@ -831,8 +839,16 @@ class Page{
 		this.assert(Array.isArray(list), "see also list must be an array");
 		this.mark_symbol_elem_added(SymbolElemAdded.SEE_ALSO, SymbolElemAdded.EXAMPLE);
 
+		for(const symbol_name of list){
+			this.assert(symbol_name != this.on_page_title, "Should not add self to `See Also`");
+		}
+
 		this.h2("See Also");
 		this.symbolList(list);
+	}
+
+	addSymbolSeeAlsoNone(){
+		this.mark_symbol_elem_added(SymbolElemAdded.SEE_ALSO, SymbolElemAdded.EXAMPLE);
 	}
 
 

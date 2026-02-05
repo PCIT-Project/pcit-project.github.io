@@ -22,10 +22,10 @@ class CharStream{
 		return value;
 	}
 
-	skip(ammount = 1){
-		assert(ammount >= 1, "must skip positive ammount");
+	skip(amount = 1){
+		assert(amount >= 1, "must skip positive amount");
 
-		this.cursor += ammount;
+		this.cursor += amount;
 	}
 
 	peek_is(str){
