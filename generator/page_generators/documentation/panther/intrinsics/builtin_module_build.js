@@ -39,10 +39,9 @@ exports.getPageGenerator = function(){
 	var methodCallOnNonMethod        : Bool = true;
 	var deleteMovedFromExpr          : Bool = true;
 	var deleteTriviallyDeletableType : Bool = true;
-	var constexprIfCond              : Bool = true;
+	var comptimeIfCond               : Bool = true;
 	var alreadyUnsafe                : Bool = true;
 	var experimentalF80              : Bool = true;
-	var PackageWarningSettings       : Bool = true;
 }`
 		));
 			page.text("Structure for which warning should be enabled for a package.");

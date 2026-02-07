@@ -29,35 +29,35 @@ exports.getPageGenerator = function(){
 			page.text("All expressions have a value stage which dictate which stage of compilation it may be used in.");
 
 
-			page.h2Searchable("Constexpr Value Stage", "constexpr");
-			page.text("Constexpr values are values that are known at compile-time and can be used as constexpr expressions. Anywhere that requires a comptime or a runtime value also accept constexpr values.");
-			page.text("The following are constexpr expressions:");
+			page.h2Searchable("Comptime Value Stage", "comptime");
+			page.text("Comptime values are values that are known at compile-time and can be used as comptime expressions. Anywhere that requires a interptime or a runtime value also accept comptime values.");
+			page.text("The following are comptime expressions:");
 			page.bullets([
 				terms.get("literals"),
 				terms.get("def variables"),
 				"template parameters",
-				"constexpr function calls with all arguments being constexpr",
+				"comptime function calls with all arguments being comptime",
 			]);
 
 
 
-			page.h2Searchable("Comptime Value Stage", "comptime");
-			page.text("Comptime values are values that may be used inside a constexpr function but are not constexpr themselves. Anywhere that requires a runtime values also accept comptime values.");
-			page.text("The following are comptime expressions:");
+			page.h2Searchable("Interptime Value Stage", "interptime");
+			page.text("Interptime values are values that may be used inside a comptime function but are not comptime themselves. Anywhere that requires a runtime values also accept interptime values.");
+			page.text("The following are interptime expressions:");
 			page.bullets([
 				"global " + terms.get("const variables"),
-				terms.get("const variables") + " defined in a constexpr function",
-				terms.get("var variables") + " defined in a constexpr function",
-				"function parameters in a constexpr function",
-				"return parameters in a constexpr function",
-				"error parameters in a constexpr function",
-				"constexpr function calls with all arguments being constexpr and/or comptime (must have at least 1 comptime parameter, or else it's constexpr)",
+				terms.get("const variables") + " defined in a comptime function",
+				terms.get("var variables") + " defined in a comptime function",
+				"function parameters in a comptime function",
+				"return parameters in a comptime function",
+				"error parameters in a comptime function",
+				"comptime function calls with all arguments being comptime and/or interptime (must have at least 1 interptime parameter, or else it's comptime)",
 			]);
 
 
 
 			page.h2Searchable("Runtime Value Stage", "runtime");
-			page.text("Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept comptime and constexpr values.");
+			page.text("Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept interptime and comptime values.");
 			page.text("The following are runtime expressions:");
 			page.bullets([
 				"global " + terms.get("var variables"),

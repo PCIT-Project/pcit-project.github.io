@@ -40,8 +40,8 @@ exports.getPageGenerator = function(){
 			page.paragraph(`Var variables are values that have storage and are mutable. The assignment value may be an ${terms.get("initializer value")}. The value category of def variables is ${terms.get("concrete-mutable")}.`);
 			page.table([
 				["If declared:", "Value Stage", "Value Stage of Assignment Value"],
-				["in global scope", terms.get("runtime"), terms.get("constexpr")],
-				[`in a constexpr function`, terms.get("comptime"), terms.get("comptime")],
+				["in global scope", terms.get("runtime"), terms.get("comptime")],
+				[`in a comptime function`, terms.get("interptime"), terms.get("interptime")],
 				[`in a runtime function `, terms.get("runtime"), terms.get("runtime")],
 			]);
 
@@ -50,16 +50,16 @@ exports.getPageGenerator = function(){
 			page.paragraph(`Const variables are values that have storage and are not mutable. The assignment value may be an ${terms.get("initializer value")}. The value category of def variables is ${terms.get("concrete-const")}.`);
 			page.table([
 				["If declared:", "Value Stage", "Value Stage of Assignment Value"],
-				["in global scope", terms.get("comptime"), terms.get("constexpr")],
-				[`in a constexpr function`, terms.get("comptime"), terms.get("comptime")],
+				["in global scope", terms.get("interptime"), terms.get("comptime")],
+				[`in a comptime function`, terms.get("interptime"), terms.get("interptime")],
 				[`in a runtime function `, terms.get("runtime"), terms.get("runtime")],
 			]);
 
 			page.h2Searchable("Def Variables", "def_variables");
-			page.paragraph(`Const variables are values that do not have storage and are not mutable. The assignment value must be ${terms.get("constexpr")} and it may be an ${terms.get("initializer value")}. The value category of def variables is ${terms.get("ephemeral")}. If declared without an explicit type and with an assignment value that is ${terms.get("fluid")}, the def variable is ${terms.get("fluid")}.`);
+			page.paragraph(`Const variables are values that do not have storage and are not mutable. The assignment value must be ${terms.get("comptime")} and it may be an ${terms.get("initializer value")}. The value category of def variables is ${terms.get("ephemeral")}. If declared without an explicit type and with an assignment value that is ${terms.get("fluid")}, the def variable is ${terms.get("fluid")}.`);
 			page.table([
 				["If declared:", "Value Stage", "Value Stage of Assignment Value"],
-				["anywhere allowed", terms.get("constexpr"), terms.get("constexpr")],
+				["anywhere allowed", terms.get("comptime"), terms.get("comptime")],
 			]);
 
 

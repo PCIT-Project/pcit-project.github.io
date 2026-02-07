@@ -13,11 +13,42 @@ const readline = require("node:readline");
 console.log("\x1b[36mPCIT Project website generator\x1b[0m");
 
 
-const using_quick_date = process.argv.includes("-quick-date");
-
-if(using_quick_date){
-	console.log("\x1b[35m(Quick Date)\x1b[0m");
+function print_args(){
+	console.log("Arguments:");
+	console.log("\t-quick-date: use today as all \"Page Last Updated\" dated");
+	console.log("\t-help / -h:  help");
 }
+
+
+let args = {
+	quick_date: false,
+};
+
+{
+	let arg_i = -1;
+
+	for(const arg of process.argv){
+		arg_i += 1;
+
+		if(arg_i < 2){ continue; }
+
+		if(arg == "-quick-date"){
+			console.log("\x1b[35m(Quick Date)\x1b[0m");
+			args.quick_date = true;
+			continue;
+		}
+
+		if(arg == "-help" || arg == "-h"){
+			print_args();
+			process.exit();
+		}
+
+		console.log(`\x1b[31mUnknown argument "${arg}"\x1b[0m`);
+		print_args();
+		process.exit();
+	}
+}
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -103,7 +134,7 @@ function start_step(name){
 	bar += "%\x1b[0m] [";
 	for(let i = 0; i < width; i+=1){
 		if(i < percent_completed * width){
-			if(using_quick_date){
+			if(args.quick_date){
 				bar += "\x1b[36m=\x1b[0m";
 			}else{
 				bar += "\x1b[32m=\x1b[0m";

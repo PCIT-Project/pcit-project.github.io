@@ -116,12 +116,12 @@
 	<tr>
 		<td>in global scope</td>
 		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
 	</tr>
 	<tr>
-		<td>in a constexpr function</td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
+		<td>in a comptime function</td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#interptime">interptime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#interptime">interptime</a></span></td>
 	</tr>
 	<tr>
 		<td>in a runtime function </td>
@@ -138,13 +138,13 @@
 	</tr>
 	<tr>
 		<td>in global scope</td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#interptime">interptime</a></span></td>
 		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
 	</tr>
 	<tr>
-		<td>in a constexpr function</td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
+		<td>in a comptime function</td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#interptime">interptime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#interptime">interptime</a></span></td>
 	</tr>
 	<tr>
 		<td>in a runtime function </td>
@@ -152,7 +152,7 @@
 		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#runtime">runtime</a></span></td>
 	</tr>
 </table></div>
-<h2 id="def_variables">Def Variables</h2><p>&emsp;&emsp;Const variables are values that do not have storage and are not mutable. The assignment value must be <span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span> and it may be an <span class="highlight">initializer value</span>. The value category of def variables is <span class="highlight"><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></span>. If declared without an explicit type and with an assignment value that is <span class="highlight"><a href="/site/documentation/panther/fluid_values.html">fluid</a></span>, the def variable is <span class="highlight"><a href="/site/documentation/panther/fluid_values.html">fluid</a></span>.</p>
+<h2 id="def_variables">Def Variables</h2><p>&emsp;&emsp;Const variables are values that do not have storage and are not mutable. The assignment value must be <span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span> and it may be an <span class="highlight">initializer value</span>. The value category of def variables is <span class="highlight"><a href="/site/documentation/panther/value_categories.html#ephemeral">ephemeral</a></span>. If declared without an explicit type and with an assignment value that is <span class="highlight"><a href="/site/documentation/panther/fluid_values.html">fluid</a></span>, the def variable is <span class="highlight"><a href="/site/documentation/panther/fluid_values.html">fluid</a></span>.</p>
 <div style="overflow-x: auto; width: 100%"><table>
 	<tr>
 		<th>If declared:</th>
@@ -161,8 +161,8 @@
 	</tr>
 	<tr>
 		<td>anywhere allowed</td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
-		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#constexpr">constexpr</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
+		<td><span class="highlight"><a href="/site/documentation/panther/value_stages.html#comptime">comptime</a></span></td>
 	</tr>
 </table></div>
 <h2 id="variable_attributes">Variable Attributes</h2><h3>#pub</h3>
@@ -201,7 +201,7 @@ def DEF_VARIABLE_FLUID = 12; // def variable that's fluid`);
 <span class="code-cyan" style="font-style: italic;">def</span> DEF_VARIABLE_FLUID <span class="code-red">=</span> <span class="code-purple">12</span>; <span class="code-gray">// def variable that's fluid</span></div></pre></div>	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
+		<p style="color: #878481;">Page Last Updated: 2026-02-06</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

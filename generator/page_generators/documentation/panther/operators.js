@@ -25,7 +25,7 @@ exports.getPageGenerator = function(){
 			});
 		},
 		(page) => {
-			page.paragraph(`Operators are a set of operations that create an expression from one or more sub-expressions. Unless remarked otherwise, all operators support operator overloading and forwarding of ${terms.get("fluid")} values. In addition, all operators are constexpr (unless they are overloaded, in which case it is overload specific).`);
+			page.paragraph(`Operators are a set of operations that create an expression from one or more sub-expressions. Unless remarked otherwise, all operators support operator overloading and forwarding of ${terms.get("fluid")} values. In addition, all operators are comptime (unless they are overloaded, in which case it is overload specific).`);
 
 
 			function box_item(str){

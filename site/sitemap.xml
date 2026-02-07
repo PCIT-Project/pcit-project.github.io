@@ -18,7 +18,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/devlogs/new_systems_requires_major_changes.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/documentation.html</loc>
@@ -42,7 +42,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/functions.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/interfaces.html</loc>
@@ -102,7 +102,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_build.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_pthr.html</loc>
@@ -294,7 +294,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/operators.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/primitive_types.html</loc>
@@ -318,15 +318,15 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/value_stages.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/variables.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/when_conditionals.html</loc>
-		<lastmod>2026-02-04</lastmod>
+		<lastmod>2026-02-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther_std/documentation.html</loc>

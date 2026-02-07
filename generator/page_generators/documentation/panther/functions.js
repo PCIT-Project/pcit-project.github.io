@@ -26,7 +26,7 @@ exports.getPageGenerator = function(){
 			});
 		},
 		(page) => {
-			page.paragraph(`Functions are a set of statements that are executable. They can take a number of inputs (known as parameters), and outputs (known as return/error parameters). By default, functions are able to run at compile-time (known as ${terms.get("constexpr")}).`);
+			page.paragraph(`Functions are a set of statements that are executable. They can take a number of inputs (known as parameters), and outputs (known as return/error parameters). By default, functions are able to run at compile-time (known as ${terms.get("comptime")}).`);
 
 			page.h3("Syntax");
 			page.declList([

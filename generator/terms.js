@@ -123,8 +123,8 @@ term("structs", "/site/documentation/panther/structs.html");
 term("null");
 
 
-term("constexpr", "/site/documentation/panther/value_stages.html#constexpr");
 term("comptime", "/site/documentation/panther/value_stages.html#comptime");
+term("interptime", "/site/documentation/panther/value_stages.html#interptime");
 term("runtime", "/site/documentation/panther/value_stages.html#runtime");
 
 term("when conditionals", "/site/documentation/panther/when_conditionals.html");
