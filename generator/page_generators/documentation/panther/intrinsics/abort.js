@@ -28,7 +28,7 @@ exports.getPageGenerator = function(){
 			});
 		},
 		(page) => {
-			page.addSymbolDecls(["func @abort = () -> Void;"]);
+			page.addSymbolDecls(["func @abort = () #noReturn -> Void;"]);
 
 			page.addSymbolDescription(`Abort the program. Lowers to a trap instruction if the target has one, otherwise lowered to LibC ${page.inlineCode("abort()", Page.Language.C)}.`);
 

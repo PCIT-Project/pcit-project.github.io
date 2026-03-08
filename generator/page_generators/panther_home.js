@@ -21,7 +21,6 @@ exports.getPageGenerator = function(){
 				categories              : [require("../search.js").Category.PANTHER],
 				description             : "Home page of the Panther programming language",
 				has_categories_in_title : false,
-				is_home_page            : true,
 			});
 		},
 		(page) => {

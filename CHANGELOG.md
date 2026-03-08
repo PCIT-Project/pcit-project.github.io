@@ -1,6 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.64.1"></a>
+## v0.0.64.1
+
+### Panther Documentation
+- Fixed panther home page having the website home page header
+
+
+<!---------------------------------->
+<a name="v0.0.64.0"></a>
+## v0.0.64.0
+
+### Panther Documentation
+- Added attribute #noReturn to `@abort` 
+
+
+<!---------------------------------->
 <a name="v0.0.63.0"></a>
 ## v0.0.63.0
 
