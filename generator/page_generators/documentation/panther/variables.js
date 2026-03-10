@@ -41,8 +41,7 @@ exports.getPageGenerator = function(){
 			page.table([
 				["If declared:", "Value Stage", "Value Stage of Assignment Value"],
 				["in global scope", terms.get("runtime"), terms.get("comptime")],
-				[`in a comptime function`, terms.get("interptime"), terms.get("interptime")],
-				[`in a runtime function `, terms.get("runtime"), terms.get("runtime")],
+				[`in function`, terms.get("runtime"), terms.get("runtime")],
 			]);
 
 
@@ -50,9 +49,8 @@ exports.getPageGenerator = function(){
 			page.paragraph(`Const variables are values that have storage and are not mutable. The assignment value may be an ${terms.get("initializer value")}. The value category of def variables is ${terms.get("concrete-const")}.`);
 			page.table([
 				["If declared:", "Value Stage", "Value Stage of Assignment Value"],
-				["in global scope", terms.get("interptime"), terms.get("comptime")],
-				[`in a comptime function`, terms.get("interptime"), terms.get("interptime")],
-				[`in a runtime function `, terms.get("runtime"), terms.get("runtime")],
+				["in global scope", terms.get("comptime"), terms.get("comptime")],
+				[`in function`, terms.get("runtime"), terms.get("runtime")],
 			]);
 
 			page.h2Searchable("Def Variables", "def_variables");

@@ -15,7 +15,7 @@ console.log("\x1b[36mPCIT Project website generator\x1b[0m");
 
 function print_args(){
 	console.log("Arguments:");
-	console.log("\t-quick-date: use today as all \"Page Last Updated\" dated");
+	console.log("\t-quick-date: use today as all \"Page Last Updated\" dates");
 	console.log("\t-help / -h:  help");
 }
 

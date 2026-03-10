@@ -37,27 +37,11 @@ exports.getPageGenerator = function(){
 				terms.get("def variables"),
 				"template parameters",
 				"comptime function calls with all arguments being comptime",
-			]);
-
-
-
-			page.h2Searchable("Interptime Value Stage", "interptime");
-			page.text("Interptime values are values that may be used inside a comptime function but are not comptime themselves. Anywhere that requires a runtime values also accept interptime values.");
-			page.text("The following are interptime expressions:");
-			page.bullets([
 				"global " + terms.get("const variables"),
-				terms.get("const variables") + " defined in a comptime function",
-				terms.get("var variables") + " defined in a comptime function",
-				"function parameters in a comptime function",
-				"return parameters in a comptime function",
-				"error parameters in a comptime function",
-				"comptime function calls with all arguments being comptime and/or interptime (must have at least 1 interptime parameter, or else it's comptime)",
 			]);
-
-
 
 			page.h2Searchable("Runtime Value Stage", "runtime");
-			page.text("Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. Anywhere that that requires a runtime value also accept interptime and comptime values.");
+			page.text("Runtime values are values that may only be used at runtime as they are not known and/or cannot be calculated at compile-time. A comptime value may also be used as a runtime value.");
 			page.text("The following are runtime expressions:");
 			page.bullets([
 				"global " + terms.get("var variables"),

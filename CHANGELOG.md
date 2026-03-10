@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.65.0"></a>
+## v0.0.65.0
+
+### Panther Documentation
+- Updated to reflect changes in [PCIT-CPP v0.0.254.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.254.0)
+
+
+<!---------------------------------->
 <a name="v0.0.64.1"></a>
 ## v0.0.64.1
 
@@ -22,7 +30,7 @@
 
 ### Panther Documentation
 - Updated to reflect changes in [PCIT-CPP v0.0.228.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.228.0)
-- Added `-hel` / `-h` command-line arguments to generator
+- Added `-help` / `-h` command-line arguments to generator
 - Added command line argument checking to generator
 
 

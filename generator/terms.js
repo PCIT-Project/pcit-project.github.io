@@ -124,7 +124,6 @@ term("null");
 
 
 term("comptime", "/site/documentation/panther/value_stages.html#comptime");
-term("interptime", "/site/documentation/panther/value_stages.html#interptime");
 term("runtime", "/site/documentation/panther/value_stages.html#runtime");
 
 term("when conditionals", "/site/documentation/panther/when_conditionals.html");
