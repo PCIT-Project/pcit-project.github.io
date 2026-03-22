@@ -26,67 +26,54 @@ exports.getPageGenerator = function(){
 		(page) => {
 			page.text("These are the building instructions for the PCIT Project software.");
 
-
-			page.info("Important Note", "This is not a simple build. If this is your first time building a C++ project, it is not recommended that you try to build this.");
-
-
 			page.h2("Requirements");
 			page.bullets([
 				html.link("git", "https://git-scm.com/"),
-				html.link("Premake5", "https://premake.github.io/") + " (5.0-beta4 or later)",
-				`A version of ${html.link("MSVC", "https://visualstudio.microsoft.com/vs/features/cplusplus/")}, ${html.link("GCC", "https://gcc.gnu.org/")}, or ${html.link("Clang", "https://clang.llvm.org/")} that is C++20 compliant`,
+				`A version of ${html.link("MSVC", "https://visualstudio.microsoft.com/vs/features/cplusplus/")} (required on Windows), ${html.link("GCC", "https://gcc.gnu.org/")}, or ${html.link("Clang", "https://clang.llvm.org/")} that is C++20 compliant`,
 				`Either ${html.link("Microsoft Visual Studio", "https://visualstudio.microsoft.com/#vs-section")} (v143 or later), or ${html.link("GNU Make", "https://www.gnu.org/software/make/")}`,
 				html.link("CMake", "https://cmake.org/") + " (3.20.0 or later)",
-				html.link("Python", "https://www.python.org/") + " (3.8 or later)",
+				html.link("Ninja", "https://ninja-build.org/"),
+				html.link("Premake5", "https://premake.github.io/") + " (5.0-beta4 or later)",
 			]);
 
-			page.info("Info", "This has only been tested on Windows.");
+			page.info("Info", "This has only been fully tested on Windows.");
 
 			page.warning("Warning!", "As of 2025-12-20, any non-debug build of PCIT with Visual Studio 2026 will not work. It seems there's a bug in the code generation of MSVC v145.");
+
 
 
 			page.h2Searchable("Building LLVM", "llvm");
 			page.text("At the moment, PCIT relies on LLVM, so we need to build LLVM first.");
 
-			page.warning("Warning!", `Please the entirety of this section before doing any of the steps so you can make sure your computer is ready ${html.bold("BEFORE")} you start!`);
+			page.h3("1) Get the scripts");
+			page.paragraph(`There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A ${html.link("Windows version", "https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat")} (.bat) and a ${html.link("Unix version", "https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh")} (.sh) exist. Get the correct script for your machine.`);
+
+			page.h3("2) Run");
+			page.paragraph(`Run the script. It will automatically clone the LLVM repository and compile. Here's an example with the windows version:`);
+
+			page.codeBlock(Page.Language.TERMINAL, "./build_llvm.windows.bat --build release");
+
+			page.paragraph('To see more options with the build script (such as a debug build or skipping cloning) you can run the following:');
+
+			page.codeBlock(Page.Language.TERMINAL, "./build_llvm.windows.bat --help");
 
 
-			page.h3Anchor("1) Create a directory on your computer", "llvm_1");
-			page.paragraph("All LLVM source code and build results will go in this directory. The needed files will be moved from this directory once the process is completed (and the rest deleted), so this directory can go wherever you like.");
+			page.h3Anchor("3) Completed", "llvm_3");
+			page.text(`LLVM should now be compiled. The output will be found in directory ${html.highlight("llvm_package_20.0.8/[release|debug]/output")}. Inside you will find two directories: ${html.highlight("include")} and ${html.highlight("lib-[release|debug]")}. These directories will be copied or moved later.`);
 
-			page.h3("2) Get the scripts");
-			page.paragraph(`There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A ${html.link("Windows version", "https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat")} (.bat) and a ${html.link("Unix version", "https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh")} (.sh) exist. Get the correct script for your machine, and put it in the directory you created in ${html.link("step 1", "/site/build.html#llvm_1")}.`);
-
-			page.h3("3) Run");
-			page.paragraph(`Run the script. The first argument should either be ${html.highlight("Debug")} or ${html.highlight("Release")}. Here's an example:`);
-
-			page.codeBlock(Page.Language.TERMINAL, "./build_llvm.windows.bat Release");
-
-			page.paragraph(`This script will clone the ${html.link("PCIT fork of LLVM", "https://github.com/PCIT-Project/llvm-project")}, and compile it. If you would like to skip the cloning step (if you already cloned it into this directory), you can add the ${html.highlight("--no-clone")} argument at the end.`);
-
-			page.paragraph(`This results in 76.2GB of storage space used (although only 8.19GB is needed to be kept). It is recommended to have at least 24GB of addressable memory.`);
-
-			
-			page.warning("Warning!", `The ${html.highlight("Release")} build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway. The PCIT build system accounts for this to allow for release builds of PCIT to still work. The issue is begin investigated.`);
-
-			page.h3Anchor("4) Finishing up", "llvm_4");
-			page.paragraph(`Once the script has completed, you will see three directories within the one created in ${html.link("step 1", "/site/build.html#llvm_1")}: ${html.highlight("build")}, ${html.highlight("llvm-project")}, and ${html.highlight("output")}. You may delete ${html.highlight("build")} and ${html.highlight("llvm-project")} if you wish, as they are not needed to build PCIT. In addition, you can delete ${html.highlight("output/bin")}, ${html.highlight("output/libexec")}, and ${html.highlight("output/share")} as well (keep ${html.highlight("output/include")} and ${html.highlight("output/lib")}).`);
 
 				
 			page.h2("Building PCIT-CPP");
 			page.text("Now that we have build LLVM, we can build PCIT.");
 
-			page.h3Anchor("1) Clone the repository", "pcit_1");
+			page.h3("1) Clone the repository");
 			page.codeBlock(Page.Language.TERMINAL, "git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive");
-			page.paragraph(`The ${html.highlight("--recursive")} argument is required to also clone the ${html.link("Evo", "https://github.com/12Thanjo/Evo")} standard library. LLVM and Evo are the only dependencies that PCIT-CPP has.`);
+			page.paragraph(`The ${html.highlight("--recursive")} argument is required to also clone ${html.link("Evo", "https://github.com/12Thanjo/Evo")} (a C++ standard library), the Panther standard library, and libc. These (in addition to LLVM) are the only dependencies that PCIT-CPP has.`);
 
-			page.h3("2) Add directory for LLVM");
-			page.paragraph(`Inside the ${html.highlight("/PCIT-CPP/dependencies/")}, add the directory ${html.highlight("LLVM_build")}`);
+			page.h3Anchor("2) Add directory for LLVM", "pcit_2");
+			page.paragraph(`Inside the ${html.highlight("/PCIT-CPP/dependencies/")}, add the directory ${html.highlight("LLVM_build")}. Copy or move (whichever you prefer) the two directories discussed in ${html.link("step 3 of Building LLVM", "/site/build.html#llvm_3")} (${html.highlight("include")} and ${html.highlight("lib-release")}) into this directory.`);
 
-			page.h3("3) Add LLVM");
-			page.paragraph(`Within the ${html.highlight("output")} directory discussed in ${html.link("step 4 of Building LLVM", "/site/build.html#llvm_4")}, there should be a number of directories. Copy or move ${html.highlight("/output/include/")} and ${html.highlight("/output/lib/")}, into the directory created in ${html.link("step 1 of Building PCIT-CPP", "/site/build.html#pcit_1")}.`);
-
-			page.h3("4) Configuring PCIT build system with Premake5");
+			page.h3("3) Configuring PCIT build system with Premake5");
 			page.paragraph(`Premake is a build system configurator, so Premake5 is used to configure the build system. For more information, you can run ${html.highlight("premake5 --help")}. Navigate to the main directory of the PCIT-CPP repository, and select one of the following methods of running Premake5:`);
 
 
@@ -104,7 +91,7 @@ exports.getPageGenerator = function(){
 			]);
 
 
-			page.h3("5) Build");
+			page.h3("4) Build");
 
 			page.h4("Using Microsoft Visual Studio:");
 			page.paragraph(`Open ${html.highlight("PCIT-CPP.sln")} in Visual Studio, set the build configuration to ${html.highlight("ReleaseDist")}, and compile.`)
@@ -114,7 +101,7 @@ exports.getPageGenerator = function(){
 
 
 			page.h3("6) Done!");
-			page.paragraph(`The generated output is in ${html.highlight("./build/[Windows|Linux]/ReleaseDist/bin/")}. Enjoy PCIT!`);
+			page.paragraph(`The generated output is in ${html.highlight("./build/[Windows|Linux]/ReleaseDist/bin/")}. Enjoy PCIT Project!`);
 
 
 			page.h2("Next Steps");

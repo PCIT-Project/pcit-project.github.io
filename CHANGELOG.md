@@ -1,6 +1,13 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.66.0"></a>
+## v0.0.66.0
+
+- Updated build directions to reflect changes in [llvm-project-build v0.3.0](https://github.com/PCIT-Project/llvm-project-build/blob/main/CHANGELOG.md#v0.3.0)
+
+
+<!---------------------------------->
 <a name="v0.0.65.0"></a>
 ## v0.0.65.0
 

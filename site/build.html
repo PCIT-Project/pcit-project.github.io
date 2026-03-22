@@ -69,84 +69,78 @@
 		<h1>Building PCIT Project Software</h1>
 		<div class="search-category" style="color: #fed0a5; background-color: #393431; border-color: #756354;">Download/Build</div>
 <br/><br/><p>These are the building instructions for the PCIT Project software.</p>
-<div class="info"><h3 style="margin-top: 1em;">Important Note</h3>
-<p>This is not a simple build. If this is your first time building a C++ project, it is not recommended that you try to build this.</p>
-</div><h2>Requirements</h2>
+<h2>Requirements</h2>
 		<ul>
 <li><a href="https://git-scm.com/">git</a></li>
-<li><a href="https://premake.github.io/">Premake5</a> (5.0-beta4 or later)</li>
-<li>A version of <a href="https://visualstudio.microsoft.com/vs/features/cplusplus/">MSVC</a>, <a href="https://gcc.gnu.org/">GCC</a>, or <a href="https://clang.llvm.org/">Clang</a> that is C++20 compliant</li>
+<li>A version of <a href="https://visualstudio.microsoft.com/vs/features/cplusplus/">MSVC</a> (required on Windows), <a href="https://gcc.gnu.org/">GCC</a>, or <a href="https://clang.llvm.org/">Clang</a> that is C++20 compliant</li>
 <li>Either <a href="https://visualstudio.microsoft.com/#vs-section">Microsoft Visual Studio</a> (v143 or later), or <a href="https://www.gnu.org/software/make/">GNU Make</a></li>
 <li><a href="https://cmake.org/">CMake</a> (3.20.0 or later)</li>
-<li><a href="https://www.python.org/">Python</a> (3.8 or later)</li>
+<li><a href="https://ninja-build.org/">Ninja</a></li>
+<li><a href="https://premake.github.io/">Premake5</a> (5.0-beta4 or later)</li>
 		</ul>
 <div class="info"><h3 style="margin-top: 1em;">Info</h3>
-<p>This has only been tested on Windows.</p>
+<p>This has only been fully tested on Windows.</p>
 </div><div class="warning"><h3 style="margin-top: 1em;">Warning!</h3>
 <p>As of 2025-12-20, any non-debug build of PCIT with Visual Studio 2026 will not work. It seems there's a bug in the code generation of MSVC v145.</p>
 </div><h2 id="llvm">Building LLVM</h2><p>At the moment, PCIT relies on LLVM, so we need to build LLVM first.</p>
-<div class="warning"><h3 style="margin-top: 1em;">Warning!</h3>
-<p>Please the entirety of this section before doing any of the steps so you can make sure your computer is ready <span style="font-weight: bold;">BEFORE</span> you start!</p>
-</div><h3 id="llvm_1">1) Create a directory on your computer</h3><p>&emsp;&emsp;All LLVM source code and build results will go in this directory. The needed files will be moved from this directory once the process is completed (and the rest deleted), so this directory can go wherever you like.</p>
-<h3>2) Get the scripts</h3>
-<p>&emsp;&emsp;There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat">Windows version</a> (.bat) and a <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh">Unix version</a> (.sh) exist. Get the correct script for your machine, and put it in the directory you created in <a href="/site/build.html#llvm_1">step 1</a>.</p>
-<h3>3) Run</h3>
-<p>&emsp;&emsp;Run the script. The first argument should either be <span class="highlight">Debug</span> or <span class="highlight">Release</span>. Here's an example:</p>
-<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`./build_llvm.windows.bat Release`);
+<h3>1) Get the scripts</h3>
+<p>&emsp;&emsp;There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat">Windows version</a> (.bat) and a <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh">Unix version</a> (.sh) exist. Get the correct script for your machine.</p>
+<h3>2) Run</h3>
+<p>&emsp;&emsp;Run the script. It will automatically clone the LLVM repository and compile. Here's an example with the windows version:</p>
+<script type="text/javascript">function copy_code_0(){ navigator.clipboard.writeText(`./build_llvm.windows.bat --build release`);
 
 		document.getElementById("copied_text_0").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_0").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">./build_llvm.windows.bat Release</pre></div><p>&emsp;&emsp;This script will clone the <a href="https://github.com/PCIT-Project/llvm-project">PCIT fork of LLVM</a>, and compile it. If you would like to skip the cloning step (if you already cloned it into this directory), you can add the <span class="highlight">--no-clone</span> argument at the end.</p>
-<p>&emsp;&emsp;This results in 76.2GB of storage space used (although only 8.19GB is needed to be kept). It is recommended to have at least 24GB of addressable memory.</p>
-<div class="warning"><h3 style="margin-top: 1em;">Warning!</h3>
-<p>The <span class="highlight">Release</span> build seems to be broken at the moment (an LLVM cmake bug?) and it builds a debug build anyway. The PCIT build system accounts for this to allow for release builds of PCIT to still work. The issue is begin investigated.</p>
-</div><h3 id="llvm_4">4) Finishing up</h3><p>&emsp;&emsp;Once the script has completed, you will see three directories within the one created in <a href="/site/build.html#llvm_1">step 1</a>: <span class="highlight">build</span>, <span class="highlight">llvm-project</span>, and <span class="highlight">output</span>. You may delete <span class="highlight">build</span> and <span class="highlight">llvm-project</span> if you wish, as they are not needed to build PCIT. In addition, you can delete <span class="highlight">output/bin</span>, <span class="highlight">output/libexec</span>, and <span class="highlight">output/share</span> as well (keep <span class="highlight">output/include</span> and <span class="highlight">output/lib</span>).</p>
-<h2>Building PCIT-CPP</h2>
-<p>Now that we have build LLVM, we can build PCIT.</p>
-<h3 id="pcit_1">1) Clone the repository</h3><script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive`);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_0()">Copy</button><div id="copied_text_0" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">./build_llvm.windows.bat --build release</pre></div><p>&emsp;&emsp;To see more options with the build script (such as a debug build or skipping cloning) you can run the following:</p>
+<script type="text/javascript">function copy_code_1(){ navigator.clipboard.writeText(`./build_llvm.windows.bat --help`);
 
 		document.getElementById("copied_text_1").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_1").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive</pre></div><p>&emsp;&emsp;The <span class="highlight">--recursive</span> argument is required to also clone the <a href="https://github.com/12Thanjo/Evo">Evo</a> standard library. LLVM and Evo are the only dependencies that PCIT-CPP has.</p>
-<h3>2) Add directory for LLVM</h3>
-<p>&emsp;&emsp;Inside the <span class="highlight">/PCIT-CPP/dependencies/</span>, add the directory <span class="highlight">LLVM_build</span></p>
-<h3>3) Add LLVM</h3>
-<p>&emsp;&emsp;Within the <span class="highlight">output</span> directory discussed in <a href="/site/build.html#llvm_4">step 4 of Building LLVM</a>, there should be a number of directories. Copy or move <span class="highlight">/output/include/</span> and <span class="highlight">/output/lib/</span>, into the directory created in <a href="/site/build.html#pcit_1">step 1 of Building PCIT-CPP</a>.</p>
-<h3>4) Configuring PCIT build system with Premake5</h3>
-<p>&emsp;&emsp;Premake is a build system configurator, so Premake5 is used to configure the build system. For more information, you can run <span class="highlight">premake5 --help</span>. Navigate to the main directory of the PCIT-CPP repository, and select one of the following methods of running Premake5:</p>
-<h4>Using Microsoft Visual Studio:</h4>
-<script type="text/javascript">function copy_code_2(){ navigator.clipboard.writeText(`premake5 vs2022`);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_1()">Copy</button><div id="copied_text_1" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">./build_llvm.windows.bat --help</pre></div><h3 id="llvm_3">3) Completed</h3><p>LLVM should now be compiled. The output will be found in directory <span class="highlight">llvm_package_20.0.8/[release|debug]/output</span>. Inside you will find two directories: <span class="highlight">include</span> and <span class="highlight">lib-[release|debug]</span>. These directories will be copied or moved later.</p>
+<h2>Building PCIT-CPP</h2>
+<p>Now that we have build LLVM, we can build PCIT.</p>
+<h3>1) Clone the repository</h3>
+<script type="text/javascript">function copy_code_2(){ navigator.clipboard.writeText(`git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive`);
 
 		document.getElementById("copied_text_2").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_2").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_2()">Copy</button><div id="copied_text_2" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 vs2022</pre></div><h4>Using GNU Make:</h4>
-<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`premake5 gmake --cc=[COMPILER]`);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_2()">Copy</button><div id="copied_text_2" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">git clone https://github.com/PCIT-Project/PCIT-CPP.git --recursive</pre></div><p>&emsp;&emsp;The <span class="highlight">--recursive</span> argument is required to also clone <a href="https://github.com/12Thanjo/Evo">Evo</a> (a C++ standard library), the Panther standard library, and libc. These (in addition to LLVM) are the only dependencies that PCIT-CPP has.</p>
+<h3 id="pcit_2">2) Add directory for LLVM</h3><p>&emsp;&emsp;Inside the <span class="highlight">/PCIT-CPP/dependencies/</span>, add the directory <span class="highlight">LLVM_build</span>. Copy or move (whichever you prefer) the two directories discussed in <a href="/site/build.html#llvm_3">step 3 of Building LLVM</a> (<span class="highlight">include</span> and <span class="highlight">lib-release</span>) into this directory.</p>
+<h3>3) Configuring PCIT build system with Premake5</h3>
+<p>&emsp;&emsp;Premake is a build system configurator, so Premake5 is used to configure the build system. For more information, you can run <span class="highlight">premake5 --help</span>. Navigate to the main directory of the PCIT-CPP repository, and select one of the following methods of running Premake5:</p>
+<h4>Using Microsoft Visual Studio:</h4>
+<script type="text/javascript">function copy_code_3(){ navigator.clipboard.writeText(`premake5 vs2022`);
 
 		document.getElementById("copied_text_3").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_3").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 gmake --cc=[COMPILER]</pre></div><p>&emsp;&emsp;Replace "[COMPILER]" with one of the following options</p>
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 vs2022</pre></div><h4>Using GNU Make:</h4>
+<script type="text/javascript">function copy_code_4(){ navigator.clipboard.writeText(`premake5 gmake --cc=[COMPILER]`);
+
+		document.getElementById("copied_text_4").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_4").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_4()">Copy</button><div id="copied_text_4" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 gmake --cc=[COMPILER]</pre></div><p>&emsp;&emsp;Replace "[COMPILER]" with one of the following options</p>
 		<ul>
 <li>clang</li>
 <li>gcc</li>
 <li>mingw</li>
 <li>msc-v143</li>
 		</ul>
-<h3>5) Build</h3>
+<h3>4) Build</h3>
 <h4>Using Microsoft Visual Studio:</h4>
 <p>&emsp;&emsp;Open <span class="highlight">PCIT-CPP.sln</span> in Visual Studio, set the build configuration to <span class="highlight">ReleaseDist</span>, and compile.</p>
 <h4>Using GNU Make:</h4>
-<script type="text/javascript">function copy_code_4(){ navigator.clipboard.writeText(`make configuration=releasedist_linux`);
+<script type="text/javascript">function copy_code_5(){ navigator.clipboard.writeText(`make configuration=releasedist_linux`);
 
-		document.getElementById("copied_text_4").style.visibility = "visible";
-		setTimeout(() => {document.getElementById("copied_text_4").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_4()">Copy</button><div id="copied_text_4" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">make configuration=releasedist_linux</pre></div><h3>6) Done!</h3>
-<p>&emsp;&emsp;The generated output is in <span class="highlight">./build/[Windows|Linux]/ReleaseDist/bin/</span>. Enjoy PCIT!</p>
+		document.getElementById("copied_text_5").style.visibility = "visible";
+		setTimeout(() => {document.getElementById("copied_text_5").style.visibility = "hidden";}, 1000);
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_5()">Copy</button><div id="copied_text_5" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">make configuration=releasedist_linux</pre></div><h3>6) Done!</h3>
+<p>&emsp;&emsp;The generated output is in <span class="highlight">./build/[Windows|Linux]/ReleaseDist/bin/</span>. Enjoy PCIT Project!</p>
 <h2>Next Steps</h2>
 <p>Now that you have successfully built the PCIT Project software, maybe check out one of our <a href="/site/tutorials/tutorials.html">tutorials</a>.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
+		<p style="color: #878481;">Page Last Updated: 2026-03-21</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
