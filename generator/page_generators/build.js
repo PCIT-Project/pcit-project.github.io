@@ -33,7 +33,7 @@ exports.getPageGenerator = function(){
 				`Either ${html.link("Microsoft Visual Studio", "https://visualstudio.microsoft.com/#vs-section")} (v143 or later), or ${html.link("GNU Make", "https://www.gnu.org/software/make/")}`,
 				html.link("CMake", "https://cmake.org/") + " (3.20.0 or later)",
 				html.link("Ninja", "https://ninja-build.org/"),
-				html.link("Premake5", "https://premake.github.io/") + " (5.0-beta4 or later)",
+				html.link("Premake5", "https://premake.github.io/") + " (5.0.0-beta8 or later)",
 			]);
 
 			page.info("Info", "This has only been fully tested on Windows.");
