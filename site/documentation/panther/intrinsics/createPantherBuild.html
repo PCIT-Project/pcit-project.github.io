@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Panther Compiler Infrastructure and Technology" />
 
-	<meta property="og:title" content="@atomicStore | Panther Documentation | PCIT Project" />
+	<meta property="og:title" content="@createPantherBuild | Panther Documentation | PCIT Project" />
 	<meta property="og:description" content="Panther Compiler Infrastructure and Technology" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>@atomicStore | Panther Documentation | PCIT Project</title>
+	<title>@createPantherBuild | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -61,7 +61,7 @@
 				{
 					"@type": "ListItem",
 			        "position": 4,
-			        "name": "@atomicStore"
+			        "name": "@createPantherBuild"
 				}
 			]
 		}
@@ -98,42 +98,25 @@
 	</div>
 
 	<br><div class="context">
-		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > @atomicStore</div>		<h1>@atomicStore</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > @createPantherBuild</div>		<h1>@createPantherBuild</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/><div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">1:</td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/atomicStore.html">@atomicStore</a> <span class="code-red">=</span> &lt;{TARGET<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, VALUE<span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Type</span>, ORDER<span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_pthr.html#AtomicOrdering"><span class="code-orange">@pthr</span><span class="code-white">.AtomicOrdering</span></a>}&gt; (target<span class="code-red">:</span> TARGET, value<span class="code-red">:</span> VALUE <span class="code-red">in</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Void</span>;</code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/createPantherBuild.html">@createPantherBuild</a> <span class="code-red">=</span> (config<span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfig"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfig</span></a>) <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">Bool</span>;</code></td>
 	</tr>
 </table></div>
-<p>&emsp;&emsp;Atomically store a value.</p>
-<h3>Template Parameters</h3>
-<p>&emsp;&emsp;<span style="font-weight: bold;">TARGET</span>: must be a non-optional pointer, and is a pointer to the type of value to store to</p>
-<p>&emsp;&emsp;<span style="font-weight: bold;">VALUE</span>: must be the result of a dereference of <span class="highlight">TARGET</span>, <span class="highlight">trivially-copyable</span>, and cannot be <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">F80</span></code></p>
-<p>&emsp;&emsp;<span style="font-weight: bold;">ORDER</span>: cannot be <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_pthr.html#AtomicOrdering"><span class="code-orange">@pthr</span><span class="code-white">.AtomicOrdering</span></a>.ACQUIRE</code> or <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_pthr.html#AtomicOrdering"><span class="code-orange">@pthr</span><span class="code-white">.AtomicOrdering</span></a>.ACQ_REL</code></p>
+<p>&emsp;&emsp;Create a panther build in the build system. This function is only available in build-system mode.</p>
 <h3>Parameters</h3>
-<p>&emsp;&emsp;<span style="font-weight: bold;">target</span>: target to store to</p>
-<p>&emsp;&emsp;<span style="font-weight: bold;">value</span>: value to store to target</p>
+<p>&emsp;&emsp;<span style="font-weight: bold;">config</span>: build configuration</p>
 <h3>Return Value</h3>
-<p>&emsp;&emsp;Returns <code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">Void</span></code>.</p>
+<p>&emsp;&emsp;Result of the panther build (<code class="code-src"; style="background-color: #282923!important;"><span class="code-purple">true</span></code> if no errors).</p>
 <h2>Example</h2>
 <p><span style="font-style: italic;">(TODO)</span></p>
-<h2>See Also</h2>
-<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
-	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/atomicLoad.html">@atomicLoad</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomically load a value</td>
-	</tr>	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/atomicRMW.html">@atomicRMW</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic read-modify-write</td>
-	</tr>	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/cmpxchg.html">@cmpxchg</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Atomic compare-exchange</td>
-	</tr></table></div>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-02-03</p>
+		<p style="color: #878481;">Page Last Updated: 2026-05-10</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

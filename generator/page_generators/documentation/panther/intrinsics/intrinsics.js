@@ -63,6 +63,9 @@ exports.getPageGenerator = function(){
 			page.h3("Bitwise");
 			page.symbolList(["@and", "@or", "@xor", "@shl", "@shlSat", "@shr", "@bitReverse", "@byteSwap", "@ctPop", "@ctlz", "@cttz"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
+			page.h3("Build System");
+			page.symbolList(["@createPantherBuild"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+
 			page.h3("Comparative");
 			page.symbolList(["@eq", "@neq", "@lt", "@lte", "@gt", "@gte"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 

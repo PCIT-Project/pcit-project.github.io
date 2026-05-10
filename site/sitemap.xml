@@ -102,11 +102,11 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_build.html</loc>
-		<lastmod>2026-02-06</lastmod>
+		<lastmod>2026-05-10</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_pthr.html</loc>
-		<lastmod>2026-02-03</lastmod>
+		<lastmod>2026-05-10</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/byteSwap.html</loc>
@@ -115,6 +115,10 @@
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/cmpxchg.html</loc>
 		<lastmod>2026-02-03</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/createPantherBuild.html</loc>
+		<lastmod>2026-05-10</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/ctlz.html</loc>
@@ -194,7 +198,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
-		<lastmod>2026-02-04</lastmod>
+		<lastmod>2026-05-10</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/iToF.html</loc>

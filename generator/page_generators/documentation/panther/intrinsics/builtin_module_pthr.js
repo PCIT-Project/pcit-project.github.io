@@ -12,19 +12,36 @@ const Page = require("../../../../Page.js");
 const html = require("../../../../html.js");
 const terms = require("../../../../terms.js");
 const search = require("../../../../search.js");
+const syntax_highlighting = require("../../../../syntax_highlighting/syntax_highlighting.js");
 
 
 
 exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
-			return new Page.Page(__filename, {
+			let page = new Page.Page(__filename, {
 				path        : "documentation/panther/intrinsics/builtin_module_pthr.html",
 				title       : "Builtin Module @pthr",
 				categories  : [search.Category.PANTHER, search.Category.DOCUMENTATION],
 				breadcrumbs : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION, Page.Breadcrumbs.PANTHER_INTRINSICS],
 				description : "Documentation for the builtin module @pthr in the Panther programming language",
 			});
+
+			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicOrdering", page, "AtomicOrdering");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicRMWOp", page, "AtomicRMWOp");
+
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterable", page, "IIterable");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRT", page, "IIterableRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRef", page, "IIterableRef");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRefRT", page, "IIterableRefRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableMutRef", page, "IIterableMutRef");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableMutRefRT", page, "IIterableMutRefRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterator", page, "IIterator");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IIteratorRT", page, "IIteratorRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IMutIterator", page, "IMutIterator");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IMutIteratorRT", page, "IMutIteratorRT");
+
+			return page;
 		},
 		(page) => {
 			page.h2Anchor("AtomicOrdering", "AtomicOrdering");
@@ -74,7 +91,6 @@ exports.getPageGenerator = function(){
 }`
 			));
 			page.paragraph(`For use in ${html.link(page.inlineCode("@atomicRMW"), "/site/documentation/panther/intrinsics/atomic_intrinsics.html#atomicRMW")} to denote the operation to use.`);
-
 
 
 

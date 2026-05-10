@@ -27,15 +27,15 @@ const SymbolKind = Object.freeze({
 });
 
 const Language = Object.freeze({
-	PANTHER: 0,
-	PIR: 1,
-	CPP: 2,
-	C: 3,
-	LLVMIR: 4,
-	ASM_x86: 5,
-	TEXT: 6,
-	TERMINAL: 7,
-	DIAGNOSTIC: 8,
+	PANTHER    : 0,
+	PIR        : 1,
+	CPP        : 2,
+	C          : 3,
+	LLVMIR     : 4,
+	ASM_x86    : 5,
+	TEXT       : 6,
+	TERMINAL   : 7,
+	DIAGNOSTIC : 8,
 });
 
 

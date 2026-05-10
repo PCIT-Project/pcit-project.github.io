@@ -408,6 +408,11 @@ a.code-purple{ color: #ac80ff!important; text-decoration:none; }
 a.code-purple:hover{ color: #ac80ff!important; text-decoration:underline; }
 .code-purple::selection{ background-color: #383830; }
 
+span.code-white{ color: #d8d4cf; }
+a.code-white{ color: #d8d4cf!important; text-decoration:none; }
+a.code-white:hover{ color: #d8d4cf!important; text-decoration:underline; }
+.code-white::selection{ background-color: #383830; }
+
 
 .info{
 	padding: 1em;

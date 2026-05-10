@@ -1,6 +1,16 @@
 const CharStream = require("./CharStream.js").CharStream;
 
 
+function assert(cond, message){
+	if(cond == false){
+		console.error(`\x1b[31mAssert failed in Panther syntax highlight`);
+		console.error("\t" + message + "\x1b[0m");
+
+		process.exit();
+	}
+}
+
+
 function is_whitespace(character){
 	return character == ' ' || character == '\t' || character == '\n' || character == '\r';
 }
@@ -86,6 +96,21 @@ function is_hex_number(character){
 let intrinsic_funcs = new Map();
 exports.addIntrinsicFunc = function(name, page){
 	intrinsic_funcs.set(name, page);
+}
+
+class IntrinsicType{
+	page;
+	anchor;
+
+	constructor(page, anchor){
+		this.page = page;
+		this.anchor = anchor;
+	}
+}
+
+let intrinsic_types = new Map();
+exports.addIntrinsicType = function(name, page, anchor){
+	intrinsic_types.set(name, new IntrinsicType(page, anchor));
 }
 
 
@@ -183,7 +208,24 @@ exports.highlight = function(code){
 				default: {
 					if(identifier[0] == "@"){
 						if(identifier == "@pthr" || identifier == "@build"){
-							output += `<span class="code-orange">${identifier}</span>`;
+							if(stream.peek() == '.'){
+								stream.skip();
+
+								let rhs_ident = "";
+
+								while(is_letter(stream.peek()) || is_number(stream.peek()) || stream.peek() == '_'){
+									rhs_ident += stream.next();
+								}
+
+								assert(intrinsic_types.has(identifier + '.' + rhs_ident), `Missing symbol: \`${identifier + '.' + rhs_ident}\``);
+
+								const intrinsic_type = intrinsic_types.get(identifier + '.' + rhs_ident);
+								output += `<a class="code-orange" href="/site/${intrinsic_type.page.getPath()}#${intrinsic_type.anchor}"><span class="code-orange">${identifier}</span><span class="code-white">.${rhs_ident}</span></a>`;
+
+							}else{
+								output += `<span class="code-orange">${identifier}</span>`;
+							}
+
 						}else{
 							if(intrinsic_funcs.has(identifier)){
 								output += `<a class="code-red" href="/site/${intrinsic_funcs.get(identifier).getPath()}">${identifier}</a>`;
