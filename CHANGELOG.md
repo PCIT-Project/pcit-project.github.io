@@ -1,15 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.68.1"></a>
+## v0.0.68.1
+- Fixed formatting and scrolling behavior of inline code blocks on mobile devices
+
+<!---------------------------------->
 <a name="v0.0.68.0"></a>
 ## v0.0.68.0
 
+### Panther Documentation
 - Updated build directions to reflect changes in [PCIT-CPP v0.0.298.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.298.0) and [PCIT-CPP v0.0.299.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.299.0)
 
 <!---------------------------------->
 <a name="v0.0.67.0"></a>
 ## v0.0.67.0
 
+### Panther Documentation
 - Updated build directions to reflect changes in [PCIT-CPP v0.0.283.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.283.0)
 
 
@@ -17,6 +24,7 @@
 <a name="v0.0.66.0"></a>
 ## v0.0.66.0
 
+### Panther Documentation
 - Updated build directions to reflect changes in [llvm-project-build v0.3.0](https://github.com/PCIT-Project/llvm-project-build/blob/main/CHANGELOG.md#v0.3.0)
 
 

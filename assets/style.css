@@ -348,6 +348,8 @@ tr:nth-child(even) {
 .code-inline-block{
 	/*padding: 0 10px 5px 10px;*/
 	width: fit-content;
+	max-width: 100%;
+	white-space: pre;
 }
 
 
@@ -364,7 +366,8 @@ tr:nth-child(even) {
 
 .code-src{
 	overflow: auto;
-	white-space-collapse: break-spaces;
+	/*white-space-collapse: break-spaces;*/
+	white-space: pre;
 }
 
 .code-src::selection{
