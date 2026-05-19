@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.69.0"></a>
+## v0.0.69.0
+
+### Panther Documentation
+- Added `@pthr.CallingConvention`
+
+
+<!---------------------------------->
 <a name="v0.0.68.2"></a>
 ## v0.0.68.2
 - Fixed title overflow in search
@@ -17,7 +25,7 @@
 ## v0.0.68.0
 
 ### Panther Documentation
-- Added members of `@build`  and `@pthr` to be clickable symbols
+- Added members of `@build` and `@pthr` to be clickable symbols
 - Updated build directions to reflect changes in [PCIT-CPP v0.0.298.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.298.0) and [PCIT-CPP v0.0.299.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.299.0)
 
 

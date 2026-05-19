@@ -260,6 +260,7 @@ const search_targets = [
 	new SearchTarget("@build.PantherBuildConfigDirectory", "documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigDirectory", "", ["@build",".","pantherbuildconfigdirectory"], [0,4]),
 	new SearchTarget("@build.PantherBuildConfigCFamilyHeader", "documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigCFamilyHeader", "", ["@build",".","pantherbuildconfigcfamilyheader"], [0,4]),
 	new SearchTarget("@build.PackageWarningSettings", "documentation/panther/intrinsics/builtin_module_build.html#PackageWarningSettings", "", ["@build",".","packagewarningsettings"], [0,4]),
+	new SearchTarget("@pthr.CallingConvention", "documentation/panther/intrinsics/builtin_module_pthr.html#CallingConvention", "", ["@pthr",".","callingconvention"], [0,4]),
 	new SearchTarget("@pthr.AtomicOrdering", "documentation/panther/intrinsics/builtin_module_pthr.html#AtomicOrdering", "", ["@pthr",".","atomicordering"], [0,4]),
 	new SearchTarget("@pthr.AtomicRMWOp", "documentation/panther/intrinsics/builtin_module_pthr.html#AtomicRMWOp", "", ["@pthr",".","atomicrmwop"], [0,4]),
 	new SearchTarget("Iterable Interfaces", "documentation/panther/intrinsics/builtin_module_pthr.html#undefined", "", ["iterable"," ","interfaces"], [0,4]),

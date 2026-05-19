@@ -29,6 +29,7 @@ exports.getPageGenerator = function(){
 
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicOrdering", page, "AtomicOrdering");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicRMWOp", page, "AtomicRMWOp");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.CallingConvention", page, "CallingConvention");
 
 			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterable", page, "IIterable");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRT", page, "IIterableRT");
@@ -44,6 +45,19 @@ exports.getPageGenerator = function(){
 			return page;
 		},
 		(page) => {
+			page.h2Anchor("CallingConvention", "CallingConvention");
+			search.addSearchTarget("@pthr.CallingConvention", page.path + "#CallingConvention", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type CallingConvention = enum {
+	FAST,
+	COLD,
+	C,
+	WIN_API,
+}`
+			));
+			page.text(`Enum to specify the different function calling conventions. For use in function attribute ${page.inlineCode("#callConv")} (not including attribute ${page.inlineCode("#callConv")} means the function has the ${html.highlight("FAST")} calling convention).`);
+
+
 			page.h2Anchor("AtomicOrdering", "AtomicOrdering");
 			search.addSearchTarget("@pthr.AtomicOrdering", page.path + "#AtomicOrdering", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,

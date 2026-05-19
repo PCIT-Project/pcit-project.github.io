@@ -122,7 +122,9 @@ function on_search_input(){
 
 	search_targets_selected.forEach((selected_search_target) => {
 		results_div_body_str += `<div class="search-result-box">
-			<a class="search-match-title" href="${selected_search_target.search_target.path}">${selected_search_target.search_target.title}</a>`;
+			<div style="width: 100%; overflow: auto;">
+				<a class="search-match-title" href="${selected_search_target.search_target.path}">${selected_search_target.search_target.title}</a>
+			</div>`;
 
 		results_div_body_str += `<p>${selected_search_target.search_target.description}</p>`;
 

@@ -100,7 +100,14 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > Builtin Module @pthr</div>		<h1>Builtin Module @pthr</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><h2 id="AtomicOrdering">AtomicOrdering</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">AtomicOrdering</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+<br/><br/><h2 id="CallingConvention">CallingConvention</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">CallingConvention</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+	FAST,
+	COLD,
+	C,
+	WIN_API,
+}</pre></p>
+<p>Enum to specify the different function calling conventions. For use in function attribute <code class="code-src"; style="background-color: #282923!important;"><span class="code-red">#callConv</span></code> (not including attribute <code class="code-src"; style="background-color: #282923!important;"><span class="code-red">#callConv</span></code> means the function has the <span class="highlight">FAST</span> calling convention).</p>
+<h2 id="AtomicOrdering">AtomicOrdering</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">AtomicOrdering</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
 	MONOTONIC,
 	ACQUIRE,
 	RELEASE,
@@ -184,7 +191,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-05-10</p>
+		<p style="color: #878481;">Page Last Updated: 2026-05-19</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
