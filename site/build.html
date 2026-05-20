@@ -78,11 +78,7 @@
 <li><a href="https://ninja-build.org/">Ninja</a></li>
 <li><a href="https://premake.github.io/">Premake5</a> (5.0.0-beta8 or later)</li>
 		</ul>
-<div class="info"><h3 style="margin-top: 1em;">Info</h3>
-<p>This has only been fully tested on Windows.</p>
-</div><div class="warning"><h3 style="margin-top: 1em;">Warning!</h3>
-<p>As of 2025-12-20, any non-debug build of PCIT with Visual Studio 2026 will not work. It seems there's a bug in the code generation of MSVC v145.</p>
-</div><h2 id="llvm">Building LLVM</h2><p>At the moment, PCIT relies on LLVM, so we need to build LLVM first.</p>
+<h2 id="llvm">Building LLVM</h2><p>At the moment, PCIT relies on LLVM, so we need to build LLVM first.</p>
 <h3>1) Get the scripts</h3>
 <p>&emsp;&emsp;There is a GitHub repository that contains the scripts required to download the LLVM Project source code and build it. A <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.windows.bat">Windows version</a> (.bat) and a <a href="https://github.com/PCIT-Project/llvm-project-build/blob/main/build_llvm.unix.sh">Unix version</a> (.sh) exist. Get the correct script for your machine.</p>
 <h3>2) Run</h3>
@@ -113,7 +109,8 @@
 
 		document.getElementById("copied_text_3").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_3").style.visibility = "hidden";}, 1000);
-		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 vs2022</pre></div><h4>Using GNU Make:</h4>
+		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_3()">Copy</button><div id="copied_text_3" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">premake5 vs2022</pre></div><p>Even if running Visual Studio 2026, do not set the target to <span class="highlight">vs2026</span> as it will not work properly (last checked, 2026-05-20). When opening Visual Studio, it will prompt you to update the projects - select all and apply.</p>
+<h4>Using GNU Make:</h4>
 <script type="text/javascript">function copy_code_4(){ navigator.clipboard.writeText(`premake5 gmake --cc=[COMPILER]`);
 
 		document.getElementById("copied_text_4").style.visibility = "visible";
@@ -127,20 +124,20 @@
 		</ul>
 <h3>4) Build</h3>
 <h4>Using Microsoft Visual Studio:</h4>
-<p>&emsp;&emsp;Open <span class="highlight">PCIT-CPP.sln</span> in Visual Studio, set the build configuration to <span class="highlight">ReleaseDist</span>, and compile.</p>
+<p>&emsp;&emsp;Open <span class="highlight">PCIT-CPP.sln</span> in Visual Studio, set the build configuration to <span class="highlight">Release</span> and <span class="highlight">Windows</span>, and compile.</p>
 <h4>Using GNU Make:</h4>
 <script type="text/javascript">function copy_code_5(){ navigator.clipboard.writeText(`make configuration=releasedist_linux`);
 
 		document.getElementById("copied_text_5").style.visibility = "visible";
 		setTimeout(() => {document.getElementById("copied_text_5").style.visibility = "hidden";}, 1000);
 		}</script><div><div class="code-header" style="background-color: #333333; color: #ffffff;">Terminal<button class="code-copy" onclick="copy_code_5()">Copy</button><div id="copied_text_5" style="float: right; visibility: hidden;">Copied </div></div><pre class="code code-src code-without-lines" style="background-color: black; color: #ffffff;">make configuration=releasedist_linux</pre></div><h3>6) Done!</h3>
-<p>&emsp;&emsp;The generated output is in <span class="highlight">./build/[Windows|Linux]/ReleaseDist/bin/</span>. Enjoy PCIT Project!</p>
+<p>&emsp;&emsp;The generated output is in <span class="highlight">./build/[Windows|Linux]/Release/bin/</span>. Enjoy PCIT Project!</p>
 <h2>Next Steps</h2>
 <p>Now that you have successfully built the PCIT Project software, maybe check out one of our <a href="/site/tutorials/tutorials.html">tutorials</a>.</p>
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-04-16</p>
+		<p style="color: #878481;">Page Last Updated: 2026-05-20</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

@@ -1,6 +1,12 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.70.0"></a>
+## v0.0.70.0
+- Updated build instructions to reflect Visual Studio 2026 now working
+
+
+<!---------------------------------->
 <a name="v0.0.69.0"></a>
 ## v0.0.69.0
 

@@ -36,10 +36,6 @@ exports.getPageGenerator = function(){
 				html.link("Premake5", "https://premake.github.io/") + " (5.0.0-beta8 or later)",
 			]);
 
-			page.info("Info", "This has only been fully tested on Windows.");
-
-			page.warning("Warning!", "As of 2025-12-20, any non-debug build of PCIT with Visual Studio 2026 will not work. It seems there's a bug in the code generation of MSVC v145.");
-
 
 
 			page.h2Searchable("Building LLVM", "llvm");
@@ -80,6 +76,9 @@ exports.getPageGenerator = function(){
 			page.h4("Using Microsoft Visual Studio:");
 			page.codeBlock(Page.Language.TERMINAL, "premake5 vs2022");
 
+			page.text(`Even if running Visual Studio 2026, do not set the target to ${html.highlight("vs2026")} as it will not work properly (last checked, 2026-05-20). When opening Visual Studio, it will prompt you to update the projects - select all and apply.`);
+
+
 			page.h4("Using GNU Make:");
 			page.codeBlock(Page.Language.TERMINAL, "premake5 gmake --cc=[COMPILER]");
 			page.paragraph(`Replace "[COMPILER]" with one of the following options`);
@@ -94,14 +93,14 @@ exports.getPageGenerator = function(){
 			page.h3("4) Build");
 
 			page.h4("Using Microsoft Visual Studio:");
-			page.paragraph(`Open ${html.highlight("PCIT-CPP.sln")} in Visual Studio, set the build configuration to ${html.highlight("ReleaseDist")}, and compile.`)
+			page.paragraph(`Open ${html.highlight("PCIT-CPP.sln")} in Visual Studio, set the build configuration to ${html.highlight("Release")} and ${html.highlight("Windows")}, and compile.`)
 
 			page.h4("Using GNU Make:");
 			page.codeBlock(Page.Language.TERMINAL, "make configuration=releasedist_linux");
 
 
 			page.h3("6) Done!");
-			page.paragraph(`The generated output is in ${html.highlight("./build/[Windows|Linux]/ReleaseDist/bin/")}. Enjoy PCIT Project!`);
+			page.paragraph(`The generated output is in ${html.highlight("./build/[Windows|Linux]/Release/bin/")}. Enjoy PCIT Project!`);
 
 
 			page.h2("Next Steps");
