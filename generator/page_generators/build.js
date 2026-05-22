@@ -49,7 +49,7 @@ exports.getPageGenerator = function(){
 
 			page.codeBlock(Page.Language.TERMINAL, "./build_llvm.windows.bat --build release");
 
-			page.paragraph('To see more options with the build script (such as a debug build or skipping cloning) you can run the following:');
+			page.paragraph("To see more options with the build script (such as a debug build or skipping cloning) you can run the following:");
 
 			page.codeBlock(Page.Language.TERMINAL, "./build_llvm.windows.bat --help");
 

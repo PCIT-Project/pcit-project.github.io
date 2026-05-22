@@ -1,6 +1,17 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.71.0"></a>
+## v0.0.71.0
+- Improved search - reverted `.` being considered a delimiter
+
+### Panther Documentation
+- Added `@build.PantherBuildConfigOutput`
+- Added `@build.PantherBuildConfigExecutableOutput`
+- Fixed all `@build` not having attribute `#ordered`
+
+
+<!---------------------------------->
 <a name="v0.0.70.0"></a>
 ## v0.0.70.0
 - Updated build instructions to reflect Visual Studio 2026 now working
