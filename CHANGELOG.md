@@ -1,6 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.72.0"></a>
+## v0.0.72.0
+
+### Panther Documentation
+- Added `@build.PantherBuildConfigObjectOutput`
+- Added `@build.PantherBuildConfigAssemblyOutput`
+- Added `@build.PantherBuildConfigLLVMIROutput`
+- Added `@build.PantherBuildConfigPIROutput`
+- Added `@build.PantherBuildConfigASTOutput`
+- Added `@build.PantherBuildConfigTokensOutput`
+- Added `@build.PantherBuildConfigExecutableOutput.path`
+- Added `@build.PantherBuildConfigExecutableOutput.objectPath`
+
+
+
+<!---------------------------------->
 <a name="v0.0.71.0"></a>
 ## v0.0.71.0
 - Improved search - reverted `.` being considered a delimiter

@@ -109,21 +109,47 @@
 }</pre></p>
 <p>Struct to describe a panther build. Meant for use with <code class="code-src"; style="background-color: #282923!important;"><a class="code-red" href="/site/documentation/panther/intrinsics/createPantherBuild.html">@createPantherBuild</a></code>.</p>
 <h2 id="PantherBuildConfigOutput">PantherBuildConfigOutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigOutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">union</span> {
-	tokens           <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
-	ast              <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
+	tokens           <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigObjectOutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigObjectOutput</span></a>,
+	ast              <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigAssemblyOutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigAssemblyOutput</span></a>,
 	semanticAnalysis <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
-	pir              <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
-	llvmir           <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
-	assembly         <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
-	object           <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
+	pir              <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigLLVMIROutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigLLVMIROutput</span></a>,
+	llvmir           <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigPIROutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigPIROutput</span></a>,
+	assembly         <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigASTOutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigASTOutput</span></a>,
+	object           <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigTokensOutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigTokensOutput</span></a>,
 	run              <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Void</span>,
 	executable       <span class="code-red">:</span> <a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_build.html#PantherBuildConfigExecutableOutput"><span class="code-orange">@build</span><span class="code-white">.PantherBuildConfigExecutableOutput</span></a>,
 }</pre></p>
 <p>Struct to describe a panther build output.</p>
 <h2 id="PantherBuildConfigExecutableOutput">PantherBuildConfigExecutableOutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigExecutableOutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
-	<span class="code-cyan" style="font-style: italic;">var</span> isConsole <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span>; <span class="code-gray">// meaningless if not targeting Windows</span>
+	<span class="code-cyan" style="font-style: italic;">var</span> path       <span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>];
+	<span class="code-cyan" style="font-style: italic;">var</span> objectPath <span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>];
+	<span class="code-cyan" style="font-style: italic;">var</span> isConsole  <span class="code-red">:</span> <span class="code-cyan" style="font-style: italic;">Bool</span>; <span class="code-gray">// meaningless if not targeting Windows</span>
 }</pre></p>
 <p>Struct to describe a panther build for an exectuable output.</p>
+<h2 id="PantherBuildConfigObjectOutput">PantherBuildConfigObjectOutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigObjectOutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> path<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>];
+}</pre></p>
+<p>Struct to describe a panther build for an object output.</p>
+<h2 id="PantherBuildConfigAssemblyOutput">PantherBuildConfigAssemblyOutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigAssemblyOutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> path<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]<span class="code-red">?</span>; <span class="code-gray">// null to print to stdout</span>
+}</pre></p>
+<p>Struct to describe a panther build for an assembly output.</p>
+<h2 id="PantherBuildConfigLLVMIROutput">PantherBuildConfigLLVMIROutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigLLVMIROutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> path<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]<span class="code-red">?</span>; <span class="code-gray">// null to print to stdout</span>
+}</pre></p>
+<p>Struct to describe a panther build for an LLVM-IR output.</p>
+<h2 id="PantherBuildConfigPIROutput">PantherBuildConfigPIROutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigPIROutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> path<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]<span class="code-red">?</span>; <span class="code-gray">// null to print to stdout</span>
+}</pre></p>
+<p>Struct to describe a panther build for a PIR output.</p>
+<h2 id="PantherBuildConfigASTOutput">PantherBuildConfigASTOutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigASTOutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> path<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]<span class="code-red">?</span>; <span class="code-gray">// null to print to stdout</span>
+}</pre></p>
+<p>Struct to describe a panther build for an AST output.</p>
+<h2 id="PantherBuildConfigTokensOutput">PantherBuildConfigTokensOutput</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigTokensOutput</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
+	<span class="code-cyan" style="font-style: italic;">var</span> path<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]<span class="code-red">?</span>; <span class="code-gray">// null to print to stdout</span>
+}</pre></p>
+<p>Struct to describe a panther build for a tokens output.</p>
 <h2 id="PantherBuildConfigPackage">PantherBuildConfigPackage</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">PantherBuildConfigPackage</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">struct</span> <span class="code-red">#ordered</span> {
 	<span class="code-cyan" style="font-style: italic;">var</span> path              <span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>];
 	<span class="code-cyan" style="font-style: italic;">var</span> name              <span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>];
@@ -155,7 +181,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-05-21</p>
+		<p style="color: #878481;">Page Last Updated: 2026-05-26</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 
