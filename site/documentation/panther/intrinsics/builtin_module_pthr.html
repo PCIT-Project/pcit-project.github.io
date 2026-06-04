@@ -100,7 +100,21 @@
 	<br><div class="context">
 		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > Builtin Module @pthr</div>		<h1>Builtin Module @pthr</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
-<br/><br/><h2 id="CallingConvention">CallingConvention</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">CallingConvention</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+<br/><br/><h2 id="Architecture">Architecture</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Architecture</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+	X86_64,
+}</pre></p>
+<p>Enum to specify the architecture compiling for / on. Use <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_config.html#architecture"><span class="code-orange">@config</span><span class="code-white">.architecture</span></a></code> to access the current target architecture.</p>
+<h2 id="Platform">Platform</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Platform</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+	WINDOWS,
+}</pre></p>
+<p>Enum to specify the platform compiling for / on. Use <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_config.html#platform"><span class="code-orange">@config</span><span class="code-white">.platform</span></a></code> to access the current target platform.</p>
+<h2 id="Mode">Mode</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Mode</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+	COMPILE,
+	SCRIPTING,
+	BUILD_SYSTEM,
+}</pre></p>
+<p>Enum to specify the compiler mode. Use <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_config.html#mode"><span class="code-orange">@config</span><span class="code-white">.mode</span></a></code> to access the current mode.</p>
+<h2 id="CallingConvention">CallingConvention</h2><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">CallingConvention</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
 	FAST,
 	COLD,
 	C,
@@ -191,7 +205,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-05-19</p>
+		<p style="color: #878481;">Page Last Updated: 2026-06-04</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

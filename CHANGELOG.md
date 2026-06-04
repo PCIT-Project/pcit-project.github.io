@@ -1,6 +1,21 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.73.0"></a>
+## v0.0.73.0
+
+### Panther Documentation
+- Added `@config` page
+- Added `@options` page
+- Added `@pthr.Architecture`
+- Added `@pthr.Platform`
+- Added `@pthr.Mode`
+- Added `@build.PackageOption`
+- Added `@build.PackageOptionValue`
+- Updated names of types of the `@build` module to reflect changes in [PCIT-CPP v0.0.315.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.315.0)
+
+
+<!---------------------------------->
 <a name="v0.0.72.0"></a>
 ## v0.0.72.0
 
@@ -13,7 +28,6 @@
 - Added `@build.PantherBuildConfigTokensOutput`
 - Added `@build.PantherBuildConfigExecutableOutput.path`
 - Added `@build.PantherBuildConfigExecutableOutput.objectPath`
-
 
 
 <!---------------------------------->

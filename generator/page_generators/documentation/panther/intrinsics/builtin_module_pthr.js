@@ -27,6 +27,10 @@ exports.getPageGenerator = function(){
 				description : "Documentation for the builtin module @pthr in the Panther programming language",
 			});
 
+			syntax_highlighting.addPantherIntrinsicType("@pthr.Architecture", page, "Architecture");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.Platform", page, "Platform");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.Mode", page, "Mode");
+
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicOrdering", page, "AtomicOrdering");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicRMWOp", page, "AtomicRMWOp");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.CallingConvention", page, "CallingConvention");
@@ -45,6 +49,39 @@ exports.getPageGenerator = function(){
 			return page;
 		},
 		(page) => {
+
+			page.h2Anchor("Architecture", "Architecture");
+			search.addSearchTarget("@pthr.Architecture", page.path + "#Architecture", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type Architecture = enum {
+	X86_64,
+}`
+			));
+			page.text(`Enum to specify the architecture compiling for / on. Use ${page.inlineCode("@config.architecture")} to access the current target architecture.`);
+
+
+			page.h2Anchor("Platform", "Platform");
+			search.addSearchTarget("@pthr.Platform", page.path + "#Platform", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type Platform = enum {
+	WINDOWS,
+}`
+			));
+			page.text(`Enum to specify the platform compiling for / on. Use ${page.inlineCode("@config.platform")} to access the current target platform.`);
+
+
+			page.h2Anchor("Mode", "Mode");
+			search.addSearchTarget("@pthr.Mode", page.path + "#Mode", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type Mode = enum {
+	COMPILE,
+	SCRIPTING,
+	BUILD_SYSTEM,
+}`
+			));
+			page.text(`Enum to specify the compiler mode. Use ${page.inlineCode("@config.mode")} to access the current mode.`);
+
+
 			page.h2Anchor("CallingConvention", "CallingConvention");
 			search.addSearchTarget("@pthr.CallingConvention", page.path + "#CallingConvention", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,

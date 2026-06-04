@@ -45,6 +45,10 @@ exports.getPageGenerator = function(){
 			page.symbolList(["@abort", "@breakpoint", "@makeInitPtr"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 
+			page.h2("Builtin Modules");
+			page.text(html.link("@config",  "/site/documentation/panther/intrinsics/builtin_module_config.html"));
+			page.text(html.link("@options",  "/site/documentation/panther/intrinsics/builtin_module_options.html"));
+
 
 			page.h2("Intrinsic functions for Internal Use");
 
@@ -77,7 +81,7 @@ exports.getPageGenerator = function(){
 
 
 
-			page.h2("Intrinsic modules for Internal Use");
+			page.h2("Builtin modules for Internal Use");
 
 			page.paragraph(`These intrinsic modules contain types that are helpers for intrinsics meant for internal use by the standard library.`);
 

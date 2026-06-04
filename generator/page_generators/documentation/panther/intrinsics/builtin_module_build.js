@@ -27,17 +27,19 @@ exports.getPageGenerator = function(){
 			});
 
 			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfig", page, "PantherBuildConfig");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigOutput", page, "PantherBuildConfigOutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigExecutableOutput", page, "PantherBuildConfigExecutableOutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigObjectOutput", page, "PantherBuildConfigObjectOutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigAssemblyOutput", page, "PantherBuildConfigAssemblyOutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigLLVMIROutput", page, "PantherBuildConfigLLVMIROutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigPIROutput", page, "PantherBuildConfigPIROutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigASTOutput", page, "PantherBuildConfigASTOutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigTokensOutput", page, "PantherBuildConfigTokensOutput");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigPackage", page, "PantherBuildConfigPackage");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigDirectory", page, "PantherBuildConfigDirectory");
-			syntax_highlighting.addPantherIntrinsicType("@build.PantherBuildConfigCFamilyHeader", page, "PantherBuildConfigCFamilyHeader");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildOutput", page, "BuildOutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildExecutableOutput", page, "BuildExecutableOutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildObjectOutput", page, "BuildObjectOutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildAssemblyOutput", page, "BuildAssemblyOutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildLLVMIROutput", page, "BuildLLVMIROutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildPIROutput", page, "BuildPIROutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildASTOutput", page, "BuildASTOutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.BuildTokensOutput", page, "BuildTokensOutput");
+			syntax_highlighting.addPantherIntrinsicType("@build.PantherPackage", page, "PantherPackage");
+			syntax_highlighting.addPantherIntrinsicType("@build.PackageOption", page, "PackageOption");
+			syntax_highlighting.addPantherIntrinsicType("@build.PackageOptionValue", page, "PackageOptionValue");
+			syntax_highlighting.addPantherIntrinsicType("@build.PantherDirectory", page, "PantherDirectory");
+			syntax_highlighting.addPantherIntrinsicType("@build.CFamilyHeader", page, "CFamilyHeader");
 			syntax_highlighting.addPantherIntrinsicType("@build.PackageWarningSettings", page, "PackageWarningSettings");
 
 			return page;
@@ -47,38 +49,38 @@ exports.getPageGenerator = function(){
 			search.addSearchTarget("@build.PantherBuildConfig", page.path + "#PantherBuildConfig", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type PantherBuildConfig = struct #ordered {
-	var output         : @build.PantherBuildConfigOutput;
+	var output         : @build.BuildOutput;
 	var numThreads     : UI32; // 0 means single-threaded
 	var addDebugInfo   : Bool;
-	var packages       : [@build.PantherBuildConfigPackage:*];
-	var cFamilyHeaders : [@build.PantherBuildConfigCFamilyHeader:*];
+	var packages       : [@build.PantherPackage:*];
+	var cFamilyHeaders : [@build.CFamilyHeader:*];
 }`
 			));
 			page.text(`Struct to describe a panther build. Meant for use with ${page.inlineCode("@createPantherBuild")}.`);
 
 
-			page.h2Anchor("PantherBuildConfigOutput", "PantherBuildConfigOutput");
-			search.addSearchTarget("@build.PantherBuildConfigOutput", page.path + "#PantherBuildConfigOutput", page.categories);
+			page.h2Anchor("BuildOutput", "BuildOutput");
+			search.addSearchTarget("@build.BuildOutput", page.path + "#BuildOutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigOutput = union {
-	tokens           : @build.PantherBuildConfigObjectOutput,
-	ast              : @build.PantherBuildConfigAssemblyOutput,
+`type BuildOutput = union {
+	tokens           : @build.BuildObjectOutput,
+	ast              : @build.BuildAssemblyOutput,
 	semanticAnalysis : Void,
-	pir              : @build.PantherBuildConfigLLVMIROutput,
-	llvmir           : @build.PantherBuildConfigPIROutput,
-	assembly         : @build.PantherBuildConfigASTOutput,
-	object           : @build.PantherBuildConfigTokensOutput,
+	pir              : @build.BuildLLVMIROutput,
+	llvmir           : @build.BuildPIROutput,
+	assembly         : @build.BuildASTOutput,
+	object           : @build.BuildTokensOutput,
 	run              : Void,
-	executable       : @build.PantherBuildConfigExecutableOutput,
+	executable       : @build.BuildExecutableOutput,
 }`
 			));
 			page.text(`Struct to describe a panther build output.`);
 
 
-			page.h2Anchor("PantherBuildConfigExecutableOutput", "PantherBuildConfigExecutableOutput");
-			search.addSearchTarget("@build.PantherBuildConfigExecutableOutput", page.path + "#PantherBuildConfigExecutableOutput", page.categories);
+			page.h2Anchor("BuildExecutableOutput", "BuildExecutableOutput");
+			search.addSearchTarget("@build.BuildExecutableOutput", page.path + "#BuildExecutableOutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigExecutableOutput = struct #ordered {
+`type BuildExecutableOutput = struct #ordered {
 	var path       : [Char:*];
 	var objectPath : [Char:*];
 	var isConsole  : Bool; // meaningless if not targeting Windows
@@ -86,79 +88,112 @@ exports.getPageGenerator = function(){
 			));
 			page.text(`Struct to describe a panther build for an exectuable output.`);
 
-			page.h2Anchor("PantherBuildConfigObjectOutput", "PantherBuildConfigObjectOutput");
-			search.addSearchTarget("@build.PantherBuildConfigObjectOutput", page.path + "#PantherBuildConfigObjectOutput", page.categories);
+			page.h2Anchor("BuildObjectOutput", "BuildObjectOutput");
+			search.addSearchTarget("@build.BuildObjectOutput", page.path + "#BuildObjectOutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigObjectOutput = struct #ordered {
+`type BuildObjectOutput = struct #ordered {
 	var path: [Char:*];
 }`
 			));
 			page.text(`Struct to describe a panther build for an object output.`);
 
-			page.h2Anchor("PantherBuildConfigAssemblyOutput", "PantherBuildConfigAssemblyOutput");
-			search.addSearchTarget("@build.PantherBuildConfigAssemblyOutput", page.path + "#PantherBuildConfigAssemblyOutput", page.categories);
+			page.h2Anchor("BuildAssemblyOutput", "BuildAssemblyOutput");
+			search.addSearchTarget("@build.BuildAssemblyOutput", page.path + "#BuildAssemblyOutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigAssemblyOutput = struct #ordered {
+`type BuildAssemblyOutput = struct #ordered {
 	var path: [Char:*]?; // null to print to stdout
 }`
 			));
 			page.text(`Struct to describe a panther build for an assembly output.`);
 
-			page.h2Anchor("PantherBuildConfigLLVMIROutput", "PantherBuildConfigLLVMIROutput");
-			search.addSearchTarget("@build.PantherBuildConfigLLVMIROutput", page.path + "#PantherBuildConfigLLVMIROutput", page.categories);
+			page.h2Anchor("BuildLLVMIROutput", "BuildLLVMIROutput");
+			search.addSearchTarget("@build.BuildLLVMIROutput", page.path + "#BuildLLVMIROutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigLLVMIROutput = struct #ordered {
+`type BuildLLVMIROutput = struct #ordered {
 	var path: [Char:*]?; // null to print to stdout
 }`
 			));
 			page.text(`Struct to describe a panther build for an LLVM-IR output.`);
 
-			page.h2Anchor("PantherBuildConfigPIROutput", "PantherBuildConfigPIROutput");
-			search.addSearchTarget("@build.PantherBuildConfigPIROutput", page.path + "#PantherBuildConfigPIROutput", page.categories);
+			page.h2Anchor("BuildPIROutput", "BuildPIROutput");
+			search.addSearchTarget("@build.BuildPIROutput", page.path + "#BuildPIROutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigPIROutput = struct #ordered {
+`type BuildPIROutput = struct #ordered {
 	var path: [Char:*]?; // null to print to stdout
 }`
 			));
 			page.text(`Struct to describe a panther build for a PIR output.`);
 
-			page.h2Anchor("PantherBuildConfigASTOutput", "PantherBuildConfigASTOutput");
-			search.addSearchTarget("@build.PantherBuildConfigASTOutput", page.path + "#PantherBuildConfigASTOutput", page.categories);
+			page.h2Anchor("BuildASTOutput", "BuildASTOutput");
+			search.addSearchTarget("@build.BuildASTOutput", page.path + "#BuildASTOutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigASTOutput = struct #ordered {
+`type BuildASTOutput = struct #ordered {
 	var path: [Char:*]?; // null to print to stdout
 }`
 			));
 			page.text(`Struct to describe a panther build for an AST output.`);
 
-			page.h2Anchor("PantherBuildConfigTokensOutput", "PantherBuildConfigTokensOutput");
-			search.addSearchTarget("@build.PantherBuildConfigTokensOutput", page.path + "#PantherBuildConfigTokensOutput", page.categories);
+			page.h2Anchor("BuildTokensOutput", "BuildTokensOutput");
+			search.addSearchTarget("@build.BuildTokensOutput", page.path + "#BuildTokensOutput", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigTokensOutput = struct #ordered {
+`type BuildTokensOutput = struct #ordered {
 	var path: [Char:*]?; // null to print to stdout
 }`
 			));
 			page.text(`Struct to describe a panther build for a tokens output.`);
 
 
-			page.h2Anchor("PantherBuildConfigPackage", "PantherBuildConfigPackage");
-			search.addSearchTarget("@build.PantherBuildConfigPackage", page.path + "#PantherBuildConfigPackage", page.categories);
+			page.h2Anchor("PantherPackage", "PantherPackage");
+			search.addSearchTarget("@build.PantherPackage", page.path + "#PantherPackage", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigPackage = struct #ordered {
+`type PantherPackage = struct #ordered {
 	var path              : [Char:*];
 	var name              : [Char:*];
 	var warnings          : @build.PackageWarningSettings;
+	var options           : [@build.PackageOption:*];
 	var sourceFiles       : [[Char:*]:*];
-	var sourceDirectories : [@build.PantherBuildConfigDirectory:*];
+	var sourceDirectories : [@build.PantherDirectory:*];
 }`
 			));
 			page.text("Struct to describe a package for a panther build.");
 
 
-			page.h2Anchor("PantherBuildConfigDirectory", "PantherBuildConfigDirectory");
-			search.addSearchTarget("@build.PantherBuildConfigDirectory", page.path + "#PantherBuildConfigDirectory", page.categories);
+			page.h2Anchor("PackageOption", "PackageOption");
+			search.addSearchTarget("@build.PackageOption", page.path + "#PackageOption", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigDirectory = struct #ordered {
+`type PackageOption = struct #ordered {
+	var name  : [Char:*];
+	var value : @build.PackageOptionValue;
+}`
+			));
+			page.text("Struct to describe a package option.");
+
+	
+			page.h2Anchor("PackageOptionValue", "PackageOptionValue");
+			search.addSearchTarget("@build.PackageOptionValue", page.path + "#PackageOptionValue", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type PackageOptionValue = union {
+	bool   : Bool,
+	ui8    : UI8,
+	ui16   : UI16,
+	ui32   : UI32,
+	ui64   : UI64,
+	i8     : I8,
+	i16    : I16,
+	i32    : I32,
+	i64    : I64,
+	f32    : F32,
+	f64    : F64,
+	string : [Char:*],
+}`
+			));
+			page.text("Union to describe a package option value.");
+
+
+			page.h2Anchor("PantherDirectory", "PantherDirectory");
+			search.addSearchTarget("@build.PantherDirectory", page.path + "#PantherDirectory", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type PantherDirectory = struct #ordered {
 	var path        : [Char:*];
 	var isRecursive : Bool;
 }`
@@ -166,10 +201,10 @@ exports.getPageGenerator = function(){
 			page.text("Struct to describe a source directory for a panther build.");
 
 
-			page.h2Anchor("PantherBuildConfigCFamilyHeader", "PantherBuildConfigCFamilyHeader");
-			search.addSearchTarget("@build.PantherBuildConfigCFamilyHeader", page.path + "#PantherBuildConfigCFamilyHeader", page.categories);
+			page.h2Anchor("CFamilyHeader", "CFamilyHeader");
+			search.addSearchTarget("@build.CFamilyHeader", page.path + "#CFamilyHeader", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`type PantherBuildConfigCFamilyHeader = struct #ordered {
+`type CFamilyHeader = struct #ordered {
 	var path                : [Char:*];
 	var isCPP               : Bool;
 	var addIncludesToPubApi : Bool;

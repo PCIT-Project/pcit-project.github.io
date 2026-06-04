@@ -207,7 +207,7 @@ exports.highlight = function(code){
 
 				default: {
 					if(identifier[0] == "@"){
-						if(identifier == "@pthr" || identifier == "@build"){
+						if(identifier == "@pthr" || identifier == "@build" || identifier == "@config" || identifier == "@options"){
 							if(stream.peek() == '.'){
 								stream.skip();
 
