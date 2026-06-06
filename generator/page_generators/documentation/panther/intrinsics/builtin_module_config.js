@@ -30,6 +30,7 @@ exports.getPageGenerator = function(){
 			syntax_highlighting.addPantherIntrinsicType("@config.architecture", page, "architecture");
 			syntax_highlighting.addPantherIntrinsicType("@config.platform", page, "platform");
 			syntax_highlighting.addPantherIntrinsicType("@config.mode", page, "mode");
+			syntax_highlighting.addPantherIntrinsicType("@config.optMode", page, "optMode");
 
 			return page;
 		},
@@ -57,6 +58,22 @@ exports.getPageGenerator = function(){
 `def mode: @pthr.Mode;`
 			));
 			page.text(`Get the current mode the compiler is running in.`);
+
+
+			page.h2Anchor("optMode", "optMode");
+			search.addSearchTarget("@config.optMode", page.path + "#optMode", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`def optMode: @pthr.OptMode;`
+			));
+			page.text(`Get the current optimization mode the compiler compiling with.`);
+
+
+			page.h2Anchor("includeDebugInfo", "includeDebugInfo");
+			search.addSearchTarget("@config.includeDebugInfo", page.path + "#includeDebugInfo", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`def includeDebugInfo: Bool;`
+			));
+			page.text(`Get if the compiler is including debug info.`);
 
 
 		}

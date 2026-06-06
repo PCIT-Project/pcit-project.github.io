@@ -310,6 +310,14 @@ class Page{
 		}
 	}
 
+	h4Anchor(text, anchor_name, style=null){
+		if(style === null){
+			this.body += `<h4 id="${anchor_name}">${text}</h4>`;
+		}else{
+			this.body += `<h4 id="${anchor_name}" style="${style}">${text}</h4>`;
+		}
+	}
+
 
 
 	h2Searchable(text, anchor_name, style=null){

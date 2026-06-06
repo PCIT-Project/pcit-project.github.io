@@ -46,11 +46,12 @@ exports.getPageGenerator = function(){
 
 
 			page.h2("Builtin Modules");
+			page.text(html.link("@pthr",  "/site/documentation/panther/intrinsics/builtin_module_pthr.html"));
 			page.text(html.link("@config",  "/site/documentation/panther/intrinsics/builtin_module_config.html"));
 			page.text(html.link("@options",  "/site/documentation/panther/intrinsics/builtin_module_options.html"));
 
 
-			page.h2("Intrinsic functions for Internal Use");
+			page.h2("Intrinsic Functions for Internal Use");
 
 			page.paragraph(`These intrinsic functions are meant for internal use by the standard library. All functionality of these functions can be found in the standard library and/or in the language itself.`);
 
@@ -81,11 +82,11 @@ exports.getPageGenerator = function(){
 
 
 
-			page.h2("Builtin modules for Internal Use");
+			page.h2("Builtin Modules for Internal Use");
 
 			page.paragraph(`These intrinsic modules contain types that are helpers for intrinsics meant for internal use by the standard library.`);
 
-			page.text(html.link("@pthr",  "/site/documentation/panther/intrinsics/builtin_module_pthr.html"));
+			page.text(html.link("@pthr",  "/site/documentation/panther/intrinsics/builtin_module_pthr.html#internal"));
 			page.text(html.link("@build",  "/site/documentation/panther/intrinsics/builtin_module_build.html"));
 		}
 	);

@@ -29,10 +29,6 @@ function is_on_desktop(){
 	return window.width > 1023;
 }
 
-if(is_on_desktop()){
-	document.getElementById("search_box").focus();
-}
-
 
 function on_search_input(){
 	const search_box = document.getElementById("search_box");
@@ -152,6 +148,41 @@ function on_search_input(){
 
 	results_div.innerHTML = results_div_body_str;
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	if(is_on_desktop()){
+		document.getElementById("search_box").focus();
+	}
+
+	if(location.hash !== ""){
+		const search_box = document.getElementById("search_box");
+
+		let search_str = "";
+
+		for(let i = 1; i < location.hash.length; i+=1){
+			if(location.hash[i] == '%'){
+				const char_code = parseInt(location.hash[i + 1]) * 16 + parseInt(location.hash[i + 2]);
+				search_str += String.fromCharCode(char_code);
+
+				i += 2;
+
+			}else{
+				search_str += location.hash[i];
+			}
+		}
+
+		search_box.value = search_str;
+
+		on_search_input();
+
+	}else{
+		const results_div = document.getElementById("results");
+		results_div.innerHTML = `<p style="padding-bottom: 1em; color: #878481;">Quick tip: this page will automatically search whatever is in the URL hash (add "#query" to end of URL)</p>`;
+	}
+});
+
 
 
 const search_targets = [
@@ -275,9 +306,12 @@ const search_targets = [
 	new SearchTarget("@config.architecture", "documentation/panther/intrinsics/builtin_module_config.html#architecture", "", ["@config.architecture"], [0,4]),
 	new SearchTarget("@config.platform", "documentation/panther/intrinsics/builtin_module_config.html#platform", "", ["@config.platform"], [0,4]),
 	new SearchTarget("@config.mode", "documentation/panther/intrinsics/builtin_module_config.html#mode", "", ["@config.mode"], [0,4]),
+	new SearchTarget("@config.optMode", "documentation/panther/intrinsics/builtin_module_config.html#optMode", "", ["@config.optmode"], [0,4]),
+	new SearchTarget("@config.includeDebugInfo", "documentation/panther/intrinsics/builtin_module_config.html#includeDebugInfo", "", ["@config.includedebuginfo"], [0,4]),
 	new SearchTarget("@pthr.Architecture", "documentation/panther/intrinsics/builtin_module_pthr.html#Architecture", "", ["@pthr.architecture"], [0,4]),
 	new SearchTarget("@pthr.Platform", "documentation/panther/intrinsics/builtin_module_pthr.html#Platform", "", ["@pthr.platform"], [0,4]),
 	new SearchTarget("@pthr.Mode", "documentation/panther/intrinsics/builtin_module_pthr.html#Mode", "", ["@pthr.mode"], [0,4]),
+	new SearchTarget("@pthr.OptMode", "documentation/panther/intrinsics/builtin_module_pthr.html#OptMode", "", ["@pthr.optmode"], [0,4]),
 	new SearchTarget("@pthr.CallingConvention", "documentation/panther/intrinsics/builtin_module_pthr.html#CallingConvention", "", ["@pthr.callingconvention"], [0,4]),
 	new SearchTarget("@pthr.AtomicOrdering", "documentation/panther/intrinsics/builtin_module_pthr.html#AtomicOrdering", "", ["@pthr.atomicordering"], [0,4]),
 	new SearchTarget("@pthr.AtomicRMWOp", "documentation/panther/intrinsics/builtin_module_pthr.html#AtomicRMWOp", "", ["@pthr.atomicrmwop"], [0,4]),

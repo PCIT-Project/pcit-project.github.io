@@ -30,6 +30,7 @@ exports.getPageGenerator = function(){
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Architecture", page, "Architecture");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Platform", page, "Platform");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Mode", page, "Mode");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.OptMode", page, "OptMode");
 
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicOrdering", page, "AtomicOrdering");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicRMWOp", page, "AtomicRMWOp");
@@ -50,7 +51,8 @@ exports.getPageGenerator = function(){
 		},
 		(page) => {
 
-			page.h2Anchor("Architecture", "Architecture");
+
+			page.h3Anchor("Architecture", "Architecture");
 			search.addSearchTarget("@pthr.Architecture", page.path + "#Architecture", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type Architecture = enum {
@@ -60,7 +62,7 @@ exports.getPageGenerator = function(){
 			page.text(`Enum to specify the architecture compiling for / on. Use ${page.inlineCode("@config.architecture")} to access the current target architecture.`);
 
 
-			page.h2Anchor("Platform", "Platform");
+			page.h3Anchor("Platform", "Platform");
 			search.addSearchTarget("@pthr.Platform", page.path + "#Platform", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type Platform = enum {
@@ -70,7 +72,7 @@ exports.getPageGenerator = function(){
 			page.text(`Enum to specify the platform compiling for / on. Use ${page.inlineCode("@config.platform")} to access the current target platform.`);
 
 
-			page.h2Anchor("Mode", "Mode");
+			page.h3Anchor("Mode", "Mode");
 			search.addSearchTarget("@pthr.Mode", page.path + "#Mode", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type Mode = enum {
@@ -82,7 +84,22 @@ exports.getPageGenerator = function(){
 			page.text(`Enum to specify the compiler mode. Use ${page.inlineCode("@config.mode")} to access the current mode.`);
 
 
-			page.h2Anchor("CallingConvention", "CallingConvention");
+			page.h3Anchor("OptMode", "OptMode");
+			search.addSearchTarget("@pthr.OptMode", page.path + "#OptMode", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type OptMode = enum {
+	NONE,
+	SPEED_MINOR,
+	SPEED,
+	SPEED_AGRESSIVE,
+	SIZE,
+	SIZE_AGRESSIVE,
+}`
+			));
+			page.text(`Enum to specify the optimization mode. Use ${page.inlineCode("@config.optMode")} to access the current optimization mode.`);
+
+
+			page.h3Anchor("CallingConvention", "CallingConvention");
 			search.addSearchTarget("@pthr.CallingConvention", page.path + "#CallingConvention", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type CallingConvention = enum {
@@ -95,7 +112,17 @@ exports.getPageGenerator = function(){
 			page.text(`Enum to specify the different function calling conventions. For use in function attribute ${page.inlineCode("#callConv")} (not including attribute ${page.inlineCode("#callConv")} means the function has the ${html.highlight("FAST")} calling convention).`);
 
 
-			page.h2Anchor("AtomicOrdering", "AtomicOrdering");
+
+			//////////////////////////////////////////////////////////////////////
+			// internal
+
+			page.raw("<br/><br/><br/><br/>");
+			page.h2Anchor("Symbols for Internal Internal Use", "internal");
+
+			page.paragraph(`These intrinsic types are helpers for intrinsic functions meant for internal use by the standard library.`);
+
+
+			page.h3Anchor("AtomicOrdering", "AtomicOrdering");
 			search.addSearchTarget("@pthr.AtomicOrdering", page.path + "#AtomicOrdering", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type AtomicOrdering = enum {
@@ -108,25 +135,25 @@ exports.getPageGenerator = function(){
 			));
 			page.text(`Enum to specify the different atomic orderings. All orderings guarantee atomicity. Use of any ordering other than ${html.highlight("SEQ_CST")} should only be done if the developer is 100% sure it is safe to do so.`);
 
-			page.h3("MONOTONIC");
+			page.h4("MONOTONIC");
 			page.paragraph("Has no synchronization or ordering constraints. Can be used on any atomic operation.");
 			page.paragraph("This is equivalent to \"relaxed\" in C/C++.");
 
-			page.h3("ACQUIRE");
+			page.h4("ACQUIRE");
 			page.paragraph("No memory operations in the current thread can be reordered to before this operation. Can be used on load atomic operations.");
 
-			page.h3("RELEASE");
+			page.h4("RELEASE");
 			page.paragraph("No memory operations in the current thread can be reordered to after this operation. Can be used on store atomic operations.");
 
-			page.h3("ACQ_REL");
+			page.h4("ACQ_REL");
 			page.paragraph("Acquire Release. Performs an acquire and a release operation. No memory operations in the current thread can be reordered to before acquire or to after the release. Can be used on read-modify-write atomic operation.");
 
-			page.h3("SEQ_CST");
+			page.h4("SEQ_CST");
 			page.paragraph("Sequentially-consistent. Performs an acquire for a load, a release for a store, acquire-release for a read-modify-write operation. In addition, all threads observe all modifications in the same order. Can be used on any atomic operation.");
 
 
 
-			page.h2Anchor("AtomicRMWOp", "AtomicRMWOp");
+			page.h3Anchor("AtomicRMWOp", "AtomicRMWOp");
 			search.addSearchTarget("@pthr.AtomicRMWOp", page.path + "#AtomicRMWOp", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type AtomicRMWOp = enum {
@@ -145,9 +172,9 @@ exports.getPageGenerator = function(){
 
 
 
-			page.h2Searchable("Iterable Interfaces");
+			page.h3Searchable("Iterable Interfaces");
 
-			page.h3Anchor("IIterable / IIterableRT", "IIterable");
+			page.h4Anchor("IIterable / IIterableRT", "IIterable");
 			search.addSearchTarget("@pthr.IIterable", page.path + "#IIterable", page.categories);
 			search.addSearchTarget("@pthr.IIterableRT", page.path + "#IIterable", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
@@ -164,7 +191,7 @@ interface IIterableRT = {
 			page.text("Interface to define iterable types. Should be used if the type uses the array iterable model.");
 
 
-			page.h3Anchor("IIterableRef / IIterableRefRT", "IIterableRef");
+			page.h4Anchor("IIterableRef / IIterableRefRT", "IIterableRef");
 			search.addSearchTarget("@pthr.IIterableRef", page.path + "#IIterableRef", page.categories);
 			search.addSearchTarget("@pthr.IIterableRefRT", page.path + "#IIterableRef", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
@@ -179,7 +206,7 @@ interface IIterableRefRT = {
 			page.text("Interface to define iterable types. Should be used if the type uses the array reference iterable model.");
 
 
-			page.h3Anchor("IIterableMutRef / IIterableMutRefRT", "IIterableMutRef");
+			page.h4Anchor("IIterableMutRef / IIterableMutRefRT", "IIterableMutRef");
 			search.addSearchTarget("@pthr.IIterableMutRef", page.path + "#IIterableMutRef", page.categories);
 			search.addSearchTarget("@pthr.IIterableMutRefRT", page.path + "#IIterableMutRef", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
@@ -195,9 +222,9 @@ interface IIterableMutRefRT = {
 
 
 
-			page.h2Searchable("Iterator Interfaces");
+			page.h3Searchable("Iterator Interfaces");
 
-			page.h3Anchor("IIterator / IIteratorRT", "IIterator");
+			page.h4Anchor("IIterator / IIteratorRT", "IIterator");
 			search.addSearchTarget("@pthr.IIterator", page.path + "#IIterator", page.categories);
 			search.addSearchTarget("@pthr.IIteratorRT", page.path + "#IIterator", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
@@ -216,7 +243,7 @@ interface IIteratorRT = {
 			page.text("Interface to define an iterator.");
 
 
-			page.h3Anchor("IMutIterator / IMutIteratorRT", "IMutIterator");
+			page.h4Anchor("IMutIterator / IMutIteratorRT", "IMutIterator");
 			search.addSearchTarget("@pthr.IMutIterator", page.path + "#IMutIterator", page.categories);
 			search.addSearchTarget("@pthr.IMutIteratorRT", page.path + "#IMutIterator", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,

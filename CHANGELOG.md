@@ -1,6 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.74.0"></a>
+## v0.0.74.0
+- Improved search - added searching from URL hash
+
+### Panther Documentation
+- Added `@pthr.OptMode`
+- Added `@config.optMode`
+- Added `@config.includeDebugInfo`
+- Added members to `@build.PantherBuildConfig`
+	- title
+	- architecture
+	- platform
+	- optMode
+
+
+<!---------------------------------->
 <a name="v0.0.73.0"></a>
 ## v0.0.73.0
 

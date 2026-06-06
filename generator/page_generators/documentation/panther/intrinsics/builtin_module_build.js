@@ -49,7 +49,11 @@ exports.getPageGenerator = function(){
 			search.addSearchTarget("@build.PantherBuildConfig", page.path + "#PantherBuildConfig", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type PantherBuildConfig = struct #ordered {
+	var title          : [Char:*];
 	var output         : @build.BuildOutput;
+	var architecture   : @pthr.Architecture;
+	var platform       : @pthr.Platform;
+	var optMode        : @pthr.OptMode;
 	var numThreads     : UI32; // 0 means single-threaded
 	var addDebugInfo   : Bool;
 	var packages       : [@build.PantherPackage:*];
