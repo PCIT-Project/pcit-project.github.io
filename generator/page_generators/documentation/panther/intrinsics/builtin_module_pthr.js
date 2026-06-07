@@ -36,16 +36,16 @@ exports.getPageGenerator = function(){
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicRMWOp", page, "AtomicRMWOp");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.CallingConvention", page, "CallingConvention");
 
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterable", page, "IIterable");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRT", page, "IIterableRT");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRef", page, "IIterableRef");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableRefRT", page, "IIterableRefRT");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableMutRef", page, "IIterableMutRef");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterableMutRefRT", page, "IIterableMutRefRT");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIterator", page, "IIterator");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IIteratorRT", page, "IIteratorRT");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IMutIterator", page, "IMutIterator");
-			syntax_highlighting.addPantherIntrinsicType("@pthr.IMutIteratorRT", page, "IMutIteratorRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.Iterable", page, "Iterable");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IterableRT", page, "IterableRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IterableRef", page, "IterableRef");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IterableRefRT", page, "IterableRefRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IterableMutRef", page, "IterableMutRef");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IterableMutRefRT", page, "IterableMutRefRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.Iterator", page, "Iterator");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.IteratorRT", page, "IteratorRT");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.MutIterator", page, "MutIterator");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.MutIteratorRT", page, "MutIteratorRT");
 
 			return page;
 		},
@@ -174,48 +174,48 @@ exports.getPageGenerator = function(){
 
 			page.h3Searchable("Iterable Interfaces");
 
-			page.h4Anchor("IIterable / IIterableRT", "IIterable");
-			search.addSearchTarget("@pthr.IIterable", page.path + "#IIterable", page.categories);
-			search.addSearchTarget("@pthr.IIterableRT", page.path + "#IIterable", page.categories);
+			page.h4Anchor("Iterable / IterableRT", "Iterable");
+			search.addSearchTarget("@pthr.Iterable", page.path + "#Iterable", page.categories);
+			search.addSearchTarget("@pthr.IterableRT", page.path + "#Iterable", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`interface IIterable = {
-	func createIterator = (this) -> impl($$:@pthr.IIterator);
-	func createIterator = (this mut) -> impl($$:@pthr.IMutIterator);
+`interface Iterable = {
+	func createIterator = (this) -> impl($$:@pthr.Iterator);
+	func createIterator = (this mut) -> impl($$:@pthr.MutIterator);
 }
 
-interface IIterableRT = {
-	func createIterator = (this) #rt -> impl($$:@pthr.IIterator);
-	func createIterator = (this mut) #rt -> impl($$:@pthr.IMutIterator);
+interface IterableRT = {
+	func createIterator = (this) #rt -> impl($$:@pthr.Iterator);
+	func createIterator = (this mut) #rt -> impl($$:@pthr.MutIterator);
 }`
 			));
 			page.text("Interface to define iterable types. Should be used if the type uses the array iterable model.");
 
 
-			page.h4Anchor("IIterableRef / IIterableRefRT", "IIterableRef");
-			search.addSearchTarget("@pthr.IIterableRef", page.path + "#IIterableRef", page.categories);
-			search.addSearchTarget("@pthr.IIterableRefRT", page.path + "#IIterableRef", page.categories);
+			page.h4Anchor("IterableRef / IterableRefRT", "IterableRef");
+			search.addSearchTarget("@pthr.IterableRef", page.path + "#IterableRef", page.categories);
+			search.addSearchTarget("@pthr.IterableRefRT", page.path + "#IterableRef", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`interface IIterableRef = {
-	func createIterator = (this) -> impl($$:@pthr.IIterator);
+`interface IterableRef = {
+	func createIterator = (this) -> impl($$:@pthr.Iterator);
 }
 
-interface IIterableRefRT = {
-	func createIterator = (this) #rt -> impl($$:@pthr.IIterator);
+interface IterableRefRT = {
+	func createIterator = (this) #rt -> impl($$:@pthr.Iterator);
 }`
 			));
 			page.text("Interface to define iterable types. Should be used if the type uses the array reference iterable model.");
 
 
-			page.h4Anchor("IIterableMutRef / IIterableMutRefRT", "IIterableMutRef");
-			search.addSearchTarget("@pthr.IIterableMutRef", page.path + "#IIterableMutRef", page.categories);
-			search.addSearchTarget("@pthr.IIterableMutRefRT", page.path + "#IIterableMutRef", page.categories);
+			page.h4Anchor("IterableMutRef / IterableMutRefRT", "IterableMutRef");
+			search.addSearchTarget("@pthr.IterableMutRef", page.path + "#IterableMutRef", page.categories);
+			search.addSearchTarget("@pthr.IterableMutRefRT", page.path + "#IterableMutRef", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`interface IIterableMutRef = {
-	func createIterator = (this) -> impl($$:@pthr.IMutIterator);
+`interface IterableMutRef = {
+	func createIterator = (this) -> impl($$:@pthr.MutIterator);
 }
 
-interface IIterableMutRefRT = {
-	func createIterator = (this) #rt -> impl($$:@pthr.IMutIterator);
+interface IterableMutRefRT = {
+	func createIterator = (this) #rt -> impl($$:@pthr.MutIterator);
 }`
 			));
 			page.text("Interface to define iterable types. Should be used if the type uses the mutable array reference iterable model.");
@@ -224,17 +224,17 @@ interface IIterableMutRefRT = {
 
 			page.h3Searchable("Iterator Interfaces");
 
-			page.h4Anchor("IIterator / IIteratorRT", "IIterator");
-			search.addSearchTarget("@pthr.IIterator", page.path + "#IIterator", page.categories);
-			search.addSearchTarget("@pthr.IIteratorRT", page.path + "#IIterator", page.categories);
+			page.h4Anchor("Iterator / IteratorRT", "Iterator");
+			search.addSearchTarget("@pthr.Iterator", page.path + "#Iterator", page.categories);
+			search.addSearchTarget("@pthr.IteratorRT", page.path + "#Iterator", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`interface IIterator = {
+`interface Iterator = {
 	func next = (this mut) -> Void;
 	func get = (this) -> $$*;
 	func atEnd = (this) -> Bool;
 }
 
-interface IIteratorRT = {
+interface IteratorRT = {
 	func next = (this mut) #rt -> Void;
 	func get = (this) #rt -> $$*;
 	func atEnd = (this) #rt -> Bool;
@@ -243,17 +243,17 @@ interface IIteratorRT = {
 			page.text("Interface to define an iterator.");
 
 
-			page.h4Anchor("IMutIterator / IMutIteratorRT", "IMutIterator");
-			search.addSearchTarget("@pthr.IMutIterator", page.path + "#IMutIterator", page.categories);
-			search.addSearchTarget("@pthr.IMutIteratorRT", page.path + "#IMutIterator", page.categories);
+			page.h4Anchor("MutIterator / MutIteratorRT", "MutIterator");
+			search.addSearchTarget("@pthr.MutIterator", page.path + "#MutIterator", page.categories);
+			search.addSearchTarget("@pthr.MutIteratorRT", page.path + "#MutIterator", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
-`interface IMutIterator = {
+`interface MutIterator = {
 	func next = (this mut) -> Void;
 	func get = (this) -> $$*mut;
 	func atEnd = (this) -> Bool;
 }
 
-interface IMutIteratorRT = {
+interface MutIteratorRT = {
 	func next = (this mut) #rt -> Void;
 	func get = (this) #rt -> $$*mut;
 	func atEnd = (this) #rt -> Bool;

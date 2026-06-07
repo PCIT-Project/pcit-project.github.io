@@ -1,6 +1,14 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.74.1"></a>
+## v0.0.74.1
+
+### Panther Documentation
+- Fixed names of Iterable Interfaces
+
+
+<!---------------------------------->
 <a name="v0.0.74.0"></a>
 ## v0.0.74.0
 - Improved search - added searching from URL hash
