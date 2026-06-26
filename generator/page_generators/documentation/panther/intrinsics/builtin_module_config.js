@@ -30,6 +30,7 @@ exports.getPageGenerator = function(){
 			syntax_highlighting.addPantherIntrinsicType("@config.architecture", page, "architecture");
 			syntax_highlighting.addPantherIntrinsicType("@config.platform", page, "platform");
 			syntax_highlighting.addPantherIntrinsicType("@config.mode", page, "mode");
+			syntax_highlighting.addPantherIntrinsicType("@config.windowsSubsystem", page, "windowsSubsystem");
 			syntax_highlighting.addPantherIntrinsicType("@config.optMode", page, "optMode");
 
 			return page;
@@ -58,6 +59,14 @@ exports.getPageGenerator = function(){
 `def mode: @pthr.Mode;`
 			));
 			page.text(`Get the current mode the compiler is running in.`);
+
+
+			page.h2Anchor("windowsSubsystem", "windowsSubsystem");
+			search.addSearchTarget("@config.windowsSubsystem", page.path + "#windowsSubsystem", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`def windowsSubsystem: @pthr.WindowsSubsystem?;`
+			));
+			page.text(`Get the windows subsystem the compiler is targeting.`);
 
 
 			page.h2Anchor("optMode", "optMode");

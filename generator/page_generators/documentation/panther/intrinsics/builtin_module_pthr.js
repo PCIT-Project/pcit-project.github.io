@@ -30,6 +30,7 @@ exports.getPageGenerator = function(){
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Architecture", page, "Architecture");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Platform", page, "Platform");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Mode", page, "Mode");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.WindowsSubsystem", page, "WindowsSubsystem");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.OptMode", page, "OptMode");
 
 			syntax_highlighting.addPantherIntrinsicType("@pthr.AtomicOrdering", page, "AtomicOrdering");
@@ -77,11 +78,26 @@ exports.getPageGenerator = function(){
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type Mode = enum {
 	COMPILE,
-	SCRIPTING,
-	BUILD_SYSTEM,
+	COMPILE_RUN,
+	SCRIPT,
+	BUILD,
 }`
 			));
 			page.text(`Enum to specify the compiler mode. Use ${page.inlineCode("@config.mode")} to access the current mode.`);
+
+
+			page.h3Anchor("WindowsSubsystem", "WindowsSubsystem");
+			search.addSearchTarget("@pthr.WindowsSubsystem", page.path + "#WindowsSubsystem", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type WindowsSubsystem = enum {
+	COMPILE,
+	COMPILE_RUN,
+	SCRIPT,
+	BUILD,
+}`
+			));
+			page.text(`Enum to specify the target windows subsystem. Use ${page.inlineCode("@config.windowsSubsystem")} to access the current windows subsystem.`);
+
 
 
 			page.h3Anchor("OptMode", "OptMode");

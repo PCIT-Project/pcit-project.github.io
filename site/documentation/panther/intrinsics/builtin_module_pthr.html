@@ -110,10 +110,18 @@
 <p>Enum to specify the platform compiling for / on. Use <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_config.html#platform"><span class="code-orange">@config</span><span class="code-white">.platform</span></a></code> to access the current target platform.</p>
 <h3 id="Mode">Mode</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">Mode</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
 	COMPILE,
-	SCRIPTING,
-	BUILD_SYSTEM,
+	COMPILE_RUN,
+	SCRIPT,
+	BUILD,
 }</pre></p>
 <p>Enum to specify the compiler mode. Use <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_config.html#mode"><span class="code-orange">@config</span><span class="code-white">.mode</span></a></code> to access the current mode.</p>
+<h3 id="WindowsSubsystem">WindowsSubsystem</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">WindowsSubsystem</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
+	COMPILE,
+	COMPILE_RUN,
+	SCRIPT,
+	BUILD,
+}</pre></p>
+<p>Enum to specify the target windows subsystem. Use <code class="code-src"; style="background-color: #282923!important;"><a class="code-orange" href="/site/documentation/panther/intrinsics/builtin_module_config.html#windowsSubsystem"><span class="code-orange">@config</span><span class="code-white">.windowsSubsystem</span></a></code> to access the current windows subsystem.</p>
 <h3 id="OptMode">OptMode</h3><p><pre class="code code-src code-inline-block"><span class="code-cyan" style="font-style: italic;">type</span> <span class="code-green">OptMode</span> <span class="code-red">=</span> <span class="code-cyan" style="font-style: italic;">enum</span> {
 	NONE,
 	SPEED_MINOR,
@@ -215,7 +223,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-06-07</p>
+		<p style="color: #878481;">Page Last Updated: 2026-06-25</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

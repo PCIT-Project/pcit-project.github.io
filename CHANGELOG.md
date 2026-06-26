@@ -1,6 +1,18 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.75.0"></a>
+## v0.0.75.0
+
+### Panther Documentation
+- Added `@pthr.WindowsSubsystem`
+- Added `@config.windowsSubsystem`
+- Added `@pthr.Mode.COMPILE_RUN`
+- Renamed `@pthr.Mode.SCRIPTING` to `@pthr.Mode.SCRIPT`
+- Renamed `@pthr.Mode.BUILD_SYSTEM` to `@pthr.Mode.BUILD`
+
+
+<!---------------------------------->
 <a name="v0.0.74.1"></a>
 ## v0.0.74.1
 
