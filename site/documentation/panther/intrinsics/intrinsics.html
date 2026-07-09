@@ -118,8 +118,17 @@
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/breakpoint.html">@breakpoint</a></td>
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Cause an execution trap to request the debugger break execution</td>
 	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/panic.html">@panic</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Direclty call the panic handler</td>
+	</tr></table></div>
+<h3>Misc</h3>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/makeInitPtr.html">@makeInitPtr</a></td>
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Converts an uninitialized-qualified pointer to a pointer</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/isComptime.html">@isComptime</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get if currently in comptime scope</td>
 	</tr></table></div>
 <h2>Builtin Modules</h2>
 <p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html">@pthr</a></p>
@@ -256,6 +265,21 @@
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/gte.html">@gte</a></td>
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Calculate greater than or equal to</td>
 	</tr></table></div>
+<h3>Comptime IO</h3>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/comptimePrint.html">@comptimePrint</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Print to console at compile time</td>
+	</tr>	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/comptimePrintln.html">@comptimePrintln</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Print to console at compile time</td>
+	</tr></table></div>
+<h3>Operational</h3>
+<div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
+	<tr style="background-color: #151617;">
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/entry.html">@entry</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Direclty call the entry function</td>
+	</tr></table></div>
 <h3>Type Conversion</h3>
 <div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
@@ -301,6 +325,7 @@
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 10em;"><a href="/site/documentation/panther/intrinsics/numBits.html">@numBits</a></td>
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 34em;">Get the number of bits of <span class="highlight">TypeID</span></td>
 	</tr></table></div>
+<p>TODO: missing type traits</p>
 <h2>Builtin Modules for Internal Use</h2>
 <p>&emsp;&emsp;These intrinsic modules contain types that are helpers for intrinsics meant for internal use by the standard library.</p>
 <p><a href="/site/documentation/panther/intrinsics/builtin_module_pthr.html#internal">@pthr</a></p>
@@ -308,7 +333,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-06-06</p>
+		<p style="color: #878481;">Page Last Updated: 2026-07-08</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

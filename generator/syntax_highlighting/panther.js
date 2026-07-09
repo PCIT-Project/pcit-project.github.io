@@ -355,8 +355,18 @@ exports.highlight = function(code){
 		}else if(stream.peek() == '&' || stream.peek() == '|' || stream.peek() == '^' || stream.peek() == '~' || stream.peek() == '!'){
 			output += `<span class="code-red">${stream.next()}</span>`;
 
-		}else if(stream.peek() == '+' || stream.peek() == '-' || stream.peek() == '*' || stream.peek() == '/' || stream.peek() == '%'){
+		}else if(stream.peek() == '+' || stream.peek() == '-' || stream.peek() == '/' || stream.peek() == '%'){
 			output += `<span class="code-red">${stream.next()}</span>`;
+
+		}else if(stream.peek() == '*'){
+			// TODO(FUTURE): do this better
+			if(stream.peek(1) == 'u' && stream.peek(2) == 'n' && stream.peek(3) == 'i' && stream.peek(4) == 'n' && stream.peek(5) == 'i' && stream.peek(6) == 't'){
+				output += `<span class="code-red">*uninit</span>`;
+				stream.skip(7);
+			}else{
+				output += `<span class="code-red">*</span>`;
+				stream.skip(1);
+			}
 
 		}else if(stream.peek() == '<'){
 			output += `<span class="code-red">&lt;</span>`;

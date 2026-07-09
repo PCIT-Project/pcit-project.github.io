@@ -103,7 +103,7 @@
 <br/><br/><div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">1:</td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/makeInitPtr.html">@makeInitPtr</a> <span class="code-red">=</span> (uninit_ptr<span class="code-red">:</span> $T<span class="code-red">*</span><span class="code-red">!</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> T<span class="code-red">*</span><span class="code-red">mut</span>;</code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/makeInitPtr.html">@makeInitPtr</a> <span class="code-red">=</span> (uninit_ptr<span class="code-red">:</span> $T<span class="code-red">*uninit</span>) <span class="code-red">-</span><span class="code-red">&gt;</span> T<span class="code-red">*</span><span class="code-red">mut</span>;</code></td>
 	</tr>
 </table></div>
 <p>&emsp;&emsp;Converts an <span class="highlight">uninitialized-qualified pointer</span> to a <span class="highlight">pointer</span>. Paramter <span class="highlight">uninit_ptr</span> must be <span class="highlight"><a href="/site/documentation/panther/value_categories.html#concrete">concrete</a></span>, a local variable, and the <span class="highlight">pointee</span> must be known by the compiler to be initialized (otherwise it is a compile error).</p>
@@ -116,7 +116,7 @@
 	</div>
 
 	<div class="footer">
-		<p style="color: #878481;">Page Last Updated: 2026-02-04</p>
+		<p style="color: #878481;">Page Last Updated: 2026-07-08</p>
 		<p style="color: #878481;">© 2023-2026 <a href="/site/about.html">PCIT Project Team</a>. All rights reserved.</p>
 	</div>
 

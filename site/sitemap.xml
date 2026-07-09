@@ -102,11 +102,11 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_build.html</loc>
-		<lastmod>2026-06-25</lastmod>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_config.html</loc>
-		<lastmod>2026-06-25</lastmod>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_options.html</loc>
@@ -114,7 +114,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/builtin_module_pthr.html</loc>
-		<lastmod>2026-06-25</lastmod>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/byteSwap.html</loc>
@@ -123,6 +123,14 @@
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/cmpxchg.html</loc>
 		<lastmod>2026-02-03</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/comptimePrint.html</loc>
+		<lastmod>2026-07-08</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/comptimePrintln.html</loc>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/createPantherBuild.html</loc>
@@ -143,6 +151,10 @@
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/div.html</loc>
 		<lastmod>2026-02-04</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/entry.html</loc>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/eq.html</loc>
@@ -194,7 +206,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/import.html</loc>
-		<lastmod>2026-02-04</lastmod>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/importC.html</loc>
@@ -206,7 +218,11 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/intrinsics.html</loc>
-		<lastmod>2026-06-06</lastmod>
+		<lastmod>2026-07-08</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/isComptime.html</loc>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/iToF.html</loc>
@@ -222,7 +238,7 @@
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/makeInitPtr.html</loc>
-		<lastmod>2026-02-04</lastmod>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/mul.html</loc>
@@ -251,6 +267,10 @@
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/or.html</loc>
 		<lastmod>2026-02-04</lastmod>
+	</url>
+	<url>
+		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/panic.html</loc>
+		<lastmod>2026-07-08</lastmod>
 	</url>
 	<url>
 		<loc>https://www.pcitproject.org/site/documentation/panther/intrinsics/rem.html</loc>

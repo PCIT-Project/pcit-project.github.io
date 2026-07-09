@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="description" content="Panther Compiler Infrastructure and Technology" />
 
-	<meta property="og:title" content="@import | Panther Documentation | PCIT Project" />
+	<meta property="og:title" content="@entry | Panther Documentation | PCIT Project" />
 	<meta property="og:description" content="Panther Compiler Infrastructure and Technology" />
 	<meta property="og:image" content="/assets/LogoBig.png" />
 
@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 
 
-	<title>@import | Panther Documentation | PCIT Project</title>
+	<title>@entry | Panther Documentation | PCIT Project</title>
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -61,7 +61,7 @@
 				{
 					"@type": "ListItem",
 			        "position": 4,
-			        "name": "@import"
+			        "name": "@entry"
 				}
 			]
 		}
@@ -98,29 +98,26 @@
 	</div>
 
 	<br><div class="context">
-		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > @import</div>		<h1>@import</h1>
+		<div><a href="/site/documentation/documentation.html">Documentation</a> > <a href="/site/documentation/panther/documentation.html">Panther Documentation</a> > <a href="/site/documentation/panther/intrinsics/intrinsics.html">Intrinsics</a> > @entry</div>		<h1>@entry</h1>
 		<div class="search-category" style="color: #06b6d4; background-color: #0c2f39; border-color: #0b4652;">Panther</div><div class="search-category" style="color: #f27532; background-color: #291a15; border-color: #663925;">Documentation</div>
 <br/><br/><div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
 		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481; width: 0.5em; font-style: italic; color: #878481;">1:</td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/import.html">@import</a> <span class="code-red">=</span> (filepath<span class="code-red">:</span> [<span class="code-cyan" style="font-style: italic;">Char</span><span class="code-red">:</span><span class="code-red">*</span>]) <span class="code-red">-</span><span class="code-red">&gt;</span> {MODULE};</code></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><code class="code-src"; style="background-color: #282923!important;"><span class="code-cyan" style="font-style: italic;">func</span> <a class="code-red" href="/site/documentation/panther/intrinsics/entry.html">@entry</a> <span class="code-red">=</span> () <span class="code-red">#rt</span> <span class="code-red">-</span><span class="code-red">&gt;</span> <span class="code-cyan" style="font-style: italic;">UI32</span>;</code></td>
 	</tr>
 </table></div>
-<p>&emsp;&emsp;Import a Panther file as a module.</p>
+<p>&emsp;&emsp;Direclty call the entry function.</p>
 <h3>Parameters</h3>
-<p>&emsp;&emsp;<span style="font-weight: bold;">filepath</span>: path of the file to import</p>
+<p>&emsp;&emsp;None.</p>
 <h3>Return Value</h3>
-<p>&emsp;&emsp;The imported Panther file as a module.</p>
+<p>&emsp;&emsp;The return code of the entry function.</p>
 <h2>Example</h2>
 <p><span style="font-style: italic;">(TODO)</span></p>
 <h2>See Also</h2>
 <div style="overflow-x: auto;"><table style="margin-bottom: 2em;">
 	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/importC.html">@importC</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Import a C file</td>
-	</tr>	<tr style="background-color: #151617;">
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/importCpp.html">@importCpp</a></td>
-		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Import a C++ file</td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;"><a href="/site/documentation/panther/intrinsics/panic.html">@panic</a></td>
+		<td style="border: 0px; border-bottom: 1px solid #878481; border-top: 1px solid #878481;">Direclty call the panic handler</td>
 	</tr></table></div>
 	</div>
 

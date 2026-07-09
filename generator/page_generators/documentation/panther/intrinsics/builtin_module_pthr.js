@@ -30,6 +30,7 @@ exports.getPageGenerator = function(){
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Architecture", page, "Architecture");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Platform", page, "Platform");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.Mode", page, "Mode");
+			syntax_highlighting.addPantherIntrinsicType("@pthr.CompilerMode", page, "CompilerMode");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.WindowsSubsystem", page, "WindowsSubsystem");
 			syntax_highlighting.addPantherIntrinsicType("@pthr.OptMode", page, "OptMode");
 
@@ -68,22 +69,36 @@ exports.getPageGenerator = function(){
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type Platform = enum {
 	WINDOWS,
+	LINUX,
 }`
 			));
 			page.text(`Enum to specify the platform compiling for / on. Use ${page.inlineCode("@config.platform")} to access the current target platform.`);
-
 
 			page.h3Anchor("Mode", "Mode");
 			search.addSearchTarget("@pthr.Mode", page.path + "#Mode", page.categories);
 			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
 `type Mode = enum {
+	DEBUG,
+	FAST,
+	SMALL,
+	SAFE,
+}`
+			));
+			page.text(`Enum to specify the bulld mode. Use ${page.inlineCode("@config.compilerMode")} to access the current mode.`);
+
+
+
+			page.h3Anchor("CompilerMode", "CompilerMode");
+			search.addSearchTarget("@pthr.CompilerMode", page.path + "#CompilerMode", page.categories);
+			page.text(page.inlineCodeBlock(Page.Language.PANTHER,
+`type CompilerMode = enum {
 	COMPILE,
 	COMPILE_RUN,
 	SCRIPT,
 	BUILD,
 }`
 			));
-			page.text(`Enum to specify the compiler mode. Use ${page.inlineCode("@config.mode")} to access the current mode.`);
+			page.text(`Enum to specify the compiler mode. Use ${page.inlineCode("@config.compilerMode")} to access the current mode.`);
 
 
 			page.h3Anchor("WindowsSubsystem", "WindowsSubsystem");

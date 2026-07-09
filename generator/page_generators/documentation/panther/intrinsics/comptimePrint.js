@@ -19,30 +19,28 @@ exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
 			return new Page.Page(__filename, {
-				path                : "documentation/panther/intrinsics/makeInitPtr.html",
-				title               : "@makeInitPtr",
+				path                : "documentation/panther/intrinsics/comptimePrint.html",
+				title               : "@comptimePrint",
 				categories          : [search.Category.PANTHER, search.Category.DOCUMENTATION],
 				breadcrumbs         : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION, Page.Breadcrumbs.PANTHER_INTRINSICS],
-				on_site_description : "Converts an uninitialized-qualified pointer to a pointer",
+				on_site_description : "Print to console at compile time",
 				symbol_kind         : Page.SymbolKind.INTRINSIC_FUNCTION,
 			});
 		},
 		(page) => {
-			page.addSymbolDecls([
-				"func @makeInitPtr = (uninit_ptr: $T*uninit) -> T*mut;"
-			]);
+			page.addSymbolDecls(["func @comptimePrint = (str: [Char:*]) #ct -> Void;"]);
 
-			page.addSymbolDescription(`Converts an ${terms.get("uninitialized-qualified pointer")} to a ${terms.get("pointer")}. Paramter ${html.highlight("uninit_ptr")} must be ${terms.get("concrete")}, a local variable, and the ${terms.get("pointee")} must be known by the compiler to be initialized (otherwise it is a compile error).`);
+			page.addSymbolDescription("Print to console at compile time.");
 
 			page.addSymbolParams([
-				new Page.Param("uninit_ptr", "The pointer to convert")
+				new Page.Param("str", "string to print"),
 			]);
 
-			page.addSymbolReturn("Returns the converted pointer");
+			page.addSymbolReturnVoid();
 
 			page.addSymbolExampleTodo();
 
-			page.addSymbolSeeAlsoNone();
+			page.addSymbolSeeAlso(["@comptimePrintln"]);
 		}
 	);
 }

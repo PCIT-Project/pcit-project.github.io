@@ -36,7 +36,7 @@ exports.getPageGenerator = function(){
 				new Page.Param("filepath", "path of the file to import"),
 			]);
 
-			page.addSymbolReturn("The imported Panther file as a module.")
+			page.addSymbolReturn("The imported Panther file as a module.");
 
 			page.addSymbolExampleTodo();
 

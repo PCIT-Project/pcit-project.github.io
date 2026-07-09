@@ -1,6 +1,22 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.76.0"></a>
+## v0.0.76.0
+
+### Panther Documentation
+- Added `@pthr.Mode`
+- Added `@config.mode`
+- Added `@pthr.Platform.LINUX`
+- Added `@panic`
+- Added `@entry`
+- Added `@isComptime`
+- Added `@comptimePrint` and `@comptimePrintln`
+- Updated name of `@pthr.Mode` and `@config.mode` (to `@pthr.CompilerMode` and `@config.compilerMode` respectively) to reflect changes in [PCIT-CPP v0.0.333.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.333.0)
+- Updated `@build.PantherBuildConfig` to reflect changes in [PCIT-CPP v0.0.333.0](https://github.com/PCIT-Project/PCIT-CPP/blob/main/CHANGELOG.md#v0.0.333.0)
+
+
+<!---------------------------------->
 <a name="v0.0.75.0"></a>
 ## v0.0.75.0
 

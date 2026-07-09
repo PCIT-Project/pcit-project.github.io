@@ -19,30 +19,28 @@ exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
 			return new Page.Page(__filename, {
-				path                : "documentation/panther/intrinsics/makeInitPtr.html",
-				title               : "@makeInitPtr",
+				path                : "documentation/panther/intrinsics/panic.html",
+				title               : "@panic",
 				categories          : [search.Category.PANTHER, search.Category.DOCUMENTATION],
 				breadcrumbs         : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION, Page.Breadcrumbs.PANTHER_INTRINSICS],
-				on_site_description : "Converts an uninitialized-qualified pointer to a pointer",
+				on_site_description : "Direclty call the panic handler",
 				symbol_kind         : Page.SymbolKind.INTRINSIC_FUNCTION,
 			});
 		},
 		(page) => {
-			page.addSymbolDecls([
-				"func @makeInitPtr = (uninit_ptr: $T*uninit) -> T*mut;"
-			]);
+			page.addSymbolDecls(["func @panic = (message: [Char:*]) #noReturn -> Void;"]);
 
-			page.addSymbolDescription(`Converts an ${terms.get("uninitialized-qualified pointer")} to a ${terms.get("pointer")}. Paramter ${html.highlight("uninit_ptr")} must be ${terms.get("concrete")}, a local variable, and the ${terms.get("pointee")} must be known by the compiler to be initialized (otherwise it is a compile error).`);
+			page.addSymbolDescription("Direclty call the panic handler.");
 
 			page.addSymbolParams([
-				new Page.Param("uninit_ptr", "The pointer to convert")
+				new Page.Param("message", "message to send to the panic handler"),
 			]);
 
-			page.addSymbolReturn("Returns the converted pointer");
+			page.addSymbolReturnVoid();
 
 			page.addSymbolExampleTodo();
 
-			page.addSymbolSeeAlsoNone();
+			page.addSymbolSeeAlso(["@entry"]);
 		}
 	);
 }

@@ -54,6 +54,7 @@ exports.getPageGenerator = function(){
 	var architecture     : @pthr.Architecture;
 	var platform         : @pthr.Platform;
 	var windowsSubsystem : @pthr.WindowsSubsystem?;
+	var mode             : @pthr.Mode;
 	var optMode          : @pthr.OptMode;
 	var numThreads       : UI32; // 0 means single-threaded
 	var addDebugInfo     : Bool;

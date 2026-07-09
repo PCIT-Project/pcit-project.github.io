@@ -42,7 +42,11 @@ exports.getPageGenerator = function(){
 
 
 			page.h3("Operational");
-			page.symbolList(["@abort", "@breakpoint", "@makeInitPtr"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+			page.symbolList(["@abort", "@breakpoint", "@panic"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+
+
+			page.h3("Misc");
+			page.symbolList(["@makeInitPtr", "@isComptime"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 
 			page.h2("Builtin Modules");
@@ -74,11 +78,18 @@ exports.getPageGenerator = function(){
 			page.h3("Comparative");
 			page.symbolList(["@eq", "@neq", "@lt", "@lte", "@gt", "@gte"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
+			page.h3("Comptime IO");
+			page.symbolList(["@comptimePrint", "@comptimePrintln"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+
+			page.h3("Operational");
+			page.symbolList(["@entry"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+
 			page.h3("Type Conversion");
 			page.symbolList(["@bitCast", "@trunc", "@ftrunc", "@sext", "@zext", "@fext", "@iToF", "@fToI"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
 
 			page.h3("Type Traits");
 			page.symbolList(["@getTypeID", "@arrayElementTypeID", "@arrayRefElementTypeID", "@numBytes", "@numBits"], SYMBOL_LIST_SYMBOL_WIDTH, SYMBOL_LIST_DESC_WIDTH);
+			page.text("TODO: missing type traits");
 
 
 

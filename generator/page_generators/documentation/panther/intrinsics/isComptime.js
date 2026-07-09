@@ -19,26 +19,24 @@ exports.getPageGenerator = function(){
 	return new (require("../../../../PageGenerator.js").PageGenerator)(
 		() => {
 			return new Page.Page(__filename, {
-				path                : "documentation/panther/intrinsics/makeInitPtr.html",
-				title               : "@makeInitPtr",
+				path                : "documentation/panther/intrinsics/isComptime.html",
+				title               : "@isComptime",
 				categories          : [search.Category.PANTHER, search.Category.DOCUMENTATION],
 				breadcrumbs         : [Page.Breadcrumbs.DOCUMENTATION, Page.Breadcrumbs.PANTHER_DOCUMENTATION, Page.Breadcrumbs.PANTHER_INTRINSICS],
-				on_site_description : "Converts an uninitialized-qualified pointer to a pointer",
+				on_site_description : "Get if currently in comptime scope",
 				symbol_kind         : Page.SymbolKind.INTRINSIC_FUNCTION,
 			});
 		},
 		(page) => {
-			page.addSymbolDecls([
-				"func @makeInitPtr = (uninit_ptr: $T*uninit) -> T*mut;"
-			]);
+			page.addSymbolDecls(["func @isComptime = () #ct -> Bool;"]);
 
-			page.addSymbolDescription(`Converts an ${terms.get("uninitialized-qualified pointer")} to a ${terms.get("pointer")}. Paramter ${html.highlight("uninit_ptr")} must be ${terms.get("concrete")}, a local variable, and the ${terms.get("pointee")} must be known by the compiler to be initialized (otherwise it is a compile error).`);
+			page.addSymbolDescription("Gets if currently in a comptime scope. If the scope is ambiguous (both comptime and runtime), it is a compilation error.");
 
-			page.addSymbolParams([
-				new Page.Param("uninit_ptr", "The pointer to convert")
-			]);
+			page.addSymbolParams([]);
 
-			page.addSymbolReturn("Returns the converted pointer");
+			page.addSymbolReturn("Returns true if currently in a comptime scope.");
+
+			page.addSymbolNotes(`This function is meant for use in a function with attribute ${page.inlineCode("#rtDiff")}.`);
 
 			page.addSymbolExampleTodo();
 
