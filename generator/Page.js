@@ -1040,6 +1040,10 @@ class Page{
 
 	file_data += "<br/><br/>";
 
+	if(this.categories !== undefined && this.categories.includes(search.Category.PANTHER)){
+		file_data += "<div class=\"info\"><h3 style=\"margin-top: 1em;\">Note</h3><p>Information on this page may be incorrect / out-of-date. An updated version of the site (powered by Panther!) is coming soon, which will include all fixes.</p></div>";
+	}
+
 	file_data += this.body;
 
 	if(this.article_info !== undefined){
@@ -1048,6 +1052,7 @@ class Page{
 		<p style="color: #878481;">Written by: ${html.link(this.article_info.author, this.article_info.author_url)}</p>
 		<p style="color: #878481;">Published: ${this.article_info.date_published}</p>
 		`;
+
 	}
 
 

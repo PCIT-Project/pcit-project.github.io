@@ -230,7 +230,7 @@ exports.getPageGenerator = function(){
 					html.anchor("Bitwise Xor", "bitwise_xor"),
 					page.inlineCode("a ^ b"),
 					box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
-					page.inlineCode("0b1010 | 0b0110 // 0b1100"),
+					page.inlineCode("0b1010 ^ 0b0110 // 0b1100"),
 					box_item("Type of return is the type of arguments."),
 				],
 				[
@@ -244,7 +244,7 @@ exports.getPageGenerator = function(){
 					html.anchor("Saturating Bit Shift Left", "saturating_bit_shift_left"),
 					page.inlineCode("a <<| b"),
 					box_item(terms.get("integral")) + box_item(terms.get("vector") + " of " + terms.get("integral")),
-					page.inlineCode("(0b11 as UI8) << 7 // 255"),
+					page.inlineCode("(0b11 as UI8) <<| 7 // 255"),
 					box_item(`Type of return is the type of ${terms.get("LHS")}.`) + box_item(`RHS must be ${page.inlineCode("ceil(log2(@numBits<{LHS}>()))")}.<br/>${html.italic("This restriction most likely will change in the future,<br/>but more consideration is required.")}`),
 				],
 				[

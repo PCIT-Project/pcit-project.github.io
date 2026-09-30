@@ -1,6 +1,15 @@
 # Change Log
 
 <!---------------------------------->
+<a name="v0.0.77.0"></a>
+## v0.0.77.0
+
+### Panther Documentation
+- Added notice that info may be out-of-date, and new version of the site is coming
+- Fixed examples for Bitwise Xor and Saturating Bit Shift Left
+
+
+<!---------------------------------->
 <a name="v0.0.76.0"></a>
 ## v0.0.76.0
 
