@@ -47,7 +47,7 @@ exports.getPageGenerator = function(){
 			page.addSymbolReturn("Result value of the division");
 
 
-			page.addSymbolNotes(`If ${html.highlight("IS_EXACT")} is ${page.inlineCode("true")}, it is ${terms.get("undefined behavior")} if ${page.inlineCode("(@div<{TYPE, true}>(a, b) * b) != ")}.`);
+			page.addSymbolNotes(`If ${html.highlight("IS_EXACT")} is ${page.inlineCode("true")}, it is ${terms.get("undefined behavior")} if ${page.inlineCode("(@div<{TYPE, true}>(a, b) * b) != a")}.`);
 
 
 			page.addSymbolExampleTodo();
